@@ -1,0 +1,51 @@
+Template: netcfg/dhcp_hostname
+Type: string
+_Description: DHCP hostname:
+ You may need to supply a DHCP host name. If you are using
+ a cable modem, you might need to specify an account number here.
+ .
+ Most other users can just leave this blank.
+
+Template: netcfg/confirm_dhcp
+Type: boolean
+Default: true
+_Description: Is this information correct?
+ Currently configured network parameters:
+ .
+  interface      = ${interface}
+  hostname       = ${hostname}
+  domain         = ${domain}
+  dhcp hostname  = ${dhcp_hostname}
+  nameservers    = ${nameservers}
+
+Template: netcfg/dhcp_progress
+Type: text
+_Description: Configuring the network with DHCP
+
+Template: netcfg/dhcp_progress_note
+Type: text
+_Description: This may take some time.
+
+Template: netcfg/no_dhcp_client
+Type: error
+_Description: No DHCP client found
+ No DHCP client was found. This package requires pump or dhcp-client.
+ .
+ The DHCP configuration process will be aborted.
+
+Template: netcfg/dhcp_retry
+Type: boolean
+Default: false
+_Description: Do you want to retry DHCP network configuration?
+ No IP address was found during automatic network configuration with DHCP.
+ DHCP servers are sometimes really slow. If you wish, you can retry.
+
+Template: netcfg/dhcp-title
+Type: text
+#  Title displayed when configuring this package
+_Description: Dynamic network configuration (DHCP)
+
+Template: debian-installer/netcfg-dhcp/title
+Type: text
+#  Item in the main menu to select this package
+_Description: Configure the network using dynamic addressing (DHCP)
