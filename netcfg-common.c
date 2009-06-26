@@ -27,6 +27,7 @@
 #elif defined(__linux__)
 #include <linux/if.h>
 #endif
+#include <net/if_arp.h>
 #include <errno.h>
 #include <assert.h>
 #include <ctype.h>
@@ -43,6 +44,10 @@
 #include <debian-installer.h>
 #include <time.h>
 #include <netdb.h>
+
+#if defined(__FreeBSD_kernel__)
+#include <net/if.h>
+#endif
 
 /* Set if there is currently a progress bar displayed. */
 int netcfg_progress_displayed = 0;
@@ -179,6 +184,32 @@ int check_kill_switch(const char *iface)
 
 #undef SYSCLASSNET
 
+#if defined(WIRELESS)
+int is_raw_80211(const char *iface)
+{
+    struct ifreq ifr;
+    struct sockaddr sa;
+    
+    strncpy(ifr.ifr_name, iface, IFNAMSIZ);
+    
+    if (skfd && ioctl(skfd, SIOCGIFHWADDR, &ifr) < 0) {
+        di_warning("Unable to retrieve interface type.");
+        return 0;
+    }
+
+    sa = * (struct sockaddr *) &ifr.ifr_hwaddr;
+    switch (sa.sa_family) {
+    case ARPHRD_IEEE80211:
+    case ARPHRD_IEEE80211_PRISM:
+    case ARPHRD_IEEE80211_RADIOTAP:
+        return 1;
+
+    default:
+        return 0;
+    }
+}
+#endif
+
 int is_interface_up(char *inter)
 {
     struct ifreq ifr;
@@ -238,6 +269,10 @@ int get_all_ifs (int all, char*** ptr)
             continue;
         if (!strncmp(ibuf, "sit", 3))        /* ignore tunnel devices */
             continue;
+#if defined(WIRELESS)
+        if (is_raw_80211(ibuf))
+            continue;
+#endif
         if (all || is_interface_up(ibuf) == 1) {
             list = realloc(list, sizeof(char*) * (len + 1));
             list[len] = strdup(ibuf);
@@ -554,7 +589,7 @@ short verify_hostname (char *hname)
     len = strlen(hname);
     
     /* Check the hostname for RFC 1123 compliance.  */
-    if ((len < 2) ||
+    if ((len < 1) ||
         (len > 63) ||
         (strspn(hname, valid_chars) != len) ||
         (hname[len - 1] == '-') ||
@@ -610,6 +645,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
             domain = strdup(s + 1);
             debconf_set(client, "netcfg/get_domain", domain);
             have_domain = 1;
+            *s = '\0';
         }
     }
     return 0;
@@ -643,8 +679,12 @@ int netcfg_get_domain(struct debconfclient *client,  char **domain)
     if (*domain)
         free(*domain);
     *domain = NULL;
-    if (!empty_str(client->value))
-        *domain = strdup(client->value);
+    if (!empty_str(client->value)) {
+        const char *start = client->value;
+        while (*start == '.')
+            ++start; /* trim leading dots */
+        *domain = strdup(start);
+    }
     return 0;
 }
 
@@ -807,6 +847,11 @@ void parse_args (int argc, char ** argv)
                 printf("%d\n", ret);
                 exit(EXIT_SUCCESS);
             }
+        }
+
+        if (!strcmp(argv[1], "write_loopback")) {
+            netcfg_write_loopback();
+            exit(EXIT_SUCCESS);
         }
         
         exit(EXIT_FAILURE);
