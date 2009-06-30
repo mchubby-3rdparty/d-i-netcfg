@@ -3,7 +3,7 @@ TARGETS		?= netcfg-static netcfg
 
 LDOPTS		= -ldebconfclient -ldebian-installer
 CFLAGS		= -W -Wall -DNDEBUG 
-COMMON_OBJS	= netcfg-common.o
+COMMON_OBJS	= netcfg-common.o wireless.o
 
 ifneq ($(DEB_HOST_ARCH_OS),linux)
 NO_WIRELESS	= 1
@@ -12,7 +12,6 @@ endif
 ifeq ($(NO_WIRELESS),)
 LDOPTS		+= -liw
 CFLAGS		+= -DWIRELESS
-COMMON_OBJS	+= wireless.o
 endif
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
