@@ -11,9 +11,6 @@ endif
 
 ifeq ($(NO_WIRELESS),)
 LDOPTS		+= -liw
-endif
-
-ifeq ($(NO_WIRELESS),)
 CFLAGS		+= -DWIRELESS
 endif
 
