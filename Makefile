@@ -6,10 +6,10 @@ CFLAGS		= -W -Wall -DNDEBUG
 COMMON_OBJS	= netcfg-common.o wireless.o
 
 ifneq ($(DEB_HOST_ARCH_OS),linux)
-NO_WIRELESS	= 1
+WIRELESS	= 0
 endif
 
-ifeq ($(NO_WIRELESS),)
+ifneq ($(WIRELESS),0)
 LDOPTS		+= -liw
 CFLAGS		+= -DWIRELESS
 endif
