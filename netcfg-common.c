@@ -245,7 +245,7 @@ int get_all_ifs (int all, char*** ptr)
 
     for (ifa = ifap; ifa; ifa = ifa->ifa_next) {
         strncpy(ibuf, ifa->ifa_name, sizeof(ibuf));
-        if (!strncmp(ibuf, "lo", 2))        /* ignore the loopback */
+        if (!strcmp(ibuf, "lo"))        /* ignore the loopback */
             continue;
 #if defined(__linux__)
         if (!strncmp(ibuf, "sit", 3))        /* ignore tunnel devices */
