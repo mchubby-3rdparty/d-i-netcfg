@@ -146,7 +146,8 @@ int netcfg_get_gateway(struct debconfclient *client)
         debconf_get(client, "netcfg/get_gateway");
         ptr = client->value;
         
-        if (empty_str(ptr)) {           /* No gateway, that's fine */
+        if (empty_str(ptr) || /* No gateway, that's fine */
+            (strcmp(ptr, "none") == 0)) /* special case for preseeding */ {
             /* clear existing gateway setting */
             memset(&gateway, 0, sizeof(struct in_addr));
             return 0;
@@ -181,7 +182,11 @@ static int netcfg_write_static(char *domain, struct in_addr nameservers[])
     
     if ((fp = file_open(INTERFACES_FILE, "a"))) {
         fprintf(fp, "\n# The primary network interface\n");
+#if defined(__linux__)
         if (!iface_is_hotpluggable(interface) && !find_in_stab(interface))
+#else
+        if (!iface_is_hotpluggable(interface))
+#endif
             fprintf(fp, "auto %s\n", interface);
         else
             fprintf(fp, "allow-hotplug %s\n", interface);

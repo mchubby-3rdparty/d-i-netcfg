@@ -21,6 +21,12 @@
 #include <time.h>
 #include <netdb.h>
 
+#define DHCP_OPTION_LEN 1236 /* pump 0.8.24 defines a max option size of 57,
+                                dhcp 2.0pl5 uses 1222, dhcp3 3.0.6 uses 1236 */
+#define DHCLIENT_REQUEST_DEFAULTS \
+  "subnet-mask, broadcast-address, time-offset, routers, domain-name, \
+   domain-name-servers, host-name"
+#define DHCLIENT_REQUEST_EXTRAS "ntp-servers"
 
 static int dhcp_exit_status = 1;
 static pid_t dhcp_pid = -1;
@@ -35,7 +41,11 @@ static void netcfg_write_dhcp (char *iface, char *dhostname)
     
     if ((fp = file_open(INTERFACES_FILE, "a"))) {
         fprintf(fp, "\n# The primary network interface\n");
+#if defined(__linux__)
         if (!iface_is_hotpluggable(iface) && !find_in_stab(iface))
+#else
+        if (!iface_is_hotpluggable(iface))
+#endif
             fprintf(fp, "auto %s\n", iface);
         else
             fprintf(fp, "allow-hotplug %s\n", iface);
@@ -142,6 +152,8 @@ int start_dhcp_client (struct debconfclient *client, char* dhostname)
             
             if ((dc = file_open(DHCLIENT_CONF, "w"))) {
                 fprintf(dc, "send dhcp-class-identifier \"d-i\";\n" );
+                fprintf(dc, "request " DHCLIENT_REQUEST_DEFAULTS", " \
+                                       DHCLIENT_REQUEST_EXTRAS";\n" );
                 if (dhostname) {
                     fprintf(dc, "send host-name \"%s\";\n", dhostname);
                 }
@@ -156,6 +168,8 @@ int start_dhcp_client (struct debconfclient *client, char* dhostname)
             
             if ((dc = file_open(DHCLIENT3_CONF, "w"))) {
                 fprintf(dc, "send vendor-class-identifier \"d-i\";\n" );
+                fprintf(dc, "request " DHCLIENT_REQUEST_DEFAULTS", " \
+                                       DHCLIENT_REQUEST_EXTRAS";\n" );
                 if (dhostname) {
                     fprintf(dc, "send host-name \"%s\";\n", dhostname);
                 }
@@ -253,6 +267,8 @@ int poll_dhcp_client (struct debconfclient *client)
 #define REPLY_DONT_CONFIGURE         3
 #define REPLY_RECONFIGURE_WIFI       4
 #define REPLY_LOOP_BACK              5
+#define REPLY_CHECK_DHCP             6
+#define REPLY_ASK_OPTIONS            7
 
 int ask_dhcp_options (struct debconfclient *client)
 {
@@ -292,8 +308,30 @@ int ask_dhcp_options (struct debconfclient *client)
         return REPLY_DONT_CONFIGURE;
 }
 
+int ask_wifi_configuration (struct debconfclient *client)
+{
+    enum { ABORT, DONE, ESSID, WEP } wifistate = ESSID;
+    for (;;) {
+        switch (wifistate) {
+        case ESSID:
+            wifistate = (netcfg_wireless_set_essid(client, interface, "high") == GO_BACK) ?
+                ABORT : WEP;
+            break;
+        case WEP:
+            wifistate = (netcfg_wireless_set_wep(client, interface) == GO_BACK) ?
+                ESSID : DONE;
+            break;
+        case ABORT:
+            return REPLY_ASK_OPTIONS;
+            break;
+        case DONE:
+            return REPLY_CHECK_DHCP;
+            break;
+        }
+    }
+}
 
-/* Here comes another Satan machine. */
+
 int netcfg_activate_dhcp (struct debconfclient *client)
 {
     char* dhostname = NULL;
@@ -361,6 +399,22 @@ int netcfg_activate_dhcp (struct debconfclient *client)
                     if (!empty_str(domain) && verify_hostname(domain) == 0) {
                         debconf_set(client, "netcfg/get_domain", domain);
                         have_domain = 1;
+                    }
+                }
+
+                /*
+                 * Record any ntp server information from DHCP for later
+                 * verification and use by clock-setup
+                 */
+                if ((d = fopen(NTP_SERVER_FILE, "r")) != NULL) {
+                    char ntpservers[DHCP_OPTION_LEN + 1] = { 0 };
+                    fgets(ntpservers, DHCP_OPTION_LEN, d);
+                    fclose(d);
+                    unlink(NTP_SERVER_FILE);
+                    
+                    if (!empty_str(ntpservers)) {
+                        debconf_set(client, "netcfg/dhcp_ntp_servers", 
+                                    ntpservers);
                     }
                 }
 
@@ -446,35 +500,16 @@ int netcfg_activate_dhcp (struct debconfclient *client)
                 }
                 break;
             case REPLY_RECONFIGURE_WIFI:
-                {
-                    /* oh god - a NESTED satan machine */
-                    enum { ABORT, DONE, ESSID, WEP } wifistate = ESSID;
-                    for (;;) {
-                        switch (wifistate) {
-                        case ESSID:
-                            wifistate = ( netcfg_wireless_set_essid(client, interface, "high") == GO_BACK ) ?
-                                ABORT : WEP;
-                            break;
-                        case WEP:
-                            wifistate = ( netcfg_wireless_set_wep (client, interface) == GO_BACK ) ?
-                                ESSID : DONE;
-                            break;
-                        case ABORT:
-                            state = ASK_OPTIONS;
-                            break;
-                        case DONE:
-                            if (dhcp_pid > 0)
-                                state = POLL;
-                            else {
-                                kill_dhcp_client();
-                                state = START;
-                            }
-                            break;
-                        }
-                        if (wifistate == DONE || wifistate == ABORT)
-                            break;
+                if (ask_wifi_configuration(client) == REPLY_CHECK_DHCP) {
+                    if (dhcp_pid > 0)
+                        state = POLL;
+                    else {
+                        kill_dhcp_client();
+                        state = START;
                     }
                 }
+                else
+                    state = ASK_OPTIONS;
                 break;
             }
             break;
