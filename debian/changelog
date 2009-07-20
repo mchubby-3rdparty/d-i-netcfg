@@ -1,5 +1,6 @@
-netcfg (1.50) UNRELEASED; urgency=low
+netcfg (1.50) unstable; urgency=low
 
+  [ Christian Perrier ]
   * No longer add ff02::3 to /etc/hosts
     Thanks to Marco d'Itri for the proposed change
     Closes: #533384
@@ -16,7 +17,16 @@ netcfg (1.50) UNRELEASED; urgency=low
   * check_kill_switch is Linux-specific; provide a stub implementation for
     non-Linux systems.
 
- -- Christian Perrier <bubulle@debian.org>  Thu, 18 Jun 2009 06:11:33 +0200
+  [ Otavio Salvador ]
+  * Refactor dhcp.c code to use an argument list instead of an string.
+  * Add support for udhcpc. This was based on Luk Claes but changed to
+    avoid dropping support for dhclient, dhclient3 and pump for now.
+
+  [ Updated translations ]
+    * Hindi (hi.po)
+    * Italian (it.po) by Milo Casagrande
+
+ -- Otavio Salvador <otavio@debian.org>  Sun, 19 Jul 2009 15:02:44 -0300
 
 netcfg (1.49) unstable; urgency=low
 
