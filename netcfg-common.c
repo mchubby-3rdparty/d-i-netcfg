@@ -245,7 +245,11 @@ int get_all_ifs (int all, char*** ptr)
 
     for (ifa = ifap; ifa; ifa = ifa->ifa_next) {
         strncpy(ibuf, ifa->ifa_name, sizeof(ibuf));
+#if defined(__FreeBSD_kernel__)
+        if (!strcmp(ibuf, "lo0"))        /* ignore the loopback */
+#else
         if (!strcmp(ibuf, "lo"))        /* ignore the loopback */
+#endif
             continue;
 #if defined(__linux__)
         if (!strncmp(ibuf, "sit", 3))        /* ignore tunnel devices */
