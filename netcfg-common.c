@@ -274,7 +274,7 @@ int get_all_ifs (int all, char*** ptr)
     return len;
 }
 
-#if defined(__linux__)
+#ifdef __linux__
 short find_in_stab(const char* iface)
 {
     FILE *dn = NULL;
@@ -296,7 +296,12 @@ short find_in_stab(const char* iface)
     pclose(dn);
     return 0;
 }
-#endif
+#else /* !__linux__ */
+short find_in_stab(const char* iface)
+{
+    return 0;
+}
+#endif /* __linux__ */
 
 char *find_in_devnames(const char* iface)
 {

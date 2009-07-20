@@ -182,11 +182,7 @@ static int netcfg_write_static(char *domain, struct in_addr nameservers[])
     
     if ((fp = file_open(INTERFACES_FILE, "a"))) {
         fprintf(fp, "\n# The primary network interface\n");
-#if defined(__linux__)
         if (!iface_is_hotpluggable(interface) && !find_in_stab(interface))
-#else
-        if (!iface_is_hotpluggable(interface))
-#endif
             fprintf(fp, "auto %s\n", interface);
         else
             fprintf(fp, "allow-hotplug %s\n", interface);

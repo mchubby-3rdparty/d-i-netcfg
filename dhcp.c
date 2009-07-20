@@ -56,11 +56,7 @@ static void netcfg_write_dhcp (char *iface, char *dhostname)
     
     if ((fp = file_open(INTERFACES_FILE, "a"))) {
         fprintf(fp, "\n# The primary network interface\n");
-#if defined(__linux__)
         if (!iface_is_hotpluggable(iface) && !find_in_stab(iface))
-#else
-        if (!iface_is_hotpluggable(iface))
-#endif
             fprintf(fp, "auto %s\n", iface);
         else
             fprintf(fp, "allow-hotplug %s\n", iface);
