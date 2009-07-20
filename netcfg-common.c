@@ -297,6 +297,7 @@ short find_in_stab(const char* iface)
     return 0;
 }
 #else /* !__linux__ */
+/* Stub function for platforms not supporting /var/run/stab. */
 short find_in_stab(const char* iface)
 {
     return 0;
