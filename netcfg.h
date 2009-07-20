@@ -13,7 +13,7 @@
 
 #define DEVNAMES	"/etc/network/devnames"
 #define DEVHOTPLUG	"/etc/network/devhotplug"
-#if defined(__linux__)
+#ifdef __linux__
 #define STAB		"/var/run/stab"
 #endif
 
