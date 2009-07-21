@@ -44,10 +44,6 @@
 #include <time.h>
 #include <netdb.h>
 
-#if defined(__FreeBSD_kernel__)
-#include <net/if.h>
-#endif
-
 #include <ifaddrs.h>
 
 /* Set if there is currently a progress bar displayed. */
