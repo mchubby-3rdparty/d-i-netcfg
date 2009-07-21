@@ -24,10 +24,9 @@
 #include "netcfg.h"
 #if defined(WIRELESS)
 #include <iwlib.h>
-#elif defined(__linux__)
-#include <linux/if.h>
 #endif
 #include <net/if_arp.h>
+#include <net/if.h>
 #include <errno.h>
 #include <assert.h>
 #include <ctype.h>
@@ -221,16 +220,11 @@ int is_raw_80211(const char *iface)
 }
 #endif
 
-int is_interface_up(char *inter)
+int qsort_strcmp(const void *a, const void *b)
 {
-    struct ifreq ifr;
-    
-    strncpy(ifr.ifr_name, inter, sizeof(ifr.ifr_name));
-    
-    if (ioctl(skfd, SIOCGIFFLAGS, &ifr) < 0)
-        return -1;
-    
-    return ((ifr.ifr_flags & IFF_UP) ? 1 : 0);
+    const char **ia = (const char **)a;
+    const char **ib = (const char **)b;
+    return strcmp(*ia, *ib);
 }
 
 int get_all_ifs (int all, char*** ptr)
@@ -245,11 +239,7 @@ int get_all_ifs (int all, char*** ptr)
 
     for (ifa = ifap; ifa; ifa = ifa->ifa_next) {
         strncpy(ibuf, ifa->ifa_name, sizeof(ibuf));
-#if defined(__FreeBSD_kernel__)
-        if (!strcmp(ibuf, "lo0"))        /* ignore the loopback */
-#else
-        if (!strcmp(ibuf, "lo"))        /* ignore the loopback */
-#endif
+        if (ifa->ifa_flags & IFF_LOOPBACK)   /* ignore loopback devices */
             continue;
 #if defined(__linux__)
         if (!strncmp(ibuf, "sit", 3))        /* ignore tunnel devices */
@@ -259,16 +249,26 @@ int get_all_ifs (int all, char*** ptr)
         if (is_raw_80211(ibuf))
             continue;
 #endif
-        if (all || is_interface_up(ibuf) == 1) {
-            list = realloc(list, sizeof(char*) * (len + 1));
-            list[len] = strdup(ibuf);
-            len++;
+        if (all || ifa->ifa_flags & IFF_UP) {
+            int found = 0;
+            size_t i;
+
+            for (i = 0 ; i < len ; i++) {
+                if (!strcmp(ibuf, list[i])) {
+                    found = 1;
+                }
+            }
+            if (!found) {
+                list = realloc(list, sizeof(char*) * (len + 2));
+                list[len] = strdup(ibuf);
+                len++;
+            }
         }
     }
     
-    /* OK, now terminate it if necessary */
+    /* OK, now sort the list and terminate it if necessary */
     if (list != NULL) {
-        list = realloc(list, sizeof(char*) * (len + 1));
+        qsort(list, len, sizeof(char *), qsort_strcmp);
         list[len] = NULL;
     }
     freeifaddrs(ifap);
