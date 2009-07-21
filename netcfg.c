@@ -124,11 +124,7 @@ int main(int argc, char *argv[])
                     
                     usleep(250);
                     
-#if defined(__linux__)
                     if (ethtool_lite (*ifaces) == 1) /* CONNECTED */ {
-#else
-                    if (1) /* HACK: assume CONNECTED */ {
-#endif
                         defiface = strdup(*ifaces);
                         interface_down(*ifaces);
                         break;

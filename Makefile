@@ -23,11 +23,7 @@ endif
 all: $(TARGETS)
 
 netcfg-static: netcfg-static.o static.o
-ifeq ($(DEB_HOST_ARCH_OS),linux)
 netcfg: netcfg.o dhcp.o static.o ethtool-lite.o
-else
-netcfg: netcfg.o dhcp.o static.o
-endif
 
 $(TARGETS): $(COMMON_OBJS)
 	$(CC) -o $@ $^ $(LDOPTS)
