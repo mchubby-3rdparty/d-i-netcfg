@@ -96,6 +96,7 @@ static short no_default_route (void)
         }
         pclose(iproute);
     }
+    
     return 1;
 #endif
 }
