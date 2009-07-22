@@ -80,6 +80,8 @@ static void netcfg_write_dhcp (char *iface, char *dhostname)
 /* Returns 1 if no default route is available */
 static short no_default_route (void)
 {
+    /* Disabled until ip from busybox get ported */
+#if 0
     FILE* iproute = NULL;
     char buf[256] = { 0 };
     
@@ -92,7 +94,7 @@ static short no_default_route (void)
         }
         pclose(iproute);
     }
-    
+#endif
     return 1;
 }
 
