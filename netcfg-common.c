@@ -46,6 +46,12 @@
 
 #include <ifaddrs.h>
 
+#ifdef __FreeBSD_kernel__
+#define LO_IF	"lo0"
+#else
+#define LO_IF	"lo"
+#endif
+
 /* Set if there is currently a progress bar displayed. */
 int netcfg_progress_displayed = 0;
 
@@ -685,13 +691,8 @@ void netcfg_write_loopback (void)
     if ((fp = file_open(INTERFACES_FILE, "w"))) {
         fprintf(fp, HELPFUL_COMMENT);
         fprintf(fp, "\n# The loopback network interface\n");
-#ifdef __FreeBSD_kernel__
-        fprintf(fp, "auto lo0\n");
-        fprintf(fp, "iface lo0 inet loopback\n");
-#else
-        fprintf(fp, "auto lo\n");
-        fprintf(fp, "iface lo inet loopback\n");
-#endif
+        fprintf(fp, "auto "LO_IF"\n");
+        fprintf(fp, "iface "LO_IF" inet loopback\n");
         fclose(fp);
     }
 }
@@ -712,8 +713,8 @@ void netcfg_write_common(struct in_addr ipaddress, char *hostname, char *domain)
     if ((fp = file_open(INTERFACES_FILE, "w"))) {
         fprintf(fp, HELPFUL_COMMENT);
         fprintf(fp, "\n# The loopback network interface\n");
-        fprintf(fp, "auto lo\n");
-        fprintf(fp, "iface lo inet loopback\n");
+        fprintf(fp, "auto "LO_IF"\n");
+        fprintf(fp, "iface "LO_IF" inet loopback\n");
         fclose(fp);
     }
     
@@ -766,9 +767,9 @@ void loop_setup(void)
     if (afpacket_notloaded)
         afpacket_notloaded = di_exec_shell("modprobe af_packet"); /* should become 0 */
     
-    di_exec_shell_log("ip link set lo up");
-    di_exec_shell_log("ip addr flush dev lo");
-    di_exec_shell_log("ip addr add 127.0.0.1/8 dev lo");
+    di_exec_shell_log("ip link set "LO_IF" up");
+    di_exec_shell_log("ip addr flush dev "LO_IF);
+    di_exec_shell_log("ip addr add 127.0.0.1/8 dev "LO_IF);
 }
 
 void seed_hostname_from_dns (struct debconfclient * client, struct in_addr *ipaddr)
