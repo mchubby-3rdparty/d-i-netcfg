@@ -309,6 +309,10 @@ int netcfg_activate_static(struct debconfclient *client)
     
     /* avoid using a second buffer */
     di_snprintfcat(buf, sizeof(buf), " netmask %s",
+                   inet_ntop (AF_INET, &netmask, ptr1, sizeof (ptr1)));
+
+    /* avoid using a third buffer */
+    di_snprintfcat(buf, sizeof(buf), " broadcast %s",
                    inet_ntop (AF_INET, &broadcast, ptr1, sizeof (ptr1)));
     
     di_info("executing: %s", buf);
