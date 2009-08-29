@@ -80,7 +80,7 @@ static void netcfg_write_dhcp (char *iface, char *dhostname)
 /* Returns 1 if no default route is available */
 static short no_default_route (void)
 {
-#if 1
+#if defined(__FreeBSD_kernel__)
     /* Disabled until ip from busybox get ported */
     return 0;
 #else

@@ -764,14 +764,14 @@ void loop_setup(void)
     
     deconfigure_network();
     
-    if (afpacket_notloaded)
-        afpacket_notloaded = di_exec_shell("modprobe af_packet"); /* should become 0 */
-
-/* Hack until we are using the ip command from busybox */
-#if 1
+#if defined(__FreeBSD_kernel_)
+    /* Hack until we are using the ip command from busybox */
     di_exec_shell_log("ifconfig "LO_IF" up");
     di_exec_shell_log("ifconfig "LO_IF" 127.0.0.1 netmask 255.0.0.0");
 #else
+    if (afpacket_notloaded)
+        afpacket_notloaded = di_exec_shell("modprobe af_packet"); /* should become 0 */
+
     di_exec_shell_log("ip link set "LO_IF" up");
     di_exec_shell_log("ip addr flush dev "LO_IF);
     di_exec_shell_log("ip addr add 127.0.0.1/8 dev "LO_IF);
