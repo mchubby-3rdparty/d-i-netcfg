@@ -765,7 +765,7 @@ void loop_setup(void)
     deconfigure_network();
 
 #if defined(__FreeBSD_kernel__)
-    /* Hack until we are using the ip command from busybox */
+    /* GNU/kFreeBSD currently uses the ifconfig command */
     di_exec_shell_log("ifconfig "LO_IF" up");
     di_exec_shell_log("ifconfig "LO_IF" 127.0.0.1 netmask 255.0.0.0");
 #else
