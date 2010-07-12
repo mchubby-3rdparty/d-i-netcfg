@@ -7,21 +7,23 @@
 # Kurdish messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-#
 # Rizoyê Xerzî <riza dot seckin at gmail dot com>
 # Erdal Ronahi <erdal dot ronahi at gmail dot com>, 2008.
+# Erdal <erdal.ronahi@gmail.com>, 2010.
+# Erdal Ronahî <erdal.ronahi@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: ku\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2009-07-24 22:47+0000\n"
-"PO-Revision-Date: 2008-09-21 18:51+0200\n"
+"PO-Revision-Date: 2010-07-09 21:51+0200\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
-"Language-Team: ku <ubuntu-l10n-kur@lists.ubuntu.com>\n"
+"Language-Team: Kurdish Team http://pckurd.net\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!= 1);\n"
+"Language: ku\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Type: boolean
 #. Description
@@ -85,7 +87,7 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
-"Pêşkêşkerên navê qadê ji bo dîtina navên makîneyên ku li ser torê  tê "
+"Pêşkêşkerên navê qadê ji bo dîtina navên makîneyên ku li ser torê tê "
 "bikaranîn. Ji kerema xwe re herî zêde 3 navnîşanên IPên pêşkêşkerên navên "
 "qadê (ne navên makîneyan) bi awayê ku di navbera wan de valahî hebe "
 "binivîse. Bêhnokê bikar nîne. Navnîşana yekemîn ya di lîsteyê de, pêşkêşkera "
@@ -121,7 +123,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
-msgstr "ESSID bêtel (wireless) ji bo ${iface}"
+msgstr "ESSID bêtel (wireless) ji bo ${iface}:"
 
 #. Type: string
 #. Description
@@ -132,9 +134,9 @@ msgid ""
 "of the wireless network you would like ${iface} to use. If you would like to "
 "use any available network, leave this field blank."
 msgstr ""
-"${iface}dirûvekî navberê ya tora bêqablo ye. Ji kerema xwe re li ser ${iface}"
-"navê tora bêqablo (ESSID) ya tu dixwazî bikar bîne binivîse. Heke tu dixwazî "
-"ji torên heyî yekê hilbijêrî û bikar bîne vê qadê vala bihêle."
+"${iface} dirûvekî navberê ya tora bêqablo ye. Ji kerema xwe re li ser "
+"${iface}navê tora bêqablo (ESSID) ya tu dixwazî bikar bîne binivîse. Heke tu "
+"dixwazî ji torên heyî yekê hilbijêrî û bikar bîne vê qadê vala bihêle."
 
 #. Type: string
 #. Description
@@ -152,7 +154,7 @@ msgid ""
 "of the wireless network you would like ${iface} to use. To skip wireless "
 "configuration and continue, leave this field blank."
 msgstr ""
-"${iface} dirûvê navîn yê tora bêqablo ye. Ji kerema xwe re ji ser ${iface}  "
+"${iface} dirûvê navîn yê tora bêqablo ye. Ji kerema xwe re ji ser ${iface} "
 "navê tora bêqablo (ESSID) ya tu dixwazî bikar bîne binivîse. Ji bo qevaztina "
 "merhaleya veavakirina tora bêqablo û berdewamkirinê vê qadê vala bihêle."
 
@@ -171,7 +173,7 @@ msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
 msgstr ""
-"Ji bo cîhaza ${iface}  ya bêqablo mifteya ewlekariya WEPê ya hatiye danasîn "
+"Ji bo cîhaza ${iface} ya bêqablo mifteya ewlekariya WEPê ya hatiye danasîn "
 "hebe ji kerema xwe re vê mifteyê têkevê. Du heb riyên wê hene:"
 
 #. Type: string
@@ -183,7 +185,7 @@ msgid ""
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
 "Mifteya te ya WEPe, n bila reqemek be, 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:"
-"nn' yan jî wekî 'nnnnnnnn'  be mifteyê rasterast li vê qadê binivîse."
+"nn' yan jî wekî 'nnnnnnnn' be mifteyê rasterast li vê qadê binivîse."
 
 #. Type: string
 #. Description
@@ -240,7 +242,7 @@ msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to 32 characters, "
 "but may contain all kinds of characters."
 msgstr ""
-"\"${essid}\"  ESSIDeke nederbasdar e. Dibe ku di hundirê ESSIDan de her cure "
+"ESSID \"${essid}\" nederbasdar e. Dibe ku di hundirê ESSIDan de her cure "
 "karakter hebin lê herî zêde ji 32 karakteran pêk tên."
 
 #. Type: string
@@ -296,7 +298,7 @@ msgid ""
 msgstr ""
 "Navê makîneya derbasdar de, tenê reqemên di navbera 0-9, tîpên hûr yên di "
 "navbera a-z de û nîşaneya kêmekê ('-') bihundirîne, divê dirêjbûna wê di "
-"navbera 2 û 63 karakteran de be,  ne li pêşiya wê û ne jî li paşiya wê "
+"navbera 2 û 63 karakteran de be, ne li pêşiya wê û ne jî li paşiya wê "
 "nîşaneya kêmekê tunebe."
 
 #. Type: error
@@ -366,9 +368,9 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
-"Dirbê ${iface} bi \"Mifteya Rawestandinê\" (\"Kill Switch\") hatiye "
-"bêbandorkirin. Heke te tu bixwazî vî dirbî bi kar bînî, berî tu bidomînî ji "
-"kerema xwe re mifteyê veke."
+"${iface} bi \"Mifteya Rawestandinê\" (\"Kill Switch\") ya fîzîkî hatiye "
+"bêbandorkirin. Heke te tu bixwazî vî navrûyê bi kar bînî, berî tu bidomînî "
+"ji kerema xwe re mifteyê veke."
 
 #. Type: select
 #. Choices
@@ -408,9 +410,10 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
-"Torên bêqablo Bi plan yan jî bê plan tê binavkirin. Heke xala te ya "
-"gihiştinê tiştekî rast be ev toreke bi plan e. Lê heke xala te ya gihiştinê "
-"kompîtureke din be tora te bê plan e."
+"Torên bêqablo bi plan yanî managed yan jî bê plan an jî ad-hoc tê "
+"binavkirin. Heke xala te ya gihiştinê tiştekî rast be, ev toreke bi plan an "
+"Managed e. Lê heke 'xala te ya gihiştinê' kompîtureke din be dibe ku tora te "
+"bê plan an Ad-hoc e."
 
 #. Type: text
 #. Description
@@ -552,7 +555,7 @@ msgstr "Torê Saz bike"
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "DHCP hostname:"
-msgstr "Navê host a DHCP"
+msgstr "Navê mêvandarê ya DHCP:"
 
 #. Type: string
 #. Description
@@ -675,10 +678,10 @@ msgid ""
 "autoconfiguration with a hostname that you provide."
 msgstr ""
 "Ji vir tu dikarî ji nû toreya DHCP biceribînî bi mîhengkirineke jixweber "
-"(dibe ku bi vî rengî biser bikeve). an jî dikarî torê bi destan mîheng "
-"bikî.  hinek xizmetkarên DHCP hewcedariya wan bi naskirina koda navê DHCP "
-"heye. lewra tu dikarî toreya DHCP biceribînî bi mîhengkirineke jixweber bi "
-"navê ku te pêşkêşkiriye."
+"(dibe ku bi vî rengî biser bikeve). an jî dikarî torê bi destan mîheng bikî. "
+"Hinek xizmetkarên DHCP hewcedariya wan bi naskirina koda navê DHCP heye. "
+"lewra tu dikarî toreya DHCP biceribînî bi mîhengkirineke jixweber bi navê ku "
+"te pêşkêşkiriye."
 
 #. Type: note
 #. Description
@@ -709,6 +712,7 @@ msgstr "Bêyî ku alîkereke standard hebe bila were berdewamkirin?"
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
+#, fuzzy
 msgid ""
 "The network autoconfiguration was successful. However, no default route was "
 "set: the system does not know how to communicate with hosts on the Internet. "
@@ -755,8 +759,8 @@ msgid ""
 "network administrator."
 msgstr ""
 "Navnîşana te ya IPê ji bo kompîtura te pir taybet e û ji reqemên ku bi xalan "
-"ji hev hatine veqetandin pêk tê. Heke tu nizanî tu yê çi li vê qadê binivîse "
-"serî li rêveberê xwe yê pergalê bide."
+"ji hev hatine veqetandin pêk tê.  Heke tu nizanî tu yê çi li vê qadê "
+"binivîse serî li rêveberê xwe yê pergalê bide."
 
 #. Type: error
 #. Description
@@ -795,9 +799,9 @@ msgid ""
 "numbers separated by periods."
 msgstr ""
 "Ji bo ji xalekê ta xala din navnîşan, ji xalekê ta xala din seriyê din ê "
-"torê belî bibe tê bikaranîn. Heke tu nizanî tê çi nirxî binivîsî, serî li "
-"rêveberê xwe yê pergalê bide. Navnîşan ji xalekê ta xala din ji çar hejmaran "
-"pêk tê ku bi valahiyan ji hev hatine veqetandin."
+"torê belî bibe tê bikaranîn.  Heke tu nizanî tê çi nirxî binivîsî, serî li "
+"rêveberê xwe yê pergalê bide.  Navnîşan ji xalekê ta xala din ji çar "
+"hejmaran pêk tê ku bi valahiyan ji hev hatine veqetandin."
 
 #. Type: string
 #. Description
@@ -815,9 +819,9 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
-"Rûpoşa torê diyar dike bê ka kîjan makîne di hundirê tora herêmî de ye. Heke "
-"tu nirxa pêwist nizane serî li rêveberê xwe yê pergalê bide. Divê rûpoşa "
-"torê ji çar reqemên ku di navbera wan de valahî hebe pêk bê."
+"Rûpoşa torê diyar dike bê ka kîjan makîne di hundirê tora herêmî de ye.  "
+"Heke tu nirxa pêwist nizane serî li rêveberê xwe yê pergalê bide.  Divê "
+"rûpoşa torê ji çar reqemên ku di navbera wan de valahî hebe pêk bê."
 
 #. Type: string
 #. Description
@@ -839,7 +843,10 @@ msgid ""
 "question, consult your network administrator."
 msgstr ""
 "Dergeh navnîşana IP (çar hejmarin ku bi xalan tên veqetandin) ku rêbere "
-"dergehê nîşandidin, wekî rêberê texmînkirî jî tê binavkirin."
+"dergehê nîşandidin, wekî rêberê texmînkirî jî tê binavkirin.  Hemû trafîka "
+"ku derdikeve derve LANa te (wekî mînak, diçe înternetê) ji nava vê router'ê "
+"dê were şandin.  Carna, router'a te tune; vê carê, vê vala bihêle.  Bersiva "
+"vê pirsê nizanibî, ji rêveberê tora xwe bipirse."
 
 #. Type: error
 #. Description
