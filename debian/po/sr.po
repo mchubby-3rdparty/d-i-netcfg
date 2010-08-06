@@ -3,24 +3,28 @@
 #
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
-# Serbian/Cyrillic translation of cp6Linux.
+# Serbian/Cyrillic messages for debian-installer.
+# Copyright (C) 2010 Software in the Public Interest, Inc.
 # Copyright (C) 2008 THE cp6Linux'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the cp6Linux package.
+# This file is distributed under the same license as the debian-installer package.
+# Karolina Kalic <karolina@janos.in.rs>, 2010.
+# Janos Guljas <janos@janos.in.rs>, 2010.
 # Veselin Mijušković <veselin.mijuskovic@gmail.com>, 2008.
 # , fuzzy
 #
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cp6Linux 2008\n"
+"Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2009-07-24 22:47+0000\n"
-"PO-Revision-Date: 2008-09-19 22:27+0100\n"
-"Last-Translator: Veselin Mijušković <panzer@cp6linux.org>\n"
+"PO-Revision-Date: 2010-07-04 18:23+0100\n"
+"Last-Translator: Janos Guljas <janos@janos.in.rs>\n"
 "Language-Team: Serbian/Cyrillic\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 
 #. Type: boolean
 #. Description
@@ -85,9 +89,9 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
-"DNS сервери користе се за тражење имена рачунара на мрежи. Молим унесите IP "
-"адресе (не имена) до 3 DNS сервера, одвојене размацима. Не користите запете. "
-"Први DNS сервер на списку биће први пропитиван. Ако не желите користити DNS "
+"DNS сервери користе се за тражење имена рачунара на мрежи. Унесите IP адресе "
+"(не имена) до три DNS сервера, одвојене размацима. Не користите запете. Први "
+"DNS сервер на списку биће први пропитиван. Ако не желите користити DNS "
 "сервере, оставите поље празним."
 
 #. Type: select
@@ -95,7 +99,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:5001
 msgid "Primary network interface:"
-msgstr "Основна мрежни интерфејс:"
+msgstr "Основни мрежни интерфејс:"
 
 #. Type: select
 #. Description
@@ -107,7 +111,7 @@ msgid ""
 "connected network interface found has been selected."
 msgstr ""
 "Ваш систем има више мрежних интерфејса. Одредите који ћете користити као "
-"основни мрежни интерфејс током инсталације. Ако је то могуће, биће одабрани "
+"основни мрежни интерфејс током инсталације. Ако је то могуће, биће изабран "
 "први пронађени мрежни интерфејс који је повезан на мрежу."
 
 #. Type: string
@@ -129,9 +133,9 @@ msgid ""
 "of the wireless network you would like ${iface} to use. If you would like to "
 "use any available network, leave this field blank."
 msgstr ""
-"${iface} је бежични мрежни интерфејс. Молим, унесите име (ESSID) бежичне "
-"мреже коју желите да ${iface} користи. Ако желите да користите било коју "
-"доступну мрежу, оставите поље празним."
+"${iface} је бежични мрежни интерфејс. Унесите име (ESSID) бежичне мреже коју "
+"желите да ${iface} користи. Ако желите да користите било коју доступну "
+"мрежу, оставите поље празним."
 
 #. Type: string
 #. Description
@@ -149,9 +153,9 @@ msgid ""
 "of the wireless network you would like ${iface} to use. To skip wireless "
 "configuration and continue, leave this field blank."
 msgstr ""
-"${iface} је бежични мрежни интерфејс. Молим, унесите име (ESSID) бежичне "
-"мреже коју желите да ${iface} користи. Ако желите да прескочите подешавање "
-"бежичне мреже и наставите, оставите поље празним."
+"${iface} је бежични мрежни интерфејс. Унесите име (ESSID) бежичне мреже коју "
+"желите да ${iface} користи. Ако желите да прескочите подешавање бежичне "
+"мреже и наставите, оставите поље празним."
 
 #. Type: string
 #. Description
@@ -168,8 +172,8 @@ msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
 msgstr ""
-"Ако је потребно, молим унесите сигурносни WEP кључ за бежични уређај "
-"${iface}. То можете на два начина:"
+"Ако је потребно, унесите сигурносни WEP кључ за бежични уређај ${iface}. То "
+"можете на два начина:"
 
 #. Type: string
 #. Description
@@ -219,9 +223,8 @@ msgid ""
 "The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
 "next screen carefully on how to enter your WEP key correctly, and try again."
 msgstr ""
-"WEP кључ '${wepkey}' је погрешан. Молимо вас да пажљиво пратите упутство на "
-"следећој страни о томе како се исправно уноси WEP кључ, а затим пробајте "
-"поново."
+"WEP кључ '${wepkey}' је погрешан. Пажљиво пратите упутство на следећој "
+"страни о томе како се исправно уноси WEP кључ, а затим пробајте поново."
 
 #. Type: error
 #. Description
@@ -253,7 +256,7 @@ msgstr "Име рачунара:"
 #. :sl1:
 #: ../netcfg-common.templates:11001
 msgid "Please enter the hostname for this system."
-msgstr "Молим, унесите име рачунара за овај систем."
+msgstr "Унесите име рачунара за овај систем."
 
 #. Type: string
 #. Description
@@ -275,14 +278,14 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:12001
 msgid "Invalid hostname"
-msgstr "Неисправно име домаћина"
+msgstr "Неисправно име рачунара"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
 msgid "The name \"${hostname}\" is invalid."
-msgstr "Име \"${hostname}\" је неважеће."
+msgstr "Име \"${hostname}\" је нисправно."
 
 #. Type: error
 #. Description
@@ -293,9 +296,9 @@ msgid ""
 "z, and the minus sign. It must be between 2 and 63 characters long, and may "
 "not begin or end with a minus sign."
 msgstr ""
-"Важеће име домаћина може да садржи само бројеве од 1 до 9, мала латинична "
-"слова од a до z, и знак \"минус\". Мора бити дуго од 2 до 63 знакова, и не "
-"може почињати или се завршавати знаком \"минус\","
+"Важеће име рачунара може да садржи само бројеве од 1 до 9, мала латинична "
+"слова од a до z, и знак „минус“. Мора бити дуго од 2 до 63 знака, и не може "
+"почињати или се завршавати знаком „минус“."
 
 #. Type: error
 #. Description
@@ -364,8 +367,8 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
-"${iface} је изгледа искључен у смислу као да је физички \"угашен\". Ако "
-"планирате да користите овај прикључак, укључите га пре него што наставимо "
+"${iface} је изгледа искључен у смислу као да је физички „угашенд. Ако "
+"планирате да користите овај прикључак, укључите га пре него што наставите "
 "даље."
 
 #. Type: select
@@ -396,7 +399,7 @@ msgstr "Ад-хок мрежа (Peer to peer)"
 #. Description
 #: ../netcfg-common.templates:16002
 msgid "Type of wireless network:"
-msgstr "Врста бежичне мреже:"
+msgstr "Тип бежичне мреже:"
 
 #. Type: select
 #. Description
@@ -422,7 +425,7 @@ msgstr "Подешавање бежичне мреже"
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Searching for wireless access points..."
-msgstr "Тражим прикључне тачке бежичне мреже..."
+msgstr "Тражење прикључне тачке бежичне мреже..."
 
 #. Type: text
 #. Description
@@ -457,7 +460,7 @@ msgstr "Етернет"
 #. :sl2:
 #: ../netcfg-common.templates:24001
 msgid "Token Ring"
-msgstr "Token Ring"
+msgstr "Токен прстен"
 
 #. Type: text
 #. Description
@@ -513,7 +516,7 @@ msgstr "Канал-до-канала"
 #. :sl2:
 #: ../netcfg-common.templates:33001
 msgid "Real channel-to-channel"
-msgstr "канал-до-канала"
+msgstr "Канал-до-канала"
 
 #. Type: text
 #. Description
@@ -535,7 +538,7 @@ msgstr "Непознат интерфејс"
 #. :sl1:
 #: ../netcfg-common.templates:37001
 msgid "Storing network settings..."
-msgstr "Снимам мрежна подешавања..."
+msgstr "Снимање мрежних подешавања..."
 
 #. Type: text
 #. Description
@@ -575,7 +578,7 @@ msgstr "Већина осталих корисника може оставити
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr "Подешавам мрежу помоћу DHCP-а"
+msgstr "Подешавање мреже помоћу DHCP-а"
 
 #. Type: text
 #. Description
@@ -589,7 +592,7 @@ msgstr "Ово може потрајати неко време."
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr "Аутоматско подешавање мреже је било успешно."
+msgstr "Аутоматско подешавање мреже је било успешно"
 
 #. Type: error
 #. Description
@@ -603,7 +606,7 @@ msgstr "Није нађен ни један DHCP клијент."
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
-msgstr "DHCP клијент не постоји. Овај пакет захтева pump или dhcp-client."
+msgstr "DHCP клијент не постоји. Овај пакет захтева „pump“ или „dhcp-client“."
 
 #. Type: error
 #. Description
@@ -630,7 +633,7 @@ msgstr "Покушај поново аутоматско подешавање м
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
-msgstr "Покушај поново аутоматско подешавање мреже са DHCP именом."
+msgstr "Покушај поново аутоматско подешавање мреже са DHCP именом"
 
 #. Type: select
 #. Choices
@@ -699,7 +702,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
 msgid "Continue without a default route?"
-msgstr "Наставити без подразумевајуће трасе?"
+msgstr "Наставити без подразумевајуће руте?"
 
 #. Type: boolean
 #. Description
@@ -712,10 +715,10 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
-"Самоподешавање мреже је успело. Додуше, ниједан подразумевани усмеравач није "
-"подешен: систем не зна како да комуницира са домаћинима на Интернету. Ово ће "
-"онемогућити наставак инсталције осим ако имате први инсталацијски дис, "
-"'Netinst' диск, или доступне пакете на локалној мрежи."
+"Самоподешавање мреже је успело. Додуше, ниједна подразумевана рута није "
+"подешена: систем не зна како да комуницира са рачунарима на Интернету. Ово "
+"ће онемогућити наставак инсталције осим ако имате први инсталациони диск, "
+"„Netinst“ диск, или доступне пакете на локалној мрежи."
 
 #. Type: boolean
 #. Description
@@ -726,7 +729,7 @@ msgid ""
 "your local network administrator about this problem."
 msgstr ""
 "Ако нисте сигурни, не би требало да наставите даље без подразумевајуће "
-"трасе: контактирајте вашег администратора мреже о овом проблему."
+"трасеруте: контактирајте вашег администратора мреже о овом проблему."
 
 #. Type: text
 #. Description
@@ -771,7 +774,7 @@ msgid ""
 "where each 'x' is no larger than 255. Please try again."
 msgstr ""
 "Ова IP  адреса није исправна. Требало би да буде у облику х.х.х.х где је "
-"сваки 'х' мањи од 255. Молим вас пробајте још једном."
+"сваки „х“ мањи од 255. Пробајте још једном."
 
 #. Type: string
 #. Description
