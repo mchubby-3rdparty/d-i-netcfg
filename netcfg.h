@@ -84,6 +84,8 @@ extern struct in_addr netmask;
 extern struct in_addr gateway;
 extern struct in_addr pointopoint;
 
+extern const struct in_addr NULL_IPADDRESS;
+
 /* wireless */
 extern char *essid, *wepkey, *passphrase;
 extern wifimode_t mode;

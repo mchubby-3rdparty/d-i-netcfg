@@ -99,13 +99,11 @@ int main(int argc, char *argv[])
     /* Check to see if netcfg should be run at all */
     debconf_get(client, "netcfg/enable");
     if (!strcmp(client->value, "false")) {
-        struct in_addr null_ipaddress;
         char *hostname = NULL;
 
-        null_ipaddress.s_addr = 0;
         netcfg_get_hostname(client, "netcfg/get_hostname", &hostname, 0);
 
-        netcfg_write_common(null_ipaddress, hostname, NULL);
+        netcfg_write_common(NULL_IPADDRESS, hostname, NULL);
         return 0;
     }
 
@@ -214,9 +212,7 @@ int main(int argc, char *argv[])
             if(netcfg_get_hostname(client, "netcfg/get_hostname", &hostname, 0))
                 state = BACKUP;
             else {
-                struct in_addr null_ipaddress;
-                null_ipaddress.s_addr = 0;
-                netcfg_write_common(null_ipaddress, hostname, NULL);
+                netcfg_write_common(NULL_IPADDRESS, hostname, NULL);
                 state = QUIT;
             }
             break;

@@ -668,7 +668,7 @@ int netcfg_activate_dhcp (struct debconfclient *client)
             if (!have_domain && netcfg_get_domain (client, &domain))
                 state = HOSTNAME;
             else {
-                netcfg_write_common(ipaddress, hostname, domain);
+                netcfg_write_common(NULL_IPADDRESS, hostname, domain);
                 netcfg_write_dhcp(interface, dhostname);
                 /* If the resolv.conf was written by udhcpc, then nameserver_array
                  * will be empty and we'll need to populate it.  If we asked for
@@ -688,9 +688,7 @@ int netcfg_activate_dhcp (struct debconfclient *client)
             if (netcfg_get_hostname (client, "netcfg/get_hostname", &hostname, 0))
                 state = ASK_OPTIONS;
             else {
-                struct in_addr null_ipaddress;
-                null_ipaddress.s_addr = 0;
-                netcfg_write_common(null_ipaddress, hostname, NULL);
+                netcfg_write_common(NULL_IPADDRESS, hostname, NULL);
                 return 0;
             }
             break;
