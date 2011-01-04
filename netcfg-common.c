@@ -67,6 +67,8 @@ struct in_addr ipaddress = { 0 };
 struct in_addr gateway = { 0 };
 struct in_addr nameserver_array[4] = { { 0 }, };
 
+const struct in_addr NULL_IPADDRESS = { 0 };
+
 /* network config */
 char *interface = NULL;
 char *hostname = NULL;
