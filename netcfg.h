@@ -76,13 +76,8 @@ extern char *interface;
 extern char *hostname;
 extern char *dhcp_hostname;
 extern char *domain;
-extern struct in_addr ipaddress;
 extern struct in_addr nameserver_array[4];
-extern struct in_addr network;
-extern struct in_addr broadcast;
-extern struct in_addr netmask;
 extern struct in_addr gateway;
-extern struct in_addr pointopoint;
 
 extern const struct in_addr NULL_IPADDRESS;
 
@@ -125,7 +120,8 @@ extern int resolv_conf_entries (void);
 extern int read_resolv_conf_nameservers (struct in_addr array[]);
 
 extern int ask_dhcp_options (struct debconfclient *client);
-extern int netcfg_activate_static(struct debconfclient *client);
+extern int netcfg_activate_static(struct debconfclient *client,
+                                  struct in_addr ipaddress);
 
 extern void netcfg_write_loopback (void);
 extern void netcfg_write_common (struct in_addr ipaddress, char *hostname,
