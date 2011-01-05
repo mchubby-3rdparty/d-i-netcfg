@@ -351,10 +351,10 @@ int netcfg_activate_static(struct debconfclient *client,
     interface_up(interface);
 
     /* Flush all previous addresses, routes */
-    snprintf(buf, sizeof(buf), "ip addr flush dev %s", interface);
+    snprintf(buf, sizeof(buf), "ip -f inet addr flush dev %s", interface);
     rv |= di_exec_shell_log(buf);
 
-    snprintf(buf, sizeof(buf), "ip route flush dev %s", interface);
+    snprintf(buf, sizeof(buf), "ip -f inet route flush dev %s", interface);
     rv |= di_exec_shell_log(buf);
 
     rv |= !inet_ptom (NULL, &masksize, &netmask);
