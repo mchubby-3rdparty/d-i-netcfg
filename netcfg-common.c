@@ -1182,7 +1182,7 @@ void loop_setup(void)
         afpacket_notloaded = di_exec_shell("modprobe af_packet"); /* should become 0 */
 
     di_exec_shell_log("ip link set "LO_IF" up");
-    di_exec_shell_log("ip addr flush dev "LO_IF);
+    di_exec_shell_log("ip -f inet addr flush dev "LO_IF);
     di_exec_shell_log("ip addr add 127.0.0.1/8 dev "LO_IF);
 #endif
 }
