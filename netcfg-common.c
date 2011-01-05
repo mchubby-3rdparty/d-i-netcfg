@@ -63,7 +63,6 @@
 int netcfg_progress_displayed = 0;
 
 /* IP address vars */
-struct in_addr ipaddress = { 0 };
 struct in_addr gateway = { 0 };
 struct in_addr nameserver_array[4] = { { 0 }, };
 
