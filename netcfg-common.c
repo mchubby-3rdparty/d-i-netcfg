@@ -59,9 +59,6 @@
 #define LO_IF	"lo"
 #endif
 
-/* Set if there is currently a progress bar displayed. */
-int netcfg_progress_displayed = 0;
-
 /* IP address vars */
 struct in_addr gateway = { 0 };
 struct in_addr nameserver_array[4] = { { 0 }, };
@@ -639,8 +636,7 @@ static char *find_bootif_iface(const char *bootif,
 
 void netcfg_die(struct debconfclient *client)
 {
-    if (netcfg_progress_displayed)
-        debconf_progress_stop(client);
+    debconf_progress_stop(client);
     debconf_capb(client);
     debconf_input(client, "high", "netcfg/error");
     debconf_go(client);

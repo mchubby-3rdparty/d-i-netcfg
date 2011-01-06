@@ -80,7 +80,6 @@ automatic:
         debconf_progress_start(client, 0, MAX_SECS, "netcfg/wifi_progress_title");
         if (debconf_progress_info(client, "netcfg/wifi_progress_info") == 30)
             goto stop;
-        netcfg_progress_displayed = 1;
 
         for (i = 0; i <= MAX_SECS; i++) {
             int progress_ret;
@@ -106,7 +105,6 @@ automatic:
     stop:
         debconf_progress_stop(client);
         debconf_capb(client, "backup");
-        netcfg_progress_displayed = 0;
 
         if (success)
             return 0;

@@ -314,7 +314,6 @@ int poll_dhcp_client (struct debconfclient *client)
         kill_dhcp_client();
         goto stop;
     }
-    netcfg_progress_displayed = 1;
 
     /* wait between 2 and dhcp_seconds seconds for a DHCP lease */
     while ( ((dhcp_pid > 0) || (seconds_slept < 2))
@@ -342,7 +341,6 @@ int poll_dhcp_client (struct debconfclient *client)
     /* stop progress bar */
     debconf_progress_stop(client);
     debconf_capb(client, "backup");
-    netcfg_progress_displayed = 0;
 
     return ret;
 }
