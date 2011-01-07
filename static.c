@@ -29,6 +29,20 @@ static void netcfg_calculate_broadcast_address(struct in_addr *broadcast,
     broadcast->s_addr = (network.s_addr | ~netmask.s_addr);
 }
 
+/* Validate that the given gateway address actually lies within the given
+ * network.  Standard boolean return.
+ */
+static int netcfg_gateway_reachable(const struct in_addr network,
+                                    const struct in_addr netmask,
+                                    const char *gateway)
+{
+    struct in_addr gw_addr;
+    
+    inet_pton(AF_INET, gateway, &gw_addr);
+
+    return (gw_addr.s_addr && ((gw_addr.s_addr & netmask.s_addr) == network.s_addr));
+}
+
 int netcfg_get_ipaddress(struct debconfclient *client, struct in_addr *ipaddress)
 {
     int ret, ok = 0;
@@ -83,7 +97,6 @@ int netcfg_get_pointopoint(struct debconfclient *client)
     }
 
     inet_pton (AF_INET, "255.255.255.255", &netmask);
-    gateway = pointopoint;
 
     return 0;
 }
@@ -115,20 +128,26 @@ int netcfg_get_netmask(struct debconfclient *client)
 }
 
 static void netcfg_preseed_gateway(struct debconfclient *client,
-                                   struct in_addr gateway,
                                    struct in_addr ipaddress,
                                    struct in_addr netmask)
 {
     char ptr1[INET_ADDRSTRLEN];
+    struct in_addr gw_addr;
+    
+    /* Calculate a potentially-sensible 'default' default gateway,
+     * based on 'the first IP in the subnet' */
+    gw_addr.s_addr = ipaddress.s_addr & netmask.s_addr;
+    gw_addr.s_addr |= htonl(1);
 
-    gateway.s_addr = ipaddress.s_addr & netmask.s_addr;
-    gateway.s_addr |= htonl(1);
+    inet_ntop (AF_INET, &gw_addr, ptr1, sizeof (ptr1));
 
-    inet_ntop (AF_INET, &gateway, ptr1, sizeof (ptr1));
-
-    /* if you entered a .1 ip, you'll get a .1 back, so makes sense
-     * to clear the last bit */
-    if (gateway.s_addr == ipaddress.s_addr) {
+    /* if your chosen static IP address happens to be what we calculated for
+     * the 'default' gateway, obviously that isn't going to work, so stop
+     * guessing, just chop off the last octet, and let the user fill in the blank.
+     *
+     * This won't quite work with anything shorter than a /24; such is life.
+     */
+    if (gw_addr.s_addr == ipaddress.s_addr) {
         char* ptr = strrchr(ptr1, '.');
         assert (ptr); /* if there's no dot in ptr1 we're in deep shit */
         ptr[1] = '\0';
@@ -139,8 +158,9 @@ static void netcfg_preseed_gateway(struct debconfclient *client,
         debconf_set(client, "netcfg/get_gateway", ptr1);
 }
 
-int netcfg_get_gateway(struct debconfclient *client)
+int netcfg_get_gateway(struct debconfclient *client, char *gateway)
 {
+    struct in_addr gw_addr;
     int ret, ok = 0;
     char *ptr;
 
@@ -157,17 +177,23 @@ int netcfg_get_gateway(struct debconfclient *client)
         if (empty_str(ptr) || /* No gateway, that's fine */
             (strcmp(ptr, "none") == 0)) /* special case for preseeding */ {
             /* clear existing gateway setting */
-            memset(&gateway, 0, sizeof(struct in_addr));
+            gateway[0] = '\0';
             return 0;
         }
 
-        ok = inet_pton (AF_INET, ptr, &gateway);
+        ok = inet_pton (AF_INET, ptr, &gw_addr);
 
         if (!ok) {
             debconf_capb(client);
             debconf_input (client, "critical", "netcfg/bad_ipaddress");
             debconf_go (client);
             debconf_capb(client, "backup");
+        } else {
+            /* Double conversion to ensure that the address is in a normalised,
+             * more readable form, in case the user entered something weird
+             * looking.
+             */
+            inet_ntop(AF_INET, &gw_addr, gateway, INET_ADDRSTRLEN);
         }
     }
 
@@ -176,6 +202,7 @@ int netcfg_get_gateway(struct debconfclient *client)
 
 static int netcfg_write_static(char *domain,
                                struct in_addr ipaddress,
+                               char *gateway,
                                struct in_addr nameservers[])
 {
     char ptr1[INET_ADDRSTRLEN];
@@ -204,8 +231,8 @@ static int netcfg_write_static(char *domain,
         fprintf(fp, "\tnetmask %s\n", inet_ntop (AF_INET, &netmask, ptr1, sizeof (ptr1)));
         fprintf(fp, "\tnetwork %s\n", inet_ntop (AF_INET, &network, ptr1, sizeof (ptr1)));
         fprintf(fp, "\tbroadcast %s\n", inet_ntop (AF_INET, &broadcast, ptr1, sizeof (ptr1)));
-        if (gateway.s_addr)
-            fprintf(fp, "\tgateway %s\n", inet_ntop (AF_INET, &gateway, ptr1, sizeof (ptr1)));
+        if (!empty_str(gateway))
+            fprintf(fp, "\tgateway %s\n", gateway);
         if (pointopoint.s_addr)
             fprintf(fp, "\tpointopoint %s\n", inet_ntop (AF_INET, &pointopoint, ptr1, sizeof (ptr1)));
         /*
@@ -281,7 +308,8 @@ int netcfg_write_resolv (char* domain, struct in_addr* nameservers)
 }
 
 int netcfg_activate_static(struct debconfclient *client,
-                           struct in_addr ipaddress)
+                           struct in_addr ipaddress,
+                           const char *gateway)
 {
     int rv = 0, masksize;
     char buf[256];
@@ -294,9 +322,8 @@ int netcfg_activate_static(struct debconfclient *client,
     di_snprintfcat(buf, sizeof(buf), " --netmask=%s",
                    inet_ntop (AF_INET, &netmask, ptr1, sizeof (ptr1)));
 
-    if (gateway.s_addr)
-        di_snprintfcat(buf, sizeof(buf), " --gateway=%s",
-                       inet_ntop (AF_INET, &gateway, ptr1, sizeof (ptr1)));
+    if (!empty_str(gateway))
+        di_snprintfcat(buf, sizeof(buf), " --gateway=%s", gateway);
 
     buf[sizeof(buf) - 1] = '\0';
 
@@ -339,9 +366,8 @@ int netcfg_activate_static(struct debconfclient *client,
         di_snprintfcat(buf, sizeof(buf), "%s",
                        inet_ntop (AF_INET, &ipaddress, ptr1, sizeof (ptr1)));
         rv |= di_exec_shell_log(buf);
-    } else if (gateway.s_addr) {
-        snprintf(buf, sizeof(buf), "route add default %s",
-                 inet_ntop (AF_INET, &gateway, ptr1, sizeof (ptr1)));
+    } else if (!empty_str(gateway)) {
+        snprintf(buf, sizeof(buf), "route add default %s", gateway);
         rv |= di_exec_shell_log(buf);
     }
 #else
@@ -381,9 +407,8 @@ int netcfg_activate_static(struct debconfclient *client,
         snprintf(buf, sizeof(buf), "ip route add default dev %s", interface);
         rv |= di_exec_shell_log(buf);
     }
-    else if (gateway.s_addr) {
-        snprintf(buf, sizeof(buf), "ip route add default via %s",
-                 inet_ntop (AF_INET, &gateway, ptr1, sizeof (ptr1)));
+    else if (!empty_str(gateway)) {
+        snprintf(buf, sizeof(buf), "ip route add default via %s", gateway);
         rv |= di_exec_shell_log(buf);
     }
 #endif
@@ -399,7 +424,7 @@ int netcfg_activate_static(struct debconfclient *client,
     /* Wait to detect link.  Don't error out if we fail, though; link detection
      * may not work on this NIC or something.
      */
-    netcfg_detect_link(client, interface);
+    netcfg_detect_link(client, interface, gateway);
 
     return 0;
 }
@@ -407,6 +432,7 @@ int netcfg_activate_static(struct debconfclient *client,
 int netcfg_get_static(struct debconfclient *client)
 {
     char *nameservers = NULL;
+    char gateway[INET_ADDRSTRLEN] = "";
     char ptr1[INET_ADDRSTRLEN];
     char *none;
     struct in_addr ipaddress;
@@ -416,7 +442,7 @@ int netcfg_get_static(struct debconfclient *client)
            GET_DOMAIN, QUIT }
     state = GET_IPADDRESS;
 
-    ipaddress.s_addr = network.s_addr = broadcast.s_addr = netmask.s_addr = gateway.s_addr = pointopoint.s_addr =
+    ipaddress.s_addr = network.s_addr = broadcast.s_addr = netmask.s_addr = pointopoint.s_addr =
         0;
 
     debconf_metaget(client,  "netcfg/internal-none", "description");
@@ -446,6 +472,10 @@ int netcfg_get_static(struct debconfclient *client)
         case GET_POINTOPOINT:
             state = netcfg_get_pointopoint(client) ?
                 GET_IPADDRESS : GET_NAMESERVERS;
+            if (state == GET_NAMESERVERS)
+                /* On a point-to-point link, the remote end of the link is
+                 * always going to be our default gateway */
+                inet_ntop(AF_INET, &pointopoint, gateway, INET_ADDRSTRLEN);
             break;
 
         case GET_NETMASK:
@@ -454,12 +484,12 @@ int netcfg_get_static(struct debconfclient *client)
             break;
 
         case GET_GATEWAY:
-            netcfg_preseed_gateway(client, gateway, ipaddress, netmask);
-            if (netcfg_get_gateway(client))
+            netcfg_preseed_gateway(client, ipaddress, netmask);
+            if (netcfg_get_gateway(client, gateway))
                 state = GET_NETMASK;
             else
                 netcfg_calculate_network_address(&network, ipaddress, netmask);
-                if (gateway.s_addr && ((gateway.s_addr & netmask.s_addr) != network.s_addr))
+                if (!netcfg_gateway_reachable(network, netmask, gateway))
                     state = GATEWAY_UNREACHABLE;
                 else
                     state = GET_NAMESERVERS;
@@ -472,7 +502,7 @@ int netcfg_get_static(struct debconfclient *client)
             debconf_capb(client, "backup");
             break;
         case GET_NAMESERVERS:
-            state = (netcfg_get_nameservers (client, &nameservers)) ?
+            state = (netcfg_get_nameservers (client, &nameservers, gateway)) ?
                 GET_GATEWAY : CONFIRM;
             break;
         case GET_HOSTNAME:
@@ -499,7 +529,7 @@ int netcfg_get_static(struct debconfclient *client)
             debconf_subst(client, "netcfg/confirm_static", "netmask",
                           (netmask.s_addr ? inet_ntop (AF_INET, &netmask, ptr1, sizeof (ptr1)) : none));
             debconf_subst(client, "netcfg/confirm_static", "gateway",
-                          (gateway.s_addr ? inet_ntop (AF_INET, &gateway, ptr1, sizeof (ptr1)) : none));
+                          (empty_str(gateway) ? none : gateway));
             debconf_subst(client, "netcfg/confirm_static", "nameservers",
                           (nameservers ? nameservers : none));
             netcfg_nameservers_to_array(nameservers, nameserver_array);
@@ -512,7 +542,7 @@ int netcfg_get_static(struct debconfclient *client)
             if (strstr(client->value, "true")) {
                 state = GET_HOSTNAME;
                 netcfg_write_resolv(domain, nameserver_array);
-                netcfg_activate_static(client, ipaddress);
+                netcfg_activate_static(client, ipaddress, gateway);
             }
             else
                 state = GET_IPADDRESS;
@@ -523,7 +553,7 @@ int netcfg_get_static(struct debconfclient *client)
 
         case QUIT:
             netcfg_write_common(ipaddress, hostname, domain);
-            netcfg_write_static(domain, ipaddress, nameserver_array);
+            netcfg_write_static(domain, ipaddress, gateway, nameserver_array);
             return 0;
             break;
         }

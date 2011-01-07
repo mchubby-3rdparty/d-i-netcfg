@@ -60,7 +60,6 @@
 #endif
 
 /* IP address vars */
-struct in_addr gateway = { 0 };
 struct in_addr nameserver_array[4] = { { 0 }, };
 
 const struct in_addr NULL_IPADDRESS = { 0 };
@@ -1197,9 +1196,9 @@ void netcfg_nameservers_to_array(char *nameservers, struct in_addr array[])
         array[0].s_addr = 0;
 }
 
-int netcfg_get_nameservers (struct debconfclient *client, char **nameservers)
+int netcfg_get_nameservers (struct debconfclient *client, char **nameservers, char *default_nameservers)
 {
-    char *ptr, ptr1[INET_ADDRSTRLEN];
+    char *ptr;
     int ret;
 
     debconf_get(client,"netcfg/get_nameservers");
@@ -1207,10 +1206,8 @@ int netcfg_get_nameservers (struct debconfclient *client, char **nameservers)
         ptr = *nameservers;
     else if (strlen(client->value))
         ptr = client->value;
-    else if (gateway.s_addr) {
-        inet_ntop (AF_INET, &gateway, ptr1, sizeof (ptr1));
-        ptr = ptr1;
-    }
+    else if (default_nameservers)
+        ptr = default_nameservers;
     else
         ptr = "";
     debconf_set(client, "netcfg/get_nameservers", ptr);
@@ -1244,18 +1241,15 @@ void netcfg_update_entropy (void)
  * progress bar so the user knows what's going on.  Return true if we got
  * link, and false otherwise.
  */
-int netcfg_detect_link(struct debconfclient *client, const char *if_name)
+int netcfg_detect_link(struct debconfclient *client, const char *if_name, const char *gateway)
 {
     char arping[256];
-    char s_gateway[INET_ADDRSTRLEN];
     int count, rv = 0;
     int link_waits = NETCFG_LINK_WAIT_TIME * 4;
     int gw_tries = NETCFG_GATEWAY_REACHABILITY_TRIES;
 
-    if (gateway.s_addr) {
-        inet_ntop(AF_INET, &gateway, s_gateway, sizeof(s_gateway));
-        sprintf(arping, "arping -c 1 -w 1 -f -I %s %s", if_name, s_gateway);
-    }
+    if (!empty_str(gateway))
+        sprintf(arping, "arping -c 1 -w 1 -f -I %s %s", if_name, gateway);
     
     debconf_capb(client, "progresscancel");
     debconf_subst(client, "netcfg/link_detect_progress", "interface", if_name);
@@ -1268,7 +1262,7 @@ int netcfg_detect_link(struct debconfclient *client, const char *if_name)
             break;
         }
         if (ethtool_lite(if_name) == 1) /* ethtool-lite's CONNECTED */ {
-            if (gateway.s_addr && !is_wireless_iface(if_name)) {
+            if (!empty_str(gateway) && !is_wireless_iface(if_name)) {
                 for (count = 0; count < gw_tries; count++) {
                     if (di_exec_shell_log(arping) == 0)
                         break;

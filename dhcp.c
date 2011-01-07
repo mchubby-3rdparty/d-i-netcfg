@@ -584,7 +584,7 @@ int netcfg_activate_dhcp (struct debconfclient *client)
                 if (resolv_conf_entries() <= 0) {
                     char *nameservers = NULL;
 
-                    if (netcfg_get_nameservers (client, &nameservers) == GO_BACK) {
+                    if (netcfg_get_nameservers (client, &nameservers, NULL) == GO_BACK) {
                         state = ASK_OPTIONS;
                         break;
                     }
