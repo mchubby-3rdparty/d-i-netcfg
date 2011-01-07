@@ -71,7 +71,6 @@ extern char *hostname;
 extern char *dhcp_hostname;
 extern char *domain;
 extern struct in_addr nameserver_array[4];
-extern struct in_addr gateway;
 
 extern const struct in_addr NULL_IPADDRESS;
 
@@ -101,7 +100,7 @@ extern short valid_domain (const char *dname);
 
 extern int netcfg_get_hostname(struct debconfclient *client, char *template, char **hostname, short hdset);
 
-extern int netcfg_get_nameservers (struct debconfclient *client, char **nameservers);
+extern int netcfg_get_nameservers (struct debconfclient *client, char **nameservers, char *default_nameservers);
 
 extern int netcfg_get_domain(struct debconfclient *client,  char **domain);
 
@@ -115,7 +114,8 @@ extern int read_resolv_conf_nameservers (struct in_addr array[]);
 
 extern int ask_dhcp_options (struct debconfclient *client);
 extern int netcfg_activate_static(struct debconfclient *client,
-                                  struct in_addr ipaddress);
+                                  struct in_addr ipaddress,
+                                  const char *gateway);
 
 extern void netcfg_write_loopback (void);
 extern void netcfg_write_common (struct in_addr ipaddress, char *hostname,
@@ -154,6 +154,6 @@ extern void netcfg_update_entropy (void);
 extern int netcfg_write_resolv (char*, struct in_addr *);
 
 extern int ethtool_lite (const char *if_name);
-extern int netcfg_detect_link(struct debconfclient *client, const char *if_name);
+extern int netcfg_detect_link(struct debconfclient *client, const char *if_name, const char *gateway);
 
 #endif /* _NETCFG_H_ */
