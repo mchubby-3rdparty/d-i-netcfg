@@ -460,6 +460,7 @@ int netcfg_activate_dhcp (struct debconfclient *client)
 {
     char* dhostname = NULL;
     enum { START, POLL, ASK_OPTIONS, DHCP_HOSTNAME, HOSTNAME, DOMAIN, HOSTNAME_SANS_NETWORK } state = START;
+    char nameserver_array[4][INET_ADDRSTRLEN];
 
     kill_dhcp_client();
     loop_setup();
@@ -589,8 +590,8 @@ int netcfg_activate_dhcp (struct debconfclient *client)
                         break;
                     }
 
-                    netcfg_nameservers_to_array (nameservers, nameserver_array);
-                    netcfg_write_resolv (domain, nameserver_array);
+                    netcfg_nameservers_to_array (nameservers, nameserver_array, ARRAY_SIZE(nameserver_array));
+                    netcfg_write_resolv (domain, nameserver_array, ARRAY_SIZE(nameserver_array));
                 }
 
                 state = HOSTNAME;
@@ -673,8 +674,8 @@ int netcfg_activate_dhcp (struct debconfclient *client)
                  * the nameservers, then it'll be full, but nobody will care if we
                  * refill it.
                  */
-                if (read_resolv_conf_nameservers(nameserver_array))
-                    netcfg_write_resolv(domain, nameserver_array);
+                if (read_resolv_conf_nameservers(nameserver_array, ARRAY_SIZE(nameserver_array)))
+                    netcfg_write_resolv(domain, nameserver_array, ARRAY_SIZE(nameserver_array));
                 else
                     printf("Error reading resolv.conf for nameservers\n");
 
@@ -724,10 +725,11 @@ int resolv_conf_entries (void)
 /* Read the nameserver entries out of resolv.conf and stick them into
  * nameservers_array, so we can write out a newer, shinier resolv.conf
  */
-int read_resolv_conf_nameservers(struct in_addr array[])
+int read_resolv_conf_nameservers(char array[][INET_ADDRSTRLEN], unsigned int array_size)
 {
     FILE *f;
-    int i = 0;
+    unsigned int i = 0;
+    struct in_addr addr;
     
     if ((f = fopen(RESOLV_FILE, "r")) != NULL) {
         char buf[256];
@@ -741,8 +743,13 @@ int read_resolv_conf_nameservers(struct in_addr array[])
                     buf[strlen(buf)-1] = '\0';
 
                 ptr = buf + strlen("nameserver ");
-                inet_pton(AF_INET, ptr, &array[i++]);
-                if (i == 3) {
+                /* Double conversion here to ensure we actually have
+                 * an IP address, and to normalise the address so
+                 * it's guaranteed to fit in the string space provided.
+                 */
+                inet_pton(AF_INET, ptr, &addr);
+                inet_ntop(AF_INET, &addr, array[i], INET_ADDRSTRLEN);
+                if (i == array_size) {
                     /* We can only hold so many nameservers, and we've reached
                      * our limit.  Sorry.
                      */
@@ -752,7 +759,9 @@ int read_resolv_conf_nameservers(struct in_addr array[])
         }
 
         fclose(f);
-        array[i].s_addr = 0;
+        /* Null out any remaining elements in array */
+        for (; i < array_size; i++) array[i][0] = '\0';
+
         return 1;
     }
     else

@@ -59,9 +59,6 @@
 #define LO_IF	"lo"
 #endif
 
-/* IP address vars */
-struct in_addr nameserver_array[4] = { { 0 }, };
-
 const struct in_addr NULL_IPADDRESS = { 0 };
 
 /* network config */
@@ -1174,26 +1171,44 @@ void reap_old_files (void)
         unlink(*ptr++);
 }
 
-void netcfg_nameservers_to_array(char *nameservers, struct in_addr array[])
+/* Convert a space-separated list of nameservers in a single string (as might
+ * be entered into, say, debconf), and turn them into an array of strings
+ * (which is the canonical way we store our nameservers internally).
+ *
+ * The array of strings in +array+ must be statically allocated by the caller
+ * in the form array[N][INET_ADDRSTRLEN] -- you *must* use INET_ADDRSTRLEN to
+ * ensure that the storage space you provide is large enough to hold the entire
+ * IP address string.  +N+ is the maximum number of nameservers you wish to
+ * store.
+ */
+void netcfg_nameservers_to_array(char *nameservers, char array[][INET_ADDRSTRLEN], unsigned int array_size)
 {
     char *save, *ptr, *ns;
-    int i;
+    unsigned int i;
+    struct in_addr addr;
 
     if (nameservers) {
         save = ptr = strdup(nameservers);
 
-        for (i = 0; i < 3; i++) {
+        for (i = 0; i < array_size; i++) {
             ns = strtok_r(ptr, " \n\t", &ptr);
-            if (ns)
-                inet_pton (AF_INET, ns, &array[i]);
-            else
-                array[i].s_addr = 0;
+            if (ns) {
+                /* The double conversion here is to both validate that we've
+                 * been given an IP address, and to ensure that the address
+                 * is in it's canonical form and will fit in the size of the
+                 * array element provided.
+                 */
+                inet_pton (AF_INET, ns, &addr);
+                inet_ntop (AF_INET, &addr, array[i], INET_ADDRSTRLEN);
+            } else
+                array[i][0] = '\0';
         }
 
-        array[3].s_addr = 0;
         free(save);
-    } else
-        array[0].s_addr = 0;
+    } else {
+        /* Empty out all the nameserver strings */
+        for (i = 0; i < array_size; i++) array[i][0] = '\0';
+    }
 }
 
 int netcfg_get_nameservers (struct debconfclient *client, char **nameservers, char *default_nameservers)
