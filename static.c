@@ -203,7 +203,8 @@ int netcfg_get_gateway(struct debconfclient *client, char *gateway)
 static int netcfg_write_static(char *domain,
                                struct in_addr ipaddress,
                                char *gateway,
-                               struct in_addr nameservers[])
+                               char nameservers[][INET_ADDRSTRLEN],
+                               unsigned int ns_size)
 {
     char ptr1[INET_ADDRSTRLEN];
     FILE *fp;
@@ -261,14 +262,16 @@ static int netcfg_write_static(char *domain,
          * per-interface basis so that per-interface dns options
          * can be written here.
          */
-        if (nameservers[0].s_addr || (domain && !empty_str(domain))) {
-            int i = 0;
+        if (nameservers[0][0] || (domain && !empty_str(domain))) {
+            unsigned int i = 0;
             fprintf(fp, "\t# dns-* options are implemented by the resolvconf package, if installed\n");
-            if (nameservers[0].s_addr) {
+            if (nameservers[0][0]) {
                 fprintf(fp, "\tdns-nameservers");
-                while (nameservers[i].s_addr)
-                    fprintf(fp, " %s",
-                            inet_ntop (AF_INET, &nameservers[i++], ptr1, sizeof (ptr1)));
+                for (i = 0; i < ns_size; i++) {
+                    if (nameservers[i][0]) {
+                        fprintf(fp, " %s", nameservers[i]);
+                    }
+                }
                 fprintf(fp, "\n");
             }
             if (domain && !empty_str(domain))
@@ -278,7 +281,7 @@ static int netcfg_write_static(char *domain,
     } else
         goto error;
 
-    if (netcfg_write_resolv(domain, nameservers))
+    if (netcfg_write_resolv(domain, nameservers, ns_size))
         goto error;
 
     return 0;
@@ -286,19 +289,18 @@ error:
     return -1;
 }
 
-int netcfg_write_resolv (char* domain, struct in_addr* nameservers)
+int netcfg_write_resolv (char* domain, char nameservers[][INET_ADDRSTRLEN], unsigned int ns_size)
 {
     FILE* fp = NULL;
-    char ptr1[INET_ADDRSTRLEN];
 
     if ((fp = file_open(RESOLV_FILE, "w"))) {
-        int i = 0;
+        unsigned int i = 0;
         if (domain && !empty_str(domain))
             fprintf(fp, "search %s\n", domain);
 
-        while (nameservers[i].s_addr)
-            fprintf(fp, "nameserver %s\n",
-                    inet_ntop (AF_INET, &nameservers[i++], ptr1, sizeof (ptr1)));
+        for (i = 0; i < ns_size; i++)
+            if (nameservers[i][0])
+                fprintf(fp, "nameserver %s\n", nameservers[i]);
 
         fclose(fp);
         return 0;
@@ -434,6 +436,7 @@ int netcfg_get_static(struct debconfclient *client)
     char *nameservers = NULL;
     char gateway[INET_ADDRSTRLEN] = "";
     char ptr1[INET_ADDRSTRLEN];
+    char nameserver_array[4][INET_ADDRSTRLEN];
     char *none;
     struct in_addr ipaddress;
 
@@ -532,7 +535,7 @@ int netcfg_get_static(struct debconfclient *client)
                           (empty_str(gateway) ? none : gateway));
             debconf_subst(client, "netcfg/confirm_static", "nameservers",
                           (nameservers ? nameservers : none));
-            netcfg_nameservers_to_array(nameservers, nameserver_array);
+            netcfg_nameservers_to_array(nameservers, nameserver_array, ARRAY_SIZE(nameserver_array));
 
             debconf_capb(client); /* Turn off backup for yes/no confirmation */
 
@@ -542,7 +545,7 @@ int netcfg_get_static(struct debconfclient *client)
 
             if (strstr(client->value, "true")) {
                 state = GET_HOSTNAME;
-                netcfg_write_resolv(domain, nameserver_array);
+                netcfg_write_resolv(domain, nameserver_array, ARRAY_SIZE(nameserver_array));
                 netcfg_activate_static(client, ipaddress, gateway);
             }
             else
@@ -554,7 +557,7 @@ int netcfg_get_static(struct debconfclient *client)
 
         case QUIT:
             netcfg_write_common(ipaddress, hostname, domain);
-            netcfg_write_static(domain, ipaddress, gateway, nameserver_array);
+            netcfg_write_static(domain, ipaddress, gateway, nameserver_array, ARRAY_SIZE(nameserver_array));
             return 0;
             break;
         }
