@@ -70,7 +70,6 @@ extern char *interface;
 extern char *hostname;
 extern char *dhcp_hostname;
 extern char *domain;
-extern struct in_addr nameserver_array[4];
 
 extern const struct in_addr NULL_IPADDRESS;
 
@@ -110,7 +109,7 @@ extern int netcfg_activate_dhcp(struct debconfclient *client);
 
 extern int resolv_conf_entries (void);
 
-extern int read_resolv_conf_nameservers (struct in_addr array[]);
+extern int read_resolv_conf_nameservers (char nameservers[][INET_ADDRSTRLEN], unsigned int ns_size);
 
 extern int ask_dhcp_options (struct debconfclient *client);
 extern int netcfg_activate_static(struct debconfclient *client,
@@ -121,7 +120,7 @@ extern void netcfg_write_loopback (void);
 extern void netcfg_write_common (struct in_addr ipaddress, char *hostname,
 				 char *domain);
 
-void netcfg_nameservers_to_array(char *nameservers, struct in_addr array[]);
+void netcfg_nameservers_to_array(char *nameservers, char array[][INET_ADDRSTRLEN], unsigned int array_size);
 
 extern int is_wireless_iface (const char* iface);
 extern int netcfg_wireless_set_essid (struct debconfclient *client, char* iface);
@@ -151,7 +150,7 @@ extern void reap_old_files (void);
 
 extern void netcfg_update_entropy (void);
 
-extern int netcfg_write_resolv (char*, struct in_addr *);
+extern int netcfg_write_resolv (char*, char nameservers[][INET_ADDRSTRLEN], unsigned int nameservers_size);
 
 extern int ethtool_lite (const char *if_name);
 extern int netcfg_detect_link(struct debconfclient *client, const char *if_name, const char *gateway);
