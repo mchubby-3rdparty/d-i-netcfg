@@ -114,7 +114,9 @@ extern int read_resolv_conf_nameservers (char nameservers[][INET_ADDRSTRLEN], un
 extern int ask_dhcp_options (struct debconfclient *client);
 extern int netcfg_activate_static(struct debconfclient *client,
                                   struct in_addr ipaddress,
-                                  const char *gateway);
+                                  const char *gateway,
+                                  struct in_addr pointopoint,
+                                  struct in_addr netmask);
 
 extern void netcfg_write_loopback (void);
 extern void netcfg_write_common (struct in_addr ipaddress, char *hostname,
