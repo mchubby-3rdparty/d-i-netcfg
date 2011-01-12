@@ -59,8 +59,6 @@
 #define LO_IF	"lo"
 #endif
 
-const struct in_addr NULL_IPADDRESS = { 0 };
-
 /* network config */
 char *interface = NULL;
 char *hostname = NULL;
@@ -73,19 +71,19 @@ int skfd = 0;
 int wfd = 0;
 #endif
 
-/* convert a netmask (255.255.255.0) into the length (24) */
-int inet_ptom (const char *src, int *dst, struct in_addr *addrp)
+/* convert a netmask string (255.255.255.0) in +src+ into the length (24) in
+ * +dst+.  Return 0 if some sort of failure, or 1 on success.
+ */
+int inet_ptom (const char *src, int *dst)
 {
     struct in_addr newaddr, *addr;
     in_addr_t mask, num;
 
-    if (src && !addrp) {
+    if (!empty_str(src)) {
         if (inet_pton (AF_INET, src, &newaddr) < 0)
             return 0;
         addr = &newaddr;
     }
-    else
-        addr = addrp;
 
     mask = ntohl(addr->s_addr);
 
@@ -105,8 +103,14 @@ int inet_ptom (const char *src, int *dst, struct in_addr *addrp)
     return 1;
 }
 
-/* convert a length (24) into the netmask (255.255.255.0) */
-const char *inet_mtop (int src, char *dst, socklen_t cnt)
+/* convert a length (24) in +src+ into the string netmask (255.255.255.0) in
+ * +dst+.  The length of +dst+ is given in +len+, to ensure we don't
+ * overrun the buffer +dst+.  +dst+ should always be at least INET_ADDRSTRLEN
+ * bytes long.
+ *
+ * Returns the address of +dst+ on success, and NULL on failure.
+ */
+const char *inet_mtop (int src, char *dst, socklen_t len)
 {
     struct in_addr addr;
     in_addr_t mask = 0;
@@ -116,7 +120,7 @@ const char *inet_mtop (int src, char *dst, socklen_t cnt)
 
     addr.s_addr = htonl(mask);
 
-    return inet_ntop (AF_INET, &addr, dst, cnt);
+    return inet_ntop (AF_INET, &addr, dst, len);
 }
 
 void open_sockets (void)
@@ -1085,7 +1089,7 @@ void netcfg_write_loopback (void)
  * interface may be null
  * hostname may _not_ be null
  */
-void netcfg_write_common(struct in_addr ipaddress, char *hostname, char *domain)
+void netcfg_write_common(const char *ipaddress, const char *hostname, const char *domain)
 {
     FILE *fp;
     char *domain_nodot = NULL;
@@ -1122,16 +1126,13 @@ void netcfg_write_common(struct in_addr ipaddress, char *hostname, char *domain)
     }
 
     if ((fp = file_open(HOSTS_FILE, "w"))) {
-        char ptr1[INET_ADDRSTRLEN];
-
         fprintf(fp, "127.0.0.1\tlocalhost");
 
-        if (ipaddress.s_addr) {
-            inet_ntop (AF_INET, &ipaddress, ptr1, sizeof(ptr1));
+        if (!empty_str(ipaddress)) {
             if (domain_nodot && !empty_str(domain_nodot))
-                fprintf(fp, "\n%s\t%s.%s\t%s\n", ptr1, hostname, domain_nodot, hostname);
+                fprintf(fp, "\n%s\t%s.%s\t%s\n", ipaddress, hostname, domain_nodot, hostname);
             else
-                fprintf(fp, "\n%s\t%s\n", ptr1, hostname);
+                fprintf(fp, "\n%s\t%s\n", ipaddress, hostname);
         } else {
 #if defined(__linux__) || defined(__GNU__)
             if (domain_nodot && !empty_str(domain_nodot))
@@ -1179,12 +1180,13 @@ void loop_setup(void)
 #endif
 }
 
-void seed_hostname_from_dns (struct debconfclient * client, struct in_addr *ipaddr)
+void seed_hostname_from_dns (struct debconfclient * client, const char *ipaddr)
 {
     struct sockaddr_in sin;
     char *host;
     int err;
-
+    struct in_addr inaddr;
+    
     host = malloc(NI_MAXHOST);
     if (!host)
         netcfg_die(client);
@@ -1192,7 +1194,8 @@ void seed_hostname_from_dns (struct debconfclient * client, struct in_addr *ipad
     /* copy IP address into required format */
     sin.sin_family = AF_INET;
     sin.sin_port = 0;
-    memcpy(&sin.sin_addr, ipaddr, sizeof(*ipaddr));
+    inet_pton(AF_INET, ipaddr, &inaddr);
+    memcpy(&sin.sin_addr, &inaddr, sizeof(inaddr));
 
     /* attempt resolution */
     err = getnameinfo((struct sockaddr *) &sin, sizeof(sin),
@@ -1252,7 +1255,7 @@ void parse_args (int argc, char ** argv)
     if (argc == 2) {
         if (!strcmp(basename(argv[0]), "ptom")) {
             int ret;
-            if (inet_ptom(argv[1], &ret, NULL) > 0) {
+            if (inet_ptom(argv[1], &ret) > 0) {
                 printf("%d\n", ret);
                 exit(EXIT_SUCCESS);
             }

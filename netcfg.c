@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
 
         netcfg_get_hostname(client, "netcfg/get_hostname", &hostname, 0);
 
-        netcfg_write_common(NULL_IPADDRESS, hostname, NULL);
+        netcfg_write_common("", hostname, NULL);
         return 0;
     }
 
@@ -214,7 +214,7 @@ int main(int argc, char *argv[])
             if(netcfg_get_hostname(client, "netcfg/get_hostname", &hostname, 0))
                 state = BACKUP;
             else {
-                netcfg_write_common(NULL_IPADDRESS, hostname, NULL);
+                netcfg_write_common("", hostname, NULL);
                 state = QUIT;
             }
             break;
