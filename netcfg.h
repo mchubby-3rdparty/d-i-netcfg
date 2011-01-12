@@ -73,8 +73,6 @@ extern char *hostname;
 extern char *dhcp_hostname;
 extern char *domain;
 
-extern const struct in_addr NULL_IPADDRESS;
-
 /* wireless */
 extern char *essid, *wepkey, *passphrase;
 extern wifimode_t mode;
@@ -115,14 +113,13 @@ extern int read_resolv_conf_nameservers (char nameservers[][INET_ADDRSTRLEN], un
 
 extern int ask_dhcp_options (struct debconfclient *client);
 extern int netcfg_activate_static(struct debconfclient *client,
-                                  struct in_addr ipaddress,
+                                  const char *ipaddress,
                                   const char *gateway,
-                                  struct in_addr pointopoint,
-                                  struct in_addr netmask);
+                                  const char *pointopoint,
+                                  const char *netmask);
 
 extern void netcfg_write_loopback (void);
-extern void netcfg_write_common (struct in_addr ipaddress, char *hostname,
-				 char *domain);
+extern void netcfg_write_common (const char *ipaddress, const char *hostname, const char *domain);
 
 void netcfg_nameservers_to_array(char *nameservers, char array[][INET_ADDRSTRLEN], unsigned int array_size);
 
@@ -143,10 +140,10 @@ extern void interface_up (char*);
 extern void interface_down (char*);
 
 extern void loop_setup(void);
-extern void seed_hostname_from_dns(struct debconfclient *client, struct in_addr * ipaddress);
+extern void seed_hostname_from_dns(struct debconfclient *client, const char *ipaddress);
 
-extern int inet_ptom (const char *src, int *dst, struct in_addr * addrp);
-extern const char *inet_mtop (int src, char *dst, socklen_t cnt);
+extern int inet_ptom (const char *src, int *dst);
+extern const char *inet_mtop (int src, char *dst, socklen_t dst_len);
 
 extern void parse_args (int argc, char** argv);
 extern void open_sockets (void);
