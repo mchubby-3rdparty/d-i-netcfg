@@ -74,18 +74,17 @@ int wfd = 0;
 /* convert a netmask string (255.255.255.0) in +src+ into the length (24) in
  * +dst+.  Return 0 if some sort of failure, or 1 on success.
  */
-int inet_ptom (const char *src, int *dst)
+int inet_ptom (int af, const char *src, unsigned int *dst)
 {
-    struct in_addr newaddr, *addr;
+    struct in_addr addr;
     in_addr_t mask, num;
 
     if (!empty_str(src)) {
-        if (inet_pton (AF_INET, src, &newaddr) < 0)
+        if (inet_pton (af, src, &addr) < 0)
             return 0;
-        addr = &newaddr;
     }
 
-    mask = ntohl(addr->s_addr);
+    mask = ntohl(addr.s_addr);
 
     for (num = mask; num & 1; num >>= 1);
 
@@ -110,17 +109,29 @@ int inet_ptom (const char *src, int *dst)
  *
  * Returns the address of +dst+ on success, and NULL on failure.
  */
-const char *inet_mtop (int src, char *dst, socklen_t len)
+const char *inet_mtop (int af, unsigned int src, char *dst, socklen_t len)
 {
     struct in_addr addr;
+    
+    inet_mton(AF_INET, src, &addr);
+    
+    return inet_ntop (af, &addr, dst, len);
+}
+
+/* convert a mask length (eg 24) in +src+ into the struct in_addr it corresponds
+ * to.
+ */
+void inet_mton (int af, unsigned int src, struct in_addr *dst)
+{
     in_addr_t mask = 0;
+
+    /* Empty use of af, to avoid 'unused parameter' warnings. */
+    (void)af;
 
     for(; src; src--)
         mask |= 1 << (32 - src);
 
-    addr.s_addr = htonl(mask);
-
-    return inet_ntop (AF_INET, &addr, dst, len);
+    dst->s_addr = htonl(mask);
 }
 
 void open_sockets (void)
@@ -136,7 +147,7 @@ void open_sockets (void)
 /* Returns non-zero if this interface has an enabled kill switch, otherwise
  * zero.
  */
-int check_kill_switch(const char *iface)
+int check_kill_switch(const char *if_name)
 {
     char *temp, *linkbuf;
     const char *killname;
@@ -147,10 +158,10 @@ int check_kill_switch(const char *iface)
     int ret = 0;
 
     /* longest string we need */
-    len = strlen(SYSCLASSNET) + strlen(iface) + strlen("/device/rf_kill") + 1;
+    len = strlen(SYSCLASSNET) + strlen(if_name) + strlen("/device/rf_kill") + 1;
 
     temp = malloc(len);
-    snprintf(temp, len, SYSCLASSNET "%s/driver", iface);
+    snprintf(temp, len, SYSCLASSNET "%s/driver", if_name);
     linkbuf = malloc(1024); /* probably OK ... I hate readlink() */
     linklen = readlink(temp, linkbuf, 1024);
     if (linklen < 0)
@@ -163,7 +174,7 @@ int check_kill_switch(const char *iface)
     else
         goto out;
 
-    snprintf(temp, len, SYSCLASSNET "%s/device/%s", iface, killname);
+    snprintf(temp, len, SYSCLASSNET "%s/device/%s", if_name, killname);
     di_info("Checking RF kill switch: %s", temp);
     fd = open(temp, O_RDONLY);
     if (fd == -1)
@@ -193,8 +204,9 @@ int check_kill_switch(const char *iface)
 }
 
 #else /* !__linux__ */
-int check_kill_switch(const char *iface)
+int check_kill_switch(const char *if_name)
 {
+    (void)if_name;
     return 0;
 }
 #endif /* __linux__ */
@@ -422,11 +434,11 @@ int get_all_ifs (int all, char*** ptr)
 #endif
 
 #ifdef __linux__
-short find_in_stab(const char* iface)
+short find_in_stab(const char *if_name)
 {
     FILE *dn = NULL;
     char buf[128];
-    size_t len = strlen(iface);
+    size_t len = strlen(if_name);
 
     if (access(STAB, F_OK) == -1)
         return 0;
@@ -435,7 +447,7 @@ short find_in_stab(const char* iface)
         return 0;
 
     while (fgets (buf, 128, dn) != NULL) {
-        if (!strncmp(buf, iface, len)) {
+        if (!strncmp(buf, if_name, len)) {
             pclose(dn);
             return 1;
         }
@@ -445,8 +457,9 @@ short find_in_stab(const char* iface)
 }
 #else /* !__linux__ */
 /* Stub function for platforms not supporting /var/run/stab. */
-short find_in_stab(const char* iface)
+short find_in_stab(const char *if_name)
 {
+    (void)if_name;
     return 0;
 }
 #endif /* __linux__ */
@@ -485,14 +498,14 @@ char *find_in_devnames(const char* iface)
     return result;
 }
 
-char *get_ifdsc(struct debconfclient *client, const char *ifp)
+char *get_ifdsc(struct debconfclient *client, const char *if_name)
 {
     char template[256], *ptr = NULL;
 
-    if ((ptr = find_in_devnames(ifp)) != NULL) {
+    if ((ptr = find_in_devnames(if_name)) != NULL) {
         debconf_metaget(client, "netcfg/internal-wireless", "description");
 
-        if (is_wireless_iface(ifp)) {
+        if (is_wireless_iface(if_name)) {
             size_t len = strlen(ptr) + strlen(client->value) + 4;
             ptr = realloc(ptr, len);
 
@@ -501,16 +514,16 @@ char *get_ifdsc(struct debconfclient *client, const char *ifp)
         return ptr; /* already strdup'd */
     }
 
-    if (strlen(ifp) < 100) {
-        if (!is_wireless_iface(ifp)) {
+    if (strlen(if_name) < 100) {
+        if (!is_wireless_iface(if_name)) {
             /* strip away the number from the interface (eth0 -> eth) */
-            char *new_ifp = strdup(ifp), *ptr = new_ifp;
+            char *ifp = strdup(if_name), *ptr = ifp;
             while ((*ptr < '0' || *ptr > '9') && *ptr != '\0')
                 ptr++;
             *ptr = '\0';
 
-            sprintf(template, "netcfg/internal-%s", new_ifp);
-            free(new_ifp);
+            sprintf(template, "netcfg/internal-%s", ifp);
+            free(ifp);
 
             if (debconf_metaget(client, template, "description") ==
                     CMD_SUCCESS && client->value != NULL) {
@@ -529,11 +542,11 @@ char *get_ifdsc(struct debconfclient *client, const char *ifp)
         return strdup("Unknown interface");
 }
 
-int iface_is_hotpluggable(const char *iface)
+int iface_is_hotpluggable(const char *if_name)
 {
     FILE* f = NULL;
     char buf[256];
-    size_t len = strlen(iface);
+    size_t len = strlen(if_name);
 
     if (!(f = fopen(DEVHOTPLUG, "r"))) {
         di_info("No hotpluggable devices are present in the system.");
@@ -541,8 +554,8 @@ int iface_is_hotpluggable(const char *iface)
     }
 
     while (fgets(buf, 256, f) != NULL) {
-        if (!strncmp(buf, iface, len)) {
-            di_info("Detected %s as a hotpluggable device", iface);
+        if (!strncmp(buf, if_name, len)) {
+            di_info("Detected %s as a hotpluggable device", if_name);
             fclose(f);
             return 1;
         }
@@ -550,7 +563,7 @@ int iface_is_hotpluggable(const char *iface)
 
     fclose(f);
 
-    di_info("Hotpluggable devices available, but %s is not one of them", iface);
+    di_info("Hotpluggable devices available, but %s is not one of them", if_name);
     return 0;
 }
 
@@ -739,10 +752,10 @@ void netcfg_die(struct debconfclient *client)
 
 /**
  * @brief Ask which interface to configure
- * @param client - client
- * @param interface      - set to the answer
- * @param numif - number of interfaces found.
- * @param defif - default interface from link detection.
+ * @param client    - client
+ * @param interface - set the +name+ field to the answer
+ * @param numif     - number of interfaces found.
+ * @param defif     - default interface from link detection.
  */
 
 int netcfg_get_interface(struct debconfclient *client, char **interface,
@@ -810,7 +823,7 @@ int netcfg_get_interface(struct debconfclient *client, char **interface,
 
     /* If no default was provided, use the first in the list of interfaces. */
     if (! defif && num_interfaces > 0) {
-        defif=ifs[0];
+        defif = ifs[0];
     }
 
     for (i = 0; i < num_interfaces; i++) {
@@ -1152,20 +1165,22 @@ void netcfg_write_common(const char *ipaddress, const char *hostname, const char
 }
 
 
-void deconfigure_network(void)
+void deconfigure_network(struct netcfg_interface *iface)
 {
     /* deconfiguring network interfaces */
     interface_down(LO_IF);
-    interface_down(interface);
+    if (iface)
+        interface_down(iface->name);
 }
 
 void loop_setup(void)
 {
     static int afpacket_notloaded = 1;
 
-    deconfigure_network();
+    deconfigure_network(NULL);
 
 #if defined(__FreeBSD_kernel__)
+    (void)afpacket_notloaded;
     /* GNU/kFreeBSD currently uses the ifconfig command */
     di_exec_shell_log("ifconfig "LO_IF" up");
     di_exec_shell_log("ifconfig "LO_IF" 127.0.0.1 netmask 255.0.0.0");
@@ -1217,35 +1232,35 @@ void seed_hostname_from_dns (struct debconfclient * client, const char *ipaddr)
     free(host);
 }
 
-void interface_up (char* iface)
+void interface_up (const char *if_name)
 {
     struct ifreq ifr;
 
-    strncpy(ifr.ifr_name, iface, IFNAMSIZ);
+    strncpy(ifr.ifr_name, if_name, IFNAMSIZ);
 
     if (skfd && ioctl(skfd, SIOCGIFFLAGS, &ifr) >= 0) {
-        di_info("Activating interface %s", iface);
-        strncpy(ifr.ifr_name, iface, IFNAMSIZ);
+        di_info("Activating interface %s", if_name);
+        strncpy(ifr.ifr_name, if_name, IFNAMSIZ);
         ifr.ifr_flags |= (IFF_UP | IFF_RUNNING);
         ioctl(skfd, SIOCSIFFLAGS, &ifr);
     } else {
-        di_info("Getting flags for interface %s failed, not activating interface.", iface);
+        di_info("Getting flags for interface %s failed, not activating interface.", if_name);
     }
 }
 
-void interface_down (char* iface)
+void interface_down (const char *if_name)
 {
     struct ifreq ifr;
 
-    strncpy(ifr.ifr_name, iface, IFNAMSIZ);
+    strncpy(ifr.ifr_name, if_name, IFNAMSIZ);
 
     if (skfd && ioctl(skfd, SIOCGIFFLAGS, &ifr) >= 0) {
-        di_info("Taking down interface %s", iface);
-        strncpy(ifr.ifr_name, iface, IFNAMSIZ);
+        di_info("Taking down interface %s", if_name);
+        strncpy(ifr.ifr_name, if_name, IFNAMSIZ);
         ifr.ifr_flags &= ~IFF_UP;
         ioctl(skfd, SIOCSIFFLAGS, &ifr);
     } else {
-        di_info("Getting flags for interface %s failed, not taking down interface.", iface);
+        di_info("Getting flags for interface %s failed, not taking down interface.", if_name);
     }
 }
 
@@ -1253,8 +1268,8 @@ void parse_args (int argc, char ** argv)
 {
     if (argc == 2) {
         if (!strcmp(basename(argv[0]), "ptom")) {
-            int ret;
-            if (inet_ptom(argv[1], &ret) > 0) {
+            unsigned int ret;
+            if (inet_ptom(AF_INET, argv[1], &ret) > 0) {
                 printf("%d\n", ret);
                 exit(EXIT_SUCCESS);
             }
@@ -1366,12 +1381,14 @@ void netcfg_update_entropy (void)
  * progress bar so the user knows what's going on.  Return true if we got
  * link, and false otherwise.
  */
-int netcfg_detect_link(struct debconfclient *client, const char *if_name, const char *gateway)
+int netcfg_detect_link(struct debconfclient *client, const struct netcfg_interface *interface)
 {
     char arping[256];
     int count, rv = 0;
     int link_waits;
     int gw_tries = NETCFG_GATEWAY_REACHABILITY_TRIES;
+    const char *if_name = interface->name;
+    const char *gateway = interface->gateway;
 
     if (!empty_str(gateway))
         sprintf(arping, "arping -c 1 -w 1 -f -I %s %s", if_name, gateway);
@@ -1448,4 +1465,14 @@ int netcfg_detect_link(struct debconfclient *client, const char *if_name, const 
     debconf_capb(client, "backup");
 
     return rv;
+}
+
+void netcfg_interface_init(struct netcfg_interface *iface)
+{
+    iface->name = NULL;
+    iface->dhcp = -1;
+    iface->ipaddress[0] = '\0';
+    iface->gateway[0] = '\0';
+    iface->pointopoint[0] = '\0';
+    iface->masklen = 0;
 }

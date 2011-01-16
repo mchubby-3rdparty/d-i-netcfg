@@ -81,9 +81,11 @@ int main(int argc, char *argv[])
     char **ifaces;
     char *defiface = NULL, *defwireless = NULL;
     response_t res;
+    struct netcfg_interface interface;
 
     /* initialize libd-i */
     di_system_init("netcfg");
+    netcfg_interface_init(&interface);
 
     if (strcmp(basename(argv[0]), "ptom") != 0)
         di_info("Starting netcfg v.%s (built %s)", NETCFG_VERSION, NETCFG_BUILD_DATE);
@@ -131,6 +133,8 @@ int main(int argc, char *argv[])
             /* Choose a default by looking for link */
             if (get_all_ifs(1, &ifaces) > 1) {
                 while (*ifaces) {
+                    struct netcfg_interface link_interface;
+
                     if (check_kill_switch(*ifaces)) {
                         debconf_subst(client, "netcfg/kill_switch_enabled", "iface", *ifaces);
                         debconf_input(client, "high", "netcfg/kill_switch_enabled");
@@ -147,10 +151,13 @@ int main(int argc, char *argv[])
 
                     interface_up(*ifaces);
 
-                    if (netcfg_detect_link (client, *ifaces, NULL) == 1) {
+                    netcfg_interface_init(&link_interface);
+                    link_interface.name = strdup(*ifaces);
+                    if (netcfg_detect_link (client, &link_interface) == 1) /* CONNECTED */ {
                         /* CONNECTED */
                         di_info("found link on interface %s, making it the default.", *ifaces);
                         defiface = strdup(*ifaces);
+                        free(link_interface.name);
                         break;
                     } else {
 #ifdef WIRELESS
@@ -187,6 +194,7 @@ int main(int argc, char *argv[])
 #endif
                     }
 
+                    free(link_interface.name);
                     interface_down(*ifaces);
 
                     ifaces++;
@@ -199,12 +207,12 @@ int main(int argc, char *argv[])
             if (!defiface && defwireless)
                 defiface = defwireless;
 
-            if(netcfg_get_interface(client, &interface, &num_interfaces, defiface))
+            if(netcfg_get_interface(client, &(interface.name), &num_interfaces, defiface))
                 state = BACKUP;
-            else if (! interface || ! num_interfaces)
+            else if (! interface.name || ! num_interfaces)
                 state = GET_HOSTNAME_ONLY;
             else {
-                if (is_wireless_iface (interface))
+                if (is_wireless_iface (interface.name))
                     state = WCONFIG;
                 else
                     state = GET_METHOD;
@@ -230,7 +238,7 @@ int main(int argc, char *argv[])
             break;
 
         case GET_DHCP:
-            switch (netcfg_activate_dhcp(client)) {
+            switch (netcfg_activate_dhcp(client, &interface)) {
             case 0:
                 state = QUIT;
                 break;
@@ -254,7 +262,7 @@ int main(int argc, char *argv[])
             {
                 int ret;
                 /* Misnomer - this should actually take care of activation */
-                if ((ret = netcfg_get_static(client)) == RETURN_TO_MAIN)
+                if ((ret = netcfg_get_static(client, &interface)) == RETURN_TO_MAIN)
                     state = GET_INTERFACE;
                 else if (ret)
                     state = GET_METHOD;
@@ -272,7 +280,7 @@ int main(int argc, char *argv[])
             break;
 
         case WCONFIG_ESSID:
-            if (netcfg_wireless_set_essid(client, interface) == GO_BACK)
+            if (netcfg_wireless_set_essid(client, interface.name) == GO_BACK)
                 state = BACKUP;
             else {
                 init_wpa_supplicant_support();
@@ -286,7 +294,7 @@ int main(int argc, char *argv[])
         case WCONFIG_SECURITY_TYPE:
             {
                 int ret;
-                ret = wireless_security_type(client, interface);
+                ret = wireless_security_type(client, interface.name);
                 if (ret == GO_BACK)
                     state = WCONFIG_ESSID;
                 else if (ret == REPLY_WPA)
@@ -297,7 +305,7 @@ int main(int argc, char *argv[])
             }
 
         case WCONFIG_WEP:
-            if (netcfg_wireless_set_wep(client, interface) == GO_BACK)
+            if (netcfg_wireless_set_wep(client, interface.name) == GO_BACK) 
                 if (wpa_supplicant_status == WPA_UNAVAIL)
                     state = WCONFIG_ESSID;
                 else
@@ -312,14 +320,14 @@ int main(int argc, char *argv[])
                 wpa_supplicant_status = WPA_QUEUED;
             }
 
-            if (netcfg_set_passphrase(client, interface) == GO_BACK)
+            if (netcfg_set_passphrase(client, interface.name) == GO_BACK)
                 state = WCONFIG_SECURITY_TYPE;
             else
                 state = START_WPA;
             break;
 
         case START_WPA:
-            if (wpa_supplicant_start(client, interface, essid, passphrase) == GO_BACK)
+            if (wpa_supplicant_start(client, interface.name, essid, passphrase) == GO_BACK)
                 state = WCONFIG_ESSID;
             else
                 state = GET_METHOD;

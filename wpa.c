@@ -62,7 +62,7 @@ int kill_wpa_supplicant(void)
       }
 }
 
-int wireless_security_type (struct debconfclient *client, char *if_name)
+int wireless_security_type (struct debconfclient *client, const char *if_name)
 {
     debconf_subst(client, "netcfg/wireless_security_type", "iface", if_name);
     debconf_input(client, "high", "netcfg/wireless_security_type");
@@ -79,7 +79,7 @@ int wireless_security_type (struct debconfclient *client, char *if_name)
 
 }
 
-int netcfg_set_passphrase (struct debconfclient *client, char *if_name)
+int netcfg_set_passphrase (struct debconfclient *client, const char *if_name)
 {
     debconf_subst(client, "netcfg/wireless_wpa", "iface", if_name);
     debconf_input(client, "high", "netcfg/wireless_wpa");
@@ -111,13 +111,13 @@ int netcfg_set_passphrase (struct debconfclient *client, char *if_name)
     return 0;
 }
 
-static int start_wpa_daemon(struct debconfclient *client)
+static int start_wpa_daemon(struct debconfclient *client, const char *if_name)
 {
     wpa_supplicant_pid = fork();
 
     if (wpa_supplicant_pid == 0) {
         fclose(client->out);
-        if (execlp("wpa_supplicant", "wpa_supplicant", "-i", interface, "-C",
+        if (execlp("wpa_supplicant", "wpa_supplicant", "-i", if_name, "-C",
                    WPASUPP_CTRL, "-P", WPAPID, "-B", NULL) == -1) {
             di_error("could not exec wpasupplicant: %s", strerror(errno));
             return 1;
@@ -140,7 +140,7 @@ void wpa_daemon_running(void)
     }
 }
 
-static int wpa_connect(char *if_name)
+static int wpa_connect(const char *if_name)
 {
     char *cfile;
     int flen, res;
@@ -299,7 +299,7 @@ int poll_wpa_supplicant(struct debconfclient *client)
 
 }
 
-int wpa_supplicant_start(struct debconfclient *client, char *if_name, char *ssid, char *passphrase)
+int wpa_supplicant_start(struct debconfclient *client, const char *if_name, char *ssid, char *passphrase)
 {
     int retry = 0;
 
@@ -328,7 +328,7 @@ int wpa_supplicant_start(struct debconfclient *client, char *if_name, char *ssid
             break;
 
         case START_DAEMON:
-            if (!start_wpa_daemon(client))
+            if (!start_wpa_daemon(client, if_name))
                 state = CONNECT;
             else
                 state = ABORT;
@@ -437,7 +437,7 @@ int kill_wpa_supplicant(void)
     return 0;
 }
 
-int wireless_security_type(struct debconfclient *client, char *if_name)
+int wireless_security_type(struct debconfclient *client, const char *if_name)
 {
     (void)client;
     (void)if_name;
@@ -445,7 +445,7 @@ int wireless_security_type(struct debconfclient *client, char *if_name)
     return 0;
 }
 
-int netcfg_set_passphrase(struct debconfclient *client, char *if_name)
+int netcfg_set_passphrase(struct debconfclient *client, const char *if_name)
 {
     (void)client;
     (void)if_name;
@@ -453,7 +453,7 @@ int netcfg_set_passphrase(struct debconfclient *client, char *if_name)
     return 0;
 }
 
-int wpa_supplicant_start(struct debconfclient *client, char *if_name, char *ssid, char *passphrase)
+int wpa_supplicant_start(struct debconfclient *client, const char *if_name, char *ssid, char *passphrase)
 {
     (void)client;
     (void)if_name;

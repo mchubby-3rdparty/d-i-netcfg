@@ -32,6 +32,7 @@ int main(int argc, char** argv)
     int num_interfaces = 0;
     static struct debconfclient *client;
     static int requested_wireless_tools = 0;
+    struct netcfg_interface interface;
 
     enum { BACKUP, GET_INTERFACE, GET_HOSTNAME_ONLY, GET_STATIC, WCONFIG, WCONFIG_ESSID, WCONFIG_WEP, QUIT} state = GET_INTERFACE;
 
@@ -53,12 +54,12 @@ int main(int argc, char** argv)
         case BACKUP:
             return RETURN_TO_MAIN;
         case GET_INTERFACE:
-            if (netcfg_get_interface(client, &interface, &num_interfaces, NULL))
+            if (netcfg_get_interface(client, &(interface.name), &num_interfaces, NULL))
                 state = BACKUP;
-            else if (! interface || ! num_interfaces)
+            else if (! interface.name || ! num_interfaces)
                 state = GET_HOSTNAME_ONLY;
             else {
-                if (is_wireless_iface(interface))
+                if (is_wireless_iface(interface.name))
                     state = WCONFIG;
                 else
                     state = GET_STATIC;
@@ -73,7 +74,7 @@ int main(int argc, char** argv)
             }
             break;
         case GET_STATIC:
-            if (netcfg_get_static(client))
+            if (netcfg_get_static(client, &interface))
                 state = (num_interfaces == 1) ? BACKUP : GET_INTERFACE;
             else
                 state = QUIT;
@@ -88,14 +89,14 @@ int main(int argc, char** argv)
             break;
 
         case WCONFIG_ESSID:
-            if (netcfg_wireless_set_essid (client, interface))
+            if (netcfg_wireless_set_essid (client, interface.name))
                 state = BACKUP;
             else
                 state = WCONFIG_WEP;
             break;
 
         case WCONFIG_WEP:
-            if (netcfg_wireless_set_wep (client, interface))
+            if (netcfg_wireless_set_wep (client, interface.name))
                 state = WCONFIG_ESSID;
             else
                 state = GET_STATIC;
