@@ -149,7 +149,7 @@ extern void seed_hostname_from_dns(struct debconfclient *client, const char *ipa
 
 extern int inet_ptom (int af, const char *src, unsigned int *dst);
 extern const char *inet_mtop (int af, unsigned int src, char *dst, socklen_t dst_len);
-extern void inet_mton (int af, unsigned int src, struct in_addr *dst);
+extern void inet_mton (int af, unsigned int src, void *dst);
 
 extern void parse_args (int argc, char** argv);
 extern void open_sockets (void);
