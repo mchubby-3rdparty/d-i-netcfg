@@ -51,7 +51,7 @@ static pid_t dhcp_pid = -1;
 /*
  * Add DHCP-related lines to /etc/network/interfaces
  */
-static void netcfg_write_dhcp (char *iface, char *dhostname)
+static void netcfg_write_dhcp (const char *iface, const char *dhostname)
 {
     FILE *fp;
 
@@ -156,7 +156,7 @@ static void dhcp_client_sigchld(int sig __attribute__ ((unused)))
  *
  * The client's PID is stored in dhcp_pid.
  */
-int start_dhcp_client (struct debconfclient *client, char* dhostname)
+int start_dhcp_client (struct debconfclient *client, char* dhostname, const char *if_name)
 {
     FILE *dc = NULL;
     const char **ptr;
@@ -190,9 +190,9 @@ int start_dhcp_client (struct debconfclient *client, char* dhostname)
         switch (dhcp_client) {
         case PUMP:
             if (dhostname)
-                execlp("pump", "pump", "-i", interface, "-h", dhostname, NULL);
+                execlp("pump", "pump", "-i", if_name, "-h", dhostname, NULL);
             else
-                execlp("pump", "pump", "-i", interface, NULL);
+                execlp("pump", "pump", "-i", if_name, NULL);
 
             break;
 
@@ -220,7 +220,7 @@ int start_dhcp_client (struct debconfclient *client, char* dhostname)
                 fclose(dc);
             }
 
-            execlp("dhclient", "dhclient", "-1", interface, "-cf", DHCLIENT_CONF, NULL);
+            execlp("dhclient", "dhclient", "-1", if_name, "-cf", DHCLIENT_CONF, NULL);
             break;
 
         case UDHCPC:
@@ -239,7 +239,7 @@ int start_dhcp_client (struct debconfclient *client, char* dhostname)
             options_count = 0;
             arguments[options_count++] = "udhcpc";
             arguments[options_count++] = "-i";
-            arguments[options_count++] = interface;
+            arguments[options_count++] = (char *)if_name;
             arguments[options_count++] = "-V";
             arguments[options_count++] = "d-i";
             arguments[options_count++] = "-T";
@@ -355,11 +355,11 @@ int poll_dhcp_client (struct debconfclient *client)
 #define REPLY_CHECK_DHCP             6
 #define REPLY_ASK_OPTIONS            7
 
-int ask_dhcp_options (struct debconfclient *client)
+int ask_dhcp_options (struct debconfclient *client, const char *if_name)
 {
     int ret;
 
-    if (is_wireless_iface(interface)) {
+    if (is_wireless_iface(if_name)) {
         debconf_metaget(client, "netcfg/internal-wifireconf", "description");
         debconf_subst(client, "netcfg/dhcp_options", "wifireconf", client->value);
     }
@@ -393,7 +393,7 @@ int ask_dhcp_options (struct debconfclient *client)
         return REPLY_DONT_CONFIGURE;
 }
 
-int ask_wifi_configuration (struct debconfclient *client)
+int ask_wifi_configuration (struct debconfclient *client, const char *if_name)
 {
     enum { ABORT, ESSID, SECURITY_TYPE, WEP, WPA, START, DONE } wifistate = ESSID;
 
@@ -405,17 +405,17 @@ int ask_wifi_configuration (struct debconfclient *client)
         switch (wifistate) {
         case ESSID:
             if (wpa_supplicant_status == WPA_UNAVAIL)
-                wifistate = (netcfg_wireless_set_essid(client, interface, "high") == GO_BACK) ?
+                wifistate = (netcfg_wireless_set_essid(client, if_name, "high") == GO_BACK) ?
                     ABORT : WEP;
             else
-                wifistate = (netcfg_wireless_set_essid(client, interface, "high") == GO_BACK) ?
+                wifistate = (netcfg_wireless_set_essid(client, if_name, "high") == GO_BACK) ?
                     ABORT : SECURITY_TYPE;
             break;
         
         case SECURITY_TYPE:
             {
                 int ret;
-                ret = wireless_security_type(client, interface);
+                ret = wireless_security_type(client, if_name);
                 if (ret == GO_BACK)
                     wifistate = ESSID;
                 else if (ret == REPLY_WPA)
@@ -427,20 +427,20 @@ int ask_wifi_configuration (struct debconfclient *client)
         
         case WEP:
             if (wpa_supplicant_status == WPA_UNAVAIL)
-                wifistate = (netcfg_wireless_set_wep(client, interface) == GO_BACK) ?
+                wifistate = (netcfg_wireless_set_wep(client, if_name) == GO_BACK) ?
                     ESSID : DONE;
             else
-                wifistate = (netcfg_wireless_set_wep(client, interface) == GO_BACK) ?
+                wifistate = (netcfg_wireless_set_wep(client, if_name) == GO_BACK) ?
                     SECURITY_TYPE : DONE;
             break;
         
         case WPA:
-            wifistate = (netcfg_set_passphrase(client, interface) == GO_BACK) ?
+            wifistate = (netcfg_set_passphrase(client, if_name) == GO_BACK) ?
                 SECURITY_TYPE : START;
             break;
         
         case START:
-            wifistate = (wpa_supplicant_start(client, interface, essid, passphrase) == GO_BACK) ?
+            wifistate = (wpa_supplicant_start(client, if_name, essid, passphrase) == GO_BACK) ?
                 ESSID : DONE;
             break;
             
@@ -456,11 +456,12 @@ int ask_wifi_configuration (struct debconfclient *client)
 }
 
 
-int netcfg_activate_dhcp (struct debconfclient *client)
+int netcfg_activate_dhcp (struct debconfclient *client, const struct netcfg_interface *interface)
 {
     char* dhostname = NULL;
     enum { START, POLL, ASK_OPTIONS, DHCP_HOSTNAME, HOSTNAME, DOMAIN, HOSTNAME_SANS_NETWORK } state = START;
     char nameserver_array[4][INET_ADDRSTRLEN];
+    char *if_name = interface->name;
 
     kill_dhcp_client();
     loop_setup();
@@ -468,7 +469,7 @@ int netcfg_activate_dhcp (struct debconfclient *client)
     for (;;) {
         switch (state) {
         case START:
-            if (start_dhcp_client(client, dhostname))
+            if (start_dhcp_client(client, dhostname, if_name))
                 netcfg_die(client); /* change later */
             else
                 state = POLL;
@@ -564,7 +565,7 @@ int netcfg_activate_dhcp (struct debconfclient *client)
                     char ptr1[INET_ADDRSTRLEN];
 
                     ifr.ifr_addr.sa_family = AF_INET;
-                    strncpy(ifr.ifr_name, interface, IFNAMSIZ);
+                    strncpy(ifr.ifr_name, if_name, IFNAMSIZ);
                     if (ioctl(skfd, SIOCGIFADDR, &ifr) == 0) {
                         d_ipaddr = ((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr;
                         inet_ntop(AF_INET, &d_ipaddr, ptr1, INET_ADDRSTRLEN);
@@ -602,7 +603,7 @@ int netcfg_activate_dhcp (struct debconfclient *client)
 
         case ASK_OPTIONS:
             /* DHCP client may still be running */
-            switch (ask_dhcp_options (client)) {
+            switch (ask_dhcp_options (client, if_name)) {
             case GO_BACK:
                 kill_dhcp_client();
                 return 10;
@@ -627,7 +628,7 @@ int netcfg_activate_dhcp (struct debconfclient *client)
                 }
                 break;
             case REPLY_RECONFIGURE_WIFI:
-                if (ask_wifi_configuration(client) == REPLY_CHECK_DHCP) {
+                if (ask_wifi_configuration(client, if_name) == REPLY_CHECK_DHCP) {
                     kill_dhcp_client();
                     state = START;
                 }
@@ -670,7 +671,7 @@ int netcfg_activate_dhcp (struct debconfclient *client)
                 state = HOSTNAME;
             else {
                 netcfg_write_common("", hostname, domain);
-                netcfg_write_dhcp(interface, dhostname);
+                netcfg_write_dhcp(if_name, dhostname);
                 /* If the resolv.conf was written by udhcpc, then nameserver_array
                  * will be empty and we'll need to populate it.  If we asked for
                  * the nameservers, then it'll be full, but nobody will care if we
@@ -733,6 +734,7 @@ int read_resolv_conf_nameservers(char array[][INET_ADDRSTRLEN], unsigned int arr
     unsigned int i = 0;
     struct in_addr addr;
     
+    di_debug("Reading nameservers from " RESOLV_FILE);
     if ((f = fopen(RESOLV_FILE, "r")) != NULL) {
         char buf[256];
 
@@ -750,7 +752,8 @@ int read_resolv_conf_nameservers(char array[][INET_ADDRSTRLEN], unsigned int arr
                  * it's guaranteed to fit in the string space provided.
                  */
                 inet_pton(AF_INET, ptr, &addr);
-                inet_ntop(AF_INET, &addr, array[i], INET_ADDRSTRLEN);
+                inet_ntop(AF_INET, &addr, array[i++], INET_ADDRSTRLEN);
+                di_debug("Read nameserver %s", array[i-1]);
                 if (i == array_size) {
                     /* We can only hold so many nameservers, and we've reached
                      * our limit.  Sorry.

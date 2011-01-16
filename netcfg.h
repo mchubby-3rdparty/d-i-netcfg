@@ -71,7 +71,6 @@ extern int input_result;
 extern int have_domain;
 
 /* network config */
-extern char *interface;
 extern char *hostname;
 extern char *dhcp_hostname;
 extern char *domain;
@@ -80,22 +79,34 @@ extern char *domain;
 extern char *essid, *wepkey, *passphrase;
 extern wifimode_t mode;
 
+/* The information required to configure a network interface. */
+struct netcfg_interface {
+	char *name;
+	/* -1 if unknown, 0 if no, 1 if yes */
+	int dhcp;
+	char ipaddress[INET_ADDRSTRLEN];
+	unsigned int masklen;
+	char gateway[INET_ADDRSTRLEN];
+	char pointopoint[INET_ADDRSTRLEN];
+};
+
+/* Set default values for all netcfg_interface parameters */
+extern void netcfg_interface_init(struct netcfg_interface *iface);
+
 /* common functions */
-extern int check_kill_switch (const char *iface);
+extern int check_kill_switch (const char *if_name);
 
-extern int is_interface_up (char *inter);
-
-extern void get_name (char *name, char *p);
+extern int is_interface_up (const char *if_name);
 
 extern int get_all_ifs (int all, char ***ptr);
 
-extern char *get_ifdsc (struct debconfclient *client, const char *ifp);
+extern char *get_ifdsc (struct debconfclient *client, const char *if_name);
 
 extern FILE *file_open (char *path, const char *opentype);
 
 extern void netcfg_die (struct debconfclient *client);
 
-extern int netcfg_get_interface(struct debconfclient *client, char **interface, int *num_interfaces, const char *defif);
+extern int netcfg_get_interface(struct debconfclient *client, char **if_name, int *num_interfaces, const char *defif);
 
 extern short valid_hostname (const char *hname);
 extern short valid_domain (const char *dname);
@@ -106,47 +117,44 @@ extern int netcfg_get_nameservers (struct debconfclient *client, char **nameserv
 
 extern int netcfg_get_domain(struct debconfclient *client,  char **domain);
 
-extern int netcfg_get_static(struct debconfclient *client);
+extern int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *interface);
 
-extern int netcfg_activate_dhcp(struct debconfclient *client);
+extern int netcfg_activate_dhcp(struct debconfclient *client, const struct netcfg_interface *interface);
 
 extern int resolv_conf_entries (void);
 
 extern int read_resolv_conf_nameservers (char nameservers[][INET_ADDRSTRLEN], unsigned int ns_size);
 
-extern int ask_dhcp_options (struct debconfclient *client);
-extern int netcfg_activate_static(struct debconfclient *client,
-                                  const char *ipaddress,
-                                  const char *gateway,
-                                  const char *pointopoint,
-                                  const char *netmask);
+extern int ask_dhcp_options (struct debconfclient *client, const char *if_name);
+extern int netcfg_activate_static(struct debconfclient *client, const struct netcfg_interface *iface);
 
 extern void netcfg_write_loopback (void);
 extern void netcfg_write_common (const char *ipaddress, const char *hostname, const char *domain);
 
 void netcfg_nameservers_to_array(char *nameservers, char array[][INET_ADDRSTRLEN], unsigned int array_size);
 
-extern int is_wireless_iface (const char* iface);
-extern int netcfg_wireless_set_essid (struct debconfclient *client, char* iface, char* priority);
-extern int netcfg_wireless_set_wep (struct debconfclient *client, char* iface);
-extern int wireless_security_type (struct debconfclient *client, char* iface);
-extern int netcfg_set_passphrase (struct debconfclient *client, char* iface);
+extern int is_wireless_iface (const char *if_name);
+extern int netcfg_wireless_set_essid (struct debconfclient *client, const char *if_name, char *priority);
+extern int netcfg_wireless_set_wep (struct debconfclient *client, const char *if_name);
+extern int wireless_security_type (struct debconfclient *client, const char *if_name);
+extern int netcfg_set_passphrase (struct debconfclient *client, const char *if_name);
 extern int init_wpa_supplicant_support (void);
 extern int kill_wpa_supplicant (void);
 
-extern int wpa_supplicant_start (struct debconfclient *client, char *iface, char *ssid, char *passphrase);
-extern int iface_is_hotpluggable(const char *iface);
-extern short find_in_stab (const char *iface);
-extern void deconfigure_network(void);
+extern int wpa_supplicant_start (struct debconfclient *client, const char *iface, char *ssid, char *passphrase);
+extern int iface_is_hotpluggable(const char *if_name);
+extern short find_in_stab (const char *if_name);
+extern void deconfigure_network(struct netcfg_interface *iface);
 
-extern void interface_up (char*);
-extern void interface_down (char*);
+extern void interface_up (const char *if_name);
+extern void interface_down (const char *if_name);
 
 extern void loop_setup(void);
 extern void seed_hostname_from_dns(struct debconfclient *client, const char *ipaddress);
 
-extern int inet_ptom (const char *src, int *dst);
-extern const char *inet_mtop (int src, char *dst, socklen_t dst_len);
+extern int inet_ptom (int af, const char *src, unsigned int *dst);
+extern const char *inet_mtop (int af, unsigned int src, char *dst, socklen_t dst_len);
+extern void inet_mton (int af, unsigned int src, struct in_addr *dst);
 
 extern void parse_args (int argc, char** argv);
 extern void open_sockets (void);
@@ -157,6 +165,6 @@ extern void netcfg_update_entropy (void);
 extern int netcfg_write_resolv (char*, char nameservers[][INET_ADDRSTRLEN], unsigned int nameservers_size);
 
 extern int ethtool_lite (const char *if_name);
-extern int netcfg_detect_link(struct debconfclient *client, const char *if_name, const char *gateway);
+extern int netcfg_detect_link(struct debconfclient *client, const struct netcfg_interface *interface);
 
 #endif /* _NETCFG_H_ */

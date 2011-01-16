@@ -28,7 +28,7 @@ int is_wireless_iface (const char* iface)
     return (iw_get_basic_config (wfd, (char*)iface, &wc) == 0);
 }
 
-int netcfg_wireless_set_essid (struct debconfclient * client, char *iface, char* priority)
+int netcfg_wireless_set_essid (struct debconfclient * client, const char *iface, char* priority)
 {
     int ret, couldnt_associate = 0;
     wireless_config wconf;
@@ -172,7 +172,7 @@ automatic:
     return 0;
 }
 
-static void unset_wep_key (char* iface)
+static void unset_wep_key (const char *iface)
 {
     wireless_config wconf;
 
@@ -186,7 +186,7 @@ static void unset_wep_key (char* iface)
     iw_set_basic_config (wfd, iface, &wconf);
 }
 
-int netcfg_wireless_set_wep (struct debconfclient * client, char* iface)
+int netcfg_wireless_set_wep (struct debconfclient * client, const char *iface)
 {
     wireless_config wconf;
     char* rv = NULL;
@@ -255,7 +255,7 @@ int is_wireless_iface (const char *iface)
     return 0;
 }
 
-int netcfg_wireless_set_essid (struct debconfclient *client, char *iface, char *priority)
+int netcfg_wireless_set_essid (struct debconfclient *client, const char *iface, char *priority)
 {
     (void) client;
     (void) iface;
@@ -263,7 +263,7 @@ int netcfg_wireless_set_essid (struct debconfclient *client, char *iface, char *
     return 0;
 }
 
-int netcfg_wireless_set_wep (struct debconfclient *client, char *iface)
+int netcfg_wireless_set_wep (struct debconfclient *client, const char *iface)
 {
     (void) client;
     (void) iface;
