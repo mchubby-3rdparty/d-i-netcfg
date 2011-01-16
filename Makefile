@@ -5,7 +5,7 @@ CC		= gcc
 TARGETS		?= netcfg-static netcfg
 
 LDOPTS		= -ldebconfclient -ldebian-installer
-CFLAGS		= -W -Wall -DNDEBUG -DNETCFG_VERSION="\"$(NETCFG_VERSION)\"" -DNETCFG_BUILD_DATE="\"$(NETCFG_BUILD_DATE)\""
+CFLAGS		= -W -Wall -DNDEBUG -DNETCFG_VERSION="\"$(NETCFG_VERSION)\"" -DNETCFG_BUILD_DATE="\"$(NETCFG_BUILD_DATE)\"" -I.
 COMMON_OBJS	= netcfg-common.o wireless.o
 
 WIRELESS	= 1
@@ -51,7 +51,9 @@ $(TARGETS): $(COMMON_OBJS)
 	$(CC) -c $(CFLAGS) $(DEFS) $(INCS) -o $@ $<
 
 clean:
-	rm -f $(TARGETS) ethtool-lite *.o
+	rm -f $(TARGETS) ethtool-lite *.o test/*.o test/run
+
+include test/tests.mk
 
 .PHONY: all clean
 

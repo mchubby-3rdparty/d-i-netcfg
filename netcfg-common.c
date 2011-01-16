@@ -121,17 +121,31 @@ const char *inet_mtop (int af, unsigned int src, char *dst, socklen_t len)
 /* convert a mask length (eg 24) in +src+ into the struct in_addr it corresponds
  * to.
  */
-void inet_mton (int af, unsigned int src, struct in_addr *dst)
+void inet_mton (int af, unsigned int src, void *dst)
 {
     in_addr_t mask = 0;
+    struct in_addr *addr;
+    struct in6_addr *addr6;
+    
+    if (af == AF_INET) {
+        addr = (struct in_addr *)dst;
+        for(; src; src--)
+            mask |= 1 << (32 - src);
 
-    /* Empty use of af, to avoid 'unused parameter' warnings. */
-    (void)af;
-
-    for(; src; src--)
-        mask |= 1 << (32 - src);
-
-    dst->s_addr = htonl(mask);
+        addr->s_addr = htonl(mask);
+    } else if (af == AF_INET6) {
+        unsigned int byte = 0;
+        addr6 = (struct in6_addr *)dst;
+        /* Clear out the address */
+        memset(addr6->s6_addr, 0, 16);
+        
+        while (src > 7) {
+            addr6->s6_addr[byte++] = 0xff;
+            src -= 8;
+        }
+        for (; src; src--)
+            addr6->s6_addr[byte] |= 1 << (8 - src);
+    }
 }
 
 void open_sockets (void)
