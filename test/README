@@ -29,6 +29,7 @@ then add a new 'tcase_add_test' line to the 'suite' function at the bottom
 of the file.
 
 To add tests for a function that doesn't already have tests, make a new
-file, create a new skeleton matching that of an existing test file, and then
-add a prototype for the suite function to srunner.h and an
-'srunner_add_suite' line in srunner.c.  Simple!
+file, create a new skeleton matching that of an existing test file, add an
+entry in the TESTS list in test/tests.mk, and then add a prototype for the
+suite function to srunner.h and an 'srunner_add_suite' line in srunner.c. 
+Simple!
