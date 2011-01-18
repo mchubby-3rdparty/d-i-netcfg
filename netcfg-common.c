@@ -1485,8 +1485,62 @@ void netcfg_interface_init(struct netcfg_interface *iface)
 {
     iface->name = NULL;
     iface->dhcp = -1;
+    iface->address_family = -1;  /* I hope nobody uses -1 for AF_INET */
     iface->ipaddress[0] = '\0';
     iface->gateway[0] = '\0';
     iface->pointopoint[0] = '\0';
     iface->masklen = 0;
+}
+
+/* Parse an IP address (v4 or v6), with optional CIDR netmask, into
+ * +interface+.  Return 1 if all went well, and return 0 if something
+ * went wrong (the "IP address" wasn't, for example).  In the event
+ * something went wrong, +interface+ is guaranteed to remain
+ * unchanged.
+ */
+int netcfg_parse_cidr_address(const char *address, struct netcfg_interface *interface)
+{
+    struct in_addr addr;
+    struct in6_addr addr6;
+    int ok;
+    char *maskptr, addrstr[NETCFG_ADDRSTRLEN];
+    int i;
+    
+    strncpy(addrstr, address, NETCFG_ADDRSTRLEN);
+    
+    if ((maskptr = strchr(addrstr, '/'))) {
+        /* Houston, we have a netmask; split it into bits */
+        *maskptr = '\0';
+        maskptr++;
+
+        /* Verify that the mask is OK */
+        for (i = 0; maskptr[i]; i++) {
+            if (!isdigit(maskptr[i])) {
+                /* That's not good; bomb out early */
+                return 0;
+            }
+        }
+    }
+
+    ok = inet_pton (AF_INET, addrstr, &addr);
+
+    if (ok) {
+        interface->address_family = AF_INET;
+        inet_ntop(AF_INET, &addr, interface->ipaddress, INET_ADDRSTRLEN);
+    } else {
+        /* Potential IPv6 address */
+        ok = inet_pton (AF_INET6, addrstr, &addr6);
+        if (ok) {
+            interface->address_family = AF_INET6;
+            inet_ntop(AF_INET6, &addr6, interface->ipaddress, INET6_ADDRSTRLEN);
+        }
+    }
+
+    if (ok && maskptr) {
+        interface->masklen = atoi(maskptr);
+    } else {
+        interface->masklen = 0;
+    }
+        
+    return ok;
 }
