@@ -1,5 +1,5 @@
 # List of test files
-TESTS = test/test_inet_mton.o
+TESTS = test/test_inet_mton.o test/test_netcfg_parse_cidr_address.o
 
 # List of other objects that we need to pull in to make the tests work
 OBJECTS = netcfg-common.o wireless.o
