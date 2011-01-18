@@ -79,12 +79,22 @@ extern char *domain;
 extern char *essid, *wepkey, *passphrase;
 extern wifimode_t mode;
 
+/* Determine which of INET_ADDRSTRLEN or INET6_ADDRSTRLEN is longer
+ * (yeah, take a wild guess who'll win *that* one) and make that
+ * the string length.  This makes sure that any string defined to
+ * be NETCFG_ADDRSTRLEN bytes long is guaranteed to be able to
+ * accomodate either an IPv4 or IPv6 address.
+ */
+#define NETCFG_ADDRSTRLEN ((INET_ADDRSTRLEN < INET6_ADDRSTRLEN) ? INET6_ADDRSTRLEN : INET_ADDRSTRLEN)
+
 /* The information required to configure a network interface. */
 struct netcfg_interface {
 	char *name;
 	/* -1 if unknown, 0 if no, 1 if yes */
 	int dhcp;
-	char ipaddress[INET_ADDRSTRLEN];
+	/* Address family of the address we're configuring; AF_INET or AF_INET6 */
+	int address_family;
+	char ipaddress[NETCFG_ADDRSTRLEN];
 	unsigned int masklen;
 	char gateway[INET_ADDRSTRLEN];
 	char pointopoint[INET_ADDRSTRLEN];
@@ -166,5 +176,7 @@ extern int netcfg_write_resolv (char*, char nameservers[][INET_ADDRSTRLEN], unsi
 
 extern int ethtool_lite (const char *if_name);
 extern int netcfg_detect_link(struct debconfclient *client, const struct netcfg_interface *interface);
+
+extern int netcfg_parse_cidr_address(const char *address, struct netcfg_interface *interface);
 
 #endif /* _NETCFG_H_ */
