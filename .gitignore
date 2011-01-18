@@ -5,3 +5,4 @@ ethtool-lite
 build-stamp
 a.out
 *.o
+test/run
