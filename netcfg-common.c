@@ -104,7 +104,7 @@ int inet_ptom (int af, const char *src, unsigned int *dst)
 
 /* convert a length (24) in +src+ into the string netmask (255.255.255.0) in
  * +dst+.  The length of +dst+ is given in +len+, to ensure we don't
- * overrun the buffer +dst+.  +dst+ should always be at least INET_ADDRSTRLEN
+ * overrun the buffer +dst+.  +dst+ should always be at least NETCFG_ADDRSTRLEN
  * bytes long.
  *
  * Returns the address of +dst+ on success, and NULL on failure.
@@ -1315,21 +1315,22 @@ void reap_old_files (void)
  * (which is the canonical way we store our nameservers internally).
  *
  * The array of strings in +array+ must be statically allocated by the caller
- * in the form array[N][INET_ADDRSTRLEN] -- you *must* use INET_ADDRSTRLEN to
- * ensure that the storage space you provide is large enough to hold the entire
- * IP address string.  +N+ is the maximum number of nameservers you wish to
- * store.
+ * in the form array[N][NETCFG_ADDRSTRLEN] -- you *must* use NETCFG_ADDRSTRLEN
+ * to ensure that the storage space you provide is large enough to hold the
+ * entire IPv4 or IPv6 address string.  +N+ is the maximum number of
+ * nameservers you wish to store.
  */
-void netcfg_nameservers_to_array(char *nameservers, char array[][INET_ADDRSTRLEN], unsigned int array_size)
+void netcfg_nameservers_to_array(const char *nameservers, char array[][NETCFG_ADDRSTRLEN], const unsigned int array_size)
 {
     char *save, *ptr, *ns;
     unsigned int i;
-    struct in_addr addr;
+    union inX_addr addr;
 
     if (nameservers) {
         save = ptr = strdup(nameservers);
 
         for (i = 0; i < array_size; i++) {
+            int af;
             ns = strtok_r(ptr, " \n\t", &ptr);
             if (ns) {
                 /* The double conversion here is to both validate that we've
@@ -1337,8 +1338,25 @@ void netcfg_nameservers_to_array(char *nameservers, char array[][INET_ADDRSTRLEN
                  * is in it's canonical form and will fit in the size of the
                  * array element provided.
                  */
-                inet_pton (AF_INET, ns, &addr);
-                inet_ntop (AF_INET, &addr, array[i], INET_ADDRSTRLEN);
+                if (inet_pton (AF_INET, ns, &addr)) {
+                    /* v4! */
+                    af = AF_INET;
+                } else {
+                    /* v6? */
+                    if (inet_pton (AF_INET6, ns, &addr)) {
+                        af = AF_INET6;
+                    } else {
+                        af = -1;
+                        fprintf(stderr, "Failed to parse %s as an IP address", ns);
+                    }
+                }
+
+                if (af != -1) {
+                    inet_ntop (af, &addr, array[i], NETCFG_ADDRSTRLEN);
+                } else {
+                    /* Dud in this slot; empty it */
+                    array[i][0] = '\0';
+                }
             } else
                 array[i][0] = '\0';
         }
