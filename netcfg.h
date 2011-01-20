@@ -91,8 +91,16 @@ struct netcfg_interface {
 	int address_family;
 	char ipaddress[NETCFG_ADDRSTRLEN];
 	unsigned int masklen;
-	char gateway[INET_ADDRSTRLEN];
+	char gateway[NETCFG_ADDRSTRLEN];
 	char pointopoint[INET_ADDRSTRLEN];
+};
+
+/* Somewhere we can store both in_addr and in6_addr; convenient for all those
+ * places you couldn't be bothered to deal with it yourself manually.
+ */
+union inX_addr {
+	struct in_addr in4;
+	struct in6_addr in6;
 };
 
 /* Set default values for all netcfg_interface parameters */
@@ -173,5 +181,8 @@ extern int ethtool_lite (const char *if_name);
 extern int netcfg_detect_link(struct debconfclient *client, const struct netcfg_interface *interface);
 
 extern int netcfg_parse_cidr_address(const char *address, struct netcfg_interface *interface);
+extern void netcfg_network_address(const struct netcfg_interface *interface, char *network);
+extern void netcfg_broadcast_address(const struct netcfg_interface *interface, char *broadcast);
+extern int netcfg_gateway_reachable(const struct netcfg_interface *interface);
 
 #endif /* _NETCFG_H_ */
