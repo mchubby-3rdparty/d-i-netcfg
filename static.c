@@ -10,48 +10,6 @@
 #include <debian-installer.h>
 #include <assert.h>
 
-static void netcfg_network_address(const struct netcfg_interface *interface,
-                                   char *network)
-{
-    struct in_addr ipaddr, mask, net;
-    
-    inet_pton(AF_INET, interface->ipaddress, &ipaddr);
-    inet_mton(AF_INET, interface->masklen, &mask);
-    net.s_addr = ipaddr.s_addr & mask.s_addr;
-    inet_ntop(AF_INET, &net, network, INET_ADDRSTRLEN);
-}
-
-static void netcfg_broadcast_address(const struct netcfg_interface *interface,
-                                     char *broadcast)
-{
-    struct in_addr broad, net, mask;
-    char network[INET_ADDRSTRLEN];
-    
-    netcfg_network_address(interface, network);
-    
-    inet_pton(AF_INET, network, &net);
-    inet_mton(AF_INET, interface->masklen, &mask);
-    broad.s_addr = (net.s_addr | ~mask.s_addr);
-    inet_ntop(AF_INET, &broad, broadcast, INET_ADDRSTRLEN);
-}
-
-/* Validate that the given gateway address actually lies within the given
- * network.  Standard boolean return.
- */
-static int netcfg_gateway_reachable(const struct netcfg_interface *interface)
-{
-    struct in_addr net, mask, gw_addr;
-    char network[INET_ADDRSTRLEN];
-    
-    netcfg_network_address(interface, network);
-    
-    inet_pton(AF_INET, network, &net);
-    inet_mton(AF_INET, interface->masklen, &mask);
-    inet_pton(AF_INET, interface->gateway, &gw_addr);
-
-    return (gw_addr.s_addr && ((gw_addr.s_addr & mask.s_addr) == net.s_addr));
-}
-
 int netcfg_get_ipaddress(struct debconfclient *client, char *ipaddress)
 {
     int ret, ok = 0;
