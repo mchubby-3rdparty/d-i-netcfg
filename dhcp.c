@@ -460,7 +460,7 @@ int netcfg_activate_dhcp (struct debconfclient *client, const struct netcfg_inte
 {
     char* dhostname = NULL;
     enum { START, POLL, ASK_OPTIONS, DHCP_HOSTNAME, HOSTNAME, DOMAIN, HOSTNAME_SANS_NETWORK } state = START;
-    char nameserver_array[4][INET_ADDRSTRLEN];
+    char nameserver_array[4][NETCFG_ADDRSTRLEN];
     char *if_name = interface->name;
 
     kill_dhcp_client();
@@ -728,7 +728,7 @@ int resolv_conf_entries (void)
 /* Read the nameserver entries out of resolv.conf and stick them into
  * nameservers_array, so we can write out a newer, shinier resolv.conf
  */
-int read_resolv_conf_nameservers(char array[][INET_ADDRSTRLEN], unsigned int array_size)
+int read_resolv_conf_nameservers(char array[][NETCFG_ADDRSTRLEN], unsigned int array_size)
 {
     FILE *f;
     unsigned int i = 0;
