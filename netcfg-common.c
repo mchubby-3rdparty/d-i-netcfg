@@ -1392,3 +1392,76 @@ int netcfg_parse_cidr_address(const char *address, struct netcfg_interface *inte
         
     return ok;
 }
+
+void netcfg_network_address(const struct netcfg_interface *interface,
+                            char *network)
+{
+    union inX_addr ipaddr, mask, net;
+    
+    inet_pton(interface->address_family, interface->ipaddress, &ipaddr);
+    inet_mton(interface->address_family, interface->masklen, &mask);
+    if (interface->address_family == AF_INET) {
+    	net.in4.s_addr = ipaddr.in4.s_addr & mask.in4.s_addr;
+    } else if (interface->address_family == AF_INET6) {
+        int i;
+        
+        for (i = 0; i < 4; i++) {
+            net.in6.s6_addr32[i] = ipaddr.in6.s6_addr32[i] & mask.in6.s6_addr32[i];
+        }
+    }
+    	
+    inet_ntop(interface->address_family, &net, network, NETCFG_ADDRSTRLEN);
+}
+
+void netcfg_broadcast_address(const struct netcfg_interface *interface,
+                              char *broadcast)
+{
+    struct in_addr broad, net, mask;
+    char network[INET_ADDRSTRLEN];
+    
+    /* IPv6 has no concept of broadcast addresses */
+    if (interface->address_family != AF_INET) {
+        broadcast[0] = '\0';
+        return;
+    }
+
+    netcfg_network_address(interface, network);
+    
+    inet_pton(AF_INET, network, &net);
+    inet_mton(AF_INET, interface->masklen, &mask);
+    broad.s_addr = (net.s_addr | ~mask.s_addr);
+    inet_ntop(AF_INET, &broad, broadcast, INET_ADDRSTRLEN);
+}
+
+/* Validate that the given gateway address actually lies within the given
+ * network.  Standard boolean return.
+ */
+int netcfg_gateway_reachable(const struct netcfg_interface *interface)
+{
+    union inX_addr net, mask, gw_addr;
+    char network[NETCFG_ADDRSTRLEN];
+    
+    netcfg_network_address(interface, network);
+    
+    inet_pton(interface->address_family, network, &net);
+    inet_mton(interface->address_family, interface->masklen, &mask);
+    inet_pton(interface->address_family, interface->gateway, &gw_addr);
+
+    if (interface->address_family == AF_INET) {
+        return (gw_addr.in4.s_addr && ((gw_addr.in4.s_addr & mask.in4.s_addr) == net.in4.s_addr));
+    } else if (interface->address_family == AF_INET6) {
+        int i;
+        
+        for (i = 0; i < 4; i++) {
+            if ((gw_addr.in6.s6_addr32[i] & mask.in6.s6_addr32[i]) != net.in6.s6_addr32[i]) {
+                return 0;
+            }
+        }
+        
+        return 1;
+    } else {
+        /* Unknown address family */
+        fprintf(stderr, "Unknown address family given to netcfg_gateway_unreachable\n");
+        return 0;
+    }
+}
