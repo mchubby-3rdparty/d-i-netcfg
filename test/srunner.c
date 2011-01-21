@@ -5,6 +5,7 @@ int main(void)
 	int number_failed;
 	SRunner *sr;
 	sr = srunner_create(test_inet_mton_suite());
+	srunner_add_suite(sr, test_inet_ptom_suite());
 	srunner_add_suite(sr, test_netcfg_parse_cidr_address_suite());
 	srunner_add_suite(sr, test_netcfg_network_address_suite());
 	srunner_add_suite(sr, test_netcfg_gateway_reachable_suite());
