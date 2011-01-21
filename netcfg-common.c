@@ -71,35 +71,50 @@ int skfd = 0;
 int wfd = 0;
 #endif
 
-/* convert a netmask string (255.255.255.0) in +src+ into the length (24) in
- * +dst+.  Return 0 if some sort of failure, or 1 on success.
+/* Count the number of contiguous 1 bits in a 32-bit integer, starting from
+ * the MSB. */
+static unsigned int count_bits(uint32_t num)
+{
+    int count = 0;
+
+    while (num & 0x80000000) {
+        count++;
+        num <<= 1;
+    }
+
+    return count;
+}
+
+/* convert a netmask string (eg 255.255.255.0 or ffff:ff::) in +src+ into
+ * the length (24) in +dst+.  Return 0 if some sort of failure, or 1 on
+ * success.
  */
 int inet_ptom (int af, const char *src, unsigned int *dst)
 {
-    struct in_addr addr;
-    in_addr_t mask, num;
+    union inX_addr addr;
 
     if (!empty_str(src)) {
-        if (inet_pton (af, src, &addr) < 0)
+        if (inet_pton (af, src, &addr) < 0) {
+            *dst = 0;
             return 0;
+        }
     }
 
-    mask = ntohl(addr.s_addr);
-
-    for (num = mask; num & 1; num >>= 1);
-
-    if (num != 0 && mask != 0) {
-        for (num = ~mask; num & 1; num >>= 1);
-        if (num)
-            return 0;
+    if (af == AF_INET) {
+        *dst = count_bits(ntohl(addr.in4.s_addr));
+        return 1;
+    } else if (af == AF_INET6) {
+        int i, count;
+        for (i = 0, *dst = 0; i < 4; i++) {
+            count = count_bits(htonl(addr.in6.s6_addr32[i]));
+            *dst += count;
+            if (count != 32) break;  /* Don't go any further if the mask has finished */
+        }
+        return 1;
+    } else {
+        *dst = 0;
+        return 0;
     }
-
-    for (num = 0; mask; mask <<= 1)
-        num++;
-
-    *dst = num;
-
-    return 1;
 }
 
 /* convert a length (24) in +src+ into the string netmask (255.255.255.0) in
