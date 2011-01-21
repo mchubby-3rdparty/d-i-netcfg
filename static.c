@@ -72,6 +72,18 @@ static int netcfg_get_netmask(struct debconfclient *client, struct netcfg_interf
 {
     int ret, ok = 0;
     union inX_addr addr;
+
+    /* Preseed a vaguely sensible looking default netmask if one wasn't
+     * provided.
+     */
+    debconf_get (client, "netcfg/get_netmask");
+    if (empty_str(client->value)) {
+        if (interface->address_family == AF_INET) {
+            debconf_set(client, "netcfg/get_netmask", "255.255.255.0");
+        } else if (interface->address_family == AF_INET6) {
+            debconf_set(client, "netcfg/get_netmask", "ffff:ffff:ffff:ffff::");
+        }
+    }
     
     while (!ok) {
         debconf_input (client, "critical", "netcfg/get_netmask");
