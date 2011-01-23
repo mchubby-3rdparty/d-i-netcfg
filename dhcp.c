@@ -87,11 +87,12 @@ static void netcfg_write_dhcp (const char *iface, const char *dhostname)
 static short no_default_route (void)
 {
 #if defined(__FreeBSD_kernel__)
-    int status;
+    int status4, status6;
 
-    status = system("exec /lib/freebsd/route show default >/dev/null 2>&1");
+    status4 = system("exec /lib/freebsd/route show default >/dev/null 2>&1");
+    status6 = system("exec /lib/freebsd/route -6 show default >/dev/null 2>&1");
 
-    return WEXITSTATUS(status) != 0;
+    return (WEXITSTATUS(status4) != 0) && (WEXITSTATUS(status6) != 0);
 #elif defined(__GNU__)
     FILE* pfinet = NULL;
     char buf[1024] = { 0 };
@@ -111,9 +112,21 @@ static short no_default_route (void)
     FILE* iproute = NULL;
     char buf[256] = { 0 };
 
+    /* IPv4 default route? */
     if ((iproute = popen("ip route", "r")) != NULL) {
         while (fgets (buf, 256, iproute) != NULL) {
-            if (buf[0] == 'd' && strstr (buf, "default via ")) {
+            if (strncmp(buf, "default via ", 12) == 0) {
+                pclose(iproute);
+                return 0;
+            }
+        }
+        pclose(iproute);
+    }
+
+    /* IPv6 default route? */
+    if ((iproute = popen("ip -6 route", "r")) != NULL) {
+        while (fgets (buf, 256, iproute) != NULL) {
+            if (strncmp(buf, "default via ", 12) == 0) {
                 pclose(iproute);
                 return 0;
             }
