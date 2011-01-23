@@ -766,13 +766,9 @@ int read_resolv_conf_nameservers(char array[][NETCFG_ADDRSTRLEN], unsigned int a
                     buf[strlen(buf)-1] = '\0';
 
                 ptr = buf + strlen("nameserver ");
-                /* Double conversion here to ensure we actually have
-                 * an IP address, and to normalise the address so
-                 * it's guaranteed to fit in the string space provided.
-                 */
-                inet_pton(AF_INET, ptr, &addr);
-                inet_ntop(AF_INET, &addr, array[i++], INET_ADDRSTRLEN);
-                di_debug("Read nameserver %s", array[i-1]);
+                strncpy(array[i], ptr, NETCFG_ADDRSTRLEN);
+                di_debug("Read nameserver %s", array[i]);
+                i++;
                 if (i == array_size) {
                     /* We can only hold so many nameservers, and we've reached
                      * our limit.  Sorry.
