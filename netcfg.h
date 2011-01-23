@@ -89,6 +89,9 @@ struct netcfg_interface {
 	int dhcp;
 	/* Address family of the address we're configuring; AF_INET or AF_INET6 */
 	int address_family;
+	/* Did the interface get an IPv6 address/gateway via SLAAC?
+	 * T (1) / F (0) / unknown (-1) */
+	int slaac;
 	char ipaddress[NETCFG_ADDRSTRLEN];
 	unsigned int masklen;
 	char gateway[NETCFG_ADDRSTRLEN];
@@ -132,7 +135,7 @@ extern int netcfg_get_domain(struct debconfclient *client,  char **domain);
 
 extern int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *interface);
 
-extern int netcfg_activate_dhcp(struct debconfclient *client, const struct netcfg_interface *interface);
+extern int netcfg_activate_dhcp(struct debconfclient *client, struct netcfg_interface *interface);
 
 extern int resolv_conf_entries (void);
 
@@ -183,5 +186,8 @@ extern int netcfg_parse_cidr_address(const char *address, struct netcfg_interfac
 extern void netcfg_network_address(const struct netcfg_interface *interface, char *network);
 extern void netcfg_broadcast_address(const struct netcfg_interface *interface, char *broadcast);
 extern int netcfg_gateway_reachable(const struct netcfg_interface *interface);
+
+/* ipv6.c */
+extern int nc_v6_get_slaac(struct netcfg_interface *interface);
 
 #endif /* _NETCFG_H_ */

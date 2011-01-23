@@ -291,7 +291,6 @@ int start_dhcp_client (struct debconfclient *client, char* dhostname, const char
     }
 }
 
-
 static int kill_dhcp_client(void)
 {
     if (system("kill-all-dhcp")) {
@@ -299,7 +298,6 @@ static int kill_dhcp_client(void)
     }
     return 0;
 }
-
 
 /*
  * Poll the started DHCP client for netcfg/dhcp_timeout seconds (def. 15)
@@ -471,10 +469,12 @@ int ask_wifi_configuration (struct debconfclient *client, const char *if_name)
 }
 
 
-int netcfg_activate_dhcp (struct debconfclient *client, const struct netcfg_interface *interface)
+int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface *interface)
 {
     char* dhostname = NULL;
-    enum { START, POLL, ASK_OPTIONS, DHCP_HOSTNAME, HOSTNAME, DOMAIN, HOSTNAME_SANS_NETWORK } state = START;
+    enum { START, POLL, CHECK_SLAAC, DEFAULT_GATEWAY, NAMESERVERS,
+           ASK_OPTIONS, DHCP_HOSTNAME, HOSTNAME, DOMAIN, HOSTNAME_SANS_NETWORK
+           } state = START;
     char nameserver_array[4][NETCFG_ADDRSTRLEN];
     char *if_name = interface->name;
 
@@ -482,6 +482,7 @@ int netcfg_activate_dhcp (struct debconfclient *client, const struct netcfg_inte
     loop_setup();
 
     for (;;) {
+        di_debug("State is now %i", state);
         switch (state) {
         case START:
             if (start_dhcp_client(client, dhostname, if_name))
@@ -492,32 +493,8 @@ int netcfg_activate_dhcp (struct debconfclient *client, const struct netcfg_inte
 
         case POLL:
             if (poll_dhcp_client(client)) {
-                /* could not get a lease, show the error, present options */
-                debconf_capb(client, "");
-                debconf_input(client, "critical", "netcfg/dhcp_failed");
-                debconf_go(client);
-                debconf_capb(client, "backup");
-                state = ASK_OPTIONS;
+                state = CHECK_SLAAC;
             } else {
-                /* got a lease */
-                /*
-                 * That means that the DHCP client has exited, although its
-                 * child is still running as a daemon
-                 */
-
-                /* Before doing anything else, check for a default route */
-
-                if (no_default_route()) {
-                    debconf_input(client, "critical", "netcfg/no_default_route");
-                    debconf_go(client);
-                    debconf_get(client, "netcfg/no_default_route");
-
-                    if (!strcmp(client->value, "false")) {
-                        state = ASK_OPTIONS;
-                        break;
-                    }
-                }
-
                 /*
                  * Set defaults for domain name and hostname
                  */
@@ -603,23 +580,52 @@ int netcfg_activate_dhcp (struct debconfclient *client, const struct netcfg_inte
                     have_domain = 1;
                 }
 
-                /* Make sure we have NS going if the DHCP server didn't serve it up */
-                if (resolv_conf_entries() <= 0) {
-                    char *nameservers = NULL;
-
-                    if (netcfg_get_nameservers (client, &nameservers, NULL) == GO_BACK) {
-                        state = ASK_OPTIONS;
-                        break;
-                    }
-
-                    netcfg_nameservers_to_array (nameservers, nameserver_array, ARRAY_SIZE(nameserver_array));
-                    netcfg_write_resolv (domain, nameserver_array, ARRAY_SIZE(nameserver_array));
-                }
-
-                state = HOSTNAME;
+                state = DEFAULT_GATEWAY;
             }
             break;
+        case CHECK_SLAAC:
+            if (nc_v6_get_slaac(interface)) {
+                /* We won't be needing this any more */
+                kill_dhcp_client();
+                state = DEFAULT_GATEWAY;
+            } else {
+                /* autoconfiguration has most definitely failed */
+                debconf_capb(client, "");
+                debconf_input(client, "critical", "netcfg/dhcp_failed");
+                debconf_go(client);
+                debconf_capb(client, "backup");
+                state = ASK_OPTIONS;
+	    }
+	    break;
+	case DEFAULT_GATEWAY:
+            if (no_default_route()) {
+                debconf_input(client, "critical", "netcfg/no_default_route");
+                debconf_go(client);
+                debconf_get(client, "netcfg/no_default_route");
 
+                if (!strcmp(client->value, "false")) {
+                    state = ASK_OPTIONS;
+                    break;
+                }
+            }
+            state = NAMESERVERS;
+            break;
+        case NAMESERVERS:
+            /* Make sure we have NS going if the DHCP server didn't serve it up */
+            if (resolv_conf_entries() <= 0) {
+                char *nameservers = NULL;
+
+                if (netcfg_get_nameservers (client, &nameservers, NULL) == GO_BACK) {
+                    state = ASK_OPTIONS;
+                    break;
+                }
+
+                netcfg_nameservers_to_array (nameservers, nameserver_array, ARRAY_SIZE(nameserver_array));
+                netcfg_write_resolv (domain, nameserver_array, ARRAY_SIZE(nameserver_array));
+            }
+
+            state = HOSTNAME;
+            break;
         case ASK_OPTIONS:
             /* DHCP client may still be running */
             switch (ask_dhcp_options (client, if_name)) {

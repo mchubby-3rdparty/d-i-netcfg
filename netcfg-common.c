@@ -1520,6 +1520,7 @@ void netcfg_interface_init(struct netcfg_interface *iface)
     iface->name = NULL;
     iface->dhcp = -1;
     iface->address_family = -1;  /* I hope nobody uses -1 for AF_INET */
+    iface->slaac = -1;
     iface->ipaddress[0] = '\0';
     iface->gateway[0] = '\0';
     iface->pointopoint[0] = '\0';
