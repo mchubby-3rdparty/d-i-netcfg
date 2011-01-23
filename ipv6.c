@@ -18,11 +18,7 @@
  */
 int nc_v6_get_slaac(struct netcfg_interface *interface)
 {
-
-#if defined(__FreeBSD_kernel__)
-	return 0;
-#else
-	FILE *ipcmd;
+	FILE *cmdfd;
 	char l[256];
 	char cmd[512];
 
@@ -30,12 +26,25 @@ int nc_v6_get_slaac(struct netcfg_interface *interface)
 	/* Start with the right default */
 	interface->slaac = 0;
 
+#if defined(__FreeBSD_kernel__)
+	snprintf(cmd, 512, "ifconfig %s", interface->name);
+#else
 	snprintf(cmd, 512, "ip addr show %s", interface->name);
+#endif
+	di_debug("Running %s to look for SLAAC", cmd);
 	
-	if ((ipcmd = popen(cmd, "r")) != NULL) {
-		while (fgets(l, 256, ipcmd) != NULL) {
+	if ((cmdfd = popen(cmd, "r")) != NULL) {
+		while (fgets(l, 256, cmdfd) != NULL) {
 			di_debug("ip line: %s", l);
 			/* Aah, string manipulation in C.  What fun. */
+#if defined(__FreeBSD_kernel__)
+			if (strncmp("\tinet6 ", l, 7)) {
+				continue;
+			}
+			if (!strstr(l, " autoconf")) {
+				continue;
+			}
+#else
 			if (strncmp("    inet6 ", l, 10)) {
 				continue;
 			}
@@ -49,7 +58,8 @@ int nc_v6_get_slaac(struct netcfg_interface *interface)
 				 */
 				continue;
 			}
-			
+#endif
+
 			/* So, we've found a dynamically-assigned global
 			 * inet6 address.  Sounds like SLAAC to me.
 			 */
@@ -60,7 +70,6 @@ int nc_v6_get_slaac(struct netcfg_interface *interface)
 		}
 	}
 
-	pclose(ipcmd);
+	pclose(cmdfd);
 	return interface->slaac;
-#endif
 }
