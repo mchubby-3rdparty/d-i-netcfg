@@ -61,7 +61,7 @@
 
 /* network config */
 char *interface = NULL;
-char *hostname = NULL;
+char hostname[MAXHOSTNAMELEN];
 char *domain = NULL;
 int have_domain = 0;
 
@@ -1007,10 +1007,12 @@ short valid_domain (const char *dname)
 }
 
 /*
- * Set the hostname.
+ * Write the hostname to the given string (must be capable of storing at
+ * least MAXHOSTNAMELEN bytes.
+ *
  * @return 0 on success, 30 on BACKUP being selected.
  */
-int netcfg_get_hostname(struct debconfclient *client, char *template, char **hostname, short accept_domain)
+int netcfg_get_hostname(struct debconfclient *client, char *template, char *hostname, short accept_domain)
 {
     char *s, buf[1024];
 
@@ -1024,10 +1026,10 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
 
         debconf_get(client, template);
 
-        *hostname = strdup(client->value);
+        strncpy(hostname, client->value, MAXHOSTNAMELEN);
 
-        if (!valid_domain(*hostname)) {
-            di_info("%s is an invalid domain", *hostname);
+        if (!valid_domain(hostname)) {
+            di_info("%s is an invalid domain", hostname);
             debconf_subst(client, "netcfg/invalid_hostname",
                           "hostname", client->value);
             snprintf(buf, sizeof(buf), "%i", MAXHOSTNAMELEN);
@@ -1036,11 +1038,10 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
             debconf_input(client, "high", "netcfg/invalid_hostname");
             debconf_go(client);
             debconf_set(client, template, "debian");
-            free(*hostname);
-            *hostname = NULL;
+            *hostname = '\0';
         }
 
-        if (accept_domain && (s = strchr(*hostname, '.'))) {
+        if (accept_domain && (s = strchr(hostname, '.'))) {
             di_info("Detected we have an FQDN; splitting and setting domain");
             if (s[1] == '\0') { /* "somehostname." <- . should be ignored */
                 *s = '\0';
@@ -1053,9 +1054,9 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
                 *s = '\0';
             }
         }
-
-        if (!valid_hostname(*hostname)) {
-            di_info("%s is an invalid hostname", *hostname);
+        
+        if (!valid_hostname(hostname)) {
+            di_info("%s is an invalid hostname", hostname);
             debconf_subst(client, "netcfg/invalid_hostname",
                           "hostname", client->value);
             snprintf(buf, sizeof(buf), "%i", MAXHOSTNAMELEN);
@@ -1064,8 +1065,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
             debconf_input(client, "high", "netcfg/invalid_hostname");
             debconf_go(client);
             debconf_set(client, template, "debian");
-            free(*hostname);
-            *hostname = NULL;
+            *hostname = '\0';
         } else {
             break;
         }
@@ -1114,15 +1114,14 @@ int netcfg_get_domain(struct debconfclient *client,  char **domain)
 
 void netcfg_write_loopback (void)
 {
-    FILE *fp;
-
-    if ((fp = file_open(INTERFACES_FILE, "w"))) {
-        fprintf(fp, HELPFUL_COMMENT);
-        fprintf(fp, "\n# The loopback network interface\n");
-        fprintf(fp, "auto "LO_IF"\n");
-        fprintf(fp, "iface "LO_IF" inet loopback\n");
-        fclose(fp);
-    }
+    struct netcfg_interface lo;
+    
+    netcfg_interface_init(&lo);
+    lo.name = LO_IF;
+    lo.loopback = 1;
+    
+    netcfg_write_interface(NULL);
+    netcfg_write_interface(&lo);
 }
 
 /*
@@ -1136,7 +1135,7 @@ void netcfg_write_common(const char *ipaddress, const char *hostname, const char
     FILE *fp;
     char *domain_nodot = NULL;
 
-    if (!hostname)
+    if (empty_str(hostname))
         return;
 
     if (domain) {
@@ -1147,14 +1146,6 @@ void netcfg_write_common(const char *ipaddress, const char *hostname, const char
         end = domain_nodot + strlen(domain_nodot) - 1;
         while (end >= domain_nodot && *end == '.')
             *end-- = '\0';
-    }
-
-    if ((fp = file_open(INTERFACES_FILE, "w"))) {
-        fprintf(fp, HELPFUL_COMMENT);
-        fprintf(fp, "\n# The loopback network interface\n");
-        fprintf(fp, "auto "LO_IF"\n");
-        fprintf(fp, "iface "LO_IF" inet loopback\n");
-        fclose(fp);
     }
 
     /* Currently busybox, hostname is not available. */
@@ -1304,7 +1295,6 @@ void parse_args (int argc, char ** argv)
                 exit(EXIT_SUCCESS);
             }
         }
-
         if (!strcmp(argv[1], "write_loopback")) {
             netcfg_write_loopback();
             exit(EXIT_SUCCESS);
@@ -1521,6 +1511,8 @@ void netcfg_interface_init(struct netcfg_interface *iface)
     iface->dhcp = -1;
     iface->address_family = -1;  /* I hope nobody uses -1 for AF_INET */
     iface->slaac = -1;
+    iface->loopback = -1;
+    iface->dhcp_hostname[0] = '\0';
     iface->ipaddress[0] = '\0';
     iface->gateway[0] = '\0';
     iface->pointopoint[0] = '\0';

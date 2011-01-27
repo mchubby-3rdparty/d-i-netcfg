@@ -209,32 +209,6 @@ static int netcfg_write_etc_networks(char *network)
     }
 }
 
-static int netcfg_write_wireless_options(const struct netcfg_interface *interface)
-{
-    FILE *fp;
-
-    /*
-     * Write wireless-tools options
-     */
-    if (is_wireless_iface(interface->name)) {
-        if (!(fp = file_open(INTERFACES_FILE, "a"))) {
-            return 0;
-        }
-        fprintf(fp, "\t# wireless-* options are implemented by the wireless-tools package\n");
-        fprintf(fp, "\twireless-mode %s\n",
-                (interface->mode == MANAGED) ? "managed" : "ad-hoc");
-        fprintf(fp, "\twireless-essid %s\n",
-                (interface->essid && *interface->essid) ? interface->essid : "any");
-
-        if (interface->wepkey != NULL)
-            fprintf(fp, "\twireless-key1 %s\n", interface->wepkey);
-        
-        fclose(fp);
-    }
-
-    return 1;
-}
-
 static int netcfg_write_resolvconf_options(const char *domain,
                                            char nameservers[][NETCFG_ADDRSTRLEN],
                                            const unsigned int ns_size
@@ -278,117 +252,6 @@ static int netcfg_write_resolvconf_options(const char *domain,
     fclose(fp);
     
     return 1;
-}
-
-static int netcfg_write_static_ipv4(char *domain,
-                                    const struct netcfg_interface *interface,
-                                    char nameservers[][NETCFG_ADDRSTRLEN],
-                                    const unsigned int ns_size)
-{
-    FILE *fp;
-    char network[INET_ADDRSTRLEN];
-    char broadcast[INET_ADDRSTRLEN];
-    char netmask[INET_ADDRSTRLEN];
-
-    netcfg_network_address(interface, network);
-    netcfg_broadcast_address(interface, broadcast);
-    inet_mtop(AF_INET, interface->masklen, netmask, INET_ADDRSTRLEN);
-
-    if (!netcfg_write_etc_networks(network))
-        goto error;
-
-    if ((fp = file_open(INTERFACES_FILE, "a"))) {
-        fprintf(fp, "\n# The primary network interface\n");
-        if (!iface_is_hotpluggable(interface->name) && !find_in_stab(interface->name))
-            fprintf(fp, "auto %s\n", interface->name);
-        else
-            fprintf(fp, "allow-hotplug %s\n", interface->name);
-        fprintf(fp, "iface %s inet static\n", interface->name);
-        fprintf(fp, "\taddress %s\n", interface->ipaddress);
-        fprintf(fp, "\tnetmask %s\n", empty_str(interface->pointopoint) ? netmask : "255.255.255.255");
-        fprintf(fp, "\tnetwork %s\n", network);
-        fprintf(fp, "\tbroadcast %s\n", broadcast);
-        if (!empty_str(interface->gateway))
-            fprintf(fp, "\tgateway %s\n",
-                    empty_str(interface->pointopoint) ? interface->gateway : interface->pointopoint);
-        if (!empty_str(interface->pointopoint))
-            fprintf(fp, "\tpointopoint %s\n", interface->pointopoint);
-
-        fclose(fp);
-
-        if (!netcfg_write_wireless_options(interface)) {
-            goto error;
-        }
-        
-        if (!netcfg_write_resolvconf_options(domain, nameservers, ns_size)) {
-	    goto error;
-        }
-    } else
-        goto error;
-
-    if (!netcfg_write_resolv(domain, nameservers, ns_size))
-        goto error;
-
-    return 0;
-error:
-    return -1;
-}
-
-static int netcfg_write_static_ipv6(char *domain,
-                                    const struct netcfg_interface *interface,
-                                    char nameservers[][NETCFG_ADDRSTRLEN],
-                                    const unsigned int ns_size)
-{
-    FILE *fp;
-
-    if (!netcfg_write_etc_networks(NULL))
-        goto error;
-
-    if ((fp = file_open(INTERFACES_FILE, "a"))) {
-        fprintf(fp, "\n# The primary network interface\n");
-        if (!iface_is_hotpluggable(interface->name) && !find_in_stab(interface->name))
-            fprintf(fp, "auto %s\n", interface->name);
-        else
-            fprintf(fp, "allow-hotplug %s\n", interface->name);
-        fprintf(fp, "iface %s inet6 static\n", interface->name);
-        fprintf(fp, "\taddress %s\n", interface->ipaddress);
-        fprintf(fp, "\tnetmask %i\n", interface->masklen);
-        if (!empty_str(interface->gateway))
-            fprintf(fp, "\tgateway %s\n", interface->gateway);
-
-        fclose(fp);
-
-        if (!netcfg_write_wireless_options(interface)) {
-            goto error;
-        }
-        
-        if (!netcfg_write_resolvconf_options(domain, nameservers, ns_size)) {
-	    goto error;
-        }
-    } else
-        goto error;
-
-    if (netcfg_write_resolv(domain, nameservers, ns_size))
-        goto error;
-
-    return 0;
-error:
-    return -1;
-}
-
-static int netcfg_write_static(char *domain,
-                               const struct netcfg_interface *interface,
-                               char nameservers[][NETCFG_ADDRSTRLEN],
-                               const unsigned int ns_size)
-{
-    if (interface->address_family == AF_INET) {
-        return netcfg_write_static_ipv4(domain, interface, nameservers, ns_size);
-    } else if (interface->address_family == AF_INET6) {
-        return netcfg_write_static_ipv6(domain, interface, nameservers, ns_size);
-    } else {
-        fprintf(stderr, "Can't happen: unknown address family\n");
-        return -1;
-    }
 }
 
 int netcfg_write_resolv (const char *domain, char nameservers[][NETCFG_ADDRSTRLEN], const unsigned int ns_size)
@@ -721,7 +584,7 @@ int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *ifa
             break;
         case GET_HOSTNAME:
             seed_hostname_from_dns(client, iface->ipaddress);
-            state = (netcfg_get_hostname(client, "netcfg/get_hostname", &hostname, 1)) ?
+            state = (netcfg_get_hostname(client, "netcfg/get_hostname", hostname, 1)) ?
                 GET_NAMESERVERS : GET_DOMAIN;
             break;
         case GET_DOMAIN:
@@ -764,8 +627,21 @@ int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *ifa
             break;
 
         case QUIT:
-            netcfg_write_common(iface->ipaddress, hostname, domain);
-            netcfg_write_static(domain, iface, nameserver_array, ARRAY_SIZE(nameserver_array));
+            {
+                char network[INET_ADDRSTRLEN];
+
+                if (iface->address_family == AF_INET) {
+                    netcfg_network_address(iface, network);
+                    netcfg_write_etc_networks(network);
+                } else {
+                    netcfg_write_etc_networks(NULL);
+                }
+                netcfg_write_common(iface->ipaddress, hostname, domain);
+                netcfg_write_loopback();
+                netcfg_write_interface(iface);
+                netcfg_write_resolvconf_options(domain, nameserver_array, ARRAY_SIZE(nameserver_array));
+                netcfg_write_resolv(domain, nameserver_array, ARRAY_SIZE(nameserver_array));
+            }
             return 0;
             break;
         }

@@ -66,7 +66,7 @@ int main(int argc, char** argv)
             }
             break;
         case GET_HOSTNAME_ONLY:
-            if(netcfg_get_hostname(client, "netcfg/get_hostname", &hostname, 0))
+            if(netcfg_get_hostname(client, "netcfg/get_hostname", hostname, 0))
                 state = BACKUP;
             else {
                 netcfg_write_common("", hostname, NULL);
