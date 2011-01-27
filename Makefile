@@ -5,8 +5,8 @@ CC		= gcc
 TARGETS		?= netcfg-static netcfg
 
 LDOPTS		= -ldebconfclient -ldebian-installer
-CFLAGS		= -W -Wall -DNDEBUG -DNETCFG_VERSION="\"$(NETCFG_VERSION)\"" -DNETCFG_BUILD_DATE="\"$(NETCFG_BUILD_DATE)\"" -I.
-COMMON_OBJS	= netcfg-common.o wireless.o
+CFLAGS		= -W -Wall -Werror -DNDEBUG -DNETCFG_VERSION="\"$(NETCFG_VERSION)\"" -DNETCFG_BUILD_DATE="\"$(NETCFG_BUILD_DATE)\"" -I.
+COMMON_OBJS	= netcfg-common.o wireless.o write_interface.o
 
 WIRELESS	= 1
 ifneq ($(DEB_HOST_ARCH_OS),linux)

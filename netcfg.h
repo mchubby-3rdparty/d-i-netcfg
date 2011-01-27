@@ -34,10 +34,6 @@
 
 #define empty_str(s) (s != NULL && *s == '\0')
 
-#define HELPFUL_COMMENT \
-"# This file describes the network interfaces available on your system\n" \
-"# and how to activate them. For more information, see interfaces(5).\n"
-
 #define IPV6_HOSTS \
 "# The following lines are desirable for IPv6 capable hosts\n" \
 "::1     ip6-localhost ip6-loopback\n" \
@@ -71,7 +67,7 @@ extern int input_result;
 extern int have_domain;
 
 /* network config */
-extern char *hostname;
+extern char hostname[MAXHOSTNAMELEN];
 extern char *dhcp_hostname;
 extern char *domain;
 
@@ -90,13 +86,27 @@ extern wifimode_t mode;
 /* The information required to configure a network interface. */
 struct netcfg_interface {
 	char *name;
-	/* -1 if unknown, 0 if no, 1 if yes */
+	
+	/* Is this a loopback interface?
+	 * -1 if unknown, 0 if no, 1 if yes */
+	int loopback;
+
+	/* Was this interface configured with DHCP?
+	 * -1 if unknown, 0 if no, 1 if yes */
 	int dhcp;
+
 	/* Address family of the address we're configuring; AF_INET or AF_INET6 */
 	int address_family;
+
 	/* Did the interface get an IPv6 address/gateway via SLAAC?
 	 * T (1) / F (0) / unknown (-1) */
 	int slaac;
+
+	/* The 'hostname' we want to send to the DHCP server so it'll give
+	 * us a/the right lease.
+	 */
+	char dhcp_hostname[MAXHOSTNAMELEN];
+	
 	char ipaddress[NETCFG_ADDRSTRLEN];
 	unsigned int masklen;
 	char gateway[NETCFG_ADDRSTRLEN];
@@ -143,7 +153,7 @@ extern int netcfg_get_interface(struct debconfclient *client, char **if_name, in
 extern short valid_hostname (const char *hname);
 extern short valid_domain (const char *dname);
 
-extern int netcfg_get_hostname(struct debconfclient *client, char *template, char **hostname, short hdset);
+extern int netcfg_get_hostname(struct debconfclient *client, char *template, char *hostname, short hdset);
 
 extern int netcfg_get_nameservers (struct debconfclient *client, char **nameservers, char *default_nameservers);
 
@@ -205,5 +215,8 @@ extern int netcfg_gateway_reachable(const struct netcfg_interface *interface);
 
 /* ipv6.c */
 extern int nc_v6_get_slaac(struct netcfg_interface *interface);
+
+/* write_interfaces.c */
+extern int netcfg_write_interface(const struct netcfg_interface *interface);
 
 #endif /* _NETCFG_H_ */
