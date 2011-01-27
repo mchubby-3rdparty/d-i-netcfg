@@ -47,42 +47,6 @@ const char* dhclient_request_options_udhcpc[] = { "subnet",
 static int dhcp_exit_status = 1;
 static pid_t dhcp_pid = -1;
 
-
-/*
- * Add DHCP-related lines to /etc/network/interfaces
- */
-static void netcfg_write_dhcp (const struct netcfg_interface *interface, const char *dhostname)
-{
-    FILE *fp;
-
-    if ((fp = file_open(INTERFACES_FILE, "a"))) {
-        fprintf(fp, "\n# The primary network interface\n");
-        if (!iface_is_hotpluggable(interface->name) && !find_in_stab(interface->name))
-            fprintf(fp, "auto %s\n", interface->name);
-        else
-            fprintf(fp, "allow-hotplug %s\n", interface->name);
-        fprintf(fp, "iface %s inet dhcp\n", interface->name);
-        if (dhostname) {
-            fprintf(fp, "\thostname %s\n", dhostname);
-        }
-        if (is_wireless_iface(interface->name)) {
-            if (interface->wpa_supplicant_status == WPA_QUEUED) {
-                fprintf(fp, "\twpa-ssid %s\n", interface->essid);
-                fprintf(fp, "\twpa-psk  %s\n", interface->passphrase);
-            } else {
-                fprintf(fp, "\t# wireless-* options are implemented by the wireless-tools package\n");
-                fprintf(fp, "\twireless-mode %s\n",
-                       (interface->mode == MANAGED) ? "managed" : "ad-hoc");
-                fprintf(fp, "\twireless-essid %s\n",
-                        (interface->essid && *interface->essid) ? interface->essid : "any");
-                if (interface->wepkey != NULL)
-                    fprintf(fp, "\twireless-key1 %s\n", interface->wepkey);
-	    }
-        }
-        fclose(fp);
-    }
-}
-
 /* Returns 1 if no default route is available */
 static short no_default_route (void)
 {
@@ -470,7 +434,6 @@ int ask_wifi_configuration (struct debconfclient *client, struct netcfg_interfac
 
 int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface *interface)
 {
-    char* dhostname = NULL;
     enum { START, POLL, CHECK_SLAAC, DEFAULT_GATEWAY, NAMESERVERS,
            ASK_OPTIONS, DHCP_HOSTNAME, HOSTNAME, DOMAIN, HOSTNAME_SANS_NETWORK
            } state = START;
@@ -479,12 +442,14 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
 
     kill_dhcp_client();
     loop_setup();
+    
+    interface->dhcp = 1;
 
     for (;;) {
         di_debug("State is now %i", state);
         switch (state) {
         case START:
-            if (start_dhcp_client(client, dhostname, if_name))
+            if (start_dhcp_client(client, interface->dhcp_hostname, if_name))
                 netcfg_die(client); /* change later */
             else
                 state = POLL;
@@ -552,8 +517,8 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
                     di_info("DHCP hostname: \"%s\"", buf);
                     debconf_set(client, "netcfg/get_hostname", buf);
                 }
-                else if (dhostname) {
-                    debconf_set(client, "netcfg/get_hostname", dhostname);
+                else if (interface->dhcp_hostname) {
+                    debconf_set(client, "netcfg/get_hostname", interface->dhcp_hostname);
                 } else {
                     struct ifreq ifr;
                     struct in_addr d_ipaddr = { 0 };
@@ -586,6 +551,7 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
             if (nc_v6_get_slaac(interface)) {
                 /* We won't be needing this any more */
                 kill_dhcp_client();
+                interface->dhcp = 0;
                 state = DEFAULT_GATEWAY;
             } else {
                 /* autoconfiguration has most definitely failed */
@@ -637,10 +603,8 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
             case REPLY_CONFIGURE_MANUALLY:
                 kill_dhcp_client();
                 return CONFIGURE_MANUALLY;
-                break;
             case REPLY_DONT_CONFIGURE:
                 kill_dhcp_client();
-                netcfg_write_loopback();
                 state = HOSTNAME_SANS_NETWORK;
                 break;
             case REPLY_RETRY_AUTOCONFIG:
@@ -664,20 +628,16 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
 
         case DHCP_HOSTNAME:
             /* DHCP client may still be running */
-            if (netcfg_get_hostname(client, "netcfg/dhcp_hostname", &dhostname, 0))
+            if (netcfg_get_hostname(client, "netcfg/dhcp_hostname", interface->dhcp_hostname, 0))
                 state = ASK_OPTIONS;
             else {
-                if (empty_str(dhostname)) {
-                    free(dhostname);
-                    dhostname = NULL;
-                }
                 kill_dhcp_client();
                 state = START;
             }
             break;
 
         case HOSTNAME:
-            if (netcfg_get_hostname (client, "netcfg/get_hostname", &hostname, 1)) {
+            if (netcfg_get_hostname (client, "netcfg/get_hostname", hostname, 1)) {
                 /*
                  * Going back to POLL wouldn't make much sense.
                  * However, it does make sense to go to the retry
@@ -694,8 +654,10 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
             if (!have_domain && netcfg_get_domain (client, &domain))
                 state = HOSTNAME;
             else {
+                di_debug("Network config complete");
                 netcfg_write_common("", hostname, domain);
-                netcfg_write_dhcp(interface, dhostname);
+                netcfg_write_loopback();
+                netcfg_write_interface(interface);
                 /* If the resolv.conf was written by udhcpc, then nameserver_array
                  * will be empty and we'll need to populate it.  If we asked for
                  * the nameservers, then it'll be full, but nobody will care if we
@@ -711,10 +673,11 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
             break;
 
         case HOSTNAME_SANS_NETWORK:
-            if (netcfg_get_hostname (client, "netcfg/get_hostname", &hostname, 0))
+            if (netcfg_get_hostname (client, "netcfg/get_hostname", hostname, 0))
                 state = ASK_OPTIONS;
             else {
                 netcfg_write_common("", hostname, NULL);
+                interface->dhcp = 0;
                 return 0;
             }
             break;
@@ -756,7 +719,6 @@ int read_resolv_conf_nameservers(char array[][NETCFG_ADDRSTRLEN], unsigned int a
 {
     FILE *f;
     unsigned int i = 0;
-    struct in_addr addr;
     
     di_debug("Reading nameservers from " RESOLV_FILE);
     if ((f = fopen(RESOLV_FILE, "r")) != NULL) {
