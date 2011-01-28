@@ -109,23 +109,30 @@ static short no_default_route (void)
  * lease or because it succeeded and daemonized itself), this
  * gets the child's exit status and sets dhcp_pid to -1
  */
-static void dhcp_client_sigchld(int sig __attribute__ ((unused)))
+static void cleanup_dhcp_client(void)
 {
-    di_debug("dhcp_client_sigchld() called");
     if (dhcp_pid <= 0)
         /* Already cleaned up */
         return;
 
-    /*
-     * I hope it's OK to call waitpid() from the SIGCHLD signal handler
-     */
-    di_debug("Waiting for dhcp_pid = %i", dhcp_pid);
+    di_debug("Waiting for dhcp_pid %i", dhcp_pid);
     waitpid(dhcp_pid, &dhcp_exit_status, WNOHANG);
     if (WIFEXITED(dhcp_exit_status)) {
+        di_debug("DHCP client exited");
         dhcp_pid = -1;
     }
 }
 
+/* Run through the available client process handlers we're running, and tell
+ * them to cleanup if required.
+ */
+static void sigchld_handler(int sig __attribute__ ((unused)))
+{
+    di_debug("SIGCHLD received; handling");
+    cleanup_dhcp_client();
+    cleanup_rdnssd();
+    di_debug("SIGCHLD handler finished");
+}
 
 /*
  * This function will start whichever DHCP client is available
@@ -250,7 +257,7 @@ int start_dhcp_client (struct debconfclient *client, char* dhostname, const char
     } else {
         /* dhcp_pid contains the child's PID */
         di_warning("Started DHCP client; PID is %i", dhcp_pid);
-        signal(SIGCHLD, &dhcp_client_sigchld);
+        signal(SIGCHLD, &sigchld_handler);
         return 0;
     }
 }
@@ -451,8 +458,10 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
         case START:
             if (start_dhcp_client(client, interface->dhcp_hostname, if_name))
                 netcfg_die(client); /* change later */
-            else
-                state = POLL;
+            if (!start_rdnssd(client))
+                netcfg_die(client); /* change later */
+                
+            state = POLL;
             break;
 
         case POLL:
@@ -551,6 +560,14 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
             if (nc_v6_get_slaac(interface)) {
                 /* We won't be needing this any more */
                 kill_dhcp_client();
+                stop_rdnssd();
+                read_resolv_conf_nameservers("/tmp/rdnssd_resolv", nameserver_array, ARRAY_SIZE(nameserver_array));
+                if (resolv_conf_entries(nameserver_array, ARRAY_SIZE(nameserver_array)) > 0) {
+                    /* Our RAs have DNS entries!  Better install rdnssd to
+                     * keep track of them
+                     */
+                    di_exec_shell_log("apt-install rdnssd");
+                }
                 interface->dhcp = 0;
                 state = DEFAULT_GATEWAY;
             } else {
@@ -577,7 +594,8 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
             break;
         case NAMESERVERS:
             /* Make sure we have NS going if the DHCP server didn't serve it up */
-            if (resolv_conf_entries() <= 0) {
+            read_resolv_conf_nameservers(RESOLV_FILE, nameserver_array, ARRAY_SIZE(nameserver_array));
+            if (resolv_conf_entries(nameserver_array, ARRAY_SIZE(nameserver_array)) == 0) {
                 char *nameservers = NULL;
 
                 if (netcfg_get_nameservers (client, &nameservers, NULL) == GO_BACK) {
@@ -586,9 +604,13 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
                 }
 
                 netcfg_nameservers_to_array (nameservers, nameserver_array, ARRAY_SIZE(nameserver_array));
-                netcfg_write_resolv (domain, nameserver_array, ARRAY_SIZE(nameserver_array));
             }
 
+            /* We don't have a domain name yet, but we need to write out the
+             * nameservers now so we can do rDNS lookups later to possibly
+             * find out the domain.
+             */
+            netcfg_write_resolv(NULL, nameserver_array, ARRAY_SIZE(nameserver_array));
             state = HOSTNAME;
             break;
         case ASK_OPTIONS:
@@ -596,15 +618,20 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
             switch (ask_dhcp_options (client, if_name)) {
             case GO_BACK:
                 kill_dhcp_client();
+                stop_rdnssd();
+                interface->dhcp = 0;
                 return RETURN_TO_MAIN;
             case REPLY_RETRY_WITH_HOSTNAME:
                 state = DHCP_HOSTNAME;
                 break;
             case REPLY_CONFIGURE_MANUALLY:
                 kill_dhcp_client();
+                stop_rdnssd();
+                interface->dhcp = 0;
                 return CONFIGURE_MANUALLY;
             case REPLY_DONT_CONFIGURE:
                 kill_dhcp_client();
+                stop_rdnssd();
                 state = HOSTNAME_SANS_NETWORK;
                 break;
             case REPLY_RETRY_AUTOCONFIG:
@@ -612,12 +639,14 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
                     state = POLL;
                 else {
                     kill_dhcp_client();
+                    stop_rdnssd();
                     state = START;
                 }
                 break;
             case REPLY_RECONFIGURE_WIFI:
                 if (ask_wifi_configuration(client, interface) == REPLY_CHECK_DHCP) {
                     kill_dhcp_client();
+                    stop_rdnssd();
                     state = START;
                 }
                 else
@@ -632,6 +661,7 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
                 state = ASK_OPTIONS;
             else {
                 kill_dhcp_client();
+                stop_rdnssd();
                 state = START;
             }
             break;
@@ -658,15 +688,7 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
                 netcfg_write_common("", hostname, domain);
                 netcfg_write_loopback();
                 netcfg_write_interface(interface);
-                /* If the resolv.conf was written by udhcpc, then nameserver_array
-                 * will be empty and we'll need to populate it.  If we asked for
-                 * the nameservers, then it'll be full, but nobody will care if we
-                 * refill it.
-                 */
-                if (read_resolv_conf_nameservers(nameserver_array, ARRAY_SIZE(nameserver_array)))
-                    netcfg_write_resolv(domain, nameserver_array, ARRAY_SIZE(nameserver_array));
-                else
-                    printf("Error reading resolv.conf for nameservers\n");
+                netcfg_write_resolv(domain, nameserver_array, ARRAY_SIZE(nameserver_array));
 
                 return 0;
             }
@@ -685,43 +707,28 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
     }
 }
 
-/* returns number of 'nameserver' entries in resolv.conf */
-int resolv_conf_entries (void)
+/* Count the number of actual entries in the nameservers array */
+int resolv_conf_entries (char nameservers[][NETCFG_ADDRSTRLEN], const unsigned int ns_size)
 {
-    FILE *f;
-    int count = 0;
-
-    if ((f = fopen(RESOLV_FILE, "r")) != NULL) {
-        char buf[256];
-
-        while (fgets(buf, 256, f) != NULL) {
-            char *ptr;
-
-            if ((ptr = strchr(buf, ' ')) != NULL) {
-                *ptr = '\0';
-                if (strcmp(buf, "nameserver") == 0)
-                    count++;
-            }
-        }
-
-        fclose(f);
+    unsigned int count = 0, i;
+    
+    for (i = 0; i < ns_size; i++) {
+        if (!empty_str(nameservers[i])) count++;
     }
-    else
-        count = -1;
 
     return count;
 }
 
 /* Read the nameserver entries out of resolv.conf and stick them into
- * nameservers_array, so we can write out a newer, shinier resolv.conf
+ * array, so we can write out a newer, shinier resolv.conf
  */
-int read_resolv_conf_nameservers(char array[][NETCFG_ADDRSTRLEN], unsigned int array_size)
+int read_resolv_conf_nameservers(char *resolv_conf_file, char array[][NETCFG_ADDRSTRLEN], unsigned int array_size)
 {
     FILE *f;
     unsigned int i = 0;
     
-    di_debug("Reading nameservers from " RESOLV_FILE);
-    if ((f = fopen(RESOLV_FILE, "r")) != NULL) {
+    di_debug("Reading nameservers from %s", resolv_conf_file);
+    if ((f = fopen(resolv_conf_file, "r")) != NULL) {
         char buf[256];
 
         while (fgets(buf, 256, f) != NULL) {
