@@ -158,9 +158,9 @@ extern int netcfg_get_static(struct debconfclient *client, struct netcfg_interfa
 
 extern int netcfg_activate_dhcp(struct debconfclient *client, struct netcfg_interface *interface);
 
-extern int resolv_conf_entries (void);
+extern int resolv_conf_entries (char nameservers[][NETCFG_ADDRSTRLEN], const unsigned int ns_size);
 
-extern int read_resolv_conf_nameservers (char nameservers[][NETCFG_ADDRSTRLEN], const unsigned int ns_size);
+extern int read_resolv_conf_nameservers (char *resolv_conf_file, char nameservers[][NETCFG_ADDRSTRLEN], const unsigned int ns_size);
 
 extern int ask_dhcp_options (struct debconfclient *client, const char *if_name);
 
@@ -213,5 +213,10 @@ extern int nc_v6_get_slaac(struct netcfg_interface *interface);
 
 /* write_interfaces.c */
 extern int netcfg_write_interface(const struct netcfg_interface *interface);
+
+/* rdnssd.c */
+extern int start_rdnssd(struct debconfclient *client);
+extern void cleanup_rdnssd(void);
+extern void stop_rdnssd(void);
 
 #endif /* _NETCFG_H_ */
