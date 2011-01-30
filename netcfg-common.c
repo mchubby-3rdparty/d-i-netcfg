@@ -1214,42 +1214,90 @@ void loop_setup(void)
 #endif
 }
 
-void seed_hostname_from_dns (struct debconfclient * client, const char *ipaddr)
+/* Determines the IP address of the interface (either from the static
+ * configuration, or by querying the interface directly if using some sort
+ * of autoconfiguration), then uses that address to request rDNS lookup
+ * using the currently configured nameservers.  We return the name in
+ * +hostname+ if one is found, and return 1, otherwise we leave the
+ * +hostname+ alone and return 0.
+ */
+int get_hostname_from_dns (const struct netcfg_interface *interface, char *hostname, const size_t max_hostname_len)
 {
-    struct sockaddr_in sin;
-    char *host;
-    int err;
-    struct in_addr inaddr;
+    int err = 1;
     
-    host = malloc(NI_MAXHOST);
-    if (!host)
-        netcfg_die(client);
+    if (!empty_str(interface->ipaddress)) {
+        /* Static configuration assumed */
+        struct sockaddr_in sin;
+        struct sockaddr_in6 sin6;
 
-    /* copy IP address into required format */
-    sin.sin_family = AF_INET;
-    sin.sin_port = 0;
-    inet_pton(AF_INET, ipaddr, &inaddr);
-    memcpy(&sin.sin_addr, &inaddr, sizeof(inaddr));
+        di_debug("Getting default hostname from rDNS lookup of static-configured address %s", interface->ipaddress);
+        if (interface->address_family == AF_INET) {
+            sin.sin_family = AF_INET;
+            sin.sin_port = 0;
+            inet_pton(AF_INET, interface->ipaddress, &sin.sin_addr);
+            err = getnameinfo((struct sockaddr *) &sin, sizeof(sin),
+                              hostname, max_hostname_len, NULL, 0, NI_NAMEREQD);
+        } else if (interface->address_family == AF_INET6) {
+            sin6.sin6_family = AF_INET6;
+            sin6.sin6_port = 0;
+            inet_pton(AF_INET6, interface->ipaddress, &sin6.sin6_addr);
+            err = getnameinfo((struct sockaddr *) &sin6, sizeof(sin6),
+                              hostname, max_hostname_len, NULL, 0, NI_NAMEREQD);
+        } else {
+            di_warning("Unknown address family in interface passed to seed_hostname_from_dns(): %i", interface->address_family);
+            return 0;
+        }
+    } else {
+        /* Autoconfigured interface; we need to find the IP address ourselves
+         */
+        struct ifaddrs *ifa_head, *ifa;
+        char tmpbuf[NETCFG_ADDRSTRLEN];
+        
+        if (getifaddrs(&ifa_head) == -1) {
+            di_warning("getifaddrs() failed: %s", strerror(errno));
+            return 0;
+        }
+        
+        for (ifa = ifa_head; ifa != NULL; ifa = ifa->ifa_next) {
+            if (strcmp(ifa->ifa_name, interface->name) != 0) {
+                /* This isn't the interface you're looking for */
+                continue;
+            }
+            if (!ifa->ifa_addr) {
+                /* This isn't even a record with an address... bugger that */
+                continue;
+            }
+            if (ifa->ifa_addr->sa_family != AF_INET && ifa->ifa_addr->sa_family != AF_INET6) {
+                /* Not an IPv4 or IPv6 address... don't know what to do with it */
+                continue;
+            }
 
-    /* attempt resolution */
-    err = getnameinfo((struct sockaddr *) &sin, sizeof(sin),
-                      host, NI_MAXHOST, NULL, 0, NI_NAMEREQD);
-
-    /* got it? */
-    if (err == 0 && !empty_str(host)) {
-        /* remove domain part */
-        char* ptr = strchr(host, '.');
-
-        if (ptr)
-            *ptr = '\0';
-
-        debconf_set(client, "netcfg/get_hostname", host);
-
-        if (!have_domain && (ptr && ptr[1] != '\0'))
-            debconf_set(client, "netcfg/get_domain", ptr + 1);
+            di_debug("Getting default hostname from rDNS lookup of autoconfigured address %s",
+                     inet_ntop(ifa->ifa_addr->sa_family,
+                               (ifa->ifa_addr->sa_family == AF_INET) ?
+                                (void *)(&((struct sockaddr_in *)ifa->ifa_addr)->sin_addr)
+                                : (void *)(&((struct sockaddr_in6 *)ifa->ifa_addr)->sin6_addr),
+                               tmpbuf, sizeof(tmpbuf)
+                              )
+                    );
+            err = getnameinfo(ifa->ifa_addr,
+                              (ifa->ifa_addr->sa_family == AF_INET) ?
+                                    sizeof(struct sockaddr_in)
+                                    : sizeof(struct sockaddr_in6),
+                              hostname, max_hostname_len, NULL, 0, NI_NAMEREQD);
+            if (err) {
+                di_debug("getnameinfo() returned %i: errno %i (%s)", err, errno, strerror(errno));
+            }
+                              
+            if (err == 0) {
+                /* We found a name!  We found a name! */
+                di_debug("Hostname found: %s", hostname);
+                break;
+            }
+        }
     }
-
-    free(host);
+            
+    return !err;
 }
 
 void interface_up (const char *if_name)
@@ -1645,5 +1693,30 @@ int netcfg_gateway_reachable(const struct netcfg_interface *interface)
         /* Unknown address family */
         fprintf(stderr, "Unknown address family given to netcfg_gateway_unreachable\n");
         return 0;
+    }
+}
+
+/* Take an FQDN (or possibly a bare hostname) and use it to preseed the get_hostname
+ * and get_domain debconf variables.
+ */
+void preseed_hostname_from_fqdn(struct debconfclient *client, char *buf)
+{
+    char *dom;
+
+    if (valid_domain(buf)) {
+        di_debug("%s is a valid FQDN", buf);
+        dom = strchr(buf, '.');
+        if (dom) {
+            di_debug("We have a real FQDN");
+            *dom++ = '\0';
+        }
+                    
+        debconf_set(client, "netcfg/get_hostname", buf);
+
+        if (have_domain == 0 && dom != NULL) {
+            di_debug("Preseeding domain as well: %s", dom);
+            debconf_set(client, "netcfg/get_domain", dom);
+            have_domain = 1;
+        }
     }
 }
