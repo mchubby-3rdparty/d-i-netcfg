@@ -85,3 +85,56 @@ int nc_v6_get_slaac(struct netcfg_interface *interface)
 	pclose(cmdfd);
 	return interface->slaac;
 }
+
+/* Obsessively watch the network configuration for the given interface,
+ * waiting for the address to be properly configured.
+ */
+void nc_v6_wait_for_complete_configuration(const struct netcfg_interface *interface)
+{
+	FILE *cmdfd;
+	char l[256];
+	char cmd[512];
+	int address_found = 0;
+
+	di_debug("Waiting for completed configuration for %s", interface->name);
+
+#if defined(__FreeBSD_kernel__)
+	snprintf(cmd, 512, "ifconfig %s", interface->name);
+#else
+	snprintf(cmd, 512, "ip addr show %s", interface->name);
+#endif
+	di_debug("Running %s to look for address", cmd);
+	
+	while (!address_found) {
+		if ((cmdfd = popen(cmd, "r")) != NULL) {
+			while (fgets(l, 256, cmdfd) != NULL) {
+				di_debug("ip line: %s", l);
+				/* Aah, string manipulation in C.  What fun. */
+	#if defined(__FreeBSD_kernel__)
+				if (strncmp("\tinet6 ", l, 7)) {
+					continue;
+				}
+	#else
+				if (strncmp("    inet6 ", l, 10)) {
+					continue;
+				}
+	#endif
+				if (!strstr(l, interface->ipaddress)) {
+					continue;
+				}
+				if (strstr(l, " tentative")) {
+					continue;
+				}
+				
+				/* The address is in the interface and not tentative.
+				 * Good enough for me.
+				 */
+				di_debug("Configured address found");
+				address_found = 1;
+			}
+		}
+
+		pclose(cmdfd);
+		usleep(250000);
+	}
+}
