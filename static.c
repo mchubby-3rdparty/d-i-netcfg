@@ -381,11 +381,6 @@ static int netcfg_activate_static_ipv4(struct debconfclient *client,
         return -1;
     }
 
-    /* Wait to detect link.  Don't error out if we fail, though; link detection
-     * may not work on this NIC or something.
-     */
-    netcfg_detect_link(client, interface);
-
     return 0;
 }
 
@@ -494,14 +489,44 @@ static int netcfg_activate_static_ipv6(struct debconfclient *client,
 static int netcfg_activate_static(struct debconfclient *client,
                                   const struct netcfg_interface *interface)
 {
+    int rv = -1;
+    
     if (interface->address_family == AF_INET) {
-        return netcfg_activate_static_ipv4(client, interface);
+        rv = netcfg_activate_static_ipv4(client, interface);
     } else if (interface->address_family == AF_INET6) {
-        return netcfg_activate_static_ipv6(client, interface);
+        rv = netcfg_activate_static_ipv6(client, interface);
     } else {
         fprintf(stderr, "Can't happen: unknown address family");
+        rv = -1;
+    }
+    
+    if (rv != 0) {
+        /* No point looking for link if the address configuration didn't
+         * work.
+         */
         return -1;
     }
+    
+    /* Wait to detect link.  Don't error out if we fail, though; link detection
+     * may not work on this NIC or something.
+     */
+    netcfg_detect_link(client, interface);
+
+    /* Configuration appeared to go OK.  Now we need to wait until the
+     * interface is actually configured by the kernel.  For IPv4, this
+     * *should* be close to instantaneous, but for IPv6 there can be an
+     * appreciable delay because the kernel does duplicate address detection
+     * before making the interface active.  The delay in activating the
+     * interface can cause untold grief and misery for later parts of the
+     * network configuration process that expect to have a working network
+     * (rDNS preseeding of the hostname is the one that has caused this code
+     * to be written).
+     */
+    if (interface->address_family == AF_INET6) {
+        nc_v6_wait_for_complete_configuration(interface);
+    }
+    
+    return 0;
 }
 
 int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *iface)
@@ -583,7 +608,11 @@ int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *ifa
                 GET_GATEWAY : CONFIRM;
             break;
         case GET_HOSTNAME:
-            seed_hostname_from_dns(client, iface->ipaddress);
+            {
+                char buf[MAXHOSTNAMELEN + 1];
+                get_hostname_from_dns(iface, buf, sizeof(buf));
+                preseed_hostname_from_fqdn(client, buf);
+            }
             state = (netcfg_get_hostname(client, "netcfg/get_hostname", hostname, 1)) ?
                 GET_NAMESERVERS : GET_DOMAIN;
             break;

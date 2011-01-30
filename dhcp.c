@@ -14,11 +14,11 @@
 #include <sys/param.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
-#include <sys/ioctl.h>
 #include <sys/utsname.h>
 #include <sys/wait.h>
 #include <arpa/inet.h>
 #include <net/if.h>
+#include <ifaddrs.h>
 #include <time.h>
 #include <netdb.h>
 
@@ -469,8 +469,6 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
                 /*
                  * Set defaults for domain name and hostname
                  */
-                char buf[MAXHOSTNAMELEN + 1] = { 0 };
-                char *ptr = NULL;
                 FILE *d = NULL;
 
                 have_domain = 0;
@@ -506,46 +504,6 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
                     }
                 }
 
-                /*
-                 * Default to the hostname returned via DHCP, if any,
-                 * otherwise to the requested DHCP hostname
-                 * otherwise to the hostname found in DNS for the IP address
-                 * of the interface
-                 */
-                if (gethostname(buf, sizeof(buf)) == 0
-                    && !empty_str(buf)
-                    && strcmp(buf, "(none)")
-                    && valid_domain(buf)
-                    ) {
-                    di_info("DHCP hostname: \"%s\"", buf);
-                    debconf_set(client, "netcfg/get_hostname", buf);
-                }
-                else if (interface->dhcp_hostname) {
-                    debconf_set(client, "netcfg/get_hostname", interface->dhcp_hostname);
-                } else {
-                    struct ifreq ifr;
-                    struct in_addr d_ipaddr = { 0 };
-                    char ptr1[INET_ADDRSTRLEN];
-
-                    ifr.ifr_addr.sa_family = AF_INET;
-                    strncpy(ifr.ifr_name, if_name, IFNAMSIZ);
-                    if (ioctl(skfd, SIOCGIFADDR, &ifr) == 0) {
-                        d_ipaddr = ((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr;
-                        inet_ntop(AF_INET, &d_ipaddr, ptr1, INET_ADDRSTRLEN);
-                        seed_hostname_from_dns(client, ptr1);
-                    }
-                    else
-                        di_warning("ioctl failed (%s)", strerror(errno));
-                }
-
-                /*
-                 * Default to the domain name that is the domain part
-                 * of the hostname, if any
-                 */
-                if (have_domain == 0 && (ptr = strchr(buf, '.')) != NULL) {
-                    debconf_set(client, "netcfg/get_domain", ptr + 1);
-                    have_domain = 1;
-                }
 
                 state = DEFAULT_GATEWAY;
             }
@@ -662,17 +620,42 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
             break;
 
         case HOSTNAME:
-            if (netcfg_get_hostname (client, "netcfg/get_hostname", hostname, 1)) {
+            {
+                char buf[MAXHOSTNAMELEN + 1] = { 0 };
                 /*
-                 * Going back to POLL wouldn't make much sense.
-                 * However, it does make sense to go to the retry
-                 * screen where the user can elect to retry DHCP with
-                 * a requested DHCP hostname, etc.
+                 * Default to the hostname returned via DHCP, if any,
+                 * otherwise to the requested DHCP hostname
+                 * otherwise to the hostname found in DNS for the IP address
+                 * of the interface
                  */
-                state = ASK_OPTIONS;
+                if (gethostname(buf, sizeof(buf)) == 0
+                    && !empty_str(buf)
+                    && strcmp(buf, "(none)")
+                    ) {
+                    di_info("DHCP hostname: \"%s\"", buf);
+                }
+                else if (!empty_str(interface->dhcp_hostname)) {
+                    di_debug("Defaulting hostname to provided DHCP hostname");
+                    debconf_set(client, "netcfg/get_hostname", interface->dhcp_hostname);
+                } else {
+                    di_debug("Using DNS to try and obtain default hostname");
+                    get_hostname_from_dns(interface, buf, sizeof(buf));
+                }
+
+                preseed_hostname_from_fqdn(client, buf);
+
+                if (netcfg_get_hostname (client, "netcfg/get_hostname", hostname, 1)) {
+                    /*
+                     * Going back to POLL wouldn't make much sense.
+                     * However, it does make sense to go to the retry
+                     * screen where the user can elect to retry DHCP with
+                     * a requested DHCP hostname, etc.
+                     */
+                    state = ASK_OPTIONS;
+                }
+                else
+                    state = DOMAIN;
             }
-            else
-                state = DOMAIN;
             break;
 
         case DOMAIN:
@@ -684,6 +667,8 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
                 netcfg_write_loopback();
                 netcfg_write_interface(interface);
                 netcfg_write_resolv(domain, nameserver_array, ARRAY_SIZE(nameserver_array));
+                kill_dhcp_client();
+                stop_rdnssd();
 
                 return 0;
             }

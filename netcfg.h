@@ -191,7 +191,7 @@ extern void interface_up (const char *if_name);
 extern void interface_down (const char *if_name);
 
 extern void loop_setup(void);
-extern void seed_hostname_from_dns(struct debconfclient *client, const char *ipaddress);
+extern int get_hostname_from_dns(const struct netcfg_interface *interface, char *hostname, const size_t max_hostname_len);
 
 extern int inet_ptom (int af, const char *src, unsigned int *dst);
 extern const char *inet_mtop (int af, unsigned int src, char *dst, socklen_t dst_len);
@@ -213,8 +213,11 @@ extern void netcfg_network_address(const struct netcfg_interface *interface, cha
 extern void netcfg_broadcast_address(const struct netcfg_interface *interface, char *broadcast);
 extern int netcfg_gateway_reachable(const struct netcfg_interface *interface);
 
+extern void preseed_hostname_from_fqdn(struct debconfclient *client, char *fqdn);
+
 /* ipv6.c */
 extern int nc_v6_get_slaac(struct netcfg_interface *interface);
+extern void nc_v6_wait_for_complete_configuration(const struct netcfg_interface *interface);
 
 /* write_interfaces.c */
 extern int netcfg_write_interface(const struct netcfg_interface *interface);
