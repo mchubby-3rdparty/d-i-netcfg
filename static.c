@@ -254,7 +254,7 @@ static int netcfg_write_resolvconf_options(const char *domain,
     return 1;
 }
 
-int netcfg_write_resolv (const char *domain, char nameservers[][NETCFG_ADDRSTRLEN], const unsigned int ns_size)
+int netcfg_write_resolv (const char *domain, const struct netcfg_interface *interface)
 {
     FILE* fp = NULL;
 
@@ -263,9 +263,9 @@ int netcfg_write_resolv (const char *domain, char nameservers[][NETCFG_ADDRSTRLE
         if (domain && !empty_str(domain))
             fprintf(fp, "search %s\n", domain);
 
-        for (i = 0; i < ns_size; i++)
-            if (!empty_str(nameservers[i]))
-                fprintf(fp, "nameserver %s\n", nameservers[i]);
+        for (i = 0; i < NETCFG_NAMESERVERS_MAX; i++)
+            if (!empty_str(interface->nameservers[i]))
+                fprintf(fp, "nameserver %s\n", interface->nameservers[i]);
 
         fclose(fp);
         return 1;
@@ -604,6 +604,7 @@ int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *ifa
             debconf_capb(client, "backup");
             break;
         case GET_NAMESERVERS:
+            if (nameservers) free(nameservers);
             state = (netcfg_get_nameservers (client, &nameservers, iface->gateway)) ?
                 GET_GATEWAY : CONFIRM;
             break;
@@ -618,7 +619,7 @@ int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *ifa
             break;
         case GET_DOMAIN:
             if (!have_domain) {
-                state = (netcfg_get_domain (client, &domain)) ?
+                state = (netcfg_get_domain (client, domain)) ?
                     GET_HOSTNAME : QUIT;
             } else {
                 di_info("domain = %s", domain);
@@ -635,7 +636,9 @@ int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *ifa
             debconf_subst(client, "netcfg/confirm_static", "gateway", empty_str(iface->gateway) ? none : iface->gateway);
             debconf_subst(client, "netcfg/confirm_static", "nameservers",
                           (nameservers ? nameservers : none));
-            netcfg_nameservers_to_array(nameservers, nameserver_array, ARRAY_SIZE(nameserver_array));
+            netcfg_nameservers_to_array(nameservers, iface);
+            free(nameservers);
+            nameservers = NULL;
 
             debconf_capb(client); /* Turn off backup for yes/no confirmation */
 
@@ -645,7 +648,7 @@ int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *ifa
 
             if (strstr(client->value, "true")) {
                 state = GET_HOSTNAME;
-                netcfg_write_resolv(domain, nameserver_array, ARRAY_SIZE(nameserver_array));
+                netcfg_write_resolv(domain, iface);
                 netcfg_activate_static(client, iface);
             }
             else
@@ -669,7 +672,7 @@ int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *ifa
                 netcfg_write_loopback();
                 netcfg_write_interface(iface);
                 netcfg_write_resolvconf_options(domain, nameserver_array, ARRAY_SIZE(nameserver_array));
-                netcfg_write_resolv(domain, nameserver_array, ARRAY_SIZE(nameserver_array));
+                netcfg_write_resolv(domain, iface);
             }
             return 0;
             break;

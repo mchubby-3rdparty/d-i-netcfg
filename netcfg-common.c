@@ -60,9 +60,8 @@
 #endif
 
 /* network config */
-char *interface = NULL;
-char hostname[MAXHOSTNAMELEN];
-char *domain = NULL;
+char hostname[MAXHOSTNAMELEN + 1];
+char domain[MAXHOSTNAMELEN + 1];
 int have_domain = 0;
 
 /* File descriptors for ioctls and such */
@@ -1045,9 +1044,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char *host
             if (s[1] == '\0') { /* "somehostname." <- . should be ignored */
                 *s = '\0';
             } else { /* assume we have a valid domain name given */
-                if (domain)
-                    free(domain);
-                domain = strdup(s + 1);
+                strncpy(domain, s + 1, MAXHOSTNAMELEN);
                 debconf_set(client, "netcfg/get_domain", domain);
                 have_domain = 1;
                 *s = '\0';
@@ -1076,7 +1073,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char *host
 /* @brief Get the domainname.
  * @return 0 for success, with *domain = domain, GO_BACK for 'goback',
  */
-int netcfg_get_domain(struct debconfclient *client,  char **domain)
+int netcfg_get_domain(struct debconfclient *client,  char domain[])
 {
     int ret;
 
@@ -1084,9 +1081,7 @@ int netcfg_get_domain(struct debconfclient *client,  char **domain)
     {
         debconf_get(client, "netcfg/get_domain");
         assert (!empty_str(client->value));
-        if (*domain)
-            free(*domain);
-        *domain = strdup(client->value);
+        strncpy(domain, client->value, MAXHOSTNAMELEN);
         return 0;
     }
 
@@ -1098,14 +1093,12 @@ int netcfg_get_domain(struct debconfclient *client,  char **domain)
 
     debconf_get (client, "netcfg/get_domain");
 
-    if (*domain)
-        free(*domain);
-    *domain = NULL;
+    *domain = '\0';
     if (!empty_str(client->value)) {
         const char *start = client->value;
         while (*start == '.')
             ++start; /* trim leading dots */
-        *domain = strdup(start);
+        strncpy(domain, start, MAXHOSTNAMELEN);
     }
 
     return 0;
@@ -1363,16 +1356,9 @@ void reap_old_files (void)
 }
 
 /* Convert a space-separated list of nameservers in a single string (as might
- * be entered into, say, debconf), and turn them into an array of strings
- * (which is the canonical way we store our nameservers internally).
- *
- * The array of strings in +array+ must be statically allocated by the caller
- * in the form array[N][NETCFG_ADDRSTRLEN] -- you *must* use NETCFG_ADDRSTRLEN
- * to ensure that the storage space you provide is large enough to hold the
- * entire IPv4 or IPv6 address string.  +N+ is the maximum number of
- * nameservers you wish to store.
+ * be entered into, say, debconf), and store them in the interface.
  */
-void netcfg_nameservers_to_array(const char *nameservers, char array[][NETCFG_ADDRSTRLEN], const unsigned int array_size)
+void netcfg_nameservers_to_array(const char *nameservers, struct netcfg_interface *interface)
 {
     char *save, *ptr, *ns;
     unsigned int i;
@@ -1381,7 +1367,7 @@ void netcfg_nameservers_to_array(const char *nameservers, char array[][NETCFG_AD
     if (nameservers) {
         save = ptr = strdup(nameservers);
 
-        for (i = 0; i < array_size; i++) {
+        for (i = 0; i < NETCFG_NAMESERVERS_MAX; i++) {
             int af;
             ns = strtok_r(ptr, " \n\t", &ptr);
             if (ns) {
@@ -1404,19 +1390,19 @@ void netcfg_nameservers_to_array(const char *nameservers, char array[][NETCFG_AD
                 }
 
                 if (af != -1) {
-                    inet_ntop (af, &addr, array[i], NETCFG_ADDRSTRLEN);
+                    inet_ntop (af, &addr, interface->nameservers[i], NETCFG_ADDRSTRLEN);
                 } else {
                     /* Dud in this slot; empty it */
-                    array[i][0] = '\0';
+                    *(interface->nameservers[i]) = '\0';
                 }
             } else
-                array[i][0] = '\0';
+                *(interface->nameservers[i]) = '\0';
         }
 
         free(save);
     } else {
         /* Empty out all the nameserver strings */
-        for (i = 0; i < array_size; i++) array[i][0] = '\0';
+        for (i = 0; i < NETCFG_NAMESERVERS_MAX; i++) *(interface->nameservers[i]) = '\0';
     }
 }
 
@@ -1554,20 +1540,17 @@ int netcfg_detect_link(struct debconfclient *client, const struct netcfg_interfa
 
 void netcfg_interface_init(struct netcfg_interface *iface)
 {
+    memset(iface, 0, sizeof(*iface));
+    
     iface->name = NULL;
     iface->dhcp = -1;
+    iface->dhcpv6 = -1;
     iface->address_family = -1;  /* I hope nobody uses -1 for AF_INET */
     iface->slaac = -1;
+    iface->v6_stateful_config = -1;
+    iface->v6_stateless_config = -1;
     iface->loopback = -1;
-    iface->dhcp_hostname[0] = '\0';
-    iface->ipaddress[0] = '\0';
-    iface->gateway[0] = '\0';
-    iface->pointopoint[0] = '\0';
-    iface->masklen = 0;
     iface->mode = MANAGED;
-    iface->wepkey = NULL;
-    iface->essid = NULL;
-    iface->passphrase = NULL;
 }
 
 /* Parse an IP address (v4 or v6), with optional CIDR netmask, into
@@ -1713,10 +1696,28 @@ void preseed_hostname_from_fqdn(struct debconfclient *client, char *buf)
                     
         debconf_set(client, "netcfg/get_hostname", buf);
 
-        if (have_domain == 0 && dom != NULL) {
+        if (!have_domain && dom != NULL) {
             di_debug("Preseeding domain as well: %s", dom);
             debconf_set(client, "netcfg/get_domain", dom);
             have_domain = 1;
+        } else if (have_domain && !empty_str(domain)) {
+            /* Global var 'domain' is holding a temporary domain name,
+             * presumably glommed from DHCP.  Use it as default instead.
+             */
+            di_debug("Preseeding domain from global: %s", domain);
+            debconf_set(client, "netcfg/get_domain", domain);
         }
     }
+}
+
+/* Classic rtrim... strip off trailing whitespace from a string */
+void rtrim(char *s)
+{
+	int n;
+	
+	n = strlen(s) - 1;
+	
+	while (isspace(s[n])) {
+		s[n] = '\0';
+	}
 }
