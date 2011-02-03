@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+i=0
+for srv in $new_dhcp6_name_servers; do
+	echo "nameserver[$i] $srv"
+	i=$(($i+1))
+done
+
+i=0
+for srv in $new_dhcp6_domain_search; do
+	echo "Domain search list[$i] $srv"
+	i=$(($i+1))
+done
+
+i=0
+for srv in $new_dhcp6_sntp_servers; do
+	echo "NTP server[$i] $srv"
+	i=$(($i+1))
+done

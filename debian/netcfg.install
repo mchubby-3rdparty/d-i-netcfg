@@ -1,4 +1,5 @@
 killall.sh bin
+print-dhcpv6-info lib/netcfg
 netcfg bin
 base-installer.d usr/lib
 finish-install.d usr/lib
