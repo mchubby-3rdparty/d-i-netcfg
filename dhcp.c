@@ -270,8 +270,7 @@ static int kill_dhcp_client(void)
 
 /*
  * Poll the started DHCP client for netcfg/dhcp_timeout seconds (def. 15)
- * and return 0 if a lease is known to have been acquired,
- * 1 otherwise.
+ * and return true if a lease is known to have been acquired, 0 otherwise.
  *
  * The client should be run such that it exits once a lease is acquired
  * (although its child continues to run as a daemon)
@@ -282,7 +281,7 @@ static int kill_dhcp_client(void)
 int poll_dhcp_client (struct debconfclient *client)
 {
     int seconds_slept = 0;
-    int ret = 1;
+    int ret = 0;
     int dhcp_seconds;
 
     debconf_get(client, "netcfg/dhcp_timeout");
@@ -309,7 +308,7 @@ int poll_dhcp_client (struct debconfclient *client)
 
     /* got a lease? display a success message */
     if (!(dhcp_pid > 0) && (dhcp_exit_status == 0)) {
-        ret = 0;
+        ret = 1;
 
         debconf_capb(client, "backup"); /* stop displaying cancel button */
         if (debconf_progress_set(client, dhcp_seconds) == 30)
@@ -436,101 +435,41 @@ int ask_wifi_configuration (struct debconfclient *client, struct netcfg_interfac
     }
 }
 
-
+/* Back in the day, this function was the main entry point for DHCP-enabled
+ * netcfg; now it's slowly dying, doing quadruple duty handling all manner of
+ * autoconfiguration and the associated stuffing around, much of which is
+ * duplicated with static configuration.  Eventually, this whole mess will be
+ * merged with the static configuration code, and there will be much
+ * rejoicing.
+ */
 int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface *interface)
 {
-    enum { START, POLL, CHECK_SLAAC, DEFAULT_GATEWAY, NAMESERVERS,
+    enum { AUTOCONFIG, DEFAULT_GATEWAY, NAMESERVERS,
            ASK_OPTIONS, DHCP_HOSTNAME, HOSTNAME, DOMAIN, HOSTNAME_SANS_NETWORK
-           } state = START;
-    char nameserver_array[4][NETCFG_ADDRSTRLEN];
+           } state = AUTOCONFIG;
     char *if_name = interface->name;
 
     kill_dhcp_client();
     loop_setup();
     
-    interface->dhcp = 1;
+    interface_up(interface->name);
 
     for (;;) {
         di_debug("State is now %i", state);
         switch (state) {
-        case START:
-            if (start_dhcp_client(client, interface->dhcp_hostname, if_name))
-                netcfg_die(client); /* change later */
-            if (!start_rdnssd(client))
-                netcfg_die(client); /* change later */
-                
-            state = POLL;
-            break;
-
-        case POLL:
-            if (poll_dhcp_client(client)) {
-                state = CHECK_SLAAC;
-            } else {
-                /*
-                 * Set defaults for domain name and hostname
-                 */
-                FILE *d = NULL;
-
-                have_domain = 0;
-
-                /*
-                 * Default to the domain name returned via DHCP, if any
-                 */
-                if ((d = fopen(DOMAIN_FILE, "r")) != NULL) {
-                    char domain[_UTSNAME_LENGTH + 1] = { 0 };
-                    fgets(domain, _UTSNAME_LENGTH, d);
-                    fclose(d);
-                    unlink(DOMAIN_FILE);
-
-                    if (!empty_str(domain) && valid_domain(domain)) {
-                        debconf_set(client, "netcfg/get_domain", domain);
-                        have_domain = 1;
-                    }
-                }
-
-                /*
-                 * Record any ntp server information from DHCP for later
-                 * verification and use by clock-setup
-                 */
-                if ((d = fopen(NTP_SERVER_FILE, "r")) != NULL) {
-                    char ntpservers[DHCP_OPTION_LEN + 1] = { 0 };
-                    fgets(ntpservers, DHCP_OPTION_LEN, d);
-                    fclose(d);
-                    unlink(NTP_SERVER_FILE);
-
-                    if (!empty_str(ntpservers)) {
-                        debconf_set(client, "netcfg/dhcp_ntp_servers",
-                                    ntpservers);
-                    }
-                }
-
-
-                state = DEFAULT_GATEWAY;
-            }
-            break;
-        case CHECK_SLAAC:
-            if (nc_v6_get_slaac(interface)) {
-                /* We won't be needing this any more */
-                kill_dhcp_client();
-                stop_rdnssd();
-                read_resolv_conf_nameservers("/tmp/rdnssd_resolv", nameserver_array, ARRAY_SIZE(nameserver_array));
-                if (resolv_conf_entries(nameserver_array, ARRAY_SIZE(nameserver_array)) > 0) {
-                    /* Our RAs have DNS entries!  Better install rdnssd to
-                     * keep track of them
-                     */
-                    di_exec_shell_log("apt-install rdnssd");
-                }
-                interface->dhcp = 0;
-                state = DEFAULT_GATEWAY;
-            } else {
+        case AUTOCONFIG:
+            if (!netcfg_autoconfig(client, interface)) {
                 /* autoconfiguration has most definitely failed */
                 debconf_capb(client, "");
                 debconf_input(client, "critical", "netcfg/dhcp_failed");
                 debconf_go(client);
                 debconf_capb(client, "backup");
                 state = ASK_OPTIONS;
-	    }
-	    break;
+            } else {
+                state = DEFAULT_GATEWAY;
+            }
+            break;
+
 	case DEFAULT_GATEWAY:
             if (no_default_route()) {
                 debconf_input(client, "critical", "netcfg/no_default_route");
@@ -544,10 +483,10 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
             }
             state = NAMESERVERS;
             break;
+
         case NAMESERVERS:
             /* Make sure we have NS going if the DHCP server didn't serve it up */
-            read_resolv_conf_nameservers(RESOLV_FILE, nameserver_array, ARRAY_SIZE(nameserver_array));
-            if (resolv_conf_entries(nameserver_array, ARRAY_SIZE(nameserver_array)) == 0) {
+            if (nameserver_count(interface) == 0) {
                 char *nameservers = NULL;
 
                 if (netcfg_get_nameservers (client, &nameservers, NULL) == GO_BACK) {
@@ -555,16 +494,19 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
                     break;
                 }
 
-                netcfg_nameservers_to_array (nameservers, nameserver_array, ARRAY_SIZE(nameserver_array));
+                netcfg_nameservers_to_array (nameservers, interface);
+                free(nameservers);
+                nameservers = NULL;
             }
 
             /* We don't have a domain name yet, but we need to write out the
              * nameservers now so we can do rDNS lookups later to possibly
              * find out the domain.
              */
-            netcfg_write_resolv(NULL, nameserver_array, ARRAY_SIZE(nameserver_array));
+            netcfg_write_resolv(NULL, interface);
             state = HOSTNAME;
             break;
+
         case ASK_OPTIONS:
             /* DHCP client may still be running */
             switch (ask_dhcp_options (client, if_name)) {
@@ -588,19 +530,11 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
                 state = HOSTNAME_SANS_NETWORK;
                 break;
             case REPLY_RETRY_AUTOCONFIG:
-                if (dhcp_pid > 0)
-                    state = POLL;
-                else {
-                    kill_dhcp_client();
-                    stop_rdnssd();
-                    state = START;
-                }
+                state = AUTOCONFIG;
                 break;
             case REPLY_RECONFIGURE_WIFI:
                 if (ask_wifi_configuration(client, interface) == REPLY_CHECK_DHCP) {
-                    kill_dhcp_client();
-                    stop_rdnssd();
-                    state = START;
+                    state = AUTOCONFIG;
                 }
                 else
                     state = ASK_OPTIONS;
@@ -615,7 +549,7 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
             else {
                 kill_dhcp_client();
                 stop_rdnssd();
-                state = START;
+                state = AUTOCONFIG;
             }
             break;
 
@@ -659,14 +593,14 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
             break;
 
         case DOMAIN:
-            if (!have_domain && netcfg_get_domain (client, &domain))
+            if (!have_domain && netcfg_get_domain (client, domain))
                 state = HOSTNAME;
             else {
                 di_debug("Network config complete");
                 netcfg_write_common("", hostname, domain);
                 netcfg_write_loopback();
                 netcfg_write_interface(interface);
-                netcfg_write_resolv(domain, nameserver_array, ARRAY_SIZE(nameserver_array));
+                netcfg_write_resolv(domain, interface);
                 kill_dhcp_client();
                 stop_rdnssd();
 
@@ -688,12 +622,12 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
 }
 
 /* Count the number of actual entries in the nameservers array */
-int resolv_conf_entries (char nameservers[][NETCFG_ADDRSTRLEN], const unsigned int ns_size)
+int nameserver_count (const struct netcfg_interface *interface)
 {
     unsigned int count = 0, i;
     
-    for (i = 0; i < ns_size; i++) {
-        if (!empty_str(nameservers[i])) count++;
+    for (i = 0; i < NETCFG_NAMESERVERS_MAX; i++) {
+        if (!empty_str(interface->nameservers[i])) count++;
     }
 
     return count;
@@ -702,7 +636,7 @@ int resolv_conf_entries (char nameservers[][NETCFG_ADDRSTRLEN], const unsigned i
 /* Read the nameserver entries out of resolv.conf and stick them into
  * array, so we can write out a newer, shinier resolv.conf
  */
-int read_resolv_conf_nameservers(char *resolv_conf_file, char array[][NETCFG_ADDRSTRLEN], unsigned int array_size)
+int read_resolv_conf_nameservers(char *resolv_conf_file, struct netcfg_interface *interface)
 {
     FILE *f;
     unsigned int i = 0;
@@ -715,15 +649,13 @@ int read_resolv_conf_nameservers(char *resolv_conf_file, char array[][NETCFG_ADD
             char *ptr;
 
             if (strncmp(buf, "nameserver ", strlen("nameserver ")) == 0) {
-                /* Chop off trailing \n */
-                if (buf[strlen(buf)-1] == '\n')
-                    buf[strlen(buf)-1] = '\0';
+            	rtrim(buf);
 
                 ptr = buf + strlen("nameserver ");
-                strncpy(array[i], ptr, NETCFG_ADDRSTRLEN);
-                di_debug("Read nameserver %s", array[i]);
+                strncpy(interface->nameservers[i], ptr, NETCFG_ADDRSTRLEN);
+                di_debug("Read nameserver %s", interface->nameservers[i]);
                 i++;
-                if (i == array_size) {
+                if (i >= NETCFG_NAMESERVERS_MAX) {
                     /* We can only hold so many nameservers, and we've reached
                      * our limit.  Sorry.
                      */
@@ -734,10 +666,76 @@ int read_resolv_conf_nameservers(char *resolv_conf_file, char array[][NETCFG_ADD
 
         fclose(f);
         /* Null out any remaining elements in array */
-        for (; i < array_size; i++) array[i][0] = '\0';
+        for (; i < NETCFG_NAMESERVERS_MAX; i++) *(interface->nameservers[i]) = '\0';
 
         return 1;
     }
     else
         return 0;
+}
+
+/* Start a DHCP(v4) client, and see if we get a meaningful response back.
+ *
+ * Return 1 if the DHCP client appears to have worked, or 0 if we should
+ * use another method to get our network configuration.
+ */
+int netcfg_dhcp(struct debconfclient *client, struct netcfg_interface *interface)
+{
+    FILE *d;
+    
+    if (start_dhcp_client(client, interface->dhcp_hostname, interface->name)) {
+        di_warning("DHCP client failed to start.  Aborting DHCP configuration.");
+        return 0;
+    }
+    
+    interface->dhcp = poll_dhcp_client(client);
+
+    /*
+     * Default to the domain name returned via DHCP, if any
+     */
+    if (!have_domain && (d = fopen(DOMAIN_FILE, "r")) != NULL) {
+        di_debug("Reading domain name returned via DHCP");
+        fgets(domain, sizeof(domain), d);
+        rtrim(domain);
+        fclose(d);
+        unlink(DOMAIN_FILE);
+        di_debug("DHCP domain name is '%s'", domain);
+        if (!empty_str(domain)) {
+            have_domain = 1;
+        }
+    }
+
+    /*
+     * Record any ntp server information from DHCP for later
+     * verification and use by clock-setup
+     */
+    if ((d = fopen(NTP_SERVER_FILE, "r")) != NULL) {
+        char ntpservers[DHCP_OPTION_LEN + 1] = { 0 }, *ptr, *srv;
+        int i;
+        
+        di_debug("Reading NTP servers from DHCP info");
+        
+        fgets(ntpservers, DHCP_OPTION_LEN, d);
+        rtrim(ntpservers);
+        fclose(d);
+        unlink(NTP_SERVER_FILE);
+
+        if (!empty_str(ntpservers)) {
+            ptr = ntpservers;
+            for (i = 0; i < NETCFG_NTPSERVERS_MAX; i++) {
+                srv = strtok_r(ptr, " \n\t", &ptr);
+                if (srv) {
+                    di_debug("Read NTP server %s", srv);
+                    strncpy(interface->ntp_servers[i], srv, NETCFG_ADDRSTRLEN);
+                } else {
+                    *(interface->ntp_servers[i]) = '\0';
+                }
+            }
+        }
+    }
+    
+    /* Get a copy of the DNS servers that the DHCP server got */
+    read_resolv_conf_nameservers(RESOLV_FILE, interface);
+
+    return interface->dhcp;
 }

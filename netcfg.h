@@ -67,9 +67,8 @@ extern int input_result;
 extern int have_domain;
 
 /* network config */
-extern char hostname[MAXHOSTNAMELEN];
-extern char *dhcp_hostname;
-extern char *domain;
+extern char hostname[MAXHOSTNAMELEN + 1];
+extern char domain[MAXHOSTNAMELEN + 1];
 
 /* wireless */
 extern char *essid, *wepkey, *passphrase;
@@ -83,6 +82,12 @@ extern wifimode_t mode;
  */
 #define NETCFG_ADDRSTRLEN ((INET_ADDRSTRLEN < INET6_ADDRSTRLEN) ? INET6_ADDRSTRLEN : INET_ADDRSTRLEN)
 
+/* The maximum number of nameservers and NTP servers we'll store in the
+ * interface.
+ */
+#define NETCFG_NAMESERVERS_MAX	4
+#define NETCFG_NTPSERVERS_MAX	4
+
 /* The information required to configure a network interface. */
 struct netcfg_interface {
 	char *name;
@@ -94,6 +99,10 @@ struct netcfg_interface {
 	/* Was this interface configured with DHCP?
 	 * -1 if unknown, 0 if no, 1 if yes */
 	int dhcp;
+	
+	/* Was this interface configured using stateful DHCPv6?
+	 */
+	int dhcpv6;
 
 	/* Address family of the address we're configuring; AF_INET or AF_INET6 */
 	int address_family;
@@ -101,6 +110,27 @@ struct netcfg_interface {
 	/* Did the interface get an IPv6 address/gateway via SLAAC?
 	 * T (1) / F (0) / unknown (-1) */
 	int slaac;
+	
+	/* Did the RA indicate that we should use stateful address
+	 * configuration?  T/F/?
+	 */
+	int v6_stateful_config;
+	
+	/* Did the RA indicate that we should use stateless auxiliary
+	 * config (DNS, NTP, etc)?  T/F/?
+	 */
+	int v6_stateless_config;
+	
+	/* The list of nameservers this interface has asked us to
+	 * use.
+	 */
+	char nameservers[NETCFG_NAMESERVERS_MAX][NETCFG_ADDRSTRLEN];
+
+	/* The list of NTP servers this interface has asked us to
+	 * use.  Interestingly, the DHCP specs only allow NTP servers by
+	 * IP address, not hostname, hence the use of NETCFG_ADDRSTRLEN.
+	 */
+	char ntp_servers[NETCFG_NTPSERVERS_MAX][NETCFG_ADDRSTRLEN];
 
 	/* The 'hostname' we want to send to the DHCP server so it'll give
 	 * us a/the right lease.
@@ -157,22 +187,22 @@ extern int netcfg_get_hostname(struct debconfclient *client, char *template, cha
 
 extern int netcfg_get_nameservers (struct debconfclient *client, char **nameservers, char *default_nameservers);
 
-extern int netcfg_get_domain(struct debconfclient *client,  char **domain);
+extern int netcfg_get_domain(struct debconfclient *client,  char domain[]);
 
 extern int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *interface);
 
 extern int netcfg_activate_dhcp(struct debconfclient *client, struct netcfg_interface *interface);
 
-extern int resolv_conf_entries (char nameservers[][NETCFG_ADDRSTRLEN], const unsigned int ns_size);
+extern int nameserver_count (const struct netcfg_interface *interface);
 
-extern int read_resolv_conf_nameservers (char *resolv_conf_file, char nameservers[][NETCFG_ADDRSTRLEN], const unsigned int ns_size);
+extern int read_resolv_conf_nameservers (char *resolv_conf_file, struct netcfg_interface *interface);
 
 extern int ask_dhcp_options (struct debconfclient *client, const char *if_name);
 
 extern void netcfg_write_loopback (void);
 extern void netcfg_write_common (const char *ipaddress, const char *hostname, const char *domain);
 
-void netcfg_nameservers_to_array(const char *nameservers, char array[][NETCFG_ADDRSTRLEN], const unsigned int array_size);
+void netcfg_nameservers_to_array(const char *nameservers, struct netcfg_interface *interface);
 
 extern int is_wireless_iface (const char *if_name);
 extern int netcfg_wireless_set_essid (struct debconfclient *client, struct netcfg_interface *interface, char *priority);
@@ -203,7 +233,7 @@ extern void reap_old_files (void);
 
 extern void netcfg_update_entropy (void);
 
-extern int netcfg_write_resolv (const char *domain, char nameservers[][NETCFG_ADDRSTRLEN], const unsigned int nameservers_size);
+extern int netcfg_write_resolv (const char *domain, const struct netcfg_interface *interface);
 
 extern int ethtool_lite (const char *if_name);
 extern int netcfg_detect_link(struct debconfclient *client, const struct netcfg_interface *interface);
@@ -215,9 +245,15 @@ extern int netcfg_gateway_reachable(const struct netcfg_interface *interface);
 
 extern void preseed_hostname_from_fqdn(struct debconfclient *client, char *fqdn);
 
+extern int netcfg_dhcp(struct debconfclient *client, struct netcfg_interface *interface);
+
+extern void rtrim(char *);
+
 /* ipv6.c */
 extern int nc_v6_get_slaac(struct netcfg_interface *interface);
 extern void nc_v6_wait_for_complete_configuration(const struct netcfg_interface *interface);
+extern int nc_v6_interface_configured(const struct netcfg_interface *interface, const int link_local);
+extern int nc_v6_get_config_flags(struct debconfclient *client, struct netcfg_interface *interface);
 
 /* write_interfaces.c */
 extern int netcfg_write_interface(const struct netcfg_interface *interface);
@@ -226,5 +262,9 @@ extern int netcfg_write_interface(const struct netcfg_interface *interface);
 extern int start_rdnssd(struct debconfclient *client);
 extern void cleanup_rdnssd(void);
 extern void stop_rdnssd(void);
+extern void read_rdnssd_nameservers(struct netcfg_interface *interface);
+
+/* autoconfig.c */
+extern int netcfg_autoconfig(struct debconfclient *client, struct netcfg_interface *interface);
 
 #endif /* _NETCFG_H_ */

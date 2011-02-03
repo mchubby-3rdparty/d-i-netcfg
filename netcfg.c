@@ -39,13 +39,13 @@ response_t netcfg_get_method(struct debconfclient *client)
 {
     int iret, ret;
 
-    iret = debconf_input(client, "medium", "netcfg/use_dhcp");
+    iret = debconf_input(client, "medium", "netcfg/use_autoconfig");
     ret = debconf_go(client);
 
     if (ret == 30)
         return GO_BACK;
 
-    debconf_get(client, "netcfg/use_dhcp");
+    debconf_get(client, "netcfg/use_autoconfig");
 
     if (strcmp(client->value, "true") == 0)
         netcfg_method = DHCP;
@@ -107,14 +107,14 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    /* always always always default back to DHCP, unless you've specified
-     * disable_dhcp on the command line. */
-    debconf_get(client, "netcfg/disable_dhcp");
+    /* always always always default back to autoconfig, unless you've specified
+     * disable_autoconfig on the command line. */
+    debconf_get(client, "netcfg/disable_autoconfig");
 
     if (!strcmp(client->value, "true"))
-        debconf_set(client, "netcfg/use_dhcp", "false");
+        debconf_set(client, "netcfg/use_autoconfig", "false");
     else
-        debconf_set(client, "netcfg/use_dhcp", "true");
+        debconf_set(client, "netcfg/use_autoconfig", "true");
 
     for (;;) {
         switch(state) {
