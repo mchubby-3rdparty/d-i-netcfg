@@ -65,7 +65,15 @@ static int netcfg_slaac(struct debconfclient *client, struct netcfg_interface *i
 		 */
 		ns_idx = nameserver_count(interface);
 		
+#if defined(__FreeBSD_kernel__)
+		/* Sigh... wide (dhcp6c) is Linux-only, and dhclient is
+		 * freaking huge...  so we have to use what's best where
+		 * it's available.
+		 */
+		snprintf(cmd, sizeof(cmd), "dhclient -6 -S -sf /lib/netcfg/print-dhcpv6-info %s", interface->name);
+#else
 		snprintf(cmd, sizeof(cmd), "dhcp6c -i %s", interface->name);
+#endif
 		if ((cmdfd = popen(cmd, "r")) != NULL) {
 			while (fgets(l, sizeof(l), cmdfd) != NULL) {
 				rtrim(l);
