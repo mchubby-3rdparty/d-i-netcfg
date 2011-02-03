@@ -36,7 +36,7 @@ endif
 all: $(TARGETS)
 
 netcfg-static: netcfg-static.o static.o ethtool-lite.o
-netcfg: netcfg.o dhcp.o static.o ethtool-lite.o wpa.o wpa_ctrl.o rdnssd.o
+netcfg: netcfg.o dhcp.o static.o ethtool-lite.o wpa.o wpa_ctrl.o rdnssd.o autoconfig.o
 
 ethtool-lite: ethtool-lite-test.o
 	$(CC) -o $@ $<

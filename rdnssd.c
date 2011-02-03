@@ -79,6 +79,14 @@ void cleanup_rdnssd()
 	}
 }
 
+/* Read the nameserver entries that rdnssd may have written out into the
+ * interface struct.
+ */
+void read_rdnssd_nameservers(struct netcfg_interface *interface)
+{
+	read_resolv_conf_nameservers("/tmp/rdnssd_resolv", interface);
+}
+
 /* Stop the rdnssd client process.
  */
 void stop_rdnssd()
