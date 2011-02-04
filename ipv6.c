@@ -161,7 +161,7 @@ int nc_v6_get_config_flags(struct debconfclient *client, struct netcfg_interface
 		return 0;
 	}
 	
-	snprintf(cmd, sizeof(cmd), "rdisc6 -1 -w 250 -n %s", interface->name);
+	snprintf(cmd, sizeof(cmd), "rdisc6 -1 -r 1 -w 500 -n %s", interface->name);
 
 	di_debug("Running %s to get IPv6 config flags", cmd);
 	
