@@ -54,7 +54,7 @@ static short no_default_route (void)
     int status4, status6;
 
     status4 = system("exec /lib/freebsd/route show default >/dev/null 2>&1");
-    status6 = system("exec /lib/freebsd/route -6 show default >/dev/null 2>&1");
+    status6 = system("exec /lib/freebsd/route show -inet6 default >/dev/null 2>&1");
 
     return (WEXITSTATUS(status4) != 0) && (WEXITSTATUS(status6) != 0);
 #elif defined(__GNU__)
