@@ -1,4 +1,13 @@
-netcfg (1.89) unstable; urgency=low
+netcfg (1.89+ipv6) UNRELEASED; urgency=low
+
+  * Fully support installations over IPv6.  Involves a great deal of new
+    code and functionality.  Closes: #231003.
+
+ -- Matt Palmer <mpalmer@debian.org>  Sun, 06 Feb 2011 15:07:33 +1100
+
+netcfg (1.89) UNRELEASED; urgency=low
+
+  * Team upload
 
   [ Philipp Kern ]
   * wireless.c: Fix some spelling mistakes.
