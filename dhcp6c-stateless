@@ -1,0 +1,22 @@
+#! /bin/sh
+set -e
+
+config="$(mktemp /tmp/dhcp6c.conf.XXXXXX)"
+
+cleanup () {
+	rm -f "$config"
+}
+trap cleanup EXIT HUP INT QUIT TERM
+
+cat >"$config" <<EOF
+interface $1 {
+	information-only;
+
+	request domain-name-servers;
+	request domain-name;
+
+	script "/lib/netcfg/print-dhcp6c-info";
+};
+EOF
+
+dhcp6c -c "$config" -f "$1"

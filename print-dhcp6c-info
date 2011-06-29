@@ -1,0 +1,27 @@
+#! /bin/sh
+set -e
+
+i=0
+for srv in $new_domain_name_servers; do
+	echo "nameserver[$i] $srv"
+	i=$(($i+1))
+done
+
+i=0
+for srv in $new_domain_name; do
+	echo "Domain search list[$i] $srv"
+	i=$(($i+1))
+done
+
+i=0
+for srv in $new_ntp_servers; do
+	echo "NTP server[$i] $srv"
+	i=$(($i+1))
+done
+
+# dhcp6c doesn't exit after printing information unless in info-req (-i)
+# mode, which is incompatible with supplying a configuration; so just kill
+# the parent now.
+kill "$PPID"
+
+exit 0
