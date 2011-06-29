@@ -72,7 +72,7 @@ static int netcfg_slaac(struct debconfclient *client, struct netcfg_interface *i
 		 */
 		snprintf(cmd, sizeof(cmd), "dhclient -6 -S -sf /lib/netcfg/print-dhcpv6-info %s", interface->name);
 #else
-		snprintf(cmd, sizeof(cmd), "dhcp6c -i %s", interface->name);
+		snprintf(cmd, sizeof(cmd), "/lib/netcfg/dhcp6c-stateless %s", interface->name);
 #endif
 		if ((cmdfd = popen(cmd, "r")) != NULL) {
 			while (fgets(l, sizeof(l), cmdfd) != NULL) {
