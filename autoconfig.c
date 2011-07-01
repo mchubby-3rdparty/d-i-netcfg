@@ -20,7 +20,413 @@
 #include <errno.h>
 #include <string.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <ifaddrs.h>
+#include <net/if.h>
 #include <debian-installer.h>
+
+struct duid_header {
+	uint16_t duid_type;
+	uint16_t hw_type;
+	/* link-layer address follows */
+} __attribute__((__packed__));
+
+#define DUID_ETHER_LEN 6
+
+#define DHCP6C_PIDFILE "/var/run/dhcp6c.pid"
+
+/* Get a DHCP Unique Identifier for DHCPv6.
+ * We use the DUID-LL method (see RFC 3315 s9.4) since any other method is
+ * unpredictable from outside the installer, and thus would render it
+ * impossible to specify configuration parameters for a host in advance.
+ */
+static int netcfg_get_duid(const struct netcfg_interface *interface, char **buf, size_t *len)
+{
+	struct sockaddr sa;
+	struct duid_header *duid_header;
+
+	if (!get_hw_addr(interface->name, &sa))
+		/* Oh dear.  We have no choice but to let the DHCP client
+		 * select a DUID, even though it may not be predictable (for
+		 * instance, if it uses DUID-LLT it will depend on the
+		 * timestamp).
+		 */
+		return 0;
+
+	*len = sizeof(duid_header) + DUID_ETHER_LEN;
+	*buf = malloc(*len);
+	if (!*buf)
+		return 0;
+	duid_header = (struct duid_header *)*buf;
+
+	duid_header->duid_type = htons(3);
+	duid_header->hw_type = htons(sa.sa_family);
+	memcpy(*buf + sizeof(duid_header), sa.sa_data, DUID_ETHER_LEN);
+
+	return 1;
+}
+
+static void netcfg_wide_write_duid(const char *duid, size_t duid_len)
+{
+	const char *filename = "/var/lib/dhcpv6/dhcp6c_duid";
+	uint16_t duid_len_16;
+	FILE *out;
+
+	duid_len_16 = (uint16_t)duid_len; /* for output format */
+
+	out = fopen(filename, "w");
+	if (!out)
+		return;
+	if (fwrite(&duid_len_16, sizeof(duid_len_16), 1, out) != 1) {
+		fclose(out);
+		unlink(filename);
+		return;
+	}
+	if (fwrite(duid, 1, duid_len, out) != duid_len) {
+		fclose(out);
+		unlink(filename);
+		return;
+	}
+	fclose(out);
+}
+
+static int dhcpv6_pipe[2] = { -1, -1 };
+static pid_t dhcpv6_pid = -1;
+static int dhcpv6_exit_status = 1;
+
+/* Signal handler for DHCPv6 client child
+ *
+ * When the child exits (either because it failed to obtain a
+ * lease or because it succeeded and daemonized itself), this
+ * gets the child's exit status and sets dhcpv6_pid to -1
+ */
+void cleanup_dhcpv6_client(void)
+{
+	if (dhcpv6_pid <= 0)
+		/* Already cleaned up */
+		return;
+
+	waitpid(dhcpv6_pid, &dhcpv6_exit_status, WNOHANG);
+	if (WIFEXITED(dhcpv6_exit_status) || WIFSIGNALED(dhcpv6_exit_status))
+		dhcpv6_pid = -1;
+}
+
+/* Start whichever DHCPv6 client is available.
+ *
+ * The client's PID is stored in dhcpv6_pid.
+ */
+int start_dhcpv6_client(struct debconfclient *client, const struct netcfg_interface *interface)
+{
+	if (pipe(dhcpv6_pipe) < 0) {
+		di_error("Unable to create pipe: %s", strerror(errno));
+		return 1;
+	}
+
+#if !defined(__FreeBSD_kernel__)
+	if (!interface->v6_stateless_config) {
+		/* So that poll_dhcpv6_client won't immediately give up: */
+		FILE *pidfile = fopen(DHCP6C_PIDFILE, "w");
+		if (pidfile)
+			fclose(pidfile);
+	}
+#endif
+
+	dhcpv6_pid = fork();
+	if (dhcpv6_pid == 0) { /* child */
+		char *duid;
+		size_t duid_len;
+		int got_duid;
+		FILE *dc;
+		const char **arguments;
+		int i = 0;
+
+		/* disassociate from debconf */
+		fclose(client->out);
+
+		close(dhcpv6_pipe[0]);
+		dup2(dhcpv6_pipe[1], 1);
+		close(dhcpv6_pipe[1]);
+
+		got_duid = netcfg_get_duid(interface, &duid, &duid_len);
+
+#if defined(__FreeBSD_kernel__)
+		/* Sigh... wide (dhcp6c) is Linux-only, and dhclient is
+		 * freaking huge...  so we have to use what's best where
+		 * it's available.
+		 */
+		dc = file_open(DHCLIENT6_FILE, "w");
+		if (!dc)
+			return 1;
+		fprintf(dc, "send vendor-class-identifier \"d-i\";\n");
+		if (got_duid) {
+			struct duid_header *duid_header = (struct duid_header *)duid;
+			int i;
+			fprintf(dc, "send dhcp-client-identifier %02x:%02x:%02x:%02x",
+				duid_header->duid_type >> 8,
+				duid_header->duid_type & 0xFF,
+				duid_header->hw_type >> 8,
+				duid_header->hw_type & 0xFF);
+			for (i = 0; i < DUID_ETHER_LEN; ++i)
+				fprintf(dc, ":%02x", (buf + sizeof(duid_header))[i]);
+			fprintf(dc, "\n");
+		}
+		fclose(dc);
+
+		arguments = malloc(9 * sizeof(*arguments));
+		i = 0;
+		arguments[i++] = "dhclient";
+		arguments[i++] = "-6";
+		if (interface->v6_stateless_config)
+			arguments[i++] = "-S";
+		arguments[i++] = "-cf";
+		arguments[i++] = DHCLIENT6_FILE;
+		arguments[i++] = "-sf";
+		arguments[i++] = "/lib/netcfg/print-dhcpv6-info";
+		arguments[i++] = interface->name;
+		arguments[i] = NULL;
+		execvp("dhclient", (char **)arguments);
+#else
+		if (!interface->v6_stateless_config) {
+			/* In stateful mode, dhcp6c needs to stay running.
+			 * However, it daemonises itself in such a way as to
+			 * throw away stdio, which interferes with our
+			 * script communication.  To work around this,
+			 * daemonise here without throwing away stdio and
+			 * then run dhcp6c in foreground mode.
+			 */
+			if (daemon(0, 1) < 0)
+				di_error("daemon() failed: %s", strerror(errno));
+		}
+
+		dc = file_open(DHCP6C_FILE, "w");
+		if (!dc)
+			return 1;
+		fprintf(dc, "interface %s {\n", interface->name);
+		if (interface->v6_stateless_config)
+			fprintf(dc, "\tinformation-only;\n");
+		else
+			fprintf(dc, "\tsend ia-na 0;\n");
+		fprintf(dc, "\trequest domain-name-servers;\n");
+		fprintf(dc, "\trequest domain-name;\n");
+		fprintf(dc, "\tscript \"/lib/netcfg/print-dhcp6c-info\";\n");
+		fprintf(dc, "};\n");
+		if (!interface->v6_stateless_config) {
+			fprintf(dc, "id-assoc na 0 {\n");
+			fprintf(dc, "};\n");
+		}
+		fclose(dc);
+		if (got_duid)
+			netcfg_wide_write_duid(duid, duid_len);
+
+		if (interface->v6_stateless_config)
+			setenv("NETCFG_DHCP6C_STATELESS", "1", 1);
+
+		arguments = malloc(6 * sizeof(*arguments));
+		arguments[i++] = "dhcp6c";
+		arguments[i++] = "-c";
+		arguments[i++] = DHCP6C_FILE;
+		arguments[i++] = "-f";
+		arguments[i++] = interface->name;
+		arguments[i] = NULL;
+		execvp("dhcp6c", (char **)arguments);
+#endif
+
+		if (errno)
+			di_error("Could not exec DHCPv6 client: %s", strerror(errno));
+
+		_exit(1); /* should never be reached */
+	} else if (dhcpv6_pid == -1) {
+		di_warning("DHCPv6 fork failed; this is unlikely to end well");
+		close(dhcpv6_pipe[0]);
+		close(dhcpv6_pipe[1]);
+		dhcpv6_pipe[0] = dhcpv6_pipe[1] = -1;
+		return 1;
+	} else { /* parent */
+		di_warning("Started DHCPv6 client; PID is %i", dhcpv6_pid);
+		close(dhcpv6_pipe[1]);
+		dhcpv6_pipe[1] = -1;
+		signal(SIGCHLD, &sigchld_handler);
+		return 0;
+	}
+}
+
+/* Poll the started DHCP client for netcfg/dhcpv6_timeout seconds (def. 15)
+ * and return true if a lease is known to have been acquired, 0 otherwise.
+ *
+ * The client should be run such that it exits once a lease is acquired
+ * (although its child continues to run as a daemon).  Unfortunately, dhcp6c
+ * can only daemonise immediately rather than waiting for a lease, so we
+ * have to handle this for the stateful case.
+ *
+ * This function will NOT kill the child if time runs out.  This allows
+ * the user to choose to wait longer for the lease to be acquired.
+ */
+static int poll_dhcpv6_client (struct debconfclient *client, const struct netcfg_interface *interface)
+{
+	int seconds_slept = 0;
+	int dhcpv6_seconds;
+	int got_lease = 0;
+	int ret = 0;
+
+	debconf_get(client, "netcfg/dhcpv6_timeout");
+
+	dhcpv6_seconds = atoi(client->value);
+
+	/* show progress bar */
+	debconf_capb(client, "backup progresscancel");
+	debconf_progress_start(client, 0, dhcpv6_seconds, "netcfg/dhcpv6_progress");
+	if (debconf_progress_info(client, "netcfg/dhcp_progress_note") == 30)
+		goto stop;
+
+	for (;;) {
+#if defined(__FreeBSD_kernel__)
+		if (dhcpv6_pid <= 0) {
+			if (dhcpv6_exit_status == 0)
+				got_lease = 1;
+			break;
+		}
+#else
+		if (interface->v6_stateless_config) {
+			if (dhcpv6_pid <= 0) {
+				if (dhcpv6_exit_status == 0)
+					got_lease = 1;
+				break;
+			}
+		} else {
+			/* dhcp6c is awkward and doesn't wait for a lease
+			 * before daemonising.  Thus, we have to check
+			 * whether this interface actually has a configured
+			 * non-link-local IPv6 address.  If dhcp6c's pid
+			 * file has gone away, then we can give up.
+			 */
+			struct ifaddrs *ifap, *ifa;
+
+			if (dhcpv6_pid <= 0) {
+				struct stat st;
+
+				if (dhcpv6_exit_status != 0)
+					break;
+				if (stat(DHCP6C_PIDFILE, &st) < 0)
+					break;
+			}
+
+			if (getifaddrs(&ifap) < 0) {
+				di_error("getifaddrs failed: %s", strerror(errno));
+				goto stop;
+			}
+			for (ifa = ifap; ifa; ifa = ifa->ifa_next) {
+				if (!strcmp(ifa->ifa_name, interface->name) &&
+				    (ifa->ifa_flags & IFF_UP) &&
+				    ifa->ifa_addr->sa_family == AF_INET6) {
+					struct sockaddr_in6 *sa6 =
+						(struct sockaddr_in6 *)ifa->ifa_addr;
+					if (sa6->sin6_scope_id == 0 /* global */) {
+						got_lease = 1;
+						break;
+					}
+				}
+			}
+			freeifaddrs(ifap);
+		}
+#endif
+
+		if (got_lease || seconds_slept++ >= dhcpv6_seconds)
+			break;
+		sleep(1);
+		if (debconf_progress_step(client, 1) == 30)
+			goto stop;
+	}
+
+	if (got_lease) {
+		ret = 1;
+
+		debconf_capb(client, "backup"); /* stop displaying cancel button */
+		if (debconf_progress_set(client, dhcpv6_seconds) == 30)
+			goto stop;
+		if (debconf_progress_info(client, "netcfg/dhcp_success_note") == 30)
+			goto stop;
+		sleep(1);
+	}
+
+stop:
+	/* stop progress bar */
+	debconf_progress_stop(client);
+	debconf_capb(client, "backup");
+
+	return ret;
+}
+
+/* Configure the interface using DHCPv6. */
+static int netcfg_dhcpv6(struct debconfclient *client, struct netcfg_interface *interface)
+{
+	FILE *dhcpv6_reader = NULL;
+	char l[512], *p;
+	int ns_idx, ntp_idx = 0;
+	int rv;
+
+	if (interface->v6_stateless_config)
+		di_debug("Stateless DHCPv6 requested");
+	else
+		di_debug("Stateful DHCPv6 requested");
+
+	/* Append any nameservers obtained via DHCP to the list of
+	 * nameservers in the RA, rather than overwriting them
+	 */
+	ns_idx = nameserver_count(interface);
+
+	if (start_dhcpv6_client(client, interface)) {
+		di_warning("DHCPv6 client failed to start.  Aborting DHCPv6 configuration.");
+		return 0;
+	}
+
+	rv = poll_dhcpv6_client(client, interface);
+
+	dhcpv6_reader = fdopen(dhcpv6_pipe[0], "r");
+	while (fgets(l, sizeof(l), dhcpv6_reader) != NULL) {
+		rtrim(l);
+		di_debug("DHCPv6 line: %s", l);
+
+		if (!strncmp("nameserver[", l, 11) && ns_idx < NETCFG_NAMESERVERS_MAX) {
+			p = strstr(l, "] ") + 2;
+			strncpy(interface->nameservers[ns_idx], p, sizeof(interface->nameservers[ns_idx]));
+			ns_idx++;
+		} else if (!strncmp("NTP server[", l, 11) && ntp_idx < NETCFG_NTPSERVERS_MAX) {
+			p = strstr(l, "] ") + 2;
+			strncpy(interface->ntp_servers[ns_idx++], p, sizeof(interface->ntp_servers[ntp_idx]));
+			ntp_idx++;
+		} else if (!strncmp("Domain search list[0] ", l, 21)) {
+			p = strstr(l, "] ") + 2;
+			strncpy(domain, p, sizeof(domain));
+			/* Strip trailing . */
+			if (domain[strlen(domain)-1] == '.') {
+				domain[strlen(domain)-1] = '\0';
+			}
+			have_domain = 1;
+		} else if (!strcmp("end", l)) {
+			/* The write end of the pipe won't necessarily be
+			 * closed in the stateful case, so this hack lets us
+			 * break out.
+			 */
+			break;
+		}
+	}
+	fclose(dhcpv6_reader);
+	dhcpv6_pipe[0] = -1;
+
+	/* Empty any other nameservers/NTP servers that might
+	 * have been left over from a previous config run
+	 */
+	for (; ns_idx < NETCFG_NAMESERVERS_MAX; ns_idx++) {
+		*(interface->nameservers[ns_idx]) = '\0';
+	}
+	for (; ntp_idx < NETCFG_NTPSERVERS_MAX; ntp_idx++) {
+		*(interface->ntp_servers[ntp_idx]) = '\0';
+	}
+
+	return rv;
+}
 
 /* Configure the network using IPv6 router advertisements, and possibly
  * stateless DHCPv6 announcements (if appropriate).  Return 1 if all
@@ -53,78 +459,10 @@ static int netcfg_slaac(struct debconfclient *client, struct netcfg_interface *i
 	debconf_progress_stop(client);
 	
 	/* STEP 2: Stateless DHCP? */
-	if (interface->v6_stateless_config) {
-		FILE *cmdfd;
-		char cmd[512], l[512], *p;
-		int ns_idx, ntp_idx = 0;
-		
-		di_debug("Stateless DHCPv6 requested");
-
-		/* Append any nameservers obtained via DHCP to the list of
-		 * nameservers in the RA, rather than overwriting them
-		 */
-		ns_idx = nameserver_count(interface);
-		
-#if defined(__FreeBSD_kernel__)
-		/* Sigh... wide (dhcp6c) is Linux-only, and dhclient is
-		 * freaking huge...  so we have to use what's best where
-		 * it's available.
-		 */
-		snprintf(cmd, sizeof(cmd), "dhclient -6 -S -sf /lib/netcfg/print-dhcpv6-info %s", interface->name);
-#else
-		snprintf(cmd, sizeof(cmd), "/lib/netcfg/dhcp6c-stateless %s", interface->name);
-#endif
-		if ((cmdfd = popen(cmd, "r")) != NULL) {
-			while (fgets(l, sizeof(l), cmdfd) != NULL) {
-				rtrim(l);
-				di_debug("dhcp6c line: %s", l);
-				
-				if (!strncmp("nameserver[", l, 11) && ns_idx < NETCFG_NAMESERVERS_MAX) {
-					p = strstr(l, "] ") + 2;
-					strncpy(interface->nameservers[ns_idx], p, sizeof(interface->nameservers[ns_idx]));
-					ns_idx++;
-				} else if (!strncmp("NTP server[", l, 11) && ntp_idx < NETCFG_NTPSERVERS_MAX) {
-					p = strstr(l, "] ") + 2;
-					strncpy(interface->ntp_servers[ns_idx++], p, sizeof(interface->ntp_servers[ntp_idx]));
-					ntp_idx++;
-				} else if (!strncmp("Domain search list[0] ", l, 21)) {
-					p = strstr(l, "] ") + 2;
-					strncpy(domain, p, sizeof(domain));
-					/* Strip trailing . */
-					if (domain[strlen(domain)-1] == '.') {
-						domain[strlen(domain)-1] = '\0';
-					}
-					have_domain = 1;
-				}
-			}
-			
-			pclose(cmdfd);
-			/* Empty any other nameservers/NTP servers that might
-			 * have been left over from a previous config run
-			 */
-			for (; ns_idx < NETCFG_NAMESERVERS_MAX; ns_idx++) {
-				*(interface->nameservers[ns_idx]) = '\0';
-			}
-			for (; ntp_idx < NETCFG_NTPSERVERS_MAX; ntp_idx++) {
-				*(interface->ntp_servers[ntp_idx]) = '\0';
-			}
-		}
-	}
+	if (interface->v6_stateless_config)
+		netcfg_dhcpv6(client, interface);
 
 	return rv;
-}
-
-/* Configure the interface using stateful DHCPv6.
- * FIXME: Not yet implemented.
- */
-static int netcfg_dhcpv6(struct debconfclient *client, struct netcfg_interface *interface)
-{
-	(void) client;
-	(void) interface;
-	
-	di_warning("Stateful DHCPv6 is not yet supported");
-	
-	return 0;
 }
 
 /* This function handles all of the autoconfiguration for the given interface.
