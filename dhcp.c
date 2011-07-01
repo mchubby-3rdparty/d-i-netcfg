@@ -126,11 +126,12 @@ static void cleanup_dhcp_client(void)
 /* Run through the available client process handlers we're running, and tell
  * them to cleanup if required.
  */
-static void sigchld_handler(int sig __attribute__ ((unused)))
+void sigchld_handler(int sig __attribute__ ((unused)))
 {
     di_debug("SIGCHLD received; handling");
     cleanup_dhcp_client();
     cleanup_rdnssd();
+    cleanup_dhcpv6_client();
     di_debug("SIGCHLD handler finished");
 }
 

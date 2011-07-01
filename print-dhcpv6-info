@@ -19,3 +19,5 @@ for srv in $new_dhcp6_sntp_servers; do
 	echo "NTP server[$i] $srv"
 	i=$(($i+1))
 done
+
+echo "end"

@@ -239,6 +239,71 @@ int check_kill_switch(const char *if_name)
 }
 #endif /* __linux__ */
 
+int get_hw_addr(const char *iface, struct sockaddr *sa)
+{
+#if defined(SIOCGIFHWADDR)
+    int s;
+    struct ifreq ifr;
+
+    if (strlen(iface) >= IFNAMSIZ) {
+        di_warning("Interface name '%s' too long for struct ifreq", iface);
+        return 0;
+    }
+
+    s = socket(AF_INET, SOCK_DGRAM, 0); /* doesn't matter what kind */
+    if (s < 0) {
+        di_warning("Unable to create socket: %s", strerror(errno));
+        return 0;
+    }
+
+    strncpy(ifr.ifr_name, iface, IFNAMSIZ);
+    if (ioctl(s, SIOCGIFHWADDR, &ifr) < 0) {
+        di_warning("Unable to get hardware address of %s: %s",
+                   iface, strerror(errno));
+        return 0;
+    }
+
+    memcpy(sa, &ifr.ifr_hwaddr, sizeof(*sa));
+    return 1;
+#elif defined(__FreeBSD_kernel__)
+    /* Code from iftop. */
+    int sysctlparam[6] = { CTL_NET, PF_ROUTE, 0, 0, NET_RT_IFLIST, 0 };
+    size_t needed = 0;
+    char *buf = NULL;
+    struct if_msghdr *msghdr = NULL;
+    struct sockaddr_dl *sdl;
+
+    sysctlparam[5] = if_nametoindex(iface);
+    if (sysctlparam[5] == 0) {
+        di_warning("Unable to get interface index of %s", iface);
+        return 0;
+    }
+    if (sysctl(sysctlparam, 6, NULL, &needed, NULL, 0) < 0) {
+        di_warning("Unable to get size of hardware address of %s", iface);
+        return 0;
+    }
+    buf = malloc(needed);
+    if (!buf) {
+        di_warning("Out of memory");
+        return 0;
+    }
+    if (sysctl(sysctlparam, 6, buf, &needed, NULL, 0) < 0) {
+        di_warning("Unable to get hardware address of %s", iface);
+        free(buf);
+        return 0;
+    }
+    msghdr = (struct if_msghdr *)buf;
+    sdl = (struct sockaddr_dl *)(msghdr + 1);
+    sa->sa_family = ARPHRD_ETHER;
+    memcpy(sa->sa_data, LLADDR(sdl), 6);
+    free(buf);
+    return 1;
+#else
+    di_warning("Unable to get hardware addresses on this platform");
+    return 0;
+#endif
+}
+
 #if defined(WIRELESS)
 int is_raw_80211(const char *iface)
 {

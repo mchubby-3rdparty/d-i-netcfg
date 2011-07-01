@@ -12,6 +12,9 @@
 #define WPASUPP_CTRL    "/var/run/wpa_supplicant"
 #define WPAPID          "/var/run/wpa_supplicant.pid"
 
+#define DHCLIENT6_FILE  "/var/lib/netcfg/dhclient6.conf"
+#define DHCP6C_FILE     "/var/lib/netcfg/dhcp6c.conf"
+
 #define DEVNAMES	"/etc/network/devnames"
 #define DEVHOTPLUG	"/etc/network/devhotplug"
 #ifdef __linux__
@@ -165,6 +168,8 @@ extern void netcfg_interface_init(struct netcfg_interface *iface);
 /* common functions */
 extern int check_kill_switch (const char *if_name);
 
+extern int get_hw_addr(const char *iface, struct sockaddr *sa);
+
 extern int is_interface_up (const char *if_name);
 
 extern int get_all_ifs (int all, char ***ptr);
@@ -193,6 +198,8 @@ extern int netcfg_activate_dhcp(struct debconfclient *client, struct netcfg_inte
 extern int nameserver_count (const struct netcfg_interface *interface);
 
 extern int read_resolv_conf_nameservers (char *resolv_conf_file, struct netcfg_interface *interface);
+
+extern void sigchld_handler (int sig __attribute__ ((unused)));
 
 extern int ask_dhcp_options (struct debconfclient *client, const char *if_name);
 
@@ -262,6 +269,8 @@ extern void stop_rdnssd(void);
 extern void read_rdnssd_nameservers(struct netcfg_interface *interface);
 
 /* autoconfig.c */
+extern void cleanup_dhcpv6_client(void);
+extern int start_dhcpv6_client(struct debconfclient *client, const struct netcfg_interface *interface);
 extern int netcfg_autoconfig(struct debconfclient *client, struct netcfg_interface *interface);
 
 #endif /* _NETCFG_H_ */
