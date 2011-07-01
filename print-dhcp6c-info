@@ -19,13 +19,6 @@ for srv in $new_ntp_servers; do
 	i=$(($i+1))
 done
 
-if [ "$NETCFG_DHCP6C_STATELESS" ]; then
-	# dhcp6c doesn't exit after printing information unless in info-req
-	# (-i) mode, which is incompatible with supplying a configuration;
-	# so just kill the parent now.
-	kill "$PPID"
-fi
-
 echo "end"
 
 exit 0
