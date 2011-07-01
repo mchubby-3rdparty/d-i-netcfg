@@ -488,13 +488,14 @@ static int netcfg_slaac(struct debconfclient *client, struct netcfg_interface *i
  */
 int netcfg_autoconfig(struct debconfclient *client, struct netcfg_interface *interface)
 {
-	int ipv6, rv;
+	int ipv6;
 
 	di_debug("Want link on %s", interface->name);
 	netcfg_detect_link(client, interface);
 
 	di_debug("Commencing network autoconfiguration on %s", interface->name);
-	
+	interface->dhcp = interface->slaac = interface->dhcpv6 = 0;
+
 	/* We need to start rdnssd before anything else, because it never
 	 * sends it's own ND packets, it just watches for ones already
 	 * on the wire.  Thankfully, the use of rdisc6 in
@@ -515,37 +516,28 @@ int netcfg_autoconfig(struct debconfclient *client, struct netcfg_interface *int
 	
 	stop_rdnssd();
 
-	if (!ipv6) {
+	if (ipv6) {
+		di_debug("IPv6 found");
+		if (interface->v6_stateful_config == 1) {
+			di_debug("IPv6 stateful autoconfig requested");
+			if (netcfg_dhcpv6(client, interface))
+				interface->dhcpv6 = 1;
+		} else {
+			di_debug("IPv6 stateless autoconfig requested");
+			if (netcfg_slaac(client, interface))
+				interface->slaac = 1;
+		}
+	}
+
+	if (ipv6)
+		di_debug("Trying IPv4 autoconfig as well");
+	else
 		/* No RA was received; assuming that IPv6 is not available
 		 * on this network and falling back to IPv4
 		 */
 		di_debug("No RA received; attempting IPv4 autoconfig");
-		rv = netcfg_dhcp(client, interface);
-		if (rv) {
-			interface->dhcp = 1;
-			interface->slaac = 0;
-			interface->dhcpv6 = 0;
-		}
-	} else {
-		di_debug("IPv6 found");
-		if (interface->v6_stateful_config == 1) {
-			di_debug("IPv6 stateful autoconfig requested");
-			rv = netcfg_dhcpv6(client, interface);
-			if (rv) {
-				interface->dhcp = 0;
-				interface->slaac = 0;
-				interface->dhcpv6 = 1;
-			}
-		} else {
-			di_debug("IPv6 stateless autoconfig requested");
-			rv = netcfg_slaac(client, interface);
-			if (rv) {
-				interface->dhcp = 0;
-				interface->slaac = 1;
-				interface->dhcpv6 = 0;
-			}
-		}
-	}
-	
-	return rv;
+	if (netcfg_dhcp(client, interface))
+		interface->dhcp = 1;
+
+	return interface->dhcp || interface->slaac || interface->dhcpv6;
 }

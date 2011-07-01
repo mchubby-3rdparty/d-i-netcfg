@@ -89,12 +89,15 @@ static int nc_wi_dhcp(const struct netcfg_interface *interface, FILE *fd)
  */
 static int nc_wi_slaac(const struct netcfg_interface *interface, FILE *fd)
 {
-	fprintf(fd, "\n# The primary network interface\n");
+	if (interface->dhcp == 0)
+		fprintf(fd, "\n# The primary network interface\n");
 	fprintf(fd, "# This is an autoconfigured IPv6 interface\n");
-	if (!iface_is_hotpluggable(interface->name) && !find_in_stab(interface->name))
-		fprintf(fd, "auto %s\n", interface->name);
-	else
-		fprintf(fd, "allow-hotplug %s\n", interface->name);
+	if (interface->dhcp == 0) {
+		if (!iface_is_hotpluggable(interface->name) && !find_in_stab(interface->name))
+			fprintf(fd, "auto %s\n", interface->name);
+		else
+			fprintf(fd, "allow-hotplug %s\n", interface->name);
+	}
 
 	fprintf(fd, "iface %s inet6 manual\n", interface->name);
 	fprintf(fd, "\tup ip link set %s up\n", interface->name);
@@ -250,12 +253,15 @@ int netcfg_write_interface(const struct netcfg_interface *interface)
 	} else if (interface->loopback == 1) {
 		di_debug("Writing loopback interface");
 		rv = nc_wi_loopback(interface, fd);
-	} else if (interface->dhcp == 1) {
-		di_debug("Writing DHCP stanza for %s", interface->name);
-		rv = nc_wi_dhcp(interface, fd);
-	} else if (interface->slaac == 1) {
-		di_debug("Writing SLAAC stanza for %s", interface->name);
-		rv = nc_wi_slaac(interface, fd);
+	} else if (interface->dhcp == 1 || interface->slaac == 1) {
+		if (interface->dhcp == 1) {
+			di_debug("Writing DHCP stanza for %s", interface->name);
+			rv = nc_wi_dhcp(interface, fd);
+		}
+		if (interface->slaac == 1) {
+			di_debug("Writing SLAAC stanza for %s", interface->name);
+			rv = nc_wi_slaac(interface, fd);
+		}
 	} else if (interface->address_family == AF_INET) {
 		di_debug("Writing static IPv4 stanza for %s", interface->name);
 		rv = nc_wi_static_ipv4(interface, fd);
