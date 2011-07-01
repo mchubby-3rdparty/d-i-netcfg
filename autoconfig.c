@@ -220,9 +220,6 @@ int start_dhcpv6_client(struct debconfclient *client, const struct netcfg_interf
 		if (got_duid)
 			netcfg_wide_write_duid(duid, duid_len);
 
-		if (interface->v6_stateless_config)
-			setenv("NETCFG_DHCP6C_STATELESS", "1", 1);
-
 		arguments = malloc(6 * sizeof(*arguments));
 		arguments[i++] = "dhcp6c";
 		arguments[i++] = "-c";
@@ -414,6 +411,14 @@ static int netcfg_dhcpv6(struct debconfclient *client, struct netcfg_interface *
 	}
 	fclose(dhcpv6_reader);
 	dhcpv6_pipe[0] = -1;
+#if !defined(__FreeBSD_kernel__)
+	if (interface->v6_stateless_config && dhcpv6_pid > 0)
+		/* dhcp6c doesn't exit after printing information unless in
+		 * info-req (-i) mode, which is incompatible with supplying
+		 * a configuration; so just kill the client now.
+		 */
+		kill(dhcpv6_pid, SIGTERM);
+#endif
 
 	/* Empty any other nameservers/NTP servers that might
 	 * have been left over from a previous config run
