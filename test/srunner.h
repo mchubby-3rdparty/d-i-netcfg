@@ -5,7 +5,7 @@ Suite *test_inet_ptom_suite (void);
 Suite *test_netcfg_parse_cidr_address_suite (void);
 Suite *test_netcfg_network_address_suite (void);
 Suite *test_netcfg_gateway_reachable_suite (void);
-Suite *test_nc_v6_get_slaac_suite (void);
+Suite *test_nc_v6_interface_configured_suite (void);
 
 /* Helper functions */
 
