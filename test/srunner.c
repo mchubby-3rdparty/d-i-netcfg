@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 	srunner_add_suite(sr, test_netcfg_parse_cidr_address_suite());
 	srunner_add_suite(sr, test_netcfg_network_address_suite());
 	srunner_add_suite(sr, test_netcfg_gateway_reachable_suite());
-	srunner_add_suite(sr, test_nc_v6_get_slaac_suite());
+	srunner_add_suite(sr, test_nc_v6_interface_configured_suite());
 	
 	srunner_run_all (sr, CK_NORMAL);
 	number_failed = srunner_ntests_failed (sr);

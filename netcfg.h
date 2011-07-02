@@ -254,7 +254,6 @@ extern int netcfg_dhcp(struct debconfclient *client, struct netcfg_interface *in
 extern void rtrim(char *);
 
 /* ipv6.c */
-extern int nc_v6_get_slaac(struct netcfg_interface *interface);
 extern void nc_v6_wait_for_complete_configuration(const struct netcfg_interface *interface);
 extern int nc_v6_interface_configured(const struct netcfg_interface *interface, const int link_local);
 extern int nc_v6_get_config_flags(struct debconfclient *client, struct netcfg_interface *interface);
