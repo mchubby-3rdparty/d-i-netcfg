@@ -92,6 +92,7 @@ static void netcfg_wide_write_duid(const char *duid, size_t duid_len)
 	fclose(out);
 }
 
+static enum { DHCLIENT, DHCP6C } dhcpv6_client;
 static int dhcpv6_pipe[2] = { -1, -1 };
 static pid_t dhcpv6_pid = -1;
 static int dhcpv6_exit_status = 1;
@@ -119,23 +120,31 @@ void cleanup_dhcpv6_client(void)
  */
 int start_dhcpv6_client(struct debconfclient *client, const struct netcfg_interface *interface)
 {
+	if (access("/sbin/dhclient", F_OK) == 0)
+		dhcpv6_client = DHCLIENT;
+	else if (access("/usr/sbin/dhcp6c", F_OK) == 0)
+		dhcpv6_client = DHCP6C;
+	else {
+		/* for now, fall back quietly (no debconf error) to IPv4 */
+		di_error("No DHCPv6 client found");
+		return 1;
+	}
+
 	if (pipe(dhcpv6_pipe) < 0) {
 		di_error("Unable to create pipe: %s", strerror(errno));
 		return 1;
 	}
 
-#if !defined(__FreeBSD_kernel__)
-	if (!interface->v6_stateless_config) {
+	if (dhcpv6_client == DHCP6C && !interface->v6_stateless_config) {
 		/* So that poll_dhcpv6_client won't immediately give up: */
 		FILE *pidfile = fopen(DHCP6C_PIDFILE, "w");
 		if (pidfile)
 			fclose(pidfile);
 	}
-#endif
 
 	dhcpv6_pid = fork();
 	if (dhcpv6_pid == 0) { /* child */
-		char *duid;
+		char *duid = NULL;
 		size_t duid_len;
 		int got_duid;
 		FILE *dc;
@@ -151,84 +160,86 @@ int start_dhcpv6_client(struct debconfclient *client, const struct netcfg_interf
 
 		got_duid = netcfg_get_duid(interface, &duid, &duid_len);
 
-#if defined(__FreeBSD_kernel__)
-		/* Sigh... wide (dhcp6c) is Linux-only, and dhclient is
-		 * freaking huge...  so we have to use what's best where
-		 * it's available.
-		 */
-		dc = file_open(DHCLIENT6_FILE, "w");
-		if (!dc)
-			return 1;
-		fprintf(dc, "send vendor-class-identifier \"d-i\";\n");
-		if (got_duid) {
-			struct duid_header *duid_header = (struct duid_header *)duid;
-			int i;
-			fprintf(dc, "send dhcp-client-identifier %02x:%02x:%02x:%02x",
-				duid_header->duid_type >> 8,
-				duid_header->duid_type & 0xFF,
-				duid_header->hw_type >> 8,
-				duid_header->hw_type & 0xFF);
-			for (i = 0; i < DUID_ETHER_LEN; ++i)
-				fprintf(dc, ":%02x", (buf + sizeof(duid_header))[i]);
-			fprintf(dc, "\n");
-		}
-		fclose(dc);
+		switch (dhcpv6_client) {
+		    case DHCLIENT:
+			dc = file_open(DHCLIENT6_FILE, "w");
+			if (!dc)
+				return 1;
+			fprintf(dc, "send vendor-class-identifier \"d-i\";\n");
+			if (got_duid) {
+				struct duid_header *duid_header = (struct duid_header *)duid;
+				int i;
+				fprintf(dc, "send dhcp-client-identifier %02x:%02x:%02x:%02x",
+					duid_header->duid_type >> 8,
+					duid_header->duid_type & 0xFF,
+					duid_header->hw_type >> 8,
+					duid_header->hw_type & 0xFF);
+				for (i = 0; i < DUID_ETHER_LEN; ++i)
+					fprintf(dc, ":%02x", (duid + sizeof(duid_header))[i]);
+				fprintf(dc, "\n");
+			}
+			fclose(dc);
 
-		arguments = malloc(9 * sizeof(*arguments));
-		i = 0;
-		arguments[i++] = "dhclient";
-		arguments[i++] = "-6";
-		if (interface->v6_stateless_config)
-			arguments[i++] = "-S";
-		arguments[i++] = "-cf";
-		arguments[i++] = DHCLIENT6_FILE;
-		arguments[i++] = "-sf";
-		arguments[i++] = "/lib/netcfg/print-dhcpv6-info";
-		arguments[i++] = interface->name;
-		arguments[i] = NULL;
-		execvp("dhclient", (char **)arguments);
-#else
-		if (!interface->v6_stateless_config) {
-			/* In stateful mode, dhcp6c needs to stay running.
-			 * However, it daemonises itself in such a way as to
-			 * throw away stdio, which interferes with our
-			 * script communication.  To work around this,
-			 * daemonise here without throwing away stdio and
-			 * then run dhcp6c in foreground mode.
-			 */
-			if (daemon(0, 1) < 0)
-				di_error("daemon() failed: %s", strerror(errno));
-		}
+			arguments = malloc(9 * sizeof(*arguments));
+			i = 0;
+			arguments[i++] = "dhclient";
+			arguments[i++] = "-6";
+			if (interface->v6_stateless_config)
+				arguments[i++] = "-S";
+			arguments[i++] = "-cf";
+			arguments[i++] = DHCLIENT6_FILE;
+			arguments[i++] = "-sf";
+			arguments[i++] = "/lib/netcfg/print-dhcpv6-info";
+			arguments[i++] = interface->name;
+			arguments[i] = NULL;
+			execvp("dhclient", (char **)arguments);
+			break;
 
-		dc = file_open(DHCP6C_FILE, "w");
-		if (!dc)
-			return 1;
-		fprintf(dc, "interface %s {\n", interface->name);
-		if (interface->v6_stateless_config)
-			fprintf(dc, "\tinformation-only;\n");
-		else
-			fprintf(dc, "\tsend ia-na 0;\n");
-		fprintf(dc, "\trequest domain-name-servers;\n");
-		fprintf(dc, "\trequest domain-name;\n");
-		fprintf(dc, "\tscript \"/lib/netcfg/print-dhcp6c-info\";\n");
-		fprintf(dc, "};\n");
-		if (!interface->v6_stateless_config) {
-			fprintf(dc, "id-assoc na 0 {\n");
+		    case DHCP6C:
+			if (!interface->v6_stateless_config) {
+				/* In stateful mode, dhcp6c needs to stay
+				 * running.  However, it daemonises itself
+				 * in such a way as to throw away stdio,
+				 * which interferes with our script
+				 * communication.  To work around this,
+				 * daemonise here without throwing away
+				 * stdio and then run dhcp6c in foreground
+				 * mode.
+				 */
+				if (daemon(0, 1) < 0)
+					di_error("daemon() failed: %s", strerror(errno));
+			}
+
+			dc = file_open(DHCP6C_FILE, "w");
+			if (!dc)
+				return 1;
+			fprintf(dc, "interface %s {\n", interface->name);
+			if (interface->v6_stateless_config)
+				fprintf(dc, "\tinformation-only;\n");
+			else
+				fprintf(dc, "\tsend ia-na 0;\n");
+			fprintf(dc, "\trequest domain-name-servers;\n");
+			fprintf(dc, "\trequest domain-name;\n");
+			fprintf(dc, "\tscript \"/lib/netcfg/print-dhcp6c-info\";\n");
 			fprintf(dc, "};\n");
-		}
-		fclose(dc);
-		if (got_duid)
-			netcfg_wide_write_duid(duid, duid_len);
+			if (!interface->v6_stateless_config) {
+				fprintf(dc, "id-assoc na 0 {\n");
+				fprintf(dc, "};\n");
+			}
+			fclose(dc);
+			if (got_duid)
+				netcfg_wide_write_duid(duid, duid_len);
 
-		arguments = malloc(6 * sizeof(*arguments));
-		arguments[i++] = "dhcp6c";
-		arguments[i++] = "-c";
-		arguments[i++] = DHCP6C_FILE;
-		arguments[i++] = "-f";
-		arguments[i++] = interface->name;
-		arguments[i] = NULL;
-		execvp("dhcp6c", (char **)arguments);
-#endif
+			arguments = malloc(6 * sizeof(*arguments));
+			arguments[i++] = "dhcp6c";
+			arguments[i++] = "-c";
+			arguments[i++] = DHCP6C_FILE;
+			arguments[i++] = "-f";
+			arguments[i++] = interface->name;
+			arguments[i] = NULL;
+			execvp("dhcp6c", (char **)arguments);
+			break;
+		}
 
 		if (errno)
 			di_error("Could not exec DHCPv6 client: %s", strerror(errno));
@@ -278,56 +289,61 @@ static int poll_dhcpv6_client (struct debconfclient *client, const struct netcfg
 		goto stop;
 
 	for (;;) {
-#if defined(__FreeBSD_kernel__)
-		if (dhcpv6_pid <= 0) {
-			if (dhcpv6_exit_status == 0)
-				got_lease = 1;
-			break;
-		}
-#else
-		if (interface->v6_stateless_config) {
+		switch (dhcpv6_client) {
+		    case DHCLIENT:
 			if (dhcpv6_pid <= 0) {
 				if (dhcpv6_exit_status == 0)
 					got_lease = 1;
 				break;
 			}
-		} else {
-			/* dhcp6c is awkward and doesn't wait for a lease
-			 * before daemonising.  Thus, we have to check
-			 * whether this interface actually has a configured
-			 * non-link-local IPv6 address.  If dhcp6c's pid
-			 * file has gone away, then we can give up.
-			 */
-			struct ifaddrs *ifap, *ifa;
+			break;
 
-			if (dhcpv6_pid <= 0) {
-				struct stat st;
-
-				if (dhcpv6_exit_status != 0)
-					break;
-				if (stat(DHCP6C_PIDFILE, &st) < 0)
-					break;
-			}
-
-			if (getifaddrs(&ifap) < 0) {
-				di_error("getifaddrs failed: %s", strerror(errno));
-				goto stop;
-			}
-			for (ifa = ifap; ifa; ifa = ifa->ifa_next) {
-				if (!strcmp(ifa->ifa_name, interface->name) &&
-				    (ifa->ifa_flags & IFF_UP) &&
-				    ifa->ifa_addr->sa_family == AF_INET6) {
-					struct sockaddr_in6 *sa6 =
-						(struct sockaddr_in6 *)ifa->ifa_addr;
-					if (sa6->sin6_scope_id == 0 /* global */) {
+		    case DHCP6C:
+			if (interface->v6_stateless_config) {
+				if (dhcpv6_pid <= 0) {
+					if (dhcpv6_exit_status == 0)
 						got_lease = 1;
+					break;
+				}
+			} else {
+				/* dhcp6c is awkward and doesn't wait for a
+				 * lease before daemonising.  Thus, we have
+				 * to check whether this interface actually
+				 * has a configured non-link-local IPv6
+				 * address.  If dhcp6c's pid file has gone
+				 * away, then we can give up.
+				 */
+				struct ifaddrs *ifap, *ifa;
+
+				if (dhcpv6_pid <= 0) {
+					struct stat st;
+
+					if (dhcpv6_exit_status != 0)
 						break;
+					if (stat(DHCP6C_PIDFILE, &st) < 0)
+						break;
+				}
+
+				if (getifaddrs(&ifap) < 0) {
+					di_error("getifaddrs failed: %s", strerror(errno));
+					goto stop;
+				}
+				for (ifa = ifap; ifa; ifa = ifa->ifa_next) {
+					if (!strcmp(ifa->ifa_name, interface->name) &&
+					    (ifa->ifa_flags & IFF_UP) &&
+					    ifa->ifa_addr->sa_family == AF_INET6) {
+						struct sockaddr_in6 *sa6 =
+							(struct sockaddr_in6 *)ifa->ifa_addr;
+						if (sa6->sin6_scope_id == 0 /* global */) {
+							got_lease = 1;
+							break;
+						}
 					}
 				}
+				freeifaddrs(ifap);
 			}
-			freeifaddrs(ifap);
+			break;
 		}
-#endif
 
 		if (got_lease || seconds_slept++ >= dhcpv6_seconds)
 			break;
@@ -411,14 +427,13 @@ static int netcfg_dhcpv6(struct debconfclient *client, struct netcfg_interface *
 	}
 	fclose(dhcpv6_reader);
 	dhcpv6_pipe[0] = -1;
-#if !defined(__FreeBSD_kernel__)
-	if (interface->v6_stateless_config && dhcpv6_pid > 0)
+	if (dhcpv6_client == DHCP6C &&
+	    interface->v6_stateless_config && dhcpv6_pid > 0)
 		/* dhcp6c doesn't exit after printing information unless in
 		 * info-req (-i) mode, which is incompatible with supplying
 		 * a configuration; so just kill the client now.
 		 */
 		kill(dhcpv6_pid, SIGTERM);
-#endif
 
 	/* Empty any other nameservers/NTP servers that might
 	 * have been left over from a previous config run
