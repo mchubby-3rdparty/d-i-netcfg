@@ -206,8 +206,10 @@ int start_dhcpv6_client(struct debconfclient *client, const struct netcfg_interf
 				 * stdio and then run dhcp6c in foreground
 				 * mode.
 				 */
-				if (daemon(0, 1) < 0)
+				if (daemon(0, 1) < 0) {
 					di_error("daemon() failed: %s", strerror(errno));
+					_exit(1);
+				}
 			}
 
 			dc = file_open(DHCP6C_FILE, "w");
