@@ -182,8 +182,8 @@ int start_dhcpv6_client(struct debconfclient *client, const struct netcfg_interf
 					duid_header->hw_type >> 8,
 					duid_header->hw_type & 0xFF);
 				for (i = 0; i < DUID_ETHER_LEN; ++i)
-					fprintf(dc, ":%02x", (duid + sizeof(duid_header))[i]);
-				fprintf(dc, "\n");
+					fprintf(dc, ":%02x", (unsigned char)(duid + sizeof(duid_header))[i]);
+				fprintf(dc, ";\n");
 			}
 			fclose(dc);
 
