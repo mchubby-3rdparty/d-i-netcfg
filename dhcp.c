@@ -115,12 +115,9 @@ static void cleanup_dhcp_client(void)
         /* Already cleaned up */
         return;
 
-    di_debug("Waiting for dhcp_pid %i", dhcp_pid);
     waitpid(dhcp_pid, &dhcp_exit_status, WNOHANG);
-    if (WIFEXITED(dhcp_exit_status)) {
-        di_debug("DHCP client exited");
+    if (WIFEXITED(dhcp_exit_status))
         dhcp_pid = -1;
-    }
 }
 
 /* Run through the available client process handlers we're running, and tell
@@ -128,11 +125,9 @@ static void cleanup_dhcp_client(void)
  */
 void sigchld_handler(int sig __attribute__ ((unused)))
 {
-    di_debug("SIGCHLD received; handling");
     cleanup_dhcp_client();
     cleanup_rdnssd();
     cleanup_dhcpv6_client();
-    di_debug("SIGCHLD handler finished");
 }
 
 /*
