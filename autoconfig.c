@@ -36,6 +36,7 @@ struct duid_header {
 #define DUID_ETHER_LEN 6
 
 #define DHCP6C_PIDFILE "/var/run/dhcp6c.pid"
+#define DHCP6C_FINISHED "/var/lib/netcfg/dhcp6c-finished"
 
 /* Get a DHCP Unique Identifier for DHCPv6.
  * We use the DUID-LL method (see RFC 3315 s9.4) since any other method is
@@ -135,11 +136,17 @@ int start_dhcpv6_client(struct debconfclient *client, const struct netcfg_interf
 		return 1;
 	}
 
-	if (dhcpv6_client == DHCP6C && !interface->v6_stateless_config) {
-		/* So that poll_dhcpv6_client won't immediately give up: */
-		FILE *pidfile = fopen(DHCP6C_PIDFILE, "w");
-		if (pidfile)
-			fclose(pidfile);
+	if (dhcpv6_client == DHCP6C) {
+		unlink(DHCP6C_FINISHED);
+
+		if (!interface->v6_stateless_config) {
+			/* So that poll_dhcpv6_client won't immediately give
+			 * up:
+			 */
+			FILE *pidfile = fopen(DHCP6C_PIDFILE, "w");
+			if (pidfile)
+				fclose(pidfile);
+		}
 	}
 
 	dhcpv6_pid = fork();
@@ -277,7 +284,7 @@ static int poll_dhcpv6_client (struct debconfclient *client, const struct netcfg
 {
 	int seconds_slept = 0;
 	int dhcpv6_seconds;
-	int got_lease = 0;
+	int got_lease = -1;
 	int ret = 0;
 
 	debconf_get(client, "netcfg/dhcpv6_timeout");
@@ -291,70 +298,56 @@ static int poll_dhcpv6_client (struct debconfclient *client, const struct netcfg
 		goto stop;
 
 	for (;;) {
+		struct stat st;
+
 		switch (dhcpv6_client) {
 		    case DHCLIENT:
-			if (dhcpv6_pid <= 0) {
-				if (dhcpv6_exit_status == 0)
-					got_lease = 1;
-				break;
-			}
+			if (dhcpv6_pid <= 0)
+				got_lease = (dhcpv6_exit_status == 0);
 			break;
 
 		    case DHCP6C:
-			if (interface->v6_stateless_config) {
-				if (dhcpv6_pid <= 0) {
-					if (dhcpv6_exit_status == 0)
-						got_lease = 1;
+			if (dhcpv6_pid <= 0 && dhcpv6_exit_status != 0) {
+				got_lease = 0;
+				break;
+			}
+
+			if (!interface->v6_stateless_config &&
+			    dhcpv6_pid <= 0) {
+				/* In stateful mode, we run dhcp6c as a
+				 * daemon (because it doesn't wait for a
+				 * lease before daemonising anyway, and this
+				 * lets us set up its file descriptors
+				 * properly), so dhcpv6_pid will exit fairly
+				 * quickly.  We can check its pid file to
+				 * find out whether it's really exited, in
+				 * which case we'll have lost the lease.
+				 */
+				if (stat(DHCP6C_PIDFILE, &st) < 0) {
+					got_lease = 0;
 					break;
 				}
-			} else {
-				/* dhcp6c is awkward and doesn't wait for a
-				 * lease before daemonising.  Thus, we have
-				 * to check whether this interface actually
-				 * has a configured non-link-local IPv6
-				 * address.  If dhcp6c's pid file has gone
-				 * away, then we can give up.
-				 */
-				struct ifaddrs *ifap, *ifa;
+			}
 
-				if (dhcpv6_pid <= 0) {
-					struct stat st;
-
-					if (dhcpv6_exit_status != 0)
-						break;
-					if (stat(DHCP6C_PIDFILE, &st) < 0)
-						break;
-				}
-
-				if (getifaddrs(&ifap) < 0) {
-					di_error("getifaddrs failed: %s", strerror(errno));
-					goto stop;
-				}
-				for (ifa = ifap; ifa; ifa = ifa->ifa_next) {
-					if (!strcmp(ifa->ifa_name, interface->name) &&
-					    (ifa->ifa_flags & IFF_UP) &&
-					    ifa->ifa_addr->sa_family == AF_INET6) {
-						struct sockaddr_in6 *sa6 =
-							(struct sockaddr_in6 *)ifa->ifa_addr;
-						if (sa6->sin6_scope_id == 0 /* global */) {
-							got_lease = 1;
-							break;
-						}
-					}
-				}
-				freeifaddrs(ifap);
+			/* We write a sentinel file at the end of
+			 * print-dhcp6c-info, which is a solid indication
+			 * that we got useful configuration.
+			 */
+			if (stat(DHCP6C_FINISHED, &st) == 0) {
+				got_lease = 1;
+				break;
 			}
 			break;
 		}
 
-		if (got_lease || seconds_slept++ >= dhcpv6_seconds)
+		if (got_lease != -1 || seconds_slept++ >= dhcpv6_seconds)
 			break;
 		sleep(1);
 		if (debconf_progress_step(client, 1) == 30)
 			goto stop;
 	}
 
-	if (got_lease) {
+	if (got_lease == 1) {
 		ret = 1;
 
 		debconf_capb(client, "backup"); /* stop displaying cancel button */
@@ -369,6 +362,30 @@ stop:
 	/* stop progress bar */
 	debconf_progress_stop(client);
 	debconf_capb(client, "backup");
+
+	if (dhcpv6_client == DHCP6C && !interface->v6_stateless_config &&
+	    got_lease != 1) {
+		/* If we didn't get a lease, stop dhcp6c. */
+		FILE *pidfile = fopen(DHCP6C_PIDFILE, "r");
+		if (pidfile) {
+			char *line;
+			size_t dummy;
+
+			if (getline(&line, &dummy, pidfile) >= 0) {
+				pid_t pid;
+
+				errno = 0;
+				pid = strtol(line, NULL, 10);
+				if (errno == 0)
+					kill(pid, SIGTERM);
+			}
+
+			free(line);
+			fclose(pidfile);
+		}
+	}
+
+	unlink(DHCP6C_FINISHED);
 
 	return ret;
 }

@@ -20,5 +20,6 @@ for srv in $new_ntp_servers; do
 done
 
 echo "end"
+touch /var/lib/netcfg/dhcp6c-finished
 
 exit 0
