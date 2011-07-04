@@ -69,14 +69,11 @@ void cleanup_rdnssd()
 		/* Definitely wasn't us */
 		return;
 	
-	di_debug("Waiting for rdnssd PID %i", rdnssd_pid);
 	waitpid(rdnssd_pid, &exit_status, WNOHANG);
 	
-	if (WIFEXITED(exit_status)) {
+	if (WIFEXITED(exit_status))
 		/* Yep, that was me */
-		di_debug("rdnssd exited");
 		rdnssd_pid = -1;
-	}
 }
 
 /* Read the nameserver entries that rdnssd may have written out into the
