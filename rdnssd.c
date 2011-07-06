@@ -94,10 +94,4 @@ void stop_rdnssd()
 	}
 	di_debug("Stopping rdnssd, PID %i", rdnssd_pid);
 	kill(rdnssd_pid, SIGTERM);
-	/* FIXME: there's some sort of race condition between killing off
-	 * rdnssd and the SIGCHLD handler doing it's bit, which can cause
-	 * netcfg to hang.  This fixes it.  Need to work out what the root
-	 * cause is, and fix it, but for now there's bigger fish to fry.
-	 */
-	usleep(10000);
 }
