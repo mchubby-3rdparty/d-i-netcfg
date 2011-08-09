@@ -213,9 +213,6 @@ static int netcfg_write_wireless_options(const struct netcfg_interface *interfac
 {
     FILE *fp;
 
-    /* Wireless opts are still globals; that needs to be fixed */
-    (void)interface;
-    
     /*
      * Write wireless-tools options
      */
@@ -225,12 +222,12 @@ static int netcfg_write_wireless_options(const struct netcfg_interface *interfac
         }
         fprintf(fp, "\t# wireless-* options are implemented by the wireless-tools package\n");
         fprintf(fp, "\twireless-mode %s\n",
-                (mode == MANAGED) ? "managed" : "ad-hoc");
+                (interface->mode == MANAGED) ? "managed" : "ad-hoc");
         fprintf(fp, "\twireless-essid %s\n",
-                (essid && *essid) ? essid : "any");
+                (interface->essid && *interface->essid) ? interface->essid : "any");
 
-        if (wepkey != NULL)
-            fprintf(fp, "\twireless-key1 %s\n", wepkey);
+        if (interface->wepkey != NULL)
+            fprintf(fp, "\twireless-key1 %s\n", interface->wepkey);
         
         fclose(fp);
     }

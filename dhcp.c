@@ -51,32 +51,32 @@ static pid_t dhcp_pid = -1;
 /*
  * Add DHCP-related lines to /etc/network/interfaces
  */
-static void netcfg_write_dhcp (const char *iface, const char *dhostname)
+static void netcfg_write_dhcp (const struct netcfg_interface *interface, const char *dhostname)
 {
     FILE *fp;
 
     if ((fp = file_open(INTERFACES_FILE, "a"))) {
         fprintf(fp, "\n# The primary network interface\n");
-        if (!iface_is_hotpluggable(iface) && !find_in_stab(iface))
-            fprintf(fp, "auto %s\n", iface);
+        if (!iface_is_hotpluggable(interface->name) && !find_in_stab(interface->name))
+            fprintf(fp, "auto %s\n", interface->name);
         else
-            fprintf(fp, "allow-hotplug %s\n", iface);
-        fprintf(fp, "iface %s inet dhcp\n", iface);
+            fprintf(fp, "allow-hotplug %s\n", interface->name);
+        fprintf(fp, "iface %s inet dhcp\n", interface->name);
         if (dhostname) {
             fprintf(fp, "\thostname %s\n", dhostname);
         }
-        if (is_wireless_iface(iface)) {
-            if (wpa_supplicant_status == WPA_QUEUED) {
-                fprintf(fp, "\twpa-ssid %s\n", essid);
-                fprintf(fp, "\twpa-psk  %s\n", passphrase);
+        if (is_wireless_iface(interface->name)) {
+            if (interface->wpa_supplicant_status == WPA_QUEUED) {
+                fprintf(fp, "\twpa-ssid %s\n", interface->essid);
+                fprintf(fp, "\twpa-psk  %s\n", interface->passphrase);
             } else {
                 fprintf(fp, "\t# wireless-* options are implemented by the wireless-tools package\n");
                 fprintf(fp, "\twireless-mode %s\n",
-                       (mode == MANAGED) ? "managed" : "ad-hoc");
+                       (interface->mode == MANAGED) ? "managed" : "ad-hoc");
                 fprintf(fp, "\twireless-essid %s\n",
-                        (essid && *essid) ? essid : "any");
-                if (wepkey != NULL)
-                    fprintf(fp, "\twireless-key1 %s\n", wepkey);
+                        (interface->essid && *interface->essid) ? interface->essid : "any");
+                if (interface->wepkey != NULL)
+                    fprintf(fp, "\twireless-key1 %s\n", interface->wepkey);
 	    }
         }
         fclose(fp);
@@ -404,29 +404,28 @@ int ask_dhcp_options (struct debconfclient *client, const char *if_name)
         return REPLY_DONT_CONFIGURE;
 }
 
-int ask_wifi_configuration (struct debconfclient *client, const char *if_name)
+int ask_wifi_configuration (struct debconfclient *client, struct netcfg_interface *interface)
 {
     enum { ABORT, ESSID, SECURITY_TYPE, WEP, WPA, START, DONE } wifistate = ESSID;
 
-    extern enum wpa_t wpa_supplicant_status;
-    if (wpa_supplicant_status != WPA_UNAVAIL)
+    if (interface->wpa_supplicant_status != WPA_UNAVAIL)
         kill_wpa_supplicant();
 
     for (;;) {
         switch (wifistate) {
         case ESSID:
-            if (wpa_supplicant_status == WPA_UNAVAIL)
-                wifistate = (netcfg_wireless_set_essid(client, if_name, "high") == GO_BACK) ?
+            if (interface->wpa_supplicant_status == WPA_UNAVAIL)
+                wifistate = (netcfg_wireless_set_essid(client, interface, "high") == GO_BACK) ?
                     ABORT : WEP;
             else
-                wifistate = (netcfg_wireless_set_essid(client, if_name, "high") == GO_BACK) ?
+                wifistate = (netcfg_wireless_set_essid(client, interface, "high") == GO_BACK) ?
                     ABORT : SECURITY_TYPE;
             break;
         
         case SECURITY_TYPE:
             {
                 int ret;
-                ret = wireless_security_type(client, if_name);
+                ret = wireless_security_type(client, interface->name);
                 if (ret == GO_BACK)
                     wifistate = ESSID;
                 else if (ret == REPLY_WPA)
@@ -437,21 +436,21 @@ int ask_wifi_configuration (struct debconfclient *client, const char *if_name)
             }
         
         case WEP:
-            if (wpa_supplicant_status == WPA_UNAVAIL)
-                wifistate = (netcfg_wireless_set_wep(client, if_name) == GO_BACK) ?
+            if (interface->wpa_supplicant_status == WPA_UNAVAIL)
+                wifistate = (netcfg_wireless_set_wep(client, interface) == GO_BACK) ?
                     ESSID : DONE;
             else
-                wifistate = (netcfg_wireless_set_wep(client, if_name) == GO_BACK) ?
+                wifistate = (netcfg_wireless_set_wep(client, interface) == GO_BACK) ?
                     SECURITY_TYPE : DONE;
             break;
         
         case WPA:
-            wifistate = (netcfg_set_passphrase(client, if_name) == GO_BACK) ?
+            wifistate = (netcfg_set_passphrase(client, interface) == GO_BACK) ?
                 SECURITY_TYPE : START;
             break;
         
         case START:
-            wifistate = (wpa_supplicant_start(client, if_name, essid, passphrase) == GO_BACK) ?
+            wifistate = (wpa_supplicant_start(client, interface) == GO_BACK) ?
                 ESSID : DONE;
             break;
             
@@ -647,7 +646,7 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
                 }
                 break;
             case REPLY_RECONFIGURE_WIFI:
-                if (ask_wifi_configuration(client, if_name) == REPLY_CHECK_DHCP) {
+                if (ask_wifi_configuration(client, interface) == REPLY_CHECK_DHCP) {
                     kill_dhcp_client();
                     state = START;
                 }
@@ -690,7 +689,7 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
                 state = HOSTNAME;
             else {
                 netcfg_write_common("", hostname, domain);
-                netcfg_write_dhcp(if_name, dhostname);
+                netcfg_write_dhcp(interface, dhostname);
                 /* If the resolv.conf was written by udhcpc, then nameserver_array
                  * will be empty and we'll need to populate it.  If we asked for
                  * the nameservers, then it'll be full, but nobody will care if we

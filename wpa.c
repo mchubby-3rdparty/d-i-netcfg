@@ -18,19 +18,15 @@
 #include <iwlib.h>
 
 pid_t wpa_supplicant_pid = -1;
-enum wpa_t wpa_supplicant_status;
 struct wpa_ctrl *ctrl;
-#endif  /* WIRELESS */
-char *passphrase = NULL;  /* This is referenced in other places directly */
-#ifdef WIRELESS
 static int wpa_is_running = 0;
 
-int init_wpa_supplicant_support(void)
+int init_wpa_supplicant_support(struct netcfg_interface *interface)
 {
     if (access("/sbin/wpa_supplicant", F_OK) == 0)
-        wpa_supplicant_status = WPA_OK;
+        interface->wpa_supplicant_status = WPA_OK;
     else {
-        wpa_supplicant_status = WPA_UNAVAIL;
+        interface->wpa_supplicant_status = WPA_UNAVAIL;
         di_info("Wpasupplicant not found on the system. Disabling WPA options");
     }
     return 0;
@@ -78,28 +74,28 @@ int wireless_security_type (struct debconfclient *client, const char *if_name)
 
 }
 
-int netcfg_set_passphrase (struct debconfclient *client, const char *if_name)
+int netcfg_set_passphrase (struct debconfclient *client, struct netcfg_interface *interface)
 {
     int ret;
     
-    debconf_subst(client, "netcfg/wireless_wpa", "iface", if_name);
+    debconf_subst(client, "netcfg/wireless_wpa", "iface", interface->name);
     debconf_input(client, "high", "netcfg/wireless_wpa");
     ret = debconf_go(client);
 
     if (ret == 30)
         return GO_BACK;
 
-    if (passphrase != NULL)
-        free(passphrase);
+    if (interface->passphrase != NULL)
+        free(interface->passphrase);
         
     debconf_get(client, "netcfg/wireless_wpa");
-    passphrase = strdup(client->value);
+    interface->passphrase = strdup(client->value);
 
-    while (strlen(passphrase) < WPA_MIN || strlen(passphrase) > WPA_MAX) {
-        debconf_subst(client, "netcfg/invalid_pass", "passphrase", passphrase);
+    while (strlen(interface->passphrase) < WPA_MIN || strlen(interface->passphrase) > WPA_MAX) {
+        debconf_subst(client, "netcfg/invalid_pass", "passphrase", interface->passphrase);
         debconf_input(client, "critical", "netcfg/invalid_pass");
         debconf_go(client);
-        free(passphrase);
+        free(interface->passphrase);
 
         debconf_input(client, "high", "netcfg/wireless_wpa");
         ret = debconf_go(client);
@@ -108,7 +104,7 @@ int netcfg_set_passphrase (struct debconfclient *client, const char *if_name)
             return GO_BACK;
 
         debconf_get(client, "netcfg/wireless_wpa");
-        passphrase = strdup(client->value);
+        interface->passphrase = strdup(client->value);
     }
     return 0;
 }
@@ -300,7 +296,7 @@ int poll_wpa_supplicant(struct debconfclient *client)
 
 }
 
-int wpa_supplicant_start(struct debconfclient *client, const char *if_name, char *ssid, char *passphrase)
+int wpa_supplicant_start(struct debconfclient *client, const struct netcfg_interface *interface)
 {
     int retry = 0;
     
@@ -329,14 +325,14 @@ int wpa_supplicant_start(struct debconfclient *client, const char *if_name, char
             break;
             
         case START_DAEMON:
-            if (!start_wpa_daemon(client, if_name))
+            if (!start_wpa_daemon(client, interface->name))
                 state = CONNECT;
             else
                 state = ABORT;
             break;
         
         case CONNECT:
-            if (wpa_connect(if_name) == 0)
+            if (wpa_connect(interface->name) == 0)
                 state = PING;
             else
                 state = ABORT;
@@ -371,14 +367,14 @@ int wpa_supplicant_start(struct debconfclient *client, const char *if_name, char
             break;
         
         case SET_ESSID:
-            if (wpa_set_ssid(ssid))
+            if (wpa_set_ssid(interface->essid))
                 state = PING;
             else
                 state = SET_PSK;
             break;
         
         case SET_PSK:
-            if (wpa_set_psk(passphrase))
+            if (wpa_set_psk(interface->passphrase))
                 state = PING;
             else
                 state = SET_SCAN_SSID;
@@ -428,8 +424,10 @@ int wpa_supplicant_start(struct debconfclient *client, const char *if_name, char
 
 #else  /* Non-WIRELESS stubs of public API */
 
-int init_wpa_supplicant_support(void)
+int init_wpa_supplicant_support(struct netcfg_interface *interface)
 {
+	(void)interface;
+
 	return 0;
 }
 
@@ -446,20 +444,18 @@ int wireless_security_type(struct debconfclient *client, const char *if_name)
 	return 0;
 }
 
-int netcfg_set_passphrase(struct debconfclient *client, const char *if_name)
+int netcfg_set_passphrase(struct debconfclient *client, struct netcfg_interface *interface)
 {
 	(void)client;
-	(void)if_name;
+	(void)interface;
 	
 	return 0;
 }
 
-int wpa_supplicant_start(struct debconfclient *client, const char *if_name, char *ssid, char *passphrase)
+int wpa_supplicant_start(struct debconfclient *client, const struct netcfg_interface *interface)
 {
 	(void)client;
-	(void)if_name;
-	(void)ssid;
-	(void)passphrase;
+	(void)interface;
 	
 	return 0;
 }
