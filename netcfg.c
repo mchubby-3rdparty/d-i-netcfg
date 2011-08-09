@@ -33,7 +33,6 @@
 #include <iwlib.h>
 #endif
 
-enum wpa_t wpa_supplicant_status;
 static method_t netcfg_method = DHCP;
 
 response_t netcfg_get_method(struct debconfclient *client)
@@ -77,7 +76,6 @@ int main(int argc, char *argv[])
 
     static struct debconfclient *client;
     static int requested_wireless_tools = 0;
-    extern enum wpa_t wpa_supplicant_status;
     char **ifaces;
     char *defiface = NULL, *defwireless = NULL;
     response_t res;
@@ -280,11 +278,11 @@ int main(int argc, char *argv[])
             break;
 
         case WCONFIG_ESSID:
-            if (netcfg_wireless_set_essid(client, interface.name) == GO_BACK)
+            if (netcfg_wireless_set_essid(client, &interface) == GO_BACK)
                 state = BACKUP;
             else {
-                init_wpa_supplicant_support();
-                if (wpa_supplicant_status == WPA_UNAVAIL)
+                init_wpa_supplicant_support(&interface);
+                if (interface.wpa_supplicant_status == WPA_UNAVAIL)
                     state = WCONFIG_WEP;
                 else
                     state = WCONFIG_SECURITY_TYPE;
@@ -305,8 +303,8 @@ int main(int argc, char *argv[])
             }
 
         case WCONFIG_WEP:
-            if (netcfg_wireless_set_wep(client, interface.name) == GO_BACK) 
-                if (wpa_supplicant_status == WPA_UNAVAIL)
+            if (netcfg_wireless_set_wep(client, &interface) == GO_BACK) 
+                if (interface.wpa_supplicant_status == WPA_UNAVAIL)
                     state = WCONFIG_ESSID;
                 else
                     state = WCONFIG_SECURITY_TYPE;
@@ -315,19 +313,19 @@ int main(int argc, char *argv[])
             break;
 
         case WCONFIG_WPA:
-            if (wpa_supplicant_status == WPA_OK) {
+            if (interface.wpa_supplicant_status == WPA_OK) {
                 di_exec_shell_log("apt-install wpasupplicant");
-                wpa_supplicant_status = WPA_QUEUED;
+                interface.wpa_supplicant_status = WPA_QUEUED;
             }
 
-            if (netcfg_set_passphrase(client, interface.name) == GO_BACK)
+            if (netcfg_set_passphrase(client, &interface) == GO_BACK)
                 state = WCONFIG_SECURITY_TYPE;
             else
                 state = START_WPA;
             break;
 
         case START_WPA:
-            if (wpa_supplicant_start(client, interface.name, essid, passphrase) == GO_BACK)
+            if (wpa_supplicant_start(client, &interface) == GO_BACK)
                 state = WCONFIG_ESSID;
             else
                 state = GET_METHOD;

@@ -61,7 +61,7 @@
 typedef enum { NOT_ASKED = 30, GO_BACK, REPLY_WEP, REPLY_WPA } response_t;
 typedef enum { DHCP, STATIC, DUNNO } method_t;
 typedef enum { ADHOC = 1, MANAGED = 2 } wifimode_t;
-extern enum wpa_t { WPA_OK, WPA_QUEUED, WPA_UNAVAIL } wpa_supplicant_status;
+typedef enum { WPA_OK, WPA_QUEUED, WPA_UNAVAIL } wpa_t;
 
 extern int wfd, skfd;
 extern int input_result;
@@ -98,6 +98,17 @@ struct netcfg_interface {
 	unsigned int masklen;
 	char gateway[NETCFG_ADDRSTRLEN];
 	char pointopoint[INET_ADDRSTRLEN];
+
+	/* Wireless mode */
+	wifimode_t mode;
+
+	/* Wireless configuration */
+	char *wepkey;
+	char *essid;
+
+	/* WPA */
+	wpa_t wpa_supplicant_status;
+	char *passphrase;
 };
 
 /* Somewhere we can store both in_addr and in6_addr; convenient for all those
@@ -150,15 +161,15 @@ extern void netcfg_write_common (const char *ipaddress, const char *hostname, co
 
 void netcfg_nameservers_to_array(const char *nameservers, char array[][NETCFG_ADDRSTRLEN], const unsigned int array_size);
 
-extern int is_wireless_iface (const char* if_name);
-extern int netcfg_wireless_set_essid (struct debconfclient *client, const char* if_name);
-extern int netcfg_wireless_set_wep (struct debconfclient *client, const char* if_name);
-extern int wireless_security_type (struct debconfclient *client, const char* if_name);
-extern int netcfg_set_passphrase (struct debconfclient *client, const char* if_name);
-extern int init_wpa_supplicant_support (void);
+extern int is_wireless_iface (const char *if_name);
+extern int netcfg_wireless_set_essid (struct debconfclient *client, struct netcfg_interface *interface);
+extern int netcfg_wireless_set_wep (struct debconfclient *client, struct netcfg_interface *interface);
+extern int wireless_security_type (struct debconfclient *client, const char *if_name);
+extern int netcfg_set_passphrase (struct debconfclient *client, struct netcfg_interface *interface);
+extern int init_wpa_supplicant_support (struct netcfg_interface *interface);
 extern int kill_wpa_supplicant (void);
 
-extern int wpa_supplicant_start (struct debconfclient *client, const char *iface, char *ssid, char *passphrase);
+extern int wpa_supplicant_start (struct debconfclient *client, const struct netcfg_interface *interface);
 extern int iface_is_hotpluggable(const char *if_name);
 extern short find_in_stab (const char *if_name);
 extern void deconfigure_network(struct netcfg_interface *iface);
