@@ -692,6 +692,7 @@ int netcfg_dhcp(struct debconfclient *client, struct netcfg_interface *interface
      */
     if (!have_domain && (d = fopen(DOMAIN_FILE, "r")) != NULL) {
         di_debug("Reading domain name returned via DHCP");
+        domain[0] = '\0';
         fgets(domain, sizeof(domain), d);
         rtrim(domain);
         fclose(d);
