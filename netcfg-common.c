@@ -1525,6 +1525,10 @@ void netcfg_interface_init(struct netcfg_interface *iface)
     iface->gateway[0] = '\0';
     iface->pointopoint[0] = '\0';
     iface->masklen = 0;
+    iface->mode = MANAGED;
+    iface->wepkey = NULL;
+    iface->essid = NULL;
+    iface->passphrase = NULL;
 }
 
 /* Parse an IP address (v4 or v6), with optional CIDR netmask, into
