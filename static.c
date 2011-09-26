@@ -611,8 +611,8 @@ int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *ifa
         case GET_HOSTNAME:
             {
                 char buf[MAXHOSTNAMELEN + 1];
-                get_hostname_from_dns(iface, buf, sizeof(buf));
-                preseed_hostname_from_fqdn(client, buf);
+                if (get_hostname_from_dns(iface, buf, sizeof(buf)))
+                    preseed_hostname_from_fqdn(client, buf);
             }
             state = (netcfg_get_hostname(client, "netcfg/get_hostname", hostname, 1)) ?
                 GET_NAMESERVERS : GET_DOMAIN;

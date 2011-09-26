@@ -564,16 +564,16 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
                     && strcmp(buf, "(none)")
                     ) {
                     di_info("DHCP hostname: \"%s\"", buf);
+                    preseed_hostname_from_fqdn(client, buf);
                 }
                 else if (!empty_str(interface->dhcp_hostname)) {
                     di_debug("Defaulting hostname to provided DHCP hostname");
                     debconf_set(client, "netcfg/get_hostname", interface->dhcp_hostname);
                 } else {
                     di_debug("Using DNS to try and obtain default hostname");
-                    get_hostname_from_dns(interface, buf, sizeof(buf));
+                    if (get_hostname_from_dns(interface, buf, sizeof(buf)))
+                        preseed_hostname_from_fqdn(client, buf);
                 }
-
-                preseed_hostname_from_fqdn(client, buf);
 
                 if (netcfg_get_hostname (client, "netcfg/get_hostname", hostname, 1)) {
                     /*
