@@ -385,7 +385,8 @@ stop:
 		}
 	}
 
-	unlink(DHCP6C_FINISHED);
+	if (dhcpv6_client == DHCP6C)
+		unlink(DHCP6C_FINISHED);
 
 	return ret;
 }
