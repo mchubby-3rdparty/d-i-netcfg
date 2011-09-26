@@ -2,6 +2,14 @@
 
 set -e
 
+case $reason in
+    BOUND6|RENEW6|REBIND6)
+	;;
+    *)
+	exit 0
+	;;
+esac
+
 i=0
 for srv in $new_dhcp6_name_servers; do
 	echo "nameserver[$i] $srv"
