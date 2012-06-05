@@ -85,7 +85,6 @@ int netcfg_set_passphrase (struct debconfclient *client, char *if_name)
 {
     int ret;
 
-    debconf_capb(client, "backup");
     debconf_subst(client, "netcfg/wireless_wpa", "iface", if_name);
     debconf_input(client, "high", "netcfg/wireless_wpa");
     ret = debconf_go(client);
@@ -100,11 +99,9 @@ int netcfg_set_passphrase (struct debconfclient *client, char *if_name)
     passphrase = strdup(client->value);
 
     while (strlen(passphrase) < WPA_MIN || strlen(passphrase) > WPA_MAX) {
-        debconf_capb(client);
         debconf_subst(client, "netcfg/invalid_pass", "passphrase", passphrase);
         debconf_input(client, "critical", "netcfg/invalid_pass");
         debconf_go(client);
-        debconf_capb(client, "backup");
 
         free(passphrase);
 
