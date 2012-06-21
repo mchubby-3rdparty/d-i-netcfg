@@ -344,3 +344,10 @@ Type: error
 _Description: Invalid network link detection waiting time
  The value you have provided is not valid. The maximum waiting time (in
  seconds) for network link detection must be a positive integer.
+
+Template: netcfg/wireless_show_essids
+Type: select
+Choices: ${essid_list}, Enter ESSID manually
+Description: Select wireless network
+ Select desired network name (ESSID) to attempt to connect.
+
