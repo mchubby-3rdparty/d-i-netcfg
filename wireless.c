@@ -22,7 +22,7 @@ char* essid = NULL;
 
 #ifdef WIRELESS
 
-#define MAX_LEN 1000
+#define ESSID_MAX_LEN 1000
 #define ENTER_MANUALLY 10
 
 char enter_manually[] = "Enter ESSID manually";
@@ -95,7 +95,7 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface, char 
 {
     wireless_scan_head network_list;
     wireless_config wconf;
-    char buffer[MAX_LEN] = "";
+    char buffer[ESSID_MAX_LEN] = "";
     int couldnt_associate = 0;
 
     iw_get_basic_config (wfd, iface, &wconf);
@@ -128,7 +128,7 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface, char 
 
         /* Question not asked or we're succesfully associated. */
         if (!empty_str(wconf.essid) || empty_str(client->value)) {
-            /* TODO Go to automatic... */
+            /* Go to automatic... */
             if (netcfg_wireless_auto_connect(client, iface, &wconf,
                         &couldnt_associate) == 0) {
                 return 0;
@@ -167,7 +167,7 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface, char 
 int netcfg_wireless_choose_essid_manually(struct debconfclient *client, char *iface)
 {
     /* Priority here should be high, since user had already chosen to
-     * enter an ESSID, he wants to see this question. */
+     * enter an ESSID, they want to see this question. */
 
     int ret, couldnt_associate = 0;
     wireless_config wconf;
@@ -212,7 +212,7 @@ automatic:
         }
     }
 
-    /* Yes, wants to set an essid by himself. */
+    /* Yes, user wants to set an essid by himself. */
 
     if (strlen(tf) <= IW_ESSID_MAX_SIZE) /* looks ok, let's use it */
         user_essid = tf;

@@ -349,5 +349,5 @@ Template: netcfg/wireless_show_essids
 Type: select
 Choices: ${essid_list}, Enter ESSID manually
 Description: Select wireless network
- Select desired network name (ESSID) to attempt to connect.
+ Select desired network name (ESSID) attempt connecting to.
 
