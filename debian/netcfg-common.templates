@@ -348,6 +348,6 @@ _Description: Invalid network link detection waiting time
 Template: netcfg/wireless_show_essids
 Type: select
 Choices: ${essid_list}, Enter ESSID manually
-Description: Select wireless network
- Select desired network name (ESSID) for connection attempt.
+Description: Wireless network:
+ Select the wireless network to use during the installation process.
 
