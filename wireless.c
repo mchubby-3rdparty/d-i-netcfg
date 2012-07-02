@@ -90,7 +90,7 @@ stop:
     return *couldnt_associate;
 }
 
-int netcfg_wireless_show_essids(struct debconfclient *client, char *iface, char *priority)
+int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
 {
     wireless_scan_head network_list;
     wireless_config wconf;
@@ -129,7 +129,7 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface, char 
         /* Asking the user. */
         debconf_capb(client, "backup");
         debconf_subst(client, "netcfg/wireless_show_essids", "essid_list", buffer);
-        debconf_input(client, priority ? priority : "high", "netcfg/wireless_show_essids");
+        debconf_input(client, "high", "netcfg/wireless_show_essids");
         int ret = debconf_go(client);
 
         if (ret == 30) {
@@ -287,7 +287,7 @@ automatic:
     return 0;
 }
 
-int netcfg_wireless_set_essid(struct debconfclient *client, char *iface, char *priority)
+int netcfg_wireless_set_essid(struct debconfclient *client, char *iface)
 {
     wireless_config wconf;
     int choose_ret;
@@ -295,7 +295,7 @@ int netcfg_wireless_set_essid(struct debconfclient *client, char *iface, char *p
     iw_get_basic_config(wfd, iface, &wconf);
 
 select_essid:
-    choose_ret = netcfg_wireless_show_essids(client, iface, priority);
+    choose_ret = netcfg_wireless_show_essids(client, iface);
 
     if (choose_ret == GO_BACK) {
         return GO_BACK;
@@ -395,11 +395,10 @@ int is_wireless_iface (const char *iface)
     return 0;
 }
 
-int netcfg_wireless_set_essid (struct debconfclient *client, char *iface, char *priority)
+int netcfg_wireless_set_essid (struct debconfclient *client, char *iface)
 {
     (void) client;
     (void) iface;
-    (void) priority;
     return 0;
 }
 
