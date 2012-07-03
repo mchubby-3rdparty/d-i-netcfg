@@ -24,8 +24,6 @@ char* essid = NULL;
 
 #define ENTER_MANUALLY 10
 
-char enter_manually[] = "Enter ESSID manually";
-
 
 int is_wireless_iface (const char* iface)
 {
@@ -150,7 +148,7 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
         }
 
         /* User wants to enter an ESSID manually. */
-        if (strcmp(client->value, enter_manually) == 0) {
+        if (strcmp(client->value, "manual") == 0) {
             return ENTER_MANUALLY;
         }
 
