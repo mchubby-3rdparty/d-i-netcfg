@@ -23,6 +23,7 @@ char* essid = NULL;
 #ifdef WIRELESS
 
 #define ENTER_MANUALLY 10
+char enter_manually[] = "Enter ESSID manually";
 
 
 int is_wireless_iface (const char* iface)
@@ -97,9 +98,8 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
     int essid_list_len = 1;
 
     iw_get_basic_config (wfd, iface, &wconf);
-    network_list.retry = 1;
 
-    if (iw_process_scan(wfd, iface, iw_get_kernel_we_version(),
+    if (iw_scan(wfd, iface, iw_get_kernel_we_version(),
                 &network_list) >= 0 ) {
         wireless_scan *network, *old;
 
@@ -169,6 +169,25 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
             free(old);
         }
         free(buffer);
+    }
+   else {
+        /* Asking the user. If scanning failed, the only valid option should
+         * be Enter manually. */
+        debconf_capb(client, "backup");
+        debconf_reset(client, "netcfg/wireless_show_essids");
+        debconf_input(client, "high", "netcfg/wireless_show_essids");
+        int ret = debconf_go(client);
+
+        if (ret == 30) {
+            return GO_BACK;
+        }
+
+        debconf_get(client, "netcfg/wireless_show_essids");
+
+        /* User wants to enter an ESSID manually. */
+        if (strcmp(client->value, enter_manually) == 0) {
+            return ENTER_MANUALLY;
+        }
     }
 
     iw_set_basic_config(wfd, iface, &wconf);
