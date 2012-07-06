@@ -23,7 +23,6 @@ char* essid = NULL;
 #ifdef WIRELESS
 
 #define ENTER_MANUALLY 10
-char enter_manually[] = "Enter ESSID manually";
 
 
 int is_wireless_iface (const char* iface)
@@ -89,29 +88,50 @@ stop:
     return *couldnt_associate;
 }
 
+void free_network_list(wireless_scan **network_list)
+{
+    wireless_scan *old, *network;
+
+    if (network_list == NULL) {
+        return;
+    }
+
+    for (network = *network_list; network; ) {
+        old = network;
+        network = network->next;
+        free(old);
+    }
+
+    *network_list = NULL;
+}
+
 int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
 {
     wireless_scan_head network_list;
     wireless_config wconf;
     char *buffer;
+    char enter_manually[] = "Enter ESSID manually";
     int couldnt_associate = 0;
     int essid_list_len = 1;
+    int state = 0;
 
     iw_get_basic_config (wfd, iface, &wconf);
+    interface_up(iface);
 
     if (iw_scan(wfd, iface, iw_get_kernel_we_version(),
                 &network_list) >= 0 ) {
-        wireless_scan *network, *old;
+        wireless_scan *network;
 
         /* Determine the actual length of the buffer. */
         for (network = network_list.result; network; network =
             network->next) {
-            essid_list_len += strlen(network->b.essid);
+            essid_list_len += (strlen(network->b.essid) + 2);
         }
         /* Buffer initialization. */
         buffer = malloc(essid_list_len * sizeof(char));
         if (buffer == NULL) {
             /* Error in memory allocation. */
+            // TODO: Treat this right!
             return -1;
         }
         strcpy(buffer, "");
@@ -119,9 +139,7 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
         /* Create list of available ESSIDs. */
         for (network = network_list.result; network; network = network->next) {
             strcat(buffer, network->b.essid);
-            if (network->next) {
-                strcat(buffer, ", ");
-            }
+            strcat(buffer, ", ");
         }
 
         /* Asking the user. */
@@ -130,15 +148,20 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
         debconf_input(client, "high", "netcfg/wireless_show_essids");
         int ret = debconf_go(client);
 
-        if (ret == 30) {
+        if (ret == CMD_GOBACK) {
             debconf_reset(client, "netcfg/wireless_show_essids");
+            free_network_list(&network_list.result);
+            free(buffer);
             return GO_BACK;
         }
 
         debconf_get(client, "netcfg/wireless_show_essids");
 
+        // TODO: Decide if useful or not!
         /* Question not asked or we're succesfully associated. */
         if (!empty_str(wconf.essid) || empty_str(client->value)) {
+            free_network_list(&network_list.result);
+            free(buffer);
             /* Go to automatic... */
             if (netcfg_wireless_auto_connect(client, iface, &wconf,
                         &couldnt_associate) == 0) {
@@ -149,6 +172,9 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
 
         /* User wants to enter an ESSID manually. */
         if (strcmp(client->value, "manual") == 0) {
+            free_network_list(&network_list.result);
+            free(buffer);
+
             return ENTER_MANUALLY;
         }
 
@@ -163,11 +189,7 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
         }
 
         /* Free the network list. */
-        for (network = network_list.result; network; ) {
-            old = network;
-            network = network->next;
-            free(old);
-        }
+        free_network_list(&network_list.result);
         free(buffer);
     }
    else {
@@ -175,10 +197,11 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
          * be Enter manually. */
         debconf_capb(client, "backup");
         debconf_reset(client, "netcfg/wireless_show_essids");
+        debconf_subst(client, "netcfg/wireless_show_essids", "essid_list", "");
         debconf_input(client, "high", "netcfg/wireless_show_essids");
         int ret = debconf_go(client);
 
-        if (ret == 30) {
+        if (ret == CMD_GOBACK) {
             return GO_BACK;
         }
 
@@ -191,6 +214,7 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
     }
 
     iw_set_basic_config(wfd, iface, &wconf);
+    interface_down(iface);
 
     return 0;
 }

@@ -347,8 +347,8 @@ _Description: Invalid network link detection waiting time
 
 Template: netcfg/wireless_show_essids
 Type: select
-Choices-C: ${essid_list}, manual
-Choices: ${essid_list}, Enter ESSID manually
+Choices-C: ${essid_list} manual
+Choices: ${essid_list} Enter ESSID manually
 Description: Wireless network:
  Select the wireless network to use during the installation process.
 
