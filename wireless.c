@@ -145,11 +145,13 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
         /* Asking the user. */
         debconf_capb(client, "backup");
         debconf_subst(client, "netcfg/wireless_show_essids", "essid_list", buffer);
+        debconf_fset(client, "netcfg/wireless_show_essids", "seen", "false");
         debconf_input(client, "high", "netcfg/wireless_show_essids");
         int ret = debconf_go(client);
 
         if (ret == CMD_GOBACK) {
-            debconf_reset(client, "netcfg/wireless_show_essids");
+            debconf_fset(client, "netcfg/wireless_show_essids", "seen",
+                    "false");
             free_network_list(&network_list.result);
             free(buffer);
             return GO_BACK;
@@ -196,7 +198,7 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
         /* Asking the user. If scanning failed, the only valid option should
          * be Enter manually. */
         debconf_capb(client, "backup");
-        debconf_reset(client, "netcfg/wireless_show_essids");
+        debconf_fset(client, "netcfg/wireless_show_essids", "seen", "false");
         debconf_subst(client, "netcfg/wireless_show_essids", "essid_list", "");
         debconf_input(client, "high", "netcfg/wireless_show_essids");
         int ret = debconf_go(client);
@@ -236,9 +238,9 @@ int netcfg_wireless_choose_essid_manually(struct debconfclient *client, char *if
 
     debconf_input(client, "low", "netcfg/wireless_adhoc_managed");
 
-    if (debconf_go(client) == 30) {
-        debconf_reset(client, "netcfg/wireless_essid");
-        debconf_reset(client, "netcfg/wireless_essid_again");
+    if (debconf_go(client) == CMD_GOBACK) {
+        debconf_fset(client, "netcfg/wireless_essid", "seen", "false");
+        debconf_fset(client, "netcfg/wireless_essid_again", "seen", "false");
         return GO_BACK;
     }
 
