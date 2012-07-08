@@ -113,7 +113,6 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
     char enter_manually[] = "Enter ESSID manually";
     int couldnt_associate = 0;
     int essid_list_len = 1;
-    int state = 0;
 
     iw_get_basic_config (wfd, iface, &wconf);
     interface_up(iface);
@@ -121,6 +120,8 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
     if (iw_scan(wfd, iface, iw_get_kernel_we_version(),
                 &network_list) >= 0 ) {
         wireless_scan *network;
+
+        di_info("Scanning wireless interface %s succeded.", iface);
 
         /* Determine the actual length of the buffer. */
         for (network = network_list.result; network; network =
@@ -131,7 +132,8 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
         buffer = malloc(essid_list_len * sizeof(char));
         if (buffer == NULL) {
             /* Error in memory allocation. */
-            // TODO: Treat this right!
+            // TODO: Treat this right! Should this be an di_error?
+            di_warning("Unable to allocate memory for network list buffer.");
             return -1;
         }
         strcpy(buffer, "");
@@ -218,6 +220,8 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
     iw_set_basic_config(wfd, iface, &wconf);
     interface_down(iface);
 
+    di_info("Succesfully associated with %s network.", essid);
+
     return 0;
 }
 
@@ -254,7 +258,7 @@ int netcfg_wireless_choose_essid_manually(struct debconfclient *client, char *if
 
     debconf_input(client, "high", "netcfg/wireless_essid");
 
-    if (debconf_go(client) == 30)
+    if (debconf_go(client) == CMD_GOBACK)
         return GO_BACK;
 
     debconf_get(client, "netcfg/wireless_essid");
@@ -327,6 +331,8 @@ automatic:
 
     iw_set_basic_config(wfd, iface, &wconf);
 
+    di_info("Succesfully associated with %s network.", essid);
+
     return 0;
 }
 
@@ -335,19 +341,19 @@ int netcfg_wireless_set_essid(struct debconfclient *client, char *iface)
     wireless_config wconf;
     int choose_ret;
 
+select_essid:
     iw_get_basic_config(wfd, iface, &wconf);
 
-select_essid:
     choose_ret = netcfg_wireless_show_essids(client, iface);
 
-    if (choose_ret == GO_BACK) {
+    if (choose_ret == CMD_GOBACK) {
         return GO_BACK;
     }
 
     if (choose_ret == ENTER_MANUALLY) {
         int manually_ret = netcfg_wireless_choose_essid_manually(client, iface);
 
-        if (manually_ret == GO_BACK) {
+        if (manually_ret == CMD_GOBACK) {
             goto select_essid;
         }
     }
