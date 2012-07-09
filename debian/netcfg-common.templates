@@ -59,8 +59,8 @@ _Description: Wireless ESSID for ${iface}:
  Attempting to find an available wireless network failed.
  .
  ${iface} is a wireless network interface. Please enter the name (the ESSID)
- of the wireless network you would like ${iface} to use. To skip wireless
- configuration and continue, leave this field blank.
+ of the wireless network you would like ${iface} to use. To connect to any
+ available network, leave this field blank.
 
 Template: netcfg/wireless_security_type
 Type: select
