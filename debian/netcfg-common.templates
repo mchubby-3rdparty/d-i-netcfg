@@ -114,8 +114,8 @@ Template: netcfg/invalid_essid
 Type: error
 # :sl2:
 _Description: Invalid ESSID
- The ESSID "${essid}" is invalid. ESSIDs may only be up to 32 characters,
- but may contain all kinds of characters.
+ The ESSID "${essid}" is invalid. ESSIDs may only be up to ${max_essid_len}
+ characters, but may contain all kinds of characters.
 
 Template: netcfg/wpa_progress
 Type: text
