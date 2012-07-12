@@ -84,6 +84,7 @@ get_essid:
     if (client->value && strlen(client->value) > IW_ESSID_MAX_SIZE) {
         char max_len_string[5];
         sprintf(max_len_string, "%d", IW_ESSID_MAX_SIZE);
+        debconf_capb(client, "");
         debconf_subst(client, "netcfg/invalid_essid", "essid", client->value);
         debconf_subst(client, "netcfg/invalid_essid", "max_essid_len",
                 max_len_string);
@@ -91,6 +92,7 @@ get_essid:
         debconf_go(client);
 
         debconf_fset(client, question, "seen", "false");
+        debconf_capb(client, "backup");
         goto get_essid;
     }
 
