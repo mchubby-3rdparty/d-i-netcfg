@@ -109,6 +109,19 @@ get_essid:
 
 }
 
+int exists_in_network_list(wireless_scan_head list, wireless_scan *network)
+{
+    wireless_scan *it;
+
+    for (it = list.result; it != network; it = it->next) {
+        if (strcmp(it->b.essid, network->b.essid) == 0) {
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
 int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
 {
     wireless_scan_head network_list;
@@ -128,7 +141,9 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
         /* Determine the actual length of the buffer. */
         for (network = network_list.result; network; network =
             network->next) {
-            essid_list_len += (strlen(network->b.essid) + 2);
+            if (!exists_in_network_list(network_list, network)) {
+                essid_list_len += (strlen(network->b.essid) + 2);
+            }
         }
         /* Buffer initialization. */
         buffer = malloc(essid_list_len * sizeof(char));
@@ -141,8 +156,10 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
 
         /* Create list of available ESSIDs. */
         for (network = network_list.result; network; network = network->next) {
-            strcat(buffer, network->b.essid);
-            strcat(buffer, ", ");
+            if (!exists_in_network_list(network_list, network)) {
+                strcat(buffer, network->b.essid);
+                strcat(buffer, ", ");
+            }
         }
 
         /* Asking the user. */
