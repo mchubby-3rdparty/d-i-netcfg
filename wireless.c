@@ -215,7 +215,7 @@ int netcfg_wireless_show_essids(struct debconfclient *client, char *iface)
     iw_set_basic_config(wfd, iface, &wconf);
     interface_down(iface);
 
-    di_info("Succesfully associated with %s network.", essid);
+    di_info("Network choosen: %s. Proceding to connecting.", essid);
 
     return 0;
 }
