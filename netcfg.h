@@ -21,6 +21,16 @@
 #define WPA_MIN         8    /* minimum passphrase length */
 #define WPA_MAX         64   /* maximum passphrase length */
 
+/* DHCP reply constants. */
+#define DHCP_REPLY_RETRY_AUTOCONFIG       0
+#define DHCP_REPLY_RETRY_WITH_HOSTNAME    1
+#define DHCP_REPLY_CONFIGURE_MANUALLY     2
+#define DHCP_REPLY_DONT_CONFIGURE         3
+#define DHCP_REPLY_RECONFIGURE_WIFI       4
+#define DHCP_REPLY_LOOP_BACK              5
+#define DHCP_REPLY_CHECK_DHCP             6
+#define DHCP_REPLY_ASK_OPTIONS            7
+
 #define _GNU_SOURCE
 
 #include <sys/types.h>

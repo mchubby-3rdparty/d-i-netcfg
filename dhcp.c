@@ -352,16 +352,6 @@ int poll_dhcp_client (struct debconfclient *client)
     return ret;
 }
 
-
-#define REPLY_RETRY_AUTOCONFIG       0
-#define REPLY_RETRY_WITH_HOSTNAME    1
-#define REPLY_CONFIGURE_MANUALLY     2
-#define REPLY_DONT_CONFIGURE         3
-#define REPLY_RECONFIGURE_WIFI       4
-#define REPLY_LOOP_BACK              5
-#define REPLY_CHECK_DHCP             6
-#define REPLY_ASK_OPTIONS            7
-
 int ask_dhcp_options (struct debconfclient *client)
 {
     int ret;
@@ -386,18 +376,18 @@ int ask_dhcp_options (struct debconfclient *client)
     if (client->value[0] == 'R') {      /* _R_etry ... or _R_econfigure ... */
         size_t len = strlen(client->value);
         if (client->value[len - 1] == 'e') /* ... with DHCP hostnam_e_ */
-            return REPLY_RETRY_WITH_HOSTNAME;
+            return DHCP_REPLY_RETRY_WITH_HOSTNAME;
         else if (client->value[len - 1] == 'k') /* ... wireless networ_k_ */
-            return REPLY_RECONFIGURE_WIFI;
+            return DHCP_REPLY_RECONFIGURE_WIFI;
         else
-            return REPLY_RETRY_AUTOCONFIG;
+            return DHCP_REPLY_RETRY_AUTOCONFIG;
     }
     else if (client->value[0] == 'C') /* _C_onfigure ... */
-        return REPLY_CONFIGURE_MANUALLY;
+        return DHCP_REPLY_CONFIGURE_MANUALLY;
     else if (empty_str(client->value))
-        return REPLY_LOOP_BACK;
+        return DHCP_REPLY_LOOP_BACK;
     else
-        return REPLY_DONT_CONFIGURE;
+        return DHCP_REPLY_DONT_CONFIGURE;
 }
 
 int ask_wifi_configuration (struct debconfclient *client)
@@ -452,11 +442,11 @@ int ask_wifi_configuration (struct debconfclient *client)
             break;
 
         case ABORT:
-            return REPLY_ASK_OPTIONS;
+            return DHCP_REPLY_ASK_OPTIONS;
             break;
 
         case DONE:
-            return REPLY_CHECK_DHCP;
+            return DHCP_REPLY_CHECK_DHCP;
             break;
         }
     }
@@ -614,19 +604,19 @@ int netcfg_activate_dhcp (struct debconfclient *client)
             case GO_BACK:
                 kill_dhcp_client();
                 return 10;
-            case REPLY_RETRY_WITH_HOSTNAME:
+            case DHCP_REPLY_RETRY_WITH_HOSTNAME:
                 state = DHCP_HOSTNAME;
                 break;
-            case REPLY_CONFIGURE_MANUALLY:
+            case DHCP_REPLY_CONFIGURE_MANUALLY:
                 kill_dhcp_client();
                 return 15;
                 break;
-            case REPLY_DONT_CONFIGURE:
+            case DHCP_REPLY_DONT_CONFIGURE:
                 kill_dhcp_client();
                 netcfg_write_loopback();
                 state = HOSTNAME_SANS_NETWORK;
                 break;
-            case REPLY_RETRY_AUTOCONFIG:
+            case DHCP_REPLY_RETRY_AUTOCONFIG:
                 if (dhcp_pid > 0)
                     state = POLL;
                 else {
@@ -634,8 +624,8 @@ int netcfg_activate_dhcp (struct debconfclient *client)
                     state = START;
                 }
                 break;
-            case REPLY_RECONFIGURE_WIFI:
-                if (ask_wifi_configuration(client) == REPLY_CHECK_DHCP) {
+            case DHCP_REPLY_RECONFIGURE_WIFI:
+                if (ask_wifi_configuration(client) == DHCP_REPLY_CHECK_DHCP) {
                     kill_dhcp_client();
                     state = START;
                 }
