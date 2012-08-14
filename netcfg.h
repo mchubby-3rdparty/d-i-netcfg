@@ -63,7 +63,6 @@ typedef enum { DHCP, STATIC, DUNNO } method_t;
 typedef enum { ADHOC = 1, MANAGED = 2 } wifimode_t;
 extern enum wpa_t { WPA_OK, WPA_QUEUED, WPA_UNAVAIL } wpa_supplicant_status;
 
-extern int netcfg_progress_displayed;
 extern int wfd, skfd;
 extern int input_result;
 extern int have_domain;
