@@ -95,6 +95,10 @@ int netcfg_get_netmask(struct debconfclient *client)
 
         ok = inet_pton (AF_INET, client->value, &netmask);
 
+        if (ok && !valid_netmask(netmask)) {
+            ok = 0;
+        }
+
         if (!ok) {
             debconf_capb(client);
             debconf_input (client, "critical", "netcfg/bad_ipaddress");

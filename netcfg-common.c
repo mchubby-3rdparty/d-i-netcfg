@@ -967,6 +967,41 @@ short valid_domain (const char *dname)
 }
 
 /*
+ * Verify that an ipv4 address is a valid netmask in the "^1*0*$" form.
+ * @return 1 on success, 0 on failure.
+ */
+short valid_netmask(struct in_addr netmask)
+{
+    unsigned char mask, byte;
+    int flag = 0;
+    int byte_count, bit_count;
+
+    for (byte_count = 0; byte_count < 4; byte_count++) {
+        /* Get each byte of the netmask, network byte order. */
+        byte = *(((unsigned char *) &(netmask.s_addr)) + byte_count);
+
+        for (bit_count = 7; bit_count >= 0; bit_count--) {
+            mask = 1 << bit_count;
+
+            /* 1 bit. */
+            if (mask & byte) {
+                /* There's an 1 bit where there should be only 0s. */
+                if (flag == 1) {
+                    return 0;
+                }
+            }
+            /* 0 bit. */
+            else {
+                /* The initial sequence of 1 bits is over. */
+                flag = 1;
+            }
+        }
+    }
+
+    return 1;
+}
+
+/*
  * Set the hostname.
  * @return 0 on success, 30 on BACKUP being selected.
  */

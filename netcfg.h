@@ -104,6 +104,7 @@ extern int netcfg_get_interface(struct debconfclient *client, char **interface, 
 
 extern short valid_hostname (const char *hname);
 extern short valid_domain (const char *dname);
+extern short valid_netmask(struct in_addr netmask);
 
 extern int netcfg_get_hostname(struct debconfclient *client, char *template, char **hostname, short hdset);
 
