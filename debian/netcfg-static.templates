@@ -32,6 +32,16 @@ _Description: Netmask:
  value.  The netmask should be entered as four numbers separated by
  periods.
 
+Template: netcfg/bad_netmask
+Type: error
+# :sl2:
+_Description: Malformed netmask
+ The netmask you provided is malformed. It should be in the form
+ x.x.x.x where for each 'x' the allowed values generally are 255
+ on the lefthand side and 0 on the righthand side. For more advanced
+ network setups please contact your network administrator. Please try
+ again.
+
 Template: netcfg/get_gateway
 Type: string
 # :sl1:

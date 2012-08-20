@@ -101,7 +101,7 @@ int netcfg_get_netmask(struct debconfclient *client)
 
         if (!ok) {
             debconf_capb(client);
-            debconf_input (client, "critical", "netcfg/bad_ipaddress");
+            debconf_input (client, "critical", "netcfg/bad_netmask");
             debconf_go (client);
             debconf_capb(client, "backup");
         }
