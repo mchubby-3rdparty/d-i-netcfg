@@ -145,6 +145,8 @@ int start_dhcp_client (struct debconfclient *client, char* dhostname, const char
     enum { DHCLIENT, PUMP, UDHCPC } dhcp_client;
     int dhcp_seconds;
     char dhcp_seconds_str[16];
+    int dhostnamelen = strnlen(dhostname, MAXHOSTNAMELEN - 1);
+    dhostname[dhostnamelen] = '\0';
 
     if (access("/sbin/dhclient", F_OK) == 0)
             dhcp_client = DHCLIENT;
@@ -169,7 +171,7 @@ int start_dhcp_client (struct debconfclient *client, char* dhostname, const char
         /* get dhcp lease */
         switch (dhcp_client) {
         case PUMP:
-            if (dhostname)
+            if (dhostnamelen > 0)
                 execlp("pump", "pump", "-i", if_name, "-h", dhostname, NULL);
             else
                 execlp("pump", "pump", "-i", if_name, NULL);
@@ -192,7 +194,7 @@ int start_dhcp_client (struct debconfclient *client, char* dhostname, const char
                         fprintf(dc, ";\n");
                 }
 
-                if (dhostname) {
+                if (dhostnamelen > 0) {
                     fprintf(dc, "send host-name \"%s\";\n", dhostname);
                 }
                 fprintf(dc, "timeout %d;\n", dhcp_seconds);
@@ -231,7 +233,7 @@ int start_dhcp_client (struct debconfclient *client, char* dhostname, const char
                 arguments[options_count++] = (char *)*ptr;
             }
 
-            if (dhostname) {
+            if (dhostnamelen > 0) {
                 arguments[options_count++] = "-H";
                 arguments[options_count++] = dhostname;
             }
