@@ -7,7 +7,7 @@ Description: for internal use; can be preseeded
 Template: netcfg/use_autoconfig
 Type: boolean
 Default: true
-# :sl1:
+# :sl6:
 _Description: Auto-configure networking?
  Networking can be configured by either manually entering all the
  information, or automatically detecting your networking settings using DHCP

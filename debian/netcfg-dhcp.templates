@@ -86,14 +86,17 @@ Description: for internal use
 
 Template: netcfg/slaac_wait_title
 Type: text
+# :sl6:
 _Description: Attempting IPv6 autoconfiguration; please wait...
 
 Template: netcfg/ipv6_link_local_wait_title
 Type: text
+# :sl6:
 _Description: Waiting for link-local address; please wait...
 
 Template: netcfg/ipv6_config_flags_wait_title
 Type: text
+# :sl6:
 _Description: Attempting IPv6 autoconfiguration; please wait...
 
 Template: netcfg/dhcpv6_timeout
@@ -104,5 +107,5 @@ Default: 15
 
 Template: netcfg/dhcpv6_progress
 Type: text
-# :sl1:
+# :sl6:
 _Description: Configuring the network with DHCPv6
