@@ -1,8 +1,73 @@
 netcfg (1.90) UNRELEASED; urgency=low
 
+  [ Philipp Kern ]
   * netcfg.h: drop ip6-localnet (obsolete)
   * netcfg.h: drop ip6-mcastprefix (no need for it to be in /etc/hosts)
   * netcfg-common.c (is_layer3_qeth): fix off-by-one, introduce a constant
+
+  * Fully support installation over IPv6. (Closes: #231003)
+
+  [ Matt Palmer ]
+  * Pull NULL_IPADDRESS out into a global constant
+  * Refactor out some program-global variables
+  * Only flush address families we manage
+  * Remove global variable netcfg_progress_displayed
+  * Remove gateway from being a global var, and turn it into a string
+  * Make nameserver_array a local, and an array of strings
+  * Move the rest of the static-specific globals into functions
+  * Convert all remaining in_addr variables to strings
+  * Create and use a struct to store all network interface settings
+  * Add test framework, and make inet_mton support AF_INET6
+  * Add missing instructions to test/README
+  * Add netcfg_parse_cidr_address to do protocol-independent address parsing
+  * Add test/run to gitignore
+  * Make a few more functions IPv6 aware
+  * First working draft of IPv6 support
+  * Support IPv6 netmasks, for people who like typing too much
+  * Add ethtool-lite.o to test build objects, so things build
+  * Don't run the test suite on package build
+  * Make no_default_route take IPv6 into account
+  * Make read_resolv_conf_nameservers handle IPv6 addresses
+  * Detect and use autoconfigured IPv6 addresses (part 1)
+  * SLAAC detection support in kFreeBSD
+  * Add proper GPL header to ipv6.c
+
+  [ Colin Watson ]
+  * Move wireless options into struct netcfg_interface
+
+  [ Matt Palmer ]
+  * Refactor /etc/network/interfaces writing code
+  * Obtain DNS resolvers via RA options
+  * IPv6 support for using rDNS to preseed hostnames
+  * Deal with stateless DHCPv6
+  * Don't use wide-dhcpv6 on non-Linux arches
+  * Use dhclient -6 to support stateless DHCP on FreeBSD
+  * Fix the 'get default IPv6 route' command on freebsd
+  * Modify the way that rdisc6 is called to make the progress bar more responsive
+
+  [ Colin Watson ]
+  * Get DNS and search information when doing stateless DHCPv6
+  * Stateful DHCPv6 support
+  * Add dual-stack support
+  * Kill stateless dhcp6c from netcfg rather than from print-dhcp6c-info
+  * Select DHCPv6 client at run-time
+  * Fix up test suite to pass again
+  * Remove di_debug calls from signal handlers
+  * Exit immediately if daemon() fails
+  * Use a sentinel file to determine whether dhcp6c has finished
+  * Fix dhclient DUID generation
+  * Release isc-dhcp-client IPv6 leases at end of install
+  * Remove usleep workaround in stop_rdnssd; avoiding the use of stdio in signal handlers should have fixed this
+  * Make sure domain is empty if fgets fails
+  * print-dhcpv6-info: Exit immediately if reason is not BOUND6, RENEW6, or REBIND6
+  * Don't bother unlinking /var/lib/netcfg/dhcp6c-finished unless we're using dhcp6c
+  * print-dhcpv6-info: Actually apply IPv6 address and resolv.conf entries received from the DHCPv6 server
+  * Don't preseed IP addresses as hostnames
+
+  [ Philipp Kern ]
+  * autoconfig.c: initialize getline's lineptr with NULL
+  * ipv6.c: force stateless_config to 0 if stateful_config is set also
+  * dhcp.c: fix dhcp_hostname handling
 
  -- Philipp Kern <pkern@debian.org>  Tue, 28 Aug 2012 23:57:14 +0200
 
