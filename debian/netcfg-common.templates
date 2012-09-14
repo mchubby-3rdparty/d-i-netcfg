@@ -10,12 +10,11 @@ Default: true
 # :sl6:
 _Description: Auto-configure networking?
  Networking can be configured by either manually entering all the
- information, or automatically detecting your networking settings using DHCP
+ information, or automatically detecting network settings using DHCP
  or a variety of IPv6-specific methods.  If you choose to use
  autoconfiguration and the installer is unable to get a working
- configuration from your network, you will be given the opportunity to
- configure your network manually after the attempt to automatically
- configure it.
+ configuration from the network, you will be given the opportunity to
+ configure the network manually.
 
 Template: netcfg/get_domain
 Type: string

@@ -4,9 +4,8 @@ Type: string
 _Description: IP address:
  The IP address is unique to your computer and is either:
  .
- * Four numbers separated by periods; or
- .
- * Blocks of hexadecimal characters separated by colons (IPv6).
+  * Four numbers separated by periods (IPv4);
+  * Blocks of hexadecimal characters separated by colons (IPv6).
  .
  You can also optionally specify a CIDR netmask.
  .
@@ -16,9 +15,10 @@ Template: netcfg/bad_ipaddress
 Type: error
 # :sl6:
 _Description: Malformed IP address
- The IP address you provided is malformed. It should be in the form x.x.x.x
- where each 'x' is no larger than 255, or a sequence of blocks of
- hexadecimal digits separated by colons (an IPv6 address). Please try again.
+ The IP address you provided is malformed. It should be in the form
+ x.x.x.x where each 'x' is no larger than 255 (an IPv4 address), or a
+ sequence of blocks of hexadecimal digits separated by colons (an IPv6
+ address). Please try again.
 
 Template: netcfg/get_pointopoint
 Type: string
@@ -62,7 +62,7 @@ _Description: Unreachable gateway
 Template: netcfg/no_ipv6_pointopoint
 Type: error
 # :sl6:
-_Description: IPv6 is not supported on pointopoint links
+_Description: IPv6 unsupported on point-to-point links
  IPv6 addresses cannot be configured on point-to-point links.  Please use an
  IPv4 address, or go back and select a different network interface.
 
