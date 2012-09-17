@@ -69,7 +69,10 @@ netcfg (1.90) UNRELEASED; urgency=low
   * ipv6.c: force stateless_config to 0 if stateful_config is set also
   * dhcp.c: fix dhcp_hostname handling
 
- -- Philipp Kern <pkern@debian.org>  Tue, 28 Aug 2012 23:57:14 +0200
+  [ Christian Perrier ]
+  * Style corrections to debconf templates. (Reviewed by Justin B Rye.)
+
+ -- Philipp Kern <pkern@debian.org>  Mon, 17 Sep 2012 15:16:39 +0200
 
 netcfg (1.89) unstable; urgency=low
 
