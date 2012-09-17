@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kn\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-07-13 14:27+0000\n"
+"POT-Creation-Date: 2012-09-17 22:02+0000\n"
 "PO-Revision-Date: 2012-03-05 22:29+0530\n"
 "Last-Translator: Prabodh C P <prabodh@fsmk.org>\n"
 "Language-Team: Kannada <debian-l10n-kannada@lists.debian.org>\n"
@@ -31,21 +31,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
 #: ../netcfg-common.templates:2001
-msgid "Auto-configure network with DHCP?"
+#, fuzzy
+msgid "Auto-configure networking?"
 msgstr "ಜಾಲಬಂಧವನ್ನು ಸ್ವಯಂ ಸಂರಚಿಸಲು DHCP ಬಳಸುವುದೇ ?"
 
 #. Type: boolean
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
 #: ../netcfg-common.templates:2001
+#, fuzzy
 msgid ""
-"Networking can either be configured by DHCP or by manually entering all the "
-"information. If you choose to use DHCP and the installer is unable to get a "
-"working configuration from a DHCP server on your network, you will be given "
-"the opportunity to configure your network manually after the attempt to "
-"configure it by DHCP."
+"Networking can be configured either by entering all the information "
+"manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
+"network settings automatically. If you choose to use autoconfiguration and "
+"the installer is unable to get a working configuration from the network, you "
+"will be given the opportunity to configure the network manually."
 msgstr ""
 "ಜಾಲಬಂಧಮನ್ನು ಸಂಯೋಜಿಸಲು DHCP ಬಳಸಬಹುದು ಅಥವಾ ಸ್ವತಃ ಎಲ್ಲ ಮಾಹಿತಿಯನ್ನು ಕೊಡಬಹುದು. ನೀವು "
 "DHCP ಬಳಸಲು ಆಯ್ಕೆ ಮಾಡಿದಲ್ಲಿ ಹಾಗು ಅನುಸ್ಥಾಪಕವು ನಿಮ್ಮ ಜಾಲಬಂಧದಲ್ಲಿನ DHCP ಸರ್ವರಿನಿಂದ "
@@ -904,40 +908,99 @@ msgstr "ನಿಮಗೆ ಸಂದೇಹವಿದ್ದಲ್ಲಿ"
 msgid "Reconfigure the wireless network"
 msgstr "ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧವನ್ನು ಮರು ಸಂರಚಿಸಿ "
 
+#. Type: text
+#. Description
+#. IPv6
+#. :sl6:
+#. Type: text
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
+#, fuzzy
+msgid "Attempting IPv6 autoconfiguration..."
+msgstr "vmelilo ಕಾನ್ಫಿಗರೇಶನ್ ಅನ್ನು ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ..."
+
+#. Type: text
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-dhcp.templates:13001
+msgid "Waiting for link-local address..."
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl6:
+#: ../netcfg-dhcp.templates:16001
+#, fuzzy
+msgid "Configuring the network with DHCPv6"
+msgstr "ಜಾಲಬಂಧವನ್ನು DHCP ಇಂದ ಸಂರಚಿಸಲಾಗುತ್ತಿದೆ"
+
 #. Type: string
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
 msgstr "IP ವಿಳಾಸಗಳು:"
 
 #. Type: string
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:1001
+msgid "The IP address is unique to your computer and may be:"
+msgstr ""
+
+#. Type: string
+#. Description
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:1001
 msgid ""
-"The IP address is unique to your computer and consists of four numbers "
-"separated by periods.  If you don't know what to use here, consult your "
-"network administrator."
+" * four numbers separated by periods (IPv4);\n"
+" * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
-"ಜಾಲಬಂಧದಲ್ಲಿ IP ವಿಳಾಸವು ನಿಮ್ಮ ಗಣಕಕ್ಕೆ ಏಕೈಕವಾಗಿರುತ್ತದೆ, ಹಾಗು ನಾಲ್ಕು ಸಂಖ್ಯೆಗಳು "
-"ಬಿಂದುಗಳಿಂದ ಬೇರೆ ಪಡಿಸಲಾಗಿರುವುದು. ಇಲ್ಲಿ ಏನು ಕೊಡಬೇಕೆಂದು ತಿಳಿಯದಿದ್ದಲ್ಲಿ ನಿಮ್ಮ "
-"ಜಾಲಬಂಧದ ಕಾರ್ಯನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."
+
+#. Type: string
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:1001
+msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
+msgstr ""
+
+#. Type: string
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:1001
+#, fuzzy
+msgid "If you don't know what to use here, consult your network administrator."
+msgstr ""
+"ನಿಮಗೆ ಏನು ಕೊಡಬೇಕಾಗಿ ತಿಲಿಯದ್ದಿದ್ದಲ್ಲಿ ಸಹಾಯ ಸಂಕಲನವನ್ನು ನೋಡಿ ಅಥವಾ ಮಾಡ್ಯುಲ್ ಗಳನ್ನು "
+"ಹಾಕದಿರಲು, ಹಾಗೆಯೆ ಕಾಲಿ ಬಿಡಿ "
 
 #. Type: error
 #. Description
-#. :sl2:
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
 msgstr "ಐ ಪಿ ವಿಳಾಸ ವಿಕೃತಿಗೊಂಡಿದೆ"
 
 #. Type: error
 #. Description
-#. :sl2:
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:2001
+#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
-"where each 'x' is no larger than 255. Please try again."
+"where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
+"blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
+"try again."
 msgstr ""
 "ನೀವು ಕೊಟ್ಟ ಐ ಪಿ ವಿಳಾಸ ಸರಿಯಾಗಿಲ್ಲ. ಅದು x.x.x.x ರೂಪದಲ್ಲಿ ಇರಬೇಕು ಮತ್ತು ಪ್ರತಿ 'x' "
 "ಅಂಕಿಯು ೨೫೫ಕ್ಕಿಂತ ಹೆಚ್ಚಿರಬಾರದು. ದಯಮಾಡಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
@@ -1031,24 +1094,42 @@ msgid ""
 msgstr ""
 "ನೀವು ನಿಮ್ಮ ಐಪಿ ವಿಳಾಸ, ನೆಟ್ಮಾಸ್ಕ್ ಇಲ್ಲವೇ ಪ್ರವೇಶದ್ವಾರವನ್ನು ದಾಖಲಿಸುವಲ್ಲಿ ತಪ್ಪು ಮಾಡಿರಬಹುದು."
 
+#. Type: error
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:7001
+msgid "IPv6 unsupported on point-to-point links"
+msgstr ""
+
+#. Type: error
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:7001
+msgid ""
+"IPv6 addresses cannot be configured on point-to-point links.  Please use an "
+"IPv4 address, or go back and select a different network interface."
+msgstr ""
+
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../netcfg-static.templates:7001
+#: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
 msgstr "ೞ್ಈ ಮಾಹಿತಿಯು ಸರಿಯಾಗಿದೆಯೆ?"
 
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../netcfg-static.templates:7001
+#: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
 msgstr "ಸಂರಚಿತಗೊಂಡ ಜಾಲಬಂಧದ ಕ್ರಮಗಳು : "
 
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../netcfg-static.templates:7001
+#: ../netcfg-static.templates:8001
 msgid ""
 " interface     = ${interface}\n"
 " ipaddress     = ${ipaddress}\n"
@@ -1068,6 +1149,6 @@ msgstr ""
 #. Description
 #. Item in the main menu to select this package
 #. :sl1:
-#: ../netcfg-static.templates:8001
+#: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
 msgstr "ಜಾಲಬಂಧವನ್ನು ಸ್ಟೇಟಿಕ್ ವಿಳಾಸದ ಮುಖಾಂತರ ಸಂಯೋಜಿಸಲಾಗುತ್ತಿದೆ "

@@ -27,7 +27,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-07-13 14:27+0000\n"
+"POT-Creation-Date: 2012-09-17 22:02+0000\n"
 "PO-Revision-Date: 2012-07-18 17:30+0900\n"
 "Last-Translator:  Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team:  Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -38,21 +38,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
 #: ../netcfg-common.templates:2001
-msgid "Auto-configure network with DHCP?"
+#, fuzzy
+msgid "Auto-configure networking?"
 msgstr "네트워크를 DHCP로 자동 설정하시겠습니까?"
 
 #. Type: boolean
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
 #: ../netcfg-common.templates:2001
+#, fuzzy
 msgid ""
-"Networking can either be configured by DHCP or by manually entering all the "
-"information. If you choose to use DHCP and the installer is unable to get a "
-"working configuration from a DHCP server on your network, you will be given "
-"the opportunity to configure your network manually after the attempt to "
-"configure it by DHCP."
+"Networking can be configured either by entering all the information "
+"manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
+"network settings automatically. If you choose to use autoconfiguration and "
+"the installer is unable to get a working configuration from the network, you "
+"will be given the opportunity to configure the network manually."
 msgstr ""
 "네트워크는 DHCP로 설정할 수도 있고, 수동으로 모든 정보를 입력해서 설정할 수"
 "도 있습니다. DHCP를 사용했을 때 네트워크의 DHCP 서버에서 올바른 설정을 가져오"
@@ -907,39 +911,99 @@ msgstr ""
 msgid "Reconfigure the wireless network"
 msgstr "무선 네트워크 다시 설정"
 
+#. Type: text
+#. Description
+#. IPv6
+#. :sl6:
+#. Type: text
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
+#, fuzzy
+msgid "Attempting IPv6 autoconfiguration..."
+msgstr "yaboot 설정을 만드는 중입니다"
+
+#. Type: text
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-dhcp.templates:13001
+msgid "Waiting for link-local address..."
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl6:
+#: ../netcfg-dhcp.templates:16001
+#, fuzzy
+msgid "Configuring the network with DHCPv6"
+msgstr "DHCP로 네트워크를 설정하는 중입니다"
+
 #. Type: string
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
 msgstr "IP 주소:"
 
 #. Type: string
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:1001
+msgid "The IP address is unique to your computer and may be:"
+msgstr ""
+
+#. Type: string
+#. Description
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:1001
 msgid ""
-"The IP address is unique to your computer and consists of four numbers "
-"separated by periods.  If you don't know what to use here, consult your "
-"network administrator."
+" * four numbers separated by periods (IPv4);\n"
+" * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
-"IP 주소는 컴퓨터의 고유한 주소로 점으로 구분된 숫자 4개로 구성되어 있습니다. "
-"IP 주소를 모르면, 네트워크 관리자에게 문의하십시오."
+
+#. Type: string
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:1001
+msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
+msgstr ""
+
+#. Type: string
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:1001
+#, fuzzy
+msgid "If you don't know what to use here, consult your network administrator."
+msgstr ""
+"뭘 입력해야 할 지 모르겠다면, 관련 문서를 참고하십시오. 모듈을 읽어들이지 않"
+"으려면 비워 두십시오."
 
 #. Type: error
 #. Description
-#. :sl2:
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
 msgstr "IP 주소가 잘못되었습니다"
 
 #. Type: error
 #. Description
-#. :sl2:
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:2001
+#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
-"where each 'x' is no larger than 255. Please try again."
+"where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
+"blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
+"try again."
 msgstr ""
 "입력한 IP 주소의 형식이 틀렸습니다. x.x.x.x의 형태여야 하며, 여기서 x는 255보"
 "다 크지 않아야 합니다. 다시 시도하십시오."
@@ -1032,24 +1096,42 @@ msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
 msgstr "IP 주소, 네트마스크, 게이트웨이중에 잘못 입력한 게 있을 것입니다."
 
+#. Type: error
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:7001
+msgid "IPv6 unsupported on point-to-point links"
+msgstr ""
+
+#. Type: error
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:7001
+msgid ""
+"IPv6 addresses cannot be configured on point-to-point links.  Please use an "
+"IPv4 address, or go back and select a different network interface."
+msgstr ""
+
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../netcfg-static.templates:7001
+#: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
 msgstr "이 정보가 맞습니까?"
 
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../netcfg-static.templates:7001
+#: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
 msgstr "현재 설정된 네트워크 인수:"
 
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../netcfg-static.templates:7001
+#: ../netcfg-static.templates:8001
 msgid ""
 " interface     = ${interface}\n"
 " ipaddress     = ${ipaddress}\n"
@@ -1069,6 +1151,6 @@ msgstr ""
 #. Description
 #. Item in the main menu to select this package
 #. :sl1:
-#: ../netcfg-static.templates:8001
+#: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
 msgstr "고정 주소를 사용해 네트워크를 설정합니다"

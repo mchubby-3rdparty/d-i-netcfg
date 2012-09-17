@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer_packages_po_sublevel1_ne\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-07-13 14:27+0000\n"
+"POT-Creation-Date: 2012-09-17 22:02+0000\n"
 "PO-Revision-Date: 2011-02-22 17:11-0600\n"
 "Last-Translator: Shiva Prasad Pokharel <shiva@mpp.org.np>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -34,21 +34,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
 #: ../netcfg-common.templates:2001
-msgid "Auto-configure network with DHCP?"
+#, fuzzy
+msgid "Auto-configure networking?"
 msgstr "DHCP सँग सञ्जाल स्वत-कन्फिगर गर्नुहुन्छ?"
 
 #. Type: boolean
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
 #: ../netcfg-common.templates:2001
+#, fuzzy
 msgid ""
-"Networking can either be configured by DHCP or by manually entering all the "
-"information. If you choose to use DHCP and the installer is unable to get a "
-"working configuration from a DHCP server on your network, you will be given "
-"the opportunity to configure your network manually after the attempt to "
-"configure it by DHCP."
+"Networking can be configured either by entering all the information "
+"manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
+"network settings automatically. If you choose to use autoconfiguration and "
+"the installer is unable to get a working configuration from the network, you "
+"will be given the opportunity to configure the network manually."
 msgstr ""
 "सञ्जाल DHCP द्वारा वा सबै सूचनाहरू म्यानुअल तरिकाले प्रविष्ट गरि कन्फिगर गर्न सकिन्छ । "
 "यदि तपाईँले DHCP रोज्नुभयो र स्थापनाकर्ताले DHCP सर्भरबाट कार्य कन्फिगरेसन प्राप्त गर्न "
@@ -907,40 +911,99 @@ msgstr ""
 msgid "Reconfigure the wireless network"
 msgstr "तारविहिन सञ्जाल फेरि कन्फिगर गर्नुहोस्"
 
+#. Type: text
+#. Description
+#. IPv6
+#. :sl6:
+#. Type: text
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
+#, fuzzy
+msgid "Attempting IPv6 autoconfiguration..."
+msgstr "vmelilo कन्फिगरेशन सिर्जना गरिदै..."
+
+#. Type: text
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-dhcp.templates:13001
+msgid "Waiting for link-local address..."
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl6:
+#: ../netcfg-dhcp.templates:16001
+#, fuzzy
+msgid "Configuring the network with DHCPv6"
+msgstr "सञ्जाल डि एच सी पी सँग कन्फिगर गर्दै"
+
 #. Type: string
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
 msgstr "आइ पी ठेगाना:"
 
 #. Type: string
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:1001
+msgid "The IP address is unique to your computer and may be:"
+msgstr ""
+
+#. Type: string
+#. Description
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:1001
 msgid ""
-"The IP address is unique to your computer and consists of four numbers "
-"separated by periods.  If you don't know what to use here, consult your "
-"network administrator."
+" * four numbers separated by periods (IPv4);\n"
+" * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
-"आइ पी ठेगाना तपाईँको कम्प्युटरमा अद्वितिय हुन्छ र अवधीहरू द्वारा बिभाजित चार अंकको हुन्छ "
-"। यदि तपाईँलाई यहाँ  के गर्ने भन्ने कुरा  थाहा छैन भने, तपाईँको सञ्जाल प्रशासक सँग परामर्श "
-"गर्नुहोस् ।"
+
+#. Type: string
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:1001
+msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
+msgstr ""
+
+#. Type: string
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:1001
+#, fuzzy
+msgid "If you don't know what to use here, consult your network administrator."
+msgstr ""
+"यदि तपाईँलाई के प्रविष्ट गर्ने भन्ने कुरा थाहा छैन भने, तपाईँको मिसिलीकरण परामर्श गर्नुहोस् "
+"वा मोड्युल लोड नहुनका लागि खालि नै छोड्नुहोस् ।"
 
 #. Type: error
 #. Description
-#. :sl2:
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
 msgstr "गलत किसिमले बनाएको आइ पी ठेगाना"
 
 #. Type: error
 #. Description
-#. :sl2:
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:2001
+#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
-"where each 'x' is no larger than 255. Please try again."
+"where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
+"blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
+"try again."
 msgstr ""
 "तपाईँले प्रदान गर्नुभएको आइ पी ठेगाना गलत किसिमले बनाइएको छ । यो x.x.x.x को रुपमा हुनु "
 "पर्दछ जहाँ प्रत्येक 'x' २५५ भन्दा ठूलो हुनु हुदैन । कृपया फेरि प्रयास गर्नुहोस् ।"
@@ -1032,24 +1095,42 @@ msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
 msgstr "तपाईँले आइ पी ठेगाना, नेटमास्क र / वा गेटवे प्रविष्ट गर्दा त्रुटि भएको हुन सक्छ ।"
 
+#. Type: error
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:7001
+msgid "IPv6 unsupported on point-to-point links"
+msgstr ""
+
+#. Type: error
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:7001
+msgid ""
+"IPv6 addresses cannot be configured on point-to-point links.  Please use an "
+"IPv4 address, or go back and select a different network interface."
+msgstr ""
+
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../netcfg-static.templates:7001
+#: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
 msgstr "के यो सूचना ठीक छ ?"
 
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../netcfg-static.templates:7001
+#: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
 msgstr "हालै कन्फिगर गरिएका सञ्जाल परामितिहरू:"
 
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../netcfg-static.templates:7001
+#: ../netcfg-static.templates:8001
 msgid ""
 " interface     = ${interface}\n"
 " ipaddress     = ${ipaddress}\n"
@@ -1069,6 +1150,6 @@ msgstr ""
 #. Description
 #. Item in the main menu to select this package
 #. :sl1:
-#: ../netcfg-static.templates:8001
+#: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
 msgstr "स्थिर ठेगाना प्रयोग गरेर एउटा सञ्जाल कन्फिगर गर्नुहोस्"

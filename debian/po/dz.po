@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dDz.po\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-07-13 14:27+0000\n"
+"POT-Creation-Date: 2012-09-17 22:02+0000\n"
 "PO-Revision-Date: 2012-02-29 04:41-0500\n"
 "Last-Translator: Jurmey Rabgay <jrabgay@dit.gov.bt>\n"
 "Language-Team: Dzongkha <pgeyleg@dit.gov.bt>\n"
@@ -30,21 +30,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
 #: ../netcfg-common.templates:2001
-msgid "Auto-configure network with DHCP?"
+#, fuzzy
+msgid "Auto-configure networking?"
 msgstr "ཌི་ཨེཆ་སི་པི་དང་ཅིག་ཁར་ཡོངས་འབྲེལ་རང་བཞིན་རིམ་སྒྲིག་འབད?"
 
 #. Type: boolean
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
 #: ../netcfg-common.templates:2001
+#, fuzzy
 msgid ""
-"Networking can either be configured by DHCP or by manually entering all the "
-"information. If you choose to use DHCP and the installer is unable to get a "
-"working configuration from a DHCP server on your network, you will be given "
-"the opportunity to configure your network manually after the attempt to "
-"configure it by DHCP."
+"Networking can be configured either by entering all the information "
+"manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
+"network settings automatically. If you choose to use autoconfiguration and "
+"the installer is unable to get a working configuration from the network, you "
+"will be given the opportunity to configure the network manually."
 msgstr ""
 "ཡོངས་འབྲེལ་བཟོ་བ་འདི་ ཌི་ཨེཆ་སི་པི་ གིས་དང་ ཡང་ན་ བརྡ་དོན་ཆ་མཉམ་ལག་ཐོག་ལས་ཐོ་བཀོད་འབད་བའི་ཐོག་"
 "ལས་རིམ་སྒྲིག་འབད་ཚུགས། ཁྱོད་ཀྱིས་ ཌི་ཨེཆ་སི་པི་ལག་ལེན་འཐབ་ནི་ལུ་གདམ་ཁ་རྐྱབས་པ་ཅིན་ ཁྱོད་ཀྱི་ཡོངས་འབྲེལ་"
@@ -905,40 +909,99 @@ msgstr ""
 msgid "Reconfigure the wireless network"
 msgstr "རླུང་འཕྲིན་ཡོངས་འབྲེལ་སླར་རིམ་སྒྲིག་འབད།"
 
+#. Type: text
+#. Description
+#. IPv6
+#. :sl6:
+#. Type: text
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
+#, fuzzy
+msgid "Attempting IPv6 autoconfiguration..."
+msgstr "ཝི་མི་ལི་ལོའི་རིམ་སྒྲིག་གསར་བསྐྲུན་འབད་དོ།"
+
+#. Type: text
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-dhcp.templates:13001
+msgid "Waiting for link-local address..."
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl6:
+#: ../netcfg-dhcp.templates:16001
+#, fuzzy
+msgid "Configuring the network with DHCPv6"
+msgstr "ཌི་ཨེཆ་སི་པི་མཉམ་ཅིག་ཡོངས་འབྲེལ་རིམ་སྒྲིག་འབད་ནི།"
+
 #. Type: string
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
 msgstr "ཨའི་པི་ ཁ་བྱང་།"
 
 #. Type: string
 #. Description
-#. :sl1:
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:1001
+msgid "The IP address is unique to your computer and may be:"
+msgstr ""
+
+#. Type: string
+#. Description
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:1001
 msgid ""
-"The IP address is unique to your computer and consists of four numbers "
-"separated by periods.  If you don't know what to use here, consult your "
-"network administrator."
+" * four numbers separated by periods (IPv4);\n"
+" * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
-"ཁྱོད་ཀྱི་གློག་རིག་ལུ་ཨའི་པི་ཁ་བྱང་འདི་མཐུན་མོང་མ་ཡིན་པ་ཨིནམ་དང་དུས་ཡུན་གྱིས་སོ་སོ་འཕྱལ་འཕྱལཝ་ཨང་བཞི་"
-"ཡོདཔ་ཨིན་ ཁྱོད་ཀྱིས་ནཱ་ལུ་ག་ཅི་ལག་ལེན་འཐབ་ནི་ཨིན་ན་མ་ཤེས་པཅིན་ ཁྱོད་ཀྱི་ཡོངས་འབྲེལ་བདག་སྐྱོང་པ་ལུ་གྲོས་"
-"བསྟུན་འབད།"
+
+#. Type: string
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:1001
+msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
+msgstr ""
+
+#. Type: string
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:1001
+#, fuzzy
+msgid "If you don't know what to use here, consult your network administrator."
+msgstr ""
+"ཁྱོད་ཁྱིས་ག་ཅི་ཐོ་བཀོད་འབད་ནི་ཨིན་ན་མ་ཤེས་པ་ཅིན་ ཁྱོད་ཀྱི་ཡིག་ཐོག་བཀོད་པ་དང་གྲོས་བསྟུན་འབད་ཡང་ན་ཚད་"
+"གཞི་མངོན་གསལ་འབད་ནི་འདི་སྟོངམ་སྦེ་བཞག་"
 
 #. Type: error
 #. Description
-#. :sl2:
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
 msgstr "བཟོ་ཉེས་གྱུར་བའི་ ཨའི་པི་ཁ་བྱང་།"
 
 #. Type: error
 #. Description
-#. :sl2:
+#. IPv6
+#. :sl6:
 #: ../netcfg-static.templates:2001
+#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
-"where each 'x' is no larger than 255. Please try again."
+"where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
+"blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
+"try again."
 msgstr ""
 "ཁྱོད་ཀྱིས་བྱིན་མི་ཨའི་པི་ཁ་བྱང་འདི་བཟོ་ཉེས་གྱུར་ནུག་ དེ་ཚུ་x.x.x.xའདི་བཟུམ་གྱི་རྣམ་པ་སྦེ་འོང་དགོཔ་"
 "དང་'x'རེ་རེ་ཡང་༢༥༥་ལས་སྦོམ་ནི་མི་འོང་ ལོག་སྟེ་འབད་རྩོལ་བསྐྱེད་གནང་།"
@@ -1031,24 +1094,42 @@ msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
 msgstr "ཁྱོད་ཀྱི་ཨའི་པི་ཁ་བྱང་ ནེཊི་མཱསིཀ་དང་/ཡང་ན་འཛུལ་སྒོ་བཀོད་ནི་ལུ་འཛོལ་བ་འགྱོ་འགྱོཝ་འོང་ནི་མས།"
 
+#. Type: error
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:7001
+msgid "IPv6 unsupported on point-to-point links"
+msgstr ""
+
+#. Type: error
+#. Description
+#. IPv6
+#. :sl6:
+#: ../netcfg-static.templates:7001
+msgid ""
+"IPv6 addresses cannot be configured on point-to-point links.  Please use an "
+"IPv4 address, or go back and select a different network interface."
+msgstr ""
+
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../netcfg-static.templates:7001
+#: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
 msgstr "བརྡ་དོན་འདི་ངེས་བདེན་ཨིན་ན?"
 
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../netcfg-static.templates:7001
+#: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
 msgstr "ད་ལྟོ་རང་རིམ་སྒྲིག་འབད་ཡོད་པའི་ཡོངས་འབྲེལ་ཚད་བཟུང་ཚུ།"
 
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../netcfg-static.templates:7001
+#: ../netcfg-static.templates:8001
 msgid ""
 " interface     = ${interface}\n"
 " ipaddress     = ${ipaddress}\n"
@@ -1068,6 +1149,6 @@ msgstr ""
 #. Description
 #. Item in the main menu to select this package
 #. :sl1:
-#: ../netcfg-static.templates:8001
+#: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
 msgstr "རྟག་བརྟན་ཁ་བྱང་བཏགས་ནི་ལག་ལེན་འཐབ་འདི་ཡོངས་འབྲེལ་རིམ་སྒྲིག་འབད་ནི།"
