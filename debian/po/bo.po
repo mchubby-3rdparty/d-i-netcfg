@@ -25,14 +25,13 @@ msgstr ""
 #: ../netcfg-common.templates:2001
 #, fuzzy
 msgid "Auto-configure networking?"
-msgstr "DHCP ཡིས་རང་འགུལ་གྱིས་དྲ་ལམ་སྒྲིག་འགོད་བྱེད་དགོས་སམ"
+msgstr "དྲ་ལམ་སྒྲིག་འགོད་བྱེད་པ"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -40,9 +39,6 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"དྲ་ལམ་དེ་DHCP དང་ཡང་ན་ལག་བཟོས་ངང་ཆ་འཕྲིན་ཡོངས་འཇུག་ནས་སྒྲིག་འགོད་བྱེད་ཆོག གལ་སྲིད་DHCP སྤྱད་ནས་"
-"དྲ་ཐོག་གི་DHCP ཞབས་ཞུ་བ་ནས་སྤྱོད་རུང་བའི་སྒྲིག་འགོད་ཞིག་ལེན་མ་ཐུབ་ན་བཞུགས་ཏུ་ལག་བཟོས་ངང་དྲ་ལམ་སྒྲིག་"
-"འགོད་བྱེད་ཆོག"
 
 #. Type: string
 #. Description
@@ -916,7 +912,7 @@ msgstr "DHCP སྤྱད་ནས་དྲ་ལམ་སྒྲིག་འག�
 #. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr "IP ཁ་ཡིག："
+msgstr ""
 
 #. Type: string
 #. Description
@@ -949,11 +945,8 @@ msgstr ""
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:1001
-#, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr ""
-"IP ཁ་ཡིག་ནི་སོ་སོའི་རྩིས་འཁོར་ཁོ་ནར་ཡིན་པ་དང་ཨང་གྲངས་བཞི་རྟགས་ . འདིས་མཚམས་བཅད་ཡོད། ཁྱོད་ཀྱིས་"
-"འདིར་ཅི་ཞིག་སྤྱོད་དགོས་མ་ཤེས་ན་དྲ་བའི་དོ་དམ་པ་ལ་འདྲི་དགོས"
 
 #. Type: error
 #. Description
@@ -961,22 +954,19 @@ msgstr ""
 #. :sl6:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "རྣམ་བཞག་མ་འགྲིག་པའི་IP ཁ་ཡིག"
+msgstr ""
 
 #. Type: error
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:2001
-#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"ཁྱོད་ཀྱིས་བྲིས་པའིIP ཁ་ཡིག་གི་རྣམ་བཞག་ནོར་འདུག དེ་རྣམ་བཞག་x.x.x.x ལ་བསྟུན་པ་དང་ x རེ་རེར་ནི་ "
-"255 ལས་རིང་མི་ཉན་པས་བསྐྱར་དུ་ཚོད་ལྟ་བྱེད་རོགས"
 
 #. Type: string
 #. Description

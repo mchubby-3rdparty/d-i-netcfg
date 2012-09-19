@@ -36,14 +36,13 @@ msgstr ""
 #: ../netcfg-common.templates:2001
 #, fuzzy
 msgid "Auto-configure networking?"
-msgstr "Tor bi DHCP bixweser saz bike?"
+msgstr "Torê Saz bike"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -51,9 +50,6 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"Tor, dikare çi DHCP be û çi jî hemû agahî be bi destan veava bike. Heke tu "
-"DHCP hilbijêrî û veavakirinekê ji pêşkêşkera DHCP nestîne piştî ceribandina "
-"DHCPê wê fersendekê bide te da ku tu karibî tora xwe bi destan veava bike."
 
 #. Type: string
 #. Description
@@ -925,7 +921,7 @@ msgstr "Tora wireless (bêtel) ji nû ve saz bike"
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 #, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "Sazkirina vmelilo tê afirandin..."
+msgstr "Sazkirina yaboot diafirîne"
 
 #. Type: text
 #. Description
@@ -949,7 +945,7 @@ msgstr "Tor bi DHCP tê veavakirin"
 #. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr "Navnîşana IP:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -994,23 +990,19 @@ msgstr ""
 #. :sl6:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "Navnîşana IP nebaş"
+msgstr ""
 
 #. Type: error
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:2001
-#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"Navnîşana IPê ya te nivîsand şaş hatiye teşekirin, Navnîşana IPê, bi şertê "
-"ku 'x' ji 255an ne zêdetir be divê wekî x.x.x.x be. Ji kerema xwe re dîsa "
-"biceribîne."
 
 #. Type: string
 #. Description

@@ -41,14 +41,13 @@ msgstr ""
 #: ../netcfg-common.templates:2001
 #, fuzzy
 msgid "Auto-configure networking?"
-msgstr "გსურთ ქსელის ავტო-კონფიგურაცია DHCP-ს გამოყენებით?"
+msgstr "ქსელის კონფიგურაცია"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -56,10 +55,6 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"ქსელის კონფიგურაცია ავტომატურად, DHCP-ს საშუალებითაც შეიძლება და ხელით ყველა "
-"მონაცემის მითითებითაც. თუ DHCP მეთოდს ამოირჩევთ და ინსტალაციის პროგრამა "
-"თქვენი ქსელის DHCP სერვერიდან მოქმედ კონფიგურაციას ვერ მიიღებს, თქვენ კვლავ "
-"შეგეძლებათ ხელით შეიყვანოთ მონაცემები."
 
 #. Type: string
 #. Description
@@ -929,7 +924,7 @@ msgstr "უკაბელო ქსელის ხელახალი კო
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 #, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "იქმნება vmello-ის კონფიგურაცია"
+msgstr "იქმნება yaboot-ის კონფიგურაცია"
 
 #. Type: text
 #. Description
@@ -953,7 +948,7 @@ msgstr "ქსელის  გამართვა DHCP-ის გამოყ
 #. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr "IP მისამართი:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -998,22 +993,19 @@ msgstr ""
 #. :sl6:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "IP მისამართი არასწორია"
+msgstr ""
 
 #. Type: error
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:2001
-#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"თქვენს მიერ მითითებული IP-მისამართი არასწორი ფორმატისაა. მისი მართებული "
-"ფორმაა x.x.x.x სადაც „x” არ უნდა აღემატებოდეს 255-ს. შეასწორეთ მისამართი."
 
 #. Type: string
 #. Description

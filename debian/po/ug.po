@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-17 22:02+0000\n"
-"PO-Revision-Date: 2012-07-16 08:57+0600\n"
+"PO-Revision-Date: 2012-09-19 08:54+0600\n"
 "Last-Translator: Sahran <sahran.ug@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
@@ -32,16 +32,14 @@ msgstr ""
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid "Auto-configure networking?"
-msgstr "تورنى DHCP ئارقىلىق ئۆزلۈكىدىن تەڭشەمدۇ؟"
+msgstr "تورنى ئۆزلۈكىدىن تەڭشەمدۇ؟"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -49,10 +47,11 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"سىز DHCP نى ئىشلىتىپ تورنى تەڭشىيەلەيسىز ياكى ئۆزىڭىز بارلىق ئۇچۇرلارنى "
-"كىرگۈزەلەيسىز. ئەگەر DHCP نى تاللىغان بولسىڭىز ئەمما ئورنىتىش پروگراممىسى "
-"توردىكى مۇلازىمېتىردىن تور تەڭشىكىگە ئېرىشەلمىگەن بولسا سىناپ مەغلۇپ "
-"بولغاندىن كېيىن، سىز يەنىلا ئۆزىڭىز كىرگۈزەلەيسىز."
+"ھەممە ئۇچۇرنى قولدا كىرگۈزۈپ تورنى سەپلىيەلەيسىز ياكى DHCP (ياكى كۆپ خىل "
+"IPv6 ئەمەلىي ئۇسۇلى)نى ئىشلىتىپ تور تەڭشىكىنى ئۆزلۈكىدىن بايقىيالايسىز. "
+"ئەگەر ئۆزلۈكىدىن سەپلەشنى تاللىغان بولسىڭىز ئەمما ئورناتقۇچ توردىكى "
+"مۇلازىمېتىردىن تور تەڭشىكىگە ئېرىشەلمىگەن بولسا سىناپ مەغلۇپ بولغاندىن "
+"كېيىن، سىزنىڭ تور سەپلىمىسىنى قولدا كىرگۈزۈش پۈرسىتىڭىز بار."
 
 #. Type: string
 #. Description
@@ -918,9 +917,8 @@ msgstr "سىمسىز تورنى قايتا تەڭشەش"
 #. IPv6
 #. :sl6:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
-#, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "vmelilo سەپلىمىسى قۇرۇۋاتىدۇ…"
+msgstr "IPv6 نى ئۆزلۈكىدىن سەپلەشنى سىناۋاتىدۇ…"
 
 #. Type: text
 #. Description
@@ -928,15 +926,14 @@ msgstr "vmelilo سەپلىمىسى قۇرۇۋاتىدۇ…"
 #. :sl6:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr ""
+msgstr "ئۇلىنىدىغان يەرلىك ئادرېسنى كۈتۈۋاتىدۇ…"
 
 #. Type: text
 #. Description
 #. :sl6:
 #: ../netcfg-dhcp.templates:16001
-#, fuzzy
 msgid "Configuring the network with DHCPv6"
-msgstr "DHCP ئارقىلىق تورنى سەپلەۋاتىدۇ"
+msgstr "تورنى DHCPv6 ئارقىلىق سەپلەۋاتىدۇ"
 
 #. Type: string
 #. Description
@@ -953,6 +950,7 @@ msgstr "IP ئادرېس:"
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
 msgstr ""
+"بۇ IP ئادرېس كومپيۇتېرىڭىزغا بىردىنبىردۇر ۋە تۆۋەندىكىدەك بولۇشى مۇمكىن:"
 
 #. Type: string
 #. Description
@@ -963,6 +961,8 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
+"* چېكىت بىلەن ئايرىلغان تۆت سان (IPv4);\n"
+"* قوش چېكىت بىلەن ئايرىلغان ئون ئالتىلىك سىستېمىدىكى ھەرپ بۆلەكلىرى (IPv6)."
 
 #. Type: string
 #. Description
@@ -970,18 +970,17 @@ msgstr ""
 #. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr ""
+msgstr "سىز يەنە CIDR تور ماسكىسىنى قوشالايسىز (\"/24\" غا ئوخشاش)."
 
 #. Type: string
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:1001
-#, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr ""
-"ئەگەر قانداق مەزمۇن كىرگۈزۈشنى بىلمىسىڭىز، مۇناسىۋەتلىك پۈتۈكنى ئوقۇڭ ياكى "
-"شۇ جاينى بوش قالدۇرسىڭىز مەزكۇر بۆلەك يۈكلەنمەيدۇ."
+"ئەگەر بۇ جايغا قانداق مەزمۇن كىرگۈزۈشنى بىلمىسىڭىز، تور باشقۇرغۇچىڭىزدىن "
+"سۈرۈشتۈرۈڭ."
 
 #. Type: error
 #. Description
@@ -996,7 +995,6 @@ msgstr "خاتا IP ئادرېس"
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:2001
-#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
@@ -1004,7 +1002,9 @@ msgid ""
 "try again."
 msgstr ""
 "سىز تەمىنلىگەن IP ئادرېسنىڭ شەكلى خاتا. ئۇنىڭ شەكلى x.x.x.x بولۇپ، ئۇنىڭدىكى "
-"'x' نىڭ قىممىتى 255 تىن چوڭ بولمايدۇ. قايتا سىناڭ."
+"'x' نىڭ قىممىتى 255 (IPv4 ئادرېس) تىن چوڭ بولمايدۇ ياكى قوش چېكىت بىلەن "
+"ئايرىلغان ئون ئالتىلىك سىستېمىدىكى رەقەم تەرتىپ بۆلەك ((IPv6 ئادرېس))نى "
+"تولدۇرۇڭ. قايتا سىناڭ."
 
 #. Type: string
 #. Description
@@ -1102,7 +1102,7 @@ msgstr ""
 #. :sl6:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr ""
+msgstr "بۇ IPv6 نۇقتىدىن نۇقتىغا ئۇلىنىشنى قوللىمايدۇ"
 
 #. Type: error
 #. Description
@@ -1113,6 +1113,8 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
+"بۇ IPv6 ئادرېس نۇقتىدىن نۇقتىغا ئۇلىنىشنى سەپلەشنى قوللىمايدۇ. IPv4 ئادرېس "
+"ئىشلىتىڭ ياكى قايتىپ باشقا بىر تور ئېغىزىنى ئىشلىتىڭ."
 
 #. Type: boolean
 #. Description

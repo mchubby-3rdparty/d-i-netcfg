@@ -32,14 +32,13 @@ msgstr ""
 #: ../netcfg-common.templates:2001
 #, fuzzy
 msgid "Auto-configure networking?"
-msgstr "Galgágo heivehit fierpmádaga automáhtalaččat DHCP:n?"
+msgstr "Heivet fierpmádaga"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -47,9 +46,6 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"Lea vejolaš heivehit fierpmádaga DHCP:n dahje sáhtát ieš čállit buot "
-"dieđuid. Jus válljet DHCP ja sajáiduhtti ii gávnna gustojeaddji heivehus "
-"muhton DHCP bálvvás, de oaččut vejolašvuođa ieš heivehit fierpmádaga."
 
 #. Type: string
 #. Description
@@ -900,7 +896,7 @@ msgstr "Heivet jođaskeahtes fierpmádaga ođđasit"
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 #, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "Heivet jođaskeahtes fierpmádaga"
+msgstr "Geahččal oktii vel heivehit fierpmádaga automáhtalaččat"
 
 #. Type: text
 #. Description
@@ -924,7 +920,7 @@ msgstr "Heiveheamen fierpmádaga DHCP:n"
 #. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr "IP-čujuhus:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -969,7 +965,7 @@ msgstr ""
 #. :sl6:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "Gustohis IP-čujuhus"
+msgstr ""
 
 #. Type: error
 #. Description

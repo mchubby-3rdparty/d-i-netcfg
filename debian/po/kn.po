@@ -36,14 +36,13 @@ msgstr ""
 #: ../netcfg-common.templates:2001
 #, fuzzy
 msgid "Auto-configure networking?"
-msgstr "ಜಾಲಬಂಧವನ್ನು ಸ್ವಯಂ ಸಂರಚಿಸಲು DHCP ಬಳಸುವುದೇ ?"
+msgstr "ಜಾಲಬಂಧವನ್ನು ಸಂರಚಿಸಿ"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -51,10 +50,6 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"ಜಾಲಬಂಧಮನ್ನು ಸಂಯೋಜಿಸಲು DHCP ಬಳಸಬಹುದು ಅಥವಾ ಸ್ವತಃ ಎಲ್ಲ ಮಾಹಿತಿಯನ್ನು ಕೊಡಬಹುದು. ನೀವು "
-"DHCP ಬಳಸಲು ಆಯ್ಕೆ ಮಾಡಿದಲ್ಲಿ ಹಾಗು ಅನುಸ್ಥಾಪಕವು ನಿಮ್ಮ ಜಾಲಬಂಧದಲ್ಲಿನ DHCP ಸರ್ವರಿನಿಂದ "
-"ಕಾರ್ಯಕಾರಿ ಸಂಯೋಜನೆಯನ್ನು ಪಡೆಯುವಲ್ಲಿ ವಿಫಲವಾದರೆ, ಈ ಪ್ರಯತ್ನದ ನಂತರ ನಿಮಗೆ ಜಾಲಬಂಧವನ್ನು "
-"ಸ್ವತಃ ಸಂಯೋಜಿಸಲು ಅವಕಾಶ ನೀಡಲಾಗುತ್ತದೆ."
 
 #. Type: string
 #. Description
@@ -919,7 +914,7 @@ msgstr "ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧವನ್ನು ಮರು ಸ
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 #, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "vmelilo ಕಾನ್ಫಿಗರೇಶನ್ ಅನ್ನು ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ..."
+msgstr "ಯಾಬೂಟ್  ವಿನ್ಯಸದ ನಿರ್ಮಣ"
 
 #. Type: text
 #. Description
@@ -943,7 +938,7 @@ msgstr "ಜಾಲಬಂಧವನ್ನು DHCP ಇಂದ ಸಂರಚಿಸಲ�
 #. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr "IP ವಿಳಾಸಗಳು:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -988,22 +983,19 @@ msgstr ""
 #. :sl6:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "ಐ ಪಿ ವಿಳಾಸ ವಿಕೃತಿಗೊಂಡಿದೆ"
+msgstr ""
 
 #. Type: error
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:2001
-#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"ನೀವು ಕೊಟ್ಟ ಐ ಪಿ ವಿಳಾಸ ಸರಿಯಾಗಿಲ್ಲ. ಅದು x.x.x.x ರೂಪದಲ್ಲಿ ಇರಬೇಕು ಮತ್ತು ಪ್ರತಿ 'x' "
-"ಅಂಕಿಯು ೨೫೫ಕ್ಕಿಂತ ಹೆಚ್ಚಿರಬಾರದು. ದಯಮಾಡಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
 #. Type: string
 #. Description

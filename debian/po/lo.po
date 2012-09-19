@@ -29,14 +29,13 @@ msgstr ""
 #: ../netcfg-common.templates:2001
 #, fuzzy
 msgid "Auto-configure networking?"
-msgstr "ຕັ້ງຄ່າເຄືອຂ່າຍແບບອັດຕະໂນມັດໂດຍ DHCP ຫລືບໍ່?"
+msgstr "ຕັ້ງຄ່າເຄືອຂ່າຍ"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -44,9 +43,6 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"ທ່ານສາມາດຕັ້ງຄ່າເຄືອຂ່າຍໂດຍໃຊ້ DHCP ຫລື ໂດຍປ້ອນຂໍ້ມູນທັ້ງໝົດເອງກກໍ່ໄດ້ ຖ້າທ່ານເລືອກທີ່ຈະໃຊ້ DHCP "
-"ແລ້ວໂປຣແກມຕິດຕັ້ງບໍ່ສາມາດຂໍຄ່າຕັ້ງທີ່ໃຊ້ການໄດ້ຈາກເຊີມເວີ ໃນເຄືອຂ່າຍຂອງທ່ານໄດ້ "
-"ທ່ານກໍ່ຍັງມີໂອກາດທີ່ຈະຕັ້ງຄ່າເຄືອຂ່າຍຂອງທ່ານດ້ວຍໂຕເອງ ຫລັງຈາກທີ່ໄ້ພະຍາຍາມໃຊ້ DHCP ແລ້ວ."
 
 #. Type: string
 #. Description
@@ -918,7 +914,7 @@ msgstr "ກຳລັງຕັ້ງຄ່າເຄືອຂ່າຍໂດຍ DH
 #. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr "ໝາຍເລກ IP:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -962,22 +958,19 @@ msgstr ""
 #. :sl6:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "ທີ່ຢູ່ IP ຜິດຮູບແບ"
+msgstr ""
 
 #. Type: error
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:2001
-#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"ທີ່ຢູ່ IP ທີ່ເຈົ້າປ້ອນ ມີຮູບແບບບໍ່ຖືກຕ້ອງ ຮູບແບບທີ່ຖືກຕ້ອງຢູ່ໃນຮູບ x.x.x.x ໂດຍທີ່ 'x' ແຕ່ລະຕົວ "
-"ເປັນຕົວເລກທີ່ບໍ່ເກີນ 255.  ກາລຸນາປ້ອນໃໝ່."
 
 #. Type: string
 #. Description

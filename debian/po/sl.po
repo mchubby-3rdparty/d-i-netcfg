@@ -34,7 +34,7 @@ msgstr ""
 "Project-Id-Version: sl\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-17 22:02+0000\n"
-"PO-Revision-Date: 2012-07-16 08:14+0100\n"
+"PO-Revision-Date: 2012-09-18 09:42+0100\n"
 "Last-Translator: Vanja Cvelbar <cvelbar@gmail.com>\n"
 "Language-Team: Slovenian <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
@@ -49,16 +49,14 @@ msgstr ""
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid "Auto-configure networking?"
-msgstr "Samodejna nastavitev omrežja z DHCP?"
+msgstr "Samodejna nastavitev omrežja?"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -66,10 +64,10 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"Omrežje lahko nastavite z DHCP ali z ročnim vnašanjem vseh informacij. Če "
-"boste izbrali DHCP in namestilnik ne bo mogel dobiti delujočih nastavitev od "
-"DHCP strežnika na vašem omrežju, boste po poizkusu nastavitve omrežja z DHCP "
-"lahko nastavili omrežje ročno."
+"Omrežje lahko nastavite z DHCP (oziroma z eno izmed specifičnih metod IPv6) "
+"ali z ročnim vnašanjem vseh informacij. Če boste izbrali samodejno "
+"nastavitev DHCP  in namestilnik ne bo mogel dobiti delujočih nastavitev iz "
+"vašega omrežja, boste lahko nastavili omrežje ročno."
 
 #. Type: string
 #. Description
@@ -940,9 +938,8 @@ msgstr "Ponovno nastavi brezžično omrežje"
 #. IPv6
 #. :sl6:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
-#, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "Ustvarjam vmelilo nastavitve..."
+msgstr "Poskus samodejne nastavitve s protokolom IPv6..."
 
 #. Type: text
 #. Description
@@ -950,15 +947,14 @@ msgstr "Ustvarjam vmelilo nastavitve..."
 #. :sl6:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr ""
+msgstr "Čakanje na naslov link-local ..."
 
 #. Type: text
 #. Description
 #. :sl6:
 #: ../netcfg-dhcp.templates:16001
-#, fuzzy
 msgid "Configuring the network with DHCPv6"
-msgstr "Nastavljanje omrežja z DHCP"
+msgstr "Nastavljanje omrežja z DHCPv6"
 
 #. Type: string
 #. Description
@@ -974,7 +970,7 @@ msgstr "Naslov IP:"
 #. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr ""
+msgstr "Naslov IP je edinstven za vaš računalnik in je lahko zapisan kot:"
 
 #. Type: string
 #. Description
@@ -985,6 +981,8 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
+" * štiri številke ločene s pikami (IPv4);\n"
+" * bloki šestnajstiških znakov ločenih z dvopičji (IPv6)."
 
 #. Type: string
 #. Description
@@ -992,18 +990,15 @@ msgstr ""
 #. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr ""
+msgstr "Lahko tudi pripnete omrežno masko v zapisu CIDR (npr. \"/24\")."
 
 #. Type: string
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:1001
-#, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
-msgstr ""
-"Če ne veste, kaj vnesti, poglejte v dokumentacijo, ali ne vnesite ničesar, "
-"če ne želite naložiti modula."
+msgstr "Če ne veste, kaj vnesti, se pozanimajte pri skrbniku omrežja."
 
 #. Type: error
 #. Description
@@ -1018,7 +1013,6 @@ msgstr "IP naslov ni pravilne oblike"
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:2001
-#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
@@ -1026,7 +1020,9 @@ msgid ""
 "try again."
 msgstr ""
 "IP naslov, ki ste ga vnesli je nepravilne oblike. Mora biti v obliki x.x.x.x "
-"kjer vsak 'x' ni večji od 255. Poskusite ponovno."
+"kjer vsak 'x' ni večji od 255 (v primeru naslova IPv4), ali pa niz "
+"šestnajstiških števil ločenih z dvopičjem (v primeru naslova IPv6). "
+"Poskusite ponovno."
 
 #. Type: string
 #. Description
@@ -1124,7 +1120,7 @@ msgstr ""
 #. :sl6:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr ""
+msgstr "IPv6 ni podprt za povezave med točkama."
 
 #. Type: error
 #. Description
@@ -1135,6 +1131,8 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
+"Naslovov IPv6 ni mogoče nastaviti za povezave med točkama. Uporabite prosim "
+"naslov IPv4, ali pa izberite drug omrežni vmesnik."
 
 #. Type: boolean
 #. Description

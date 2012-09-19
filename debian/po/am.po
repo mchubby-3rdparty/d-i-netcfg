@@ -34,14 +34,13 @@ msgstr ""
 #: ../netcfg-common.templates:2001
 #, fuzzy
 msgid "Auto-configure networking?"
-msgstr "አውታርን ከDHCP ጋር በራስ ይስተካከል?"
+msgstr "አውታር አዘጋጅ"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -49,8 +48,6 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"አውታርን በDHCP ማስተካከል ወይም ሁሉንም መረጃዎች በእጅ ማስገባት ይቻላል፡፡ DHCPን መርጠው ነገርግን ተካዩ "
-"ከDHCP ተጠሪ የሚሰራ ማተስካከያ ማግኘት ካልቻለ አውታርዎን በእጅ እንዲያስተካክሉ እድል ይሰጥዎታል፡፡"
 
 #. Type: string
 #. Description
@@ -889,7 +886,7 @@ msgstr "የሽቦ አልባ አውታር ማስተካከልን እንደገና �
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 #, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "የቪሜሊሎ ማስተካከያ ፋይል በመፍጠር ላይ..."
+msgstr "የያቡት ማስተካከያ ፋይል በመፍጠር ላይ"
 
 #. Type: text
 #. Description
@@ -913,7 +910,7 @@ msgstr "አውታርን ከDHCP ጋር በማስተካከል ላይ"
 #. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr "IP አድራሻ:-"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -956,22 +953,19 @@ msgstr "ምን መግባት እንዳለበት ካላወቁ መመሪያውን �
 #. :sl6:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "የተሳሳተ IP አድራሻ"
+msgstr ""
 
 #. Type: error
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:2001
-#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"የሰጡት IP አድራሻ የተበላሸ ነው። መሰጠት ያለበት በ x.x.x.x ዓይነት ሲሆን እያንዳንዱ 'x' ከ 255 መብለጥ "
-"የለበትም። እባክዎ እንደገና ይምክሩ።"
 
 #. Type: string
 #. Description
