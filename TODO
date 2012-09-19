@@ -1,4 +1,5 @@
-* IPv6 support
+* IPv6 support:
+  - Ensure that the DUID-LLT is copied into the installed system.
 
 * do other sorts of network configurations (ppp)
 
