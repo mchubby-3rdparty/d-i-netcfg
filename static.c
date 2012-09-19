@@ -303,7 +303,7 @@ static int netcfg_activate_static_ipv4(struct debconfclient *client,
     rv |= di_exec_shell(buf);
 
 #elif defined(__FreeBSD_kernel__)
-    deconfigure_network();
+    deconfigure_network(NULL);
 
     loop_setup();
     interface_up(interface->name);
