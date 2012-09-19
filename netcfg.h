@@ -166,8 +166,6 @@ extern void netcfg_interface_init(struct netcfg_interface *iface);
 /* common functions */
 extern int check_kill_switch (const char *if_name);
 
-extern int get_hw_addr(const char *iface, struct sockaddr *sa);
-
 extern int is_interface_up (const char *if_name);
 
 extern int get_all_ifs (int all, char ***ptr);

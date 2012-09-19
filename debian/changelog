@@ -1,3 +1,9 @@
+netcfg (1.91) UNRELEASED; urgency=low
+
+  * Remove DHCPv6 DUID-LL generation.
+
+ -- Philipp Kern <pkern@debian.org>  Wed, 19 Sep 2012 10:13:31 +0200
+
 netcfg (1.90) unstable; urgency=low
 
   [ Philipp Kern ]

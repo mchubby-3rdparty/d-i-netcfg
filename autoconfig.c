@@ -27,71 +27,8 @@
 #include <net/if.h>
 #include <debian-installer.h>
 
-struct duid_header {
-	uint16_t duid_type;
-	uint16_t hw_type;
-	/* link-layer address follows */
-} __attribute__((__packed__));
-
-#define DUID_ETHER_LEN 6
-
 #define DHCP6C_PIDFILE "/var/run/dhcp6c.pid"
 #define DHCP6C_FINISHED "/var/lib/netcfg/dhcp6c-finished"
-
-/* Get a DHCP Unique Identifier for DHCPv6.
- * We use the DUID-LL method (see RFC 3315 s9.4) since any other method is
- * unpredictable from outside the installer, and thus would render it
- * impossible to specify configuration parameters for a host in advance.
- */
-static int netcfg_get_duid(const struct netcfg_interface *interface, char **buf, size_t *len)
-{
-	struct sockaddr sa;
-	struct duid_header *duid_header;
-
-	if (!get_hw_addr(interface->name, &sa))
-		/* Oh dear.  We have no choice but to let the DHCP client
-		 * select a DUID, even though it may not be predictable (for
-		 * instance, if it uses DUID-LLT it will depend on the
-		 * timestamp).
-		 */
-		return 0;
-
-	*len = sizeof(duid_header) + DUID_ETHER_LEN;
-	*buf = malloc(*len);
-	if (!*buf)
-		return 0;
-	duid_header = (struct duid_header *)*buf;
-
-	duid_header->duid_type = htons(3);
-	duid_header->hw_type = htons(sa.sa_family);
-	memcpy(*buf + sizeof(duid_header), sa.sa_data, DUID_ETHER_LEN);
-
-	return 1;
-}
-
-static void netcfg_wide_write_duid(const char *duid, size_t duid_len)
-{
-	const char *filename = "/var/lib/dhcpv6/dhcp6c_duid";
-	uint16_t duid_len_16;
-	FILE *out;
-
-	duid_len_16 = (uint16_t)duid_len; /* for output format */
-
-	out = fopen(filename, "w");
-	if (!out)
-		return;
-	if (fwrite(&duid_len_16, sizeof(duid_len_16), 1, out) != 1) {
-		fclose(out);
-		unlink(filename);
-		return;
-	}
-	if (fwrite(duid, 1, duid_len, out) != duid_len) {
-		fclose(out);
-		unlink(filename);
-		return;
-	}
-	fclose(out);
-}
 
 static enum { DHCLIENT, DHCP6C } dhcpv6_client;
 static int dhcpv6_pipe[2] = { -1, -1 };
@@ -151,9 +88,6 @@ int start_dhcpv6_client(struct debconfclient *client, const struct netcfg_interf
 
 	dhcpv6_pid = fork();
 	if (dhcpv6_pid == 0) { /* child */
-		char *duid = NULL;
-		size_t duid_len;
-		int got_duid;
 		FILE *dc;
 		const char **arguments;
 		int i = 0;
@@ -165,26 +99,12 @@ int start_dhcpv6_client(struct debconfclient *client, const struct netcfg_interf
 		dup2(dhcpv6_pipe[1], 1);
 		close(dhcpv6_pipe[1]);
 
-		got_duid = netcfg_get_duid(interface, &duid, &duid_len);
-
 		switch (dhcpv6_client) {
 		    case DHCLIENT:
 			dc = file_open(DHCLIENT6_FILE, "w");
 			if (!dc)
 				return 1;
 			fprintf(dc, "send vendor-class-identifier \"d-i\";\n");
-			if (got_duid) {
-				struct duid_header *duid_header = (struct duid_header *)duid;
-				int i;
-				fprintf(dc, "send dhcp-client-identifier %02x:%02x:%02x:%02x",
-					duid_header->duid_type >> 8,
-					duid_header->duid_type & 0xFF,
-					duid_header->hw_type >> 8,
-					duid_header->hw_type & 0xFF);
-				for (i = 0; i < DUID_ETHER_LEN; ++i)
-					fprintf(dc, ":%02x", (unsigned char)(duid + sizeof(duid_header))[i]);
-				fprintf(dc, ";\n");
-			}
 			fclose(dc);
 
 			arguments = malloc(9 * sizeof(*arguments));
@@ -236,8 +156,6 @@ int start_dhcpv6_client(struct debconfclient *client, const struct netcfg_interf
 				fprintf(dc, "};\n");
 			}
 			fclose(dc);
-			if (got_duid)
-				netcfg_wide_write_duid(duid, duid_len);
 
 			arguments = malloc(6 * sizeof(*arguments));
 			arguments[i++] = "dhcp6c";
