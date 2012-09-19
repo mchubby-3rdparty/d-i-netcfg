@@ -1,9 +1,33 @@
-netcfg (1.91) UNRELEASED; urgency=low
+netcfg (1.91) unstable; urgency=low
 
+  [ Philipp Kern ]
   * Remove DHCPv6 DUID-LL generation.
   * static.c: Fix call to deconfigure_network on kfreebsd.
 
- -- Philipp Kern <pkern@debian.org>  Wed, 19 Sep 2012 10:13:31 +0200
+  [ Updated translations ]
+  * Arabic (ar.po) by Ossama Khayat
+  * Bulgarian (bg.po) by Damyan Ivanov
+  * Czech (cs.po) by Miroslav Kure
+  * German (de.po) by Holger Wansing
+  * Estonian (et.po) by Mattias Põldaru
+  * Persian (fa.po) by Hamid
+  * French (fr.po) by Christian Perrier
+  * Hebrew (he.po) by Omer Zak
+  * Icelandic (is.po) by Sveinn í Felli
+  * Italian (it.po) by Milo Casagrande
+  * Japanese (ja.po) by Kenshi Muto
+  * Kazakh (kk.po) by Baurzhan Muftakhidinov
+  * Punjabi (Gurmukhi) (pa.po) by A S Alam
+  * Polish (pl.po) by Michał Kułach
+  * Portuguese (pt.po) by Miguel Figueiredo
+  * Russian (ru.po) by Yuri Kozlov
+  * Slovak (sk.po) by Ivan Masár
+  * Slovenian (sl.po) by Vanja Cvelbar
+  * Turkish (tr.po) by Mert Dirik
+  * Uyghur (ug.po) by Sahran
+  * Traditional Chinese (zh_TW.po) by Ｖ字龍 | Vdragon
+
+ -- Philipp Kern <pkern@debian.org>  Wed, 19 Sep 2012 12:04:19 +0200
 
 netcfg (1.90) unstable; urgency=low
 
