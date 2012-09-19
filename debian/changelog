@@ -2,6 +2,7 @@ netcfg (1.92) UNRELEASED; urgency=low
 
   * netcfg-common.c: suppress unused warnings on hurd
   * write_interface.c: use "inet6 auto" for SLAAC-using interfaces
+  * write_interface.c: enable privacy extensions on SLAAC-using interfaces
 
  -- Philipp Kern <pkern@debian.org>  Wed, 19 Sep 2012 13:50:07 +0200
 

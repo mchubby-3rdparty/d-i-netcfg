@@ -100,6 +100,7 @@ static int nc_wi_slaac(const struct netcfg_interface *interface, FILE *fd)
 	}
 
 	fprintf(fd, "iface %s inet6 auto\n", interface->name);
+	fprintf(fd, "\tprivext 2\n", interface->name);
 
 	return 1;
 }
