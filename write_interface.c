@@ -99,10 +99,8 @@ static int nc_wi_slaac(const struct netcfg_interface *interface, FILE *fd)
 			fprintf(fd, "allow-hotplug %s\n", interface->name);
 	}
 
-	fprintf(fd, "iface %s inet6 manual\n", interface->name);
-	fprintf(fd, "\tup ip link set %s up\n", interface->name);
-	fprintf(fd, "\tdown ip link set %s down\n", interface->name);
-	
+	fprintf(fd, "iface %s inet6 auto\n", interface->name);
+
 	return 1;
 }
 
