@@ -350,7 +350,7 @@ int qsort_strcmp(const void *a, const void *b)
  * before we configure them, so we cannot use getifaddrs(). Instead we try
  * possible names for network interfaces and check whether they exists by
  * attempting to open the kernel device. */
-int get_all_ifs (int all, char*** ptr)
+int get_all_ifs (int all __attribute__ ((unused)), char*** ptr)
 {
     static const char *const fmt[] = { "eth%d", "wl%d", NULL };
 
@@ -701,6 +701,8 @@ static char *find_bootif_iface(const char *bootif,
 {
 #ifdef __GNU__
     /* TODO: Use device_get_status(NET_ADDRESS), see pfinet/ethernet.c */
+    (void)bootif;
+    (void)bootif_addr;
     return NULL;
 #else
     struct ifaddrs *ifap, *ifa;
