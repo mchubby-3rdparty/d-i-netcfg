@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: debian-installer_packages_po_sublevel1_mk\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-17 22:02+0000\n"
-"PO-Revision-Date: 2012-07-14 18:03+0200\n"
+"PO-Revision-Date: 2012-09-21 08:19+0200\n"
 "Last-Translator: Arangel Angov <arangel@linux.net.mk>\n"
 "Language-Team: Macedonian <>\n"
 "Language: mk\n"
@@ -38,16 +38,14 @@ msgstr ""
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid "Auto-configure networking?"
-msgstr "Конфигурирај ја мрежата автоматски со DHCP?"
+msgstr "Да ја конфигурирам мрежата автоматски?"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -55,10 +53,10 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"Мрежата може да биде конфигурирана со DHCP или рачно внесувајќи ги сите "
-"информации. Ако одбереш да користиш DHCP и инсталерот не може да најде DHCP "
-"сервер во твојата мрежа, ќе ти биде дадена шанса да си ја конфигурираш "
-"мрежата рачно."
+"Мрежата може да биде конфигурирана рачно внесување на сите информации или "
+"преку DHCP (исто така и преку неколку IPv6 методи). Ако одбереш да користиш "
+"DHCP и инсталерот не може да најде DHCP сервер во твојата мрежа, ќе ти биде "
+"дадена шанса да си ја конфигурираш мрежата рачно."
 
 #. Type: string
 #. Description
@@ -165,9 +163,9 @@ msgid ""
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
-"${iface} е мрежен адаптер за безжична мрежа. Те молам внеси го името (ESSID) "
-"на безжичната мрежа со која сакаш ${iface} да се користи. Ако сакаш да "
-"користиш било која достапна мрежа остави го полево празно."
+"${iface} е безжичен мрежен адаптер. Те молам внеси го името (ESSID) на "
+"безжичната мрежа со која сакаш ${iface} да се користи. Ако сакаш да користиш "
+"било која достапна мрежа остави го полево празно."
 
 #. Type: select
 #. Choices
@@ -925,9 +923,8 @@ msgstr "Повторно конфигурирај ја безжичната мр
 #. IPv6
 #. :sl6:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
-#, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "Креирање на vmelilo конфигурација..."
+msgstr "Пробувам автоматски да конфигурирам IPv6..."
 
 #. Type: text
 #. Description
@@ -935,15 +932,14 @@ msgstr "Креирање на vmelilo конфигурација..."
 #. :sl6:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr ""
+msgstr "Ја чекам link-local адресата..."
 
 #. Type: text
 #. Description
 #. :sl6:
 #: ../netcfg-dhcp.templates:16001
-#, fuzzy
 msgid "Configuring the network with DHCPv6"
-msgstr "Конфигурирање на мрежата со DHCP"
+msgstr "Конфигурирање на мрежата со DHCPv6"
 
 #. Type: string
 #. Description
@@ -959,7 +955,7 @@ msgstr "IP адреса:"
 #. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr ""
+msgstr "IP адресата е уникатна за твојот компјутер и може да биде:"
 
 #. Type: string
 #. Description
@@ -970,6 +966,8 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
+" * четири бројки одделени со точки (IPv4);\n"
+" * блокови на хексдецимални знаци одделени со две точки (IPv6)."
 
 #. Type: string
 #. Description
@@ -977,18 +975,15 @@ msgstr ""
 #. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr ""
+msgstr "Исто така можеш да додадеш и CIDR мрежна маска (на пр. „/24“)."
 
 #. Type: string
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:1001
-#, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
-msgstr ""
-"Ако незнаеш што да внесеш, провери во твојата документација или остави го "
-"празно за да не се вчита модулот."
+msgstr "Ако незнаеш што да внесеш, консултирај го твојот мрежен администратор."
 
 #. Type: error
 #. Description
@@ -1003,15 +998,16 @@ msgstr "Неправилна IP адреса"
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:2001
-#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"Адресата која ја внесе е неправилна. Треба да биде во облик х.х.х.х каде "
-"секој „х“ не е поголем од 255. Те молам пробај повторно."
+"IP адресата која ја внесе е неправилна. Треба да биде во облик х.х.х.х каде "
+"секој „х“ не е поголем од 255 (IPv4 адреса), или секвенца на блокови од "
+"хекседецимални знаци одделени со две точни (IPv6 адреса). Те молам пробај "
+"повторно."
 
 #. Type: string
 #. Description
@@ -1109,7 +1105,7 @@ msgstr ""
 #. :sl6:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr ""
+msgstr "IPv6 не е поддржан на point-to-point врски"
 
 #. Type: error
 #. Description
@@ -1120,6 +1116,8 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
+"IPv6 адреси не можат да бидат конфигурирани на point-to-point врски.  Те "
+"молам користи IPv4 адреса, или врати се назад и одбери друг мрежен интерфејс."
 
 #. Type: boolean
 #. Description
