@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: te\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-17 22:02+0000\n"
-"PO-Revision-Date: 2012-06-21 11:54+0530\n"
+"PO-Revision-Date: 2012-09-24 16:20+0530\n"
 "Last-Translator: Arjuna Rao Chavala <arjunaraoc@gmail.com>\n"
 "Language-Team: d-i <kde-i18n-doc@kde.org>\n"
 "Language: te\n"
@@ -34,7 +34,6 @@ msgstr ""
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid "Auto-configure networking?"
 msgstr "నెట్వర్క్ ని  DHCPతో స్వయంచాలకంగాఅమర్చుట"
 
@@ -43,7 +42,6 @@ msgstr "నెట్వర్క్ ని  DHCPతో స్వయంచాల�
 #. IPv6
 #. :sl6:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -149,7 +147,6 @@ msgstr "అందుబాటులో గల వైర్లెస్ నెట
 #. Description
 #. :sl6:
 #: ../netcfg-common.templates:7001
-#, fuzzy
 msgid ""
 "${iface} is a wireless network interface. Please enter the name (the ESSID) "
 "of the wireless network you would like ${iface} to use. To connect to any "
@@ -299,13 +296,12 @@ msgstr "సరిపోని ESSID"
 #. Description
 #. :sl6:
 #: ../netcfg-common.templates:13001
-#, fuzzy
 msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
 "characters, but may contain all kinds of characters."
 msgstr ""
-"ESSID \"${essid}\" సరిపోలేదు. ESSIDలుఅన్ని రకాల అక్షరాలతో మిళితమై పరిమాణంలో 32 అక్షరాల వరకే "
-"సీమితంగా వుంటాయి."
+"ESSID \"${essid}\" సరిపోలేదు. ESSIDలుఅన్ని రకాల అక్షరాలతో మిళితమై పరిమాణంలో "
+"${max_essid_len} అక్షరాల వరకే సీమితంగా వుంటాయి."
 
 #. Type: text
 #. Description
@@ -692,23 +688,21 @@ msgstr ""
 #. :sl6:
 #: ../netcfg-common.templates:50001
 msgid "${essid_list} Enter ESSID manually"
-msgstr ""
+msgstr "${essid_list}  ESSID మానవీయంగా ప్రవేశపెట్టండి"
 
 #. Type: select
 #. Description
 #. :sl6:
 #: ../netcfg-common.templates:50002
-#, fuzzy
 msgid "Wireless network:"
-msgstr "వైర్లెస్ నెట్వర్క్ రకము:"
+msgstr "వైర్లెస్ నెట్వర్క్ :"
 
 #. Type: select
 #. Description
 #. :sl6:
 #: ../netcfg-common.templates:50002
-#, fuzzy
 msgid "Select the wireless network to use during the installation process."
-msgstr "స్థాపక ప్రక్రియలో తరువాతి అంకం:"
+msgstr "స్థాపక ప్రక్రియలో వాడవలసిన వైర్లెస్ నెట్వర్క్ఎంపిక:"
 
 #. Type: string
 #. Description
@@ -900,9 +894,8 @@ msgstr "వైర్లెస్ నెట్వర్క్  తిరిగి
 #. IPv6
 #. :sl6:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
-#, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "vmelilo అమరికను సృష్టించు..."
+msgstr "IPv6 స్వయంచాలక అమరిక ప్రయత్నించుట..."
 
 #. Type: text
 #. Description
@@ -910,13 +903,12 @@ msgstr "vmelilo అమరికను సృష్టించు..."
 #. :sl6:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr ""
+msgstr "లింకు స్థానిక చిరునామా కు వేచివున్నాము..."
 
 #. Type: text
 #. Description
 #. :sl6:
 #: ../netcfg-dhcp.templates:16001
-#, fuzzy
 msgid "Configuring the network with DHCPv6"
 msgstr "DHCP తో నెట్వర్క్   అమరిక"
 
@@ -934,7 +926,7 @@ msgstr "IP చిరునామా:"
 #. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr ""
+msgstr "బహుశా మీ కంప్యూటర్ కొరకే ఇవ్వబడిన IPచిరునామా:"
 
 #. Type: string
 #. Description
@@ -945,6 +937,8 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
+" * చుక్కలతో వేరు చేయబడిన నాలుగు సంఖ్యలు(IPv4);\n"
+" *  కోలన్ లతో వేరుచేయబడిన  షట్దశాంస (hexadecimal) అక్షరాల సమూహము (IPv6)."
 
 #. Type: string
 #. Description
@@ -952,18 +946,15 @@ msgstr ""
 #. :sl6:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr ""
+msgstr "CIDR నెట్ మాస్క్ (\"/24\" లాంటిది) చివరన జతచేయవచ్చు."
 
 #. Type: string
 #. Description
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:1001
-#, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
-msgstr ""
-"మీకు  ఏమి ప్రవేశపెట్టాలో తెలియకపోతే, మీ  పత్రాలు చూడండి లేక మాడ్యూల్ ని నింపకుండా వుండటానికి  ఖాళీగా "
-"వదిలేయండి."
+msgstr "మీకు  ఏమి ప్రవేశపెట్టాలో తెలియకపోతే, మీ  నెట్వర్క్ పాలనాధికారిని సంప్రదించండి."
 
 #. Type: error
 #. Description
@@ -978,15 +969,14 @@ msgstr "తీరు సరిగాలేని  IP చిరునామా"
 #. IPv6
 #. :sl6:
 #: ../netcfg-static.templates:2001
-#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"మీరు ఇచ్చిన   IP చిరునామా తీరు సరిగాలేదు. x.x.x.x లాగా,ఒక్కొక్క x 255 కన్నా పెద్దదిగా లేకుండా "
-"వుండాలి. దయచేసి మరల ప్రయత్నించు."
+"మీరు ఇచ్చిన   IP చిరునామా తీరు సరిగాలేదు. x.x.x.x లాగా,ఒక్కొక్క x,  255 (ఒక IPv4 చిరునామా లాగా) "
+"కన్నా పెద్దదిగా లేకుండా వుండాలి. దయచేసి మరల ప్రయత్నించు."
 
 #. Type: string
 #. Description
@@ -1080,7 +1070,7 @@ msgstr "IP చిరునామా, నెట్మాస్క్  మరి�
 #. :sl6:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr ""
+msgstr "పాయింట్ నుండి పాయింట్ (PPP) లింకులపై IPv6  తోడ్పాటులేదు"
 
 #. Type: error
 #. Description
@@ -1091,6 +1081,8 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
+"పాయింట్ నుండి పాయింట్ (PPP) లింకులపై IPv6  తోడ్పాటులేదు. IPv4 చిరునామా వాడండి లేక వెనుకకు వెళ్లి "
+"వేరొక నెట్వర్క్ సంపర్కాన్ని ఎంచుకోండి."
 
 #. Type: boolean
 #. Description
