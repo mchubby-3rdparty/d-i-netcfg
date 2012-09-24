@@ -1,12 +1,25 @@
-netcfg (1.93) UNRELEASED; urgency=low
+netcfg (1.93) unstable; urgency=low
 
+  [ Philipp Kern ]
   * Check the return code of the waitpid calls found in various cleanup
     routines. (Closes: #688470)
   * Align netcfg's generation of /etc/hosts with netbase's postinst,
     i.e. add localhost mapping to ::1 as well as 127.0.0.1.
     (Closes: #686970)
 
- -- Philipp Kern <pkern@debian.org>  Mon, 24 Sep 2012 23:55:32 +0200
+  [ Updated translations ]
+  * Spanish (es.po) by Javier Fernández-Sanguino Peña
+  * French (fr.po) by Christian Perrier
+  * Indonesian (id.po) by Arief S Fitrianto
+  * Korean (ko.po) by Changwoo Ryu
+  * Macedonian (mk.po) by Arangel Angov
+  * Malayalam (ml.po) by Anish A
+  * Romanian (ro.po) by Andrei POPESCU
+  * Vietnamese (vi.po) by Hai-Nam Nguyen
+  * Simplified Chinese (zh_CN.po) by YunQiang Su
+  * Traditional Chinese (zh_TW.po) by Ｖ字龍 | Vdragon
+
+ -- Philipp Kern <pkern@debian.org>  Tue, 25 Sep 2012 00:12:50 +0200
 
 netcfg (1.92) unstable; urgency=low
 
