@@ -47,7 +47,10 @@ void cleanup_dhcpv6_client(void)
 		/* Already cleaned up */
 		return;
 
-	waitpid(dhcpv6_pid, &dhcpv6_exit_status, WNOHANG);
+	if (waitpid(dhcpv6_pid, &dhcpv6_exit_status, WNOHANG) != dhcpv6_pid)
+		/* Wasn't us */
+		return;
+
 	if (WIFEXITED(dhcpv6_exit_status) || WIFSIGNALED(dhcpv6_exit_status))
 		dhcpv6_pid = -1;
 }

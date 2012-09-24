@@ -115,7 +115,10 @@ static void cleanup_dhcp_client(void)
         /* Already cleaned up */
         return;
 
-    waitpid(dhcp_pid, &dhcp_exit_status, WNOHANG);
+    if (waitpid(dhcp_pid, &dhcp_exit_status, WNOHANG) != dhcp_pid)
+        /* Wasn't us */
+        return;
+
     if (WIFEXITED(dhcp_exit_status))
         dhcp_pid = -1;
 }

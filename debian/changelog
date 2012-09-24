@@ -1,3 +1,10 @@
+netcfg (1.93) UNRELEASED; urgency=low
+
+  * Check the return code of the waitpid calls found in various cleanup
+    routines. (Closes: #688470)
+
+ -- Philipp Kern <pkern@debian.org>  Mon, 24 Sep 2012 23:55:32 +0200
+
 netcfg (1.92) unstable; urgency=low
 
   [ Philipp Kern ]
