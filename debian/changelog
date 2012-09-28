@@ -1,3 +1,9 @@
+netcfg (1.96) UNRELEASED; urgency=low
+
+  * Makefile: set DEB_HOST_ARCH{,_OS} conditionally
+
+ -- Philipp Kern <pkern@debian.org>  Sat, 29 Sep 2012 17:03:57 +0200
+
 netcfg (1.95) unstable; urgency=low
 
   [ Cyril Brulebois ]
