@@ -1,3 +1,9 @@
+netcfg (1.94) UNRELEASED; urgency=low
+
+  * Stop overriding CC if it's set.
+
+ -- Cyril Brulebois <kibi@debian.org>  Fri, 28 Sep 2012 03:36:15 +0200
+
 netcfg (1.93) unstable; urgency=low
 
   [ Philipp Kern ]
