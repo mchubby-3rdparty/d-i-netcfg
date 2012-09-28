@@ -1,8 +1,17 @@
-netcfg (1.94) UNRELEASED; urgency=low
+netcfg (1.95) unstable; urgency=low
 
+  [ Cyril Brulebois ]
   * Stop overriding CC if it's set.
 
- -- Cyril Brulebois <kibi@debian.org>  Fri, 28 Sep 2012 03:36:15 +0200
+  [ Updated translations ]
+  * Catalan (ca.po) by Jordi Mallach
+  * Danish (da.po) by Joe Hansen
+  * Dutch (nl.po) by Jeroen Schot
+  * Portuguese (Brazil) (pt_BR.po) by Felipe Augusto van de Wiel (faw)
+  * Swedish (sv.po) by Martin Bagge / brother
+  * Thai (th.po) by Theppitak Karoonboonyanan
+
+ -- Christian Perrier <bubulle@debian.org>  Fri, 28 Sep 2012 07:19:38 +0200
 
 netcfg (1.93) unstable; urgency=low
 
