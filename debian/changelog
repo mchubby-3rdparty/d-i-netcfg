@@ -1,6 +1,11 @@
 netcfg (1.96) UNRELEASED; urgency=low
 
+  [ Philipp Kern ]
   * Makefile: set DEB_HOST_ARCH{,_OS} conditionally
+
+  [ Christian Perrier ]
+  * [l10n] Drop use of sublevel 6 and move "recently" added
+    strings to the sublevel they pertain to.
 
  -- Philipp Kern <pkern@debian.org>  Sat, 29 Sep 2012 17:03:57 +0200
 
