@@ -284,9 +284,8 @@ stop:
 	debconf_progress_stop(client);
 	debconf_capb(client, "backup");
 
-	if (dhcpv6_client == DHCP6C && !interface->v6_stateless_config &&
-	    got_lease != 1) {
-		/* If we didn't get a lease, stop dhcp6c. */
+	/* terminate dhcp6c if there's no lease or information yet */
+	if (dhcpv6_client == DHCP6C && (got_lease != 1 || dhcpv6_pid > 0)) {
 		FILE *pidfile = fopen(DHCP6C_PIDFILE, "r");
 		if (pidfile) {
 			char *line = NULL;
