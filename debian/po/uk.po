@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: uk\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-09-17 22:02+0000\n"
+"POT-Creation-Date: 2012-10-01 22:02+0000\n"
 "PO-Revision-Date: 2012-03-04 20:57+0100\n"
 "Last-Translator: Anton Gladky <gladky.anton@gmail.com>\n"
 "Language-Team: Ukrainian <>\n"
@@ -34,7 +34,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:2001
 #, fuzzy
 msgid "Auto-configure networking?"
@@ -43,7 +43,7 @@ msgstr "Налаштувати мережу автоматично за допо
 #. Type: boolean
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:2001
 #, fuzzy
 msgid ""
@@ -130,7 +130,7 @@ msgstr ""
 #. :sl2:
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
 msgstr "Бездротовий ESSID для ${iface}:"
@@ -150,14 +150,14 @@ msgstr ""
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
 msgstr "Спроба знайти доступну бездротову мережу завершилася невдачею."
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:7001
 #, fuzzy
 msgid ""
@@ -306,14 +306,14 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
 msgstr "Невірний ESSID"
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-common.templates:13001
 #, fuzzy
 msgid ""
@@ -680,14 +680,14 @@ msgstr "Налаштувати мережу"
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:48001
 msgid "Waiting time (in seconds) for link detection:"
 msgstr ""
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:48001
 #, fuzzy
 msgid ""
@@ -697,14 +697,14 @@ msgstr "Введіть назву, яку бажаєте використову�
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:49001
 msgid "Invalid network link detection waiting time"
 msgstr ""
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:49001
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
@@ -714,7 +714,7 @@ msgstr ""
 #. Type: select
 #. Choices
 #. Translators: please do not translate the variable essid_list
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50001
 msgid "${essid_list} Enter ESSID manually"
 msgstr ""
@@ -925,11 +925,11 @@ msgstr "Повторити налаштування бездротової ме�
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 #, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
@@ -938,14 +938,14 @@ msgstr "Створення конфігурації vmelilo..."
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
 msgstr ""
 
 #. Type: text
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:16001
 #, fuzzy
 msgid "Configuring the network with DHCPv6"
@@ -954,7 +954,7 @@ msgstr "Налаштування мережі за допомогою DHCP"
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
 msgstr "IP-адреса:"
@@ -962,7 +962,7 @@ msgstr "IP-адреса:"
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
 msgstr ""
@@ -970,7 +970,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid ""
 " * four numbers separated by periods (IPv4);\n"
@@ -980,7 +980,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
 msgstr ""
@@ -988,7 +988,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 #, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
@@ -999,7 +999,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
 msgstr "Неприпустима IP адреса"
@@ -1007,7 +1007,7 @@ msgstr "Неприпустима IP адреса"
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-static.templates:2001
 #, fuzzy
 msgid ""
@@ -1115,7 +1115,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
 msgstr ""
@@ -1123,7 +1123,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl3:
 #: ../netcfg-static.templates:7001
 msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "

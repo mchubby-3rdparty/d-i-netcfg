@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-i\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-09-17 22:02+0000\n"
+"POT-Creation-Date: 2012-10-01 22:02+0000\n"
 "PO-Revision-Date: 2010-02-27 10:20+0530\n"
 "Last-Translator: Kartik Mistry <kartik@debian.org>\n"
 "Language-Team: Gujarati <team@utkarsh.org>\n"
@@ -36,7 +36,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:2001
 #, fuzzy
 msgid "Auto-configure networking?"
@@ -45,7 +45,7 @@ msgstr "નેટવર્કને DHCP વડે આપમેળે-રૂપ�
 #. Type: boolean
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:2001
 #, fuzzy
 msgid ""
@@ -129,7 +129,7 @@ msgstr ""
 #. :sl2:
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
 msgstr "${iface} માટે વાયરલેસ ESSID:"
@@ -149,14 +149,14 @@ msgstr ""
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
 msgstr "પ્રાપ્ત વાયરલેસ નેટવર્ક ક્ષેત્ર શોધવાના પ્રયત્નો નિષ્ફળ."
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:7001
 msgid ""
 "${iface} is a wireless network interface. Please enter the name (the ESSID) "
@@ -302,14 +302,14 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
 msgstr "અયોગ્ય ESSID"
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-common.templates:13001
 msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
@@ -669,14 +669,14 @@ msgstr "નેટવર્ક રૂપરેખાંકિત કરો"
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:48001
 msgid "Waiting time (in seconds) for link detection:"
 msgstr "કડી શોધવા માટે રાહ જોવાનો સમય (સેકન્ડ્સમાં):"
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:48001
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
@@ -685,14 +685,14 @@ msgstr "મહેરબાની કરી નેટવર્ક કડી મ�
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:49001
 msgid "Invalid network link detection waiting time"
 msgstr "નેટવર્ક કડી શોધવા માટે રાહ જોવાનો અયોગ્ય સમય"
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:49001
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
@@ -704,7 +704,7 @@ msgstr ""
 #. Type: select
 #. Choices
 #. Translators: please do not translate the variable essid_list
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50001
 msgid "${essid_list} Enter ESSID manually"
 msgstr "${essid_list} ESSID જાતે દાખલ કરો"
@@ -908,11 +908,11 @@ msgstr "વાયરલેસ નેટર્વકને ફરી રૂપર
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 #, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
@@ -921,14 +921,14 @@ msgstr "vmelilo રૂપરેખાંકન બનાવે છે..."
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
 msgstr ""
 
 #. Type: text
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:16001
 #, fuzzy
 msgid "Configuring the network with DHCPv6"
@@ -937,7 +937,7 @@ msgstr "નેટવર્ક DHCP સાથે રૂપરેખાંકિ�
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
 msgstr "IP સરનામું:"
@@ -945,7 +945,7 @@ msgstr "IP સરનામું:"
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
 msgstr ""
@@ -953,7 +953,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid ""
 " * four numbers separated by periods (IPv4);\n"
@@ -963,7 +963,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
 msgstr ""
@@ -971,7 +971,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 #, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
@@ -982,7 +982,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
 msgstr "ખરાબ IP સરનામું"
@@ -990,7 +990,7 @@ msgstr "ખરાબ IP સરનામું"
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-static.templates:2001
 #, fuzzy
 msgid ""
@@ -1093,7 +1093,7 @@ msgstr "તમે તમારૂં આઇપી સરનામું, ને�
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
 msgstr ""
@@ -1101,7 +1101,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl3:
 #: ../netcfg-static.templates:7001
 msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "

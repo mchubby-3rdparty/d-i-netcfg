@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Debian Installer Level 1\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-09-17 22:02+0000\n"
+"POT-Creation-Date: 2012-10-01 22:02+0000\n"
 "PO-Revision-Date: 2012-09-21 23:44+0530\n"
 "Last-Translator: Anish A <aneesh.nl@gmail.com>\n"
 "Language-Team: Debian Malayalam <debian-l10n-malayalam@lists.debian.org>\n"
@@ -39,7 +39,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:2001
 msgid "Auto-configure networking?"
 msgstr "ശൃംഖല ഇടപെടലില്ലാതെ ക്രമീകരിയ്ക്കണോ?"
@@ -47,7 +47,7 @@ msgstr "ശൃംഖല ഇടപെടലില്ലാതെ ക്രമീ�
 #. Type: boolean
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:2001
 msgid ""
 "Networking can be configured either by entering all the information "
@@ -134,7 +134,7 @@ msgstr ""
 #. :sl2:
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
 msgstr "${iface}-ന്റെ വയര്‍ലെസ്സ് ESSID:"
@@ -154,14 +154,14 @@ msgstr ""
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
 msgstr "ലഭ്യമായ ഒരു വയര്‍ലെസ്സ് ശൃംഖല കണ്ടെത്താനുള്ള ശ്രമങ്ങള്‍ പരാജയപ്പെട്ടു."
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:7001
 msgid ""
 "${iface} is a wireless network interface. Please enter the name (the ESSID) "
@@ -309,14 +309,14 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
 msgstr "അസാധുവായ ഇഎസ്എസ്ഐഡി"
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-common.templates:13001
 msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
@@ -679,14 +679,14 @@ msgstr "ശൃംഖല ക്രമീകരിയ്ക്കുക"
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:48001
 msgid "Waiting time (in seconds) for link detection:"
 msgstr "ലിങ്ക് തിരിച്ചറിയലിനുള്ള കാത്തിരിപ്പ് സമയം (നിമിഷത്തില്‍):"
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:48001
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
@@ -695,14 +695,14 @@ msgstr "ദയവായി നെറ്റ്‌വര്‍ക്ക് ലി�
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:49001
 msgid "Invalid network link detection waiting time"
 msgstr "അസാധുവായ നെറ്റ്‌വര്‍ക്ക് ലിങ്ക് തിരിച്ചറില്‍ കാത്തിരിപ്പ് സമയം"
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:49001
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
@@ -714,7 +714,7 @@ msgstr ""
 #. Type: select
 #. Choices
 #. Translators: please do not translate the variable essid_list
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50001
 msgid "${essid_list} Enter ESSID manually"
 msgstr "${essid_list} ഇഎസ്എസ്ഐഡി നിങ്ങള്‍ നല്‍കുക"
@@ -924,11 +924,11 @@ msgstr "വയര്‍ലെസ്സ് ശൃംഖല പുനക്രമ�
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 msgid "Attempting IPv6 autoconfiguration..."
 msgstr "IPv6 ഉപയോഗിച്ച് തന്നത്താന്‍ ക്രമീകരിക്കാന്‍ നോക്കുന്നു..."
@@ -936,14 +936,14 @@ msgstr "IPv6 ഉപയോഗിച്ച് തന്നത്താന്‍ �
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
 msgstr "ലിങ്ക് ലോക്കല്‍ വിലാസങ്ങള്‍ക്കായി കാത്തിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:16001
 msgid "Configuring the network with DHCPv6"
 msgstr "DHCPv6 ഉപയോഗിച്ചു് ശൃംഖല ക്രമീകരിച്ചു കൊണ്ടിരിയ്ക്കുന്നു"
@@ -951,7 +951,7 @@ msgstr "DHCPv6 ഉപയോഗിച്ചു് ശൃംഖല ക്രമീ
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
 msgstr "ഐപി വിലാസം:"
@@ -959,7 +959,7 @@ msgstr "ഐപി വിലാസം:"
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
 msgstr "ഐപി വിലാസം താങ്കളുടെ കംമ്പ്യൂട്ടറിന് ഒറ്റയായതാണ് അത്:"
@@ -967,7 +967,7 @@ msgstr "ഐപി വിലാസം താങ്കളുടെ കംമ്പ
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid ""
 " * four numbers separated by periods (IPv4);\n"
@@ -979,7 +979,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
 msgstr "വേണമെങ്കില്‍ CIDR നെറ്റ്മാസ്ക് കൂട്ടിചേര്‍ക്കാം (\"/24\" പോലെ)."
@@ -987,7 +987,7 @@ msgstr "വേണമെങ്കില്‍ CIDR നെറ്റ്മാസ്
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr "എന്തു് വിവരമാണു് നല്കേണ്ടത് എന്നറിയില്ലെങ്കില്‍ നിങ്ങളുടെ ശ്രംഖല പരിപാലകനെ സമീപിക്കുക."
@@ -995,7 +995,7 @@ msgstr "എന്തു് വിവരമാണു് നല്കേണ്ട�
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
 msgstr "തെറ്റായ രൂപത്തിലുള്ള ഐപി വിലാസം"
@@ -1003,7 +1003,7 @@ msgstr "തെറ്റായ രൂപത്തിലുള്ള ഐപി വ
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-static.templates:2001
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
@@ -1110,7 +1110,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
 msgstr "പോയിന്റ് ടു പോയിന്റ് കണ്ണികളില്‍ IPv6 പിന്‍തുണയില്ല"
@@ -1118,7 +1118,7 @@ msgstr "പോയിന്റ് ടു പോയിന്റ് കണ്ണി
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl3:
 #: ../netcfg-static.templates:7001
 msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "

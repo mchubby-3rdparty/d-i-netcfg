@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-09-17 22:02+0000\n"
+"POT-Creation-Date: 2012-10-01 22:02+0000\n"
 "PO-Revision-Date: 2012-09-18 07:49+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -43,7 +43,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:2001
 msgid "Auto-configure networking?"
 msgstr "Kas seadistada võrk automaatselt?"
@@ -51,7 +51,7 @@ msgstr "Kas seadistada võrk automaatselt?"
 #. Type: boolean
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:2001
 msgid ""
 "Networking can be configured either by entering all the information "
@@ -137,7 +137,7 @@ msgstr ""
 #. :sl2:
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
 msgstr "Traadita ESSID ${iface} jaoks:"
@@ -157,14 +157,14 @@ msgstr ""
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
 msgstr "Kättesaadava traadita võrgu otsimine luhtus."
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:7001
 msgid ""
 "${iface} is a wireless network interface. Please enter the name (the ESSID) "
@@ -309,14 +309,14 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
 msgstr "Sobimatu ESSID"
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-common.templates:13001
 msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
@@ -678,14 +678,14 @@ msgstr "Võrgu seadistamine"
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:48001
 msgid "Waiting time (in seconds) for link detection:"
 msgstr "Ühenduse tuvastamise ooteaeg sekundites:"
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:48001
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
@@ -694,14 +694,14 @@ msgstr "Palun sisesta, kui kaua võrguühenduse tuvastamise järel oodata tohiks
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:49001
 msgid "Invalid network link detection waiting time"
 msgstr "Võrguühenduse tuvastamise ooteaeg on vigane"
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:49001
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
@@ -713,7 +713,7 @@ msgstr ""
 #. Type: select
 #. Choices
 #. Translators: please do not translate the variable essid_list
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50001
 msgid "${essid_list} Enter ESSID manually"
 msgstr "${essid_list} Sisesta ESSID käsitsi"
@@ -920,11 +920,11 @@ msgstr "Seadista traadita võrk ümber"
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 msgid "Attempting IPv6 autoconfiguration..."
 msgstr "IPv6 automaatse seadistuse proovimine..."
@@ -932,14 +932,14 @@ msgstr "IPv6 automaatse seadistuse proovimine..."
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
 msgstr "Link-local aadressi ootamine..."
 
 #. Type: text
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:16001
 msgid "Configuring the network with DHCPv6"
 msgstr "Võrgu seadistamine DHCPv6 abil"
@@ -947,7 +947,7 @@ msgstr "Võrgu seadistamine DHCPv6 abil"
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
 msgstr "IP-aadress:"
@@ -955,7 +955,7 @@ msgstr "IP-aadress:"
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
 msgstr "Sinu arvuti IP-aadress on unikaalne ning võib olla:"
@@ -963,7 +963,7 @@ msgstr "Sinu arvuti IP-aadress on unikaalne ning võib olla:"
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid ""
 " * four numbers separated by periods (IPv4);\n"
@@ -975,7 +975,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
 msgstr "Lisaks võid lisada CIDR võrgumaski (nt \"/24\")."
@@ -983,7 +983,7 @@ msgstr "Lisaks võid lisada CIDR võrgumaski (nt \"/24\")."
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr "Kui sa ei tea mida siin kasutada, küsi võrguhalduri käest."
@@ -991,7 +991,7 @@ msgstr "Kui sa ei tea mida siin kasutada, küsi võrguhalduri käest."
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
 msgstr "Sobimatu IP-aadress"
@@ -999,7 +999,7 @@ msgstr "Sobimatu IP-aadress"
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-static.templates:2001
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
@@ -1104,7 +1104,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
 msgstr "IPv6 ei toeta kaks-punkt ühendusi"
@@ -1112,7 +1112,7 @@ msgstr "IPv6 ei toeta kaks-punkt ühendusi"
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl3:
 #: ../netcfg-static.templates:7001
 msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "

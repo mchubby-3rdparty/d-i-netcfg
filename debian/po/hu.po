@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-09-17 22:02+0000\n"
+"POT-Creation-Date: 2012-10-01 22:02+0000\n"
 "PO-Revision-Date: 2012-04-21 09:42+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
@@ -38,7 +38,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:2001
 #, fuzzy
 msgid "Auto-configure networking?"
@@ -47,7 +47,7 @@ msgstr "A hálózat beállítása DHCP módú legyen?"
 #. Type: boolean
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:2001
 #, fuzzy
 msgid ""
@@ -130,7 +130,7 @@ msgstr ""
 #. :sl2:
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
 msgstr "${iface} drótnélküli ESSID azonosítója:"
@@ -150,14 +150,14 @@ msgstr ""
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
 msgstr "Nem leltem drótnélküli hálózatot"
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:7001
 #, fuzzy
 msgid ""
@@ -306,14 +306,14 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
 msgstr "Hibás ESSID"
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-common.templates:13001
 #, fuzzy
 msgid ""
@@ -677,14 +677,14 @@ msgstr "Hálózat konfigurálása"
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:48001
 msgid "Waiting time (in seconds) for link detection:"
 msgstr ""
 
 #. Type: string
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:48001
 #, fuzzy
 msgid ""
@@ -694,14 +694,14 @@ msgstr "Add meg az új logikai kötet nevét."
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:49001
 msgid "Invalid network link detection waiting time"
 msgstr ""
 
 #. Type: error
 #. Description
-#. :sl6:
+#. :sl3:
 #: ../netcfg-common.templates:49001
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
@@ -711,7 +711,7 @@ msgstr ""
 #. Type: select
 #. Choices
 #. Translators: please do not translate the variable essid_list
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50001
 msgid "${essid_list} Enter ESSID manually"
 msgstr ""
@@ -918,11 +918,11 @@ msgstr "Drótnélküli hálózat újrakonfigurálása"
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 #, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
@@ -931,14 +931,14 @@ msgstr "Vmelilo konfiguráció létrehozása..."
 #. Type: text
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
 msgstr ""
 
 #. Type: text
 #. Description
-#. :sl6:
+#. :sl2:
 #: ../netcfg-dhcp.templates:16001
 #, fuzzy
 msgid "Configuring the network with DHCPv6"
@@ -947,7 +947,7 @@ msgstr "Hálózat konfigurálása DHCP-vel"
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
 msgstr "IP-cím:"
@@ -955,7 +955,7 @@ msgstr "IP-cím:"
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
 msgstr ""
@@ -963,7 +963,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid ""
 " * four numbers separated by periods (IPv4);\n"
@@ -973,7 +973,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
 msgstr ""
@@ -981,7 +981,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl1:
 #: ../netcfg-static.templates:1001
 #, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
@@ -992,7 +992,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
 msgstr "Hibás IP-cím"
@@ -1000,7 +1000,7 @@ msgstr "Hibás IP-cím"
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl2:
 #: ../netcfg-static.templates:2001
 #, fuzzy
 msgid ""
@@ -1103,7 +1103,7 @@ msgstr "Talán a megadott IP-cím, hálózati maszk és/vagy átjárócím hibá
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
 msgstr ""
@@ -1111,7 +1111,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. IPv6
-#. :sl6:
+#. :sl3:
 #: ../netcfg-static.templates:7001
 msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
