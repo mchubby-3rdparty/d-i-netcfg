@@ -8,6 +8,9 @@ netcfg (1.96) UNRELEASED; urgency=low
   * [l10n] Drop use of sublevel 6 and move "recently" added
     strings to the sublevel they pertain to.
 
+  [ Samuel Thibault ]
+  * Fix ethtool-lite hurd-i386 build.
+
  -- Philipp Kern <pkern@debian.org>  Sat, 29 Sep 2012 17:03:57 +0200
 
 netcfg (1.95) unstable; urgency=low
