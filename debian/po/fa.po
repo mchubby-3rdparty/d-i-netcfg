@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fa\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-01 22:02+0000\n"
+"POT-Creation-Date: 2012-10-02 05:01+0000\n"
 "PO-Revision-Date: 2012-09-18 10:30+0330\n"
 "Last-Translator: Hamid <hamid.r1988@gmail.com>\n"
 "Language-Team: Debian-l10n-persian <debian-l10n-persian@lists.debian.org>\n"
@@ -711,14 +711,14 @@ msgstr "${essid_list} ESSID را به صورت دستی وارد کنید"
 
 #. Type: select
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50002
 msgid "Wireless network:"
 msgstr "شبکه بی‌سیم:"
 
 #. Type: select
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50002
 msgid "Select the wireless network to use during the installation process."
 msgstr "شبکه بی‌سیم را برای استفاده در فرآیند نصب انتخاب کنید."

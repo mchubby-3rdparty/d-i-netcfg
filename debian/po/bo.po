@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-01 22:02+0000\n"
+"POT-Creation-Date: 2012-10-02 05:01+0000\n"
 "PO-Revision-Date: 2012-04-14 22:12+0600\n"
 "Last-Translator: Tennom <tankola@ymail.com, tennomyathog@gmail.com>\n"
 "Language-Team: bo <translation-team-bo@lists.sourceforge.net>\n"
@@ -681,7 +681,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50002
 #, fuzzy
 msgid "Wireless network:"
@@ -689,7 +689,7 @@ msgstr "སྐུད་མེད་དྲ་བའི་རིགས："
 
 #. Type: select
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50002
 #, fuzzy
 msgid "Select the wireless network to use during the installation process."

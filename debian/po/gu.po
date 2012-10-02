@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-i\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-01 22:02+0000\n"
+"POT-Creation-Date: 2012-10-02 05:01+0000\n"
 "PO-Revision-Date: 2010-02-27 10:20+0530\n"
 "Last-Translator: Kartik Mistry <kartik@debian.org>\n"
 "Language-Team: Gujarati <team@utkarsh.org>\n"
@@ -711,14 +711,14 @@ msgstr "${essid_list} ESSID જાતે દાખલ કરો"
 
 #. Type: select
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50002
 msgid "Wireless network:"
 msgstr "વાયરલેસ નેટર્વક:"
 
 #. Type: select
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50002
 msgid "Select the wireless network to use during the installation process."
 msgstr "સ્થાપન પક્રિયામાં ઉપયોગ કરવાનું વાયરલેસ નેટવર્ક પસંદ કરો."

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: te\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-01 22:02+0000\n"
+"POT-Creation-Date: 2012-10-02 05:01+0000\n"
 "PO-Revision-Date: 2012-09-24 16:20+0530\n"
 "Last-Translator: Arjuna Rao Chavala <arjunaraoc@gmail.com>\n"
 "Language-Team: d-i <kde-i18n-doc@kde.org>\n"
@@ -692,14 +692,14 @@ msgstr "${essid_list}  ESSID మానవీయంగా ప్రవేశప�
 
 #. Type: select
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50002
 msgid "Wireless network:"
 msgstr "వైర్లెస్ నెట్వర్క్ :"
 
 #. Type: select
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50002
 msgid "Select the wireless network to use during the installation process."
 msgstr "స్థాపక ప్రక్రియలో వాడవలసిన వైర్లెస్ నెట్వర్క్ఎంపిక:"

@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-01 22:02+0000\n"
+"POT-Creation-Date: 2012-10-02 05:01+0000\n"
 "PO-Revision-Date: 2012-09-19 10:17+0200\n"
 "Last-Translator: Hans Fredrik Nordhaug <hans@nordhaug.priv.no>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -726,14 +726,14 @@ msgstr "${essid_list} Oppgi ESSID manuelt"
 
 #. Type: select
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50002
 msgid "Wireless network:"
 msgstr "Trådløst nettverk:"
 
 #. Type: select
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50002
 msgid "Select the wireless network to use during the installation process."
 msgstr "Velg det trådløse nettverket som skal brukes i installasjonsprosessen."

@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bn\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-01 22:02+0000\n"
+"POT-Creation-Date: 2012-10-02 05:01+0000\n"
 "PO-Revision-Date: 2012-07-15 12:19+0600\n"
 "Last-Translator: Ayesha Akhtar <ayesha@ankur.org.bd>\n"
 "Language-Team: Bengali \n"
@@ -731,14 +731,14 @@ msgstr "${essid_list} নিজ হাতে ESSID প্রবেশ করা�
 
 #. Type: select
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50002
 msgid "Wireless network:"
 msgstr "তারবিহীন নেটওয়ার্ক:"
 
 #. Type: select
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50002
 msgid "Select the wireless network to use during the installation process."
 msgstr "ইনস্টল প্রক্রিয়ার সময় ব্যবহারের জন্য তারবিহীন নেটওয়ার্ক নির্বাচন করুন।"

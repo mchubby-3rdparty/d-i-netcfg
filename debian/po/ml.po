@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Debian Installer Level 1\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-01 22:02+0000\n"
+"POT-Creation-Date: 2012-10-02 05:01+0000\n"
 "PO-Revision-Date: 2012-09-21 23:44+0530\n"
 "Last-Translator: Anish A <aneesh.nl@gmail.com>\n"
 "Language-Team: Debian Malayalam <debian-l10n-malayalam@lists.debian.org>\n"
@@ -721,14 +721,14 @@ msgstr "${essid_list} ഇഎസ്എസ്ഐഡി നിങ്ങള്‍ �
 
 #. Type: select
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50002
 msgid "Wireless network:"
 msgstr "വയര്‍ലെസ്സ് ശൃഖല:"
 
 #. Type: select
 #. Description
-#. :sl6:
+#. :sl1:
 #: ../netcfg-common.templates:50002
 msgid "Select the wireless network to use during the installation process."
 msgstr "ഇന്‍സ്റ്റോള്‍ ചെയ്യുമ്പോള്‍ ഉപയോഗിയ്ക്കേണ്ട വയര്‍ലെസ്സ് ശൃംഖല തെരഞ്ഞെടുക്കുക:"
