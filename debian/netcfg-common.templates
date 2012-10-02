@@ -352,7 +352,7 @@ Choices-C: ${essid_list} manual
 # Translators: please do not translate the variable essid_list
 # :sl1:
 _Choices: ${essid_list} Enter ESSID manually
-# :sl6:
+# :sl1:
 _Description: Wireless network:
  Select the wireless network to use during the installation process.
 
