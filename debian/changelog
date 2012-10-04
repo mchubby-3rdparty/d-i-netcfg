@@ -1,3 +1,9 @@
+netcfg (1.97) UNRELEASED; urgency=low
+
+  * Fix missing build-dep on check for the test suite.
+
+ -- Cyril Brulebois <kibi@debian.org>  Thu, 04 Oct 2012 23:24:42 +0200
+
 netcfg (1.96) unstable; urgency=low
 
   [ Philipp Kern ]
