@@ -3,6 +3,8 @@ netcfg (1.96) UNRELEASED; urgency=low
   [ Philipp Kern ]
   * Makefile: set DEB_HOST_ARCH{,_OS} conditionally
   * autoconfig.c: kill dhcp6c after timeout unless a lease is obtained
+  * Fix the dns- entries in /etc/network/interfaces. (Closes: #689474)
+    Patch by Matthew L. Dailey.
 
   [ Christian Perrier ]
   * [l10n] Drop use of sublevel 6 and move "recently" added
