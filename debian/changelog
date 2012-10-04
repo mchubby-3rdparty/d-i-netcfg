@@ -1,4 +1,4 @@
-netcfg (1.96) UNRELEASED; urgency=low
+netcfg (1.96) unstable; urgency=low
 
   [ Philipp Kern ]
   * Makefile: set DEB_HOST_ARCH{,_OS} conditionally
@@ -14,7 +14,11 @@ netcfg (1.96) UNRELEASED; urgency=low
   [ Samuel Thibault ]
   * Fix ethtool-lite hurd-i386 build.
 
- -- Philipp Kern <pkern@debian.org>  Sat, 29 Sep 2012 17:03:57 +0200
+  [ Updated translations ]
+  * Hindi (hi.po) by Kumar Appaiah
+  * Marathi (mr.po) by sampada
+
+ -- Philipp Kern <pkern@debian.org>  Thu, 04 Oct 2012 22:38:34 +0200
 
 netcfg (1.95) unstable; urgency=low
 
