@@ -1,3 +1,9 @@
+netcfg (1.98) unstable; urgency=low
+
+  * Re-upload without cruft from my checkout, oops.
+
+ -- Cyril Brulebois <kibi@debian.org>  Fri, 05 Oct 2012 00:57:08 +0200
+
 netcfg (1.97) unstable; urgency=low
 
   * Fix missing build-dep on check for the test suite.
