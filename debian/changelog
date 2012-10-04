@@ -5,6 +5,7 @@ netcfg (1.96) UNRELEASED; urgency=low
   * autoconfig.c: kill dhcp6c after timeout unless a lease is obtained
   * Fix the dns- entries in /etc/network/interfaces. (Closes: #689474)
     Patch by Matthew L. Dailey.
+  * Run the test suite during build.
 
   [ Christian Perrier ]
   * [l10n] Drop use of sublevel 6 and move "recently" added
