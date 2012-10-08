@@ -40,16 +40,14 @@ msgstr ""
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid "Auto-configure networking?"
-msgstr "Sarea DHCP bidez automatikoki konfiguratu?"
+msgstr "Sarea automatikoki konfiguratu?"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -57,11 +55,11 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"Sareko konexioa DHCP bidez edo informazio osoa eskuz sartuz konfiguratu "
-"daiteke. DHCP erabiltzea aukeratzen baduzu eta instalatzaileak ezin badu "
-"sareko DHCP zerbitzaritik funtzionatzen duen konfiguraziorik lortu, sarea "
-"eskuz konfiguratzeko aukera emango zaizu (DHCP bidez konfiguratzen saiatu "
-"ondoren)."
+"Sareko konexioa informazio osoa eskuz sartuz edo DHCP erabiliaz (edo IPv6-"
+"eko metodo espezifikoak)konfiguratu daiteke. Konfigurazio autmoatikoa "
+"erabiltzea aukeratzen baduzu eta instalatzaileak ezin badu saretik "
+"funtzionatzen duen konfiguraziorik lortu, sarea eskuz konfiguratzeko aukera "
+"emango zaizu."
 
 #. Type: string
 #. Description
@@ -163,7 +161,6 @@ msgstr "Huts egin du haririk gabeko sare erabilgarria bilatzean."
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
-#, fuzzy
 msgid ""
 "${iface} is a wireless network interface. Please enter the name (the ESSID) "
 "of the wireless network you would like ${iface} to use. To connect to any "
@@ -318,13 +315,12 @@ msgstr "ESSID baliogabea"
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
-#, fuzzy
 msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
 "characters, but may contain all kinds of characters."
 msgstr ""
-"ESSID \"${essid}\" baliogabea da. ESSIDek gehienez 32 karaktere izan "
-"ditzakete, baina karaktere mota guztiak izan ditzakete."
+"ESSID \"${essid}\" baliogabea da. ESSIDek gehienez ${max_essid_len} "
+"karaktere izan ditzakete, baina karaktere mota guztiak izan ditzakete."
 
 #. Type: text
 #. Description
@@ -717,23 +713,23 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:50001
 msgid "${essid_list} Enter ESSID manually"
-msgstr ""
+msgstr "${essid_list} Eskuz Idatzi ESSIDa"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:50002
-#, fuzzy
 msgid "Wireless network:"
-msgstr "Haririk gabeko sare mota:"
+msgstr "Haririk gabeko sarea:"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:50002
-#, fuzzy
 msgid "Select the wireless network to use during the installation process."
-msgstr "Aukeratu hurrengo urratsa instalazio prozesuan:"
+msgstr ""
+"Hautatu instalazio prozesuan erabili behar den haririk gabeko sarearein "
+"izena:"
 
 #. Type: string
 #. Description
@@ -932,9 +928,8 @@ msgstr "Berriro konfiguratu haririk gabeko sarea"
 #. IPv6
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
-#, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "vmelilo-ren konfigurazioa sortzen..."
+msgstr "IPv6 konfigurazio aitomatikoa saiatzen..."
 
 #. Type: text
 #. Description
@@ -942,15 +937,14 @@ msgstr "vmelilo-ren konfigurazioa sortzen..."
 #. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr ""
+msgstr "Lotura-lokal hbidea itxoiten..."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
-#, fuzzy
 msgid "Configuring the network with DHCPv6"
-msgstr "Sarea DHCP bidez konfiguratzen"
+msgstr "Sarea DHCPv6 bidez konfiguratzen"
 
 #. Type: string
 #. Description
@@ -967,6 +961,8 @@ msgstr "IP helbidea:"
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
 msgstr ""
+"IP helbidea zure ordenagailuaren esklusiboa da eta hau izan beharko "
+"litzateke:"
 
 #. Type: string
 #. Description
@@ -977,6 +973,8 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
+" * pintuz bereizitako la zenbaki (IPv4);\n"
+" * Bi puntuez bereizitako karaktere hamaseitar blokeak (IPv6)."
 
 #. Type: string
 #. Description
@@ -984,18 +982,15 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr ""
+msgstr "CIDR sare-maskara bat ere ezarri dezkezu (\"/24\" modukoa)."
 
 #. Type: string
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-static.templates:1001
-#, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
-msgstr ""
-"Zer sartu ez badakizu, kontsultatu dokumentazioa edo utzi hutsik modulua ez "
-"kargatzeko."
+msgstr "Hemen zer erabili ez badakizu galdetu sare kudeatzaileari,"
 
 #. Type: error
 #. Description
@@ -1010,15 +1005,16 @@ msgstr "Gaizki osatutako IP helbidea"
 #. IPv6
 #. :sl2:
 #: ../netcfg-static.templates:2001
-#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"Zuk emandako IP helbidea gaizki osatuta dago. x.x.x.x forma izan beharko "
-"luke eta 'x' bakoitzak ezin du 255 baino handiagoa izan. Saiatu berriro."
+"Zuk emandako IP helbidea gaizki osatuta dago. Edo x.x.x.x forma izan beharko "
+"luke eta 'x' bakoitzak ezin du 255 baino handiagoa izan (IPv4) edo bi-puntuz "
+"bereizitako bloke hamaseitarren forma (IPv6) izan bearko luke.. Saiatu "
+"berriro."
 
 #. Type: string
 #. Description
@@ -1116,7 +1112,7 @@ msgstr "Gaizki sartu duzu IP helbidea, sare-maskara eta/edo atebidea."
 #. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr ""
+msgstr "IPv6-ek ez du puntuz-puntuko loturarik onartzen"
 
 #. Type: error
 #. Description
@@ -1127,6 +1123,8 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
+"Ezinda IPv6 helbiderik konfigruatu puntuz-puntuko loturaretan. Mesedez IPv4 "
+"helbide bat erabili edo atzera joan eta beste sare interfaze bat hautatu."
 
 #. Type: boolean
 #. Description
