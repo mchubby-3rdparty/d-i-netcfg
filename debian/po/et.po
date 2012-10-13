@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-02 05:01+0000\n"
+"POT-Creation-Date: 2012-10-13 22:02+0000\n"
 "PO-Revision-Date: 2012-09-18 07:49+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -398,21 +398,21 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:19001
+#: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
 msgstr "Sobimatu võrgunimi"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:19001
+#: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
 msgstr "Nimi \"${hostname}\" on sobimatu."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:19001
+#: ../netcfg-common.templates:20001
 msgid ""
 "A valid hostname may contain only the numbers 0-9, upper and lowercase "
 "letters (A-Z and a-z), and the minus sign. It must be at most "
@@ -427,14 +427,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:20001
+#: ../netcfg-common.templates:21001
 msgid "Error"
 msgstr "Viga"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:20001
+#: ../netcfg-common.templates:21001
 msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
@@ -445,14 +445,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:21001
+#: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
 msgstr "Ühtki võrguliidest ei tuvastatud"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:21001
+#: ../netcfg-common.templates:22001
 msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
@@ -461,7 +461,7 @@ msgstr "Ühtki võrguliidest ei leitud. Paigaldaja ei suutnud leida võrgukaarti
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:21001
+#: ../netcfg-common.templates:22001
 msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
@@ -474,7 +474,7 @@ msgstr ""
 #. A "kill switch" is a physical switch found on some network cards that
 #. disables the card.
 #. :sl2:
-#: ../netcfg-common.templates:22001
+#: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
 msgstr "Võrguliidese ${iface} \"tapalüliti\" on sisse lülitatud"
 
@@ -483,7 +483,7 @@ msgstr "Võrguliidese ${iface} \"tapalüliti\" on sisse lülitatud"
 #. A "kill switch" is a physical switch found on some network cards that
 #. disables the card.
 #. :sl2:
-#: ../netcfg-common.templates:22001
+#: ../netcfg-common.templates:23001
 msgid ""
 "${iface} appears to have been disabled by means of a physical \"kill switch"
 "\". If you intend to use this interface, please switch it on before "
@@ -501,7 +501,7 @@ msgstr ""
 #. Choices MUST be separated by commas
 #. You MUST use standard commas not special commas for your language
 #. You MUST NOT use commas inside choices
-#: ../netcfg-common.templates:23001
+#: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
 msgstr "Infrastruktuuriga (juhitav) võrk"
 
@@ -513,19 +513,19 @@ msgstr "Infrastruktuuriga (juhitav) võrk"
 #. Choices MUST be separated by commas
 #. You MUST use standard commas not special commas for your language
 #. You MUST NOT use commas inside choices
-#: ../netcfg-common.templates:23001
+#: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
 msgstr "Ad-hoc võrk (Peerilt peerile)"
 
 #. Type: select
 #. Description
-#: ../netcfg-common.templates:23002
+#: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
 msgstr "Traadita võrgu tüüp:"
 
 #. Type: select
 #. Description
-#: ../netcfg-common.templates:23002
+#: ../netcfg-common.templates:24002
 msgid ""
 "Wireless networks are either managed or ad-hoc. If you use a real access "
 "point of some sort, your network is Managed. If another computer is your "
@@ -538,125 +538,125 @@ msgstr ""
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:24001
+#: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
 msgstr "Traadita võrgu seadistus"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:25001
+#: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
 msgstr "Traadita pöörduspunktide otsimine..."
 
 #. Type: text
 #. Description
-#: ../netcfg-common.templates:27001
+#: ../netcfg-common.templates:28001
 msgid "Detecting link on ${interface}; please wait..."
 msgstr "Võrgukaardi ${interface}; ühenduse tuvastamine, palun oota..."
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:28001
+#: ../netcfg-common.templates:29001
 msgid "<none>"
 msgstr "<pole>"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:29001
+#: ../netcfg-common.templates:30001
 msgid "Wireless ethernet (802.11x)"
 msgstr "Traadita ethernet (802.11x)"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:30001
+#: ../netcfg-common.templates:31001
 msgid "wireless"
 msgstr "traadita"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:31001
+#: ../netcfg-common.templates:32001
 msgid "Ethernet"
 msgstr "Ethernet"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:32001
+#: ../netcfg-common.templates:33001
 msgid "Token Ring"
 msgstr "Token Ring"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:33001
+#: ../netcfg-common.templates:34001
 msgid "USB net"
 msgstr "USB võrk"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:35001
+#: ../netcfg-common.templates:36001
 msgid "Serial-line IP"
 msgstr "Serial-line IP"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:36001
+#: ../netcfg-common.templates:37001
 msgid "Parallel-port IP"
 msgstr "Parallel-port IP"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:37001
+#: ../netcfg-common.templates:38001
 msgid "Point-to-Point Protocol"
 msgstr "Point-to-Point Protocol"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:38001
+#: ../netcfg-common.templates:39001
 msgid "IPv6-in-IPv4"
 msgstr "IPV6-in-IPV4"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:39001
+#: ../netcfg-common.templates:40001
 msgid "ISDN Point-to-Point Protocol"
 msgstr "ISDN Point-to-Point Protocol"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:40001
+#: ../netcfg-common.templates:41001
 msgid "Channel-to-channel"
 msgstr "Channel-to-channel"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:41001
+#: ../netcfg-common.templates:42001
 msgid "Real channel-to-channel"
 msgstr "Tõeline channel-to-channel"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:43001
+#: ../netcfg-common.templates:44001
 msgid "Inter-user communication vehicle"
 msgstr "Inter-user communication vehicle"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:44001
+#: ../netcfg-common.templates:45001
 msgid "Unknown interface"
 msgstr "Tundmatu liides"
 
@@ -664,7 +664,7 @@ msgstr "Tundmatu liides"
 #. Description
 #. base-installer progress bar item
 #. :sl1:
-#: ../netcfg-common.templates:45001
+#: ../netcfg-common.templates:46001
 msgid "Storing network settings..."
 msgstr "Võrgu seadistuste salvestamine ..."
 
@@ -672,21 +672,21 @@ msgstr "Võrgu seadistuste salvestamine ..."
 #. Description
 #. Item in the main menu to select this package
 #. :sl1:
-#: ../netcfg-common.templates:46001
+#: ../netcfg-common.templates:47001
 msgid "Configure the network"
 msgstr "Võrgu seadistamine"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:48001
+#: ../netcfg-common.templates:49001
 msgid "Waiting time (in seconds) for link detection:"
 msgstr "Ühenduse tuvastamise ooteaeg sekundites:"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:48001
+#: ../netcfg-common.templates:49001
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
@@ -695,14 +695,14 @@ msgstr "Palun sisesta, kui kaua võrguühenduse tuvastamise järel oodata tohiks
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid "Invalid network link detection waiting time"
 msgstr "Võrguühenduse tuvastamise ooteaeg on vigane"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
@@ -714,21 +714,21 @@ msgstr ""
 #. Choices
 #. Translators: please do not translate the variable essid_list
 #. :sl1:
-#: ../netcfg-common.templates:50001
+#: ../netcfg-common.templates:51001
 msgid "${essid_list} Enter ESSID manually"
 msgstr "${essid_list} Sisesta ESSID käsitsi"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:50002
+#: ../netcfg-common.templates:51002
 msgid "Wireless network:"
 msgstr "Traadita võrk:"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:50002
+#: ../netcfg-common.templates:51002
 msgid "Select the wireless network to use during the installation process."
 msgstr "Vali, millist traadita võrku paigaldusprotsessi käigus kasutada."
 

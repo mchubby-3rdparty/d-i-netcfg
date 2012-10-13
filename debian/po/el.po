@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-02 05:01+0000\n"
+"POT-Creation-Date: 2012-10-13 22:02+0000\n"
 "PO-Revision-Date: 2012-09-19 18:15+0300\n"
 "Last-Translator: galaxico <galaxico@quad-nrg.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
@@ -413,21 +413,21 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:19001
+#: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
 msgstr "Μη έγκυρο όνομα υπολογιστή"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:19001
+#: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
 msgstr "Το όνομα του υπολογιστή \"${hostname}\" δεν είναι έγκυρο."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:19001
+#: ../netcfg-common.templates:20001
 msgid ""
 "A valid hostname may contain only the numbers 0-9, upper and lowercase "
 "letters (A-Z and a-z), and the minus sign. It must be at most "
@@ -442,14 +442,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:20001
+#: ../netcfg-common.templates:21001
 msgid "Error"
 msgstr "Σφάλμα"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:20001
+#: ../netcfg-common.templates:21001
 msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
@@ -461,14 +461,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:21001
+#: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
 msgstr "Δεν ανιχνεύθηκαν διασυνδέσεις δικτύου"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:21001
+#: ../netcfg-common.templates:22001
 msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
@@ -479,7 +479,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:21001
+#: ../netcfg-common.templates:22001
 msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
@@ -493,7 +493,7 @@ msgstr ""
 #. A "kill switch" is a physical switch found on some network cards that
 #. disables the card.
 #. :sl2:
-#: ../netcfg-common.templates:22001
+#: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
 msgstr "Βίαιος τερματισμός switch που είναι ενεργοποιημένο στο  ${iface}"
 
@@ -502,7 +502,7 @@ msgstr "Βίαιος τερματισμός switch που είναι ενεργ�
 #. A "kill switch" is a physical switch found on some network cards that
 #. disables the card.
 #. :sl2:
-#: ../netcfg-common.templates:22001
+#: ../netcfg-common.templates:23001
 msgid ""
 "${iface} appears to have been disabled by means of a physical \"kill switch"
 "\". If you intend to use this interface, please switch it on before "
@@ -520,7 +520,7 @@ msgstr ""
 #. Choices MUST be separated by commas
 #. You MUST use standard commas not special commas for your language
 #. You MUST NOT use commas inside choices
-#: ../netcfg-common.templates:23001
+#: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
 msgstr "Δίκτυο υποδομής (Διαχειριζόμενο)"
 
@@ -532,19 +532,19 @@ msgstr "Δίκτυο υποδομής (Διαχειριζόμενο)"
 #. Choices MUST be separated by commas
 #. You MUST use standard commas not special commas for your language
 #. You MUST NOT use commas inside choices
-#: ../netcfg-common.templates:23001
+#: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
 msgstr "Ad-hoc δίκτυο (Peer to peer)"
 
 #. Type: select
 #. Description
-#: ../netcfg-common.templates:23002
+#: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
 msgstr "Τύπος του ασύρματου δικτύου:"
 
 #. Type: select
 #. Description
-#: ../netcfg-common.templates:23002
+#: ../netcfg-common.templates:24002
 msgid ""
 "Wireless networks are either managed or ad-hoc. If you use a real access "
 "point of some sort, your network is Managed. If another computer is your "
@@ -558,125 +558,125 @@ msgstr ""
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:24001
+#: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
 msgstr "Ρύθμιση ασύρματου δικτύου"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:25001
+#: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
 msgstr "Ανίχνευση για ασύρματα σημεία πρόσβασης ..."
 
 #. Type: text
 #. Description
-#: ../netcfg-common.templates:27001
+#: ../netcfg-common.templates:28001
 msgid "Detecting link on ${interface}; please wait..."
 msgstr "Ανίχνευση συνδέσμου στο ${interface}; παρακαλώ περιμένετε..."
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:28001
+#: ../netcfg-common.templates:29001
 msgid "<none>"
 msgstr "<κανένα>"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:29001
+#: ../netcfg-common.templates:30001
 msgid "Wireless ethernet (802.11x)"
 msgstr "Ασύρματο ethernet (802.11x)"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:30001
+#: ../netcfg-common.templates:31001
 msgid "wireless"
 msgstr "ασύρματο"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:31001
+#: ../netcfg-common.templates:32001
 msgid "Ethernet"
 msgstr "Ethernet"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:32001
+#: ../netcfg-common.templates:33001
 msgid "Token Ring"
 msgstr "Token Ring"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:33001
+#: ../netcfg-common.templates:34001
 msgid "USB net"
 msgstr "δίκτυο USB"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:35001
+#: ../netcfg-common.templates:36001
 msgid "Serial-line IP"
 msgstr "IP σειριακής σύνδεσης"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:36001
+#: ../netcfg-common.templates:37001
 msgid "Parallel-port IP"
 msgstr "IP παράλληλης θύρας"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:37001
+#: ../netcfg-common.templates:38001
 msgid "Point-to-Point Protocol"
 msgstr "Πρωτόκολλο σύνδεσης Point-to-Point (PPP)"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:38001
+#: ../netcfg-common.templates:39001
 msgid "IPv6-in-IPv4"
 msgstr "IPv6-in-IPv4"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:39001
+#: ../netcfg-common.templates:40001
 msgid "ISDN Point-to-Point Protocol"
 msgstr "Πρωτόκολλο σύνδεσης ISDN Point-to-Point (PPP)"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:40001
+#: ../netcfg-common.templates:41001
 msgid "Channel-to-channel"
 msgstr "δίαυλος-με-δίαυλο (Channel-to-channel)"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:41001
+#: ../netcfg-common.templates:42001
 msgid "Real channel-to-channel"
 msgstr "Πραγματική διασύνδεση διαύλων"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:43001
+#: ../netcfg-common.templates:44001
 msgid "Inter-user communication vehicle"
 msgstr "\"όχημα\" επικοινωνίας μεταξύ-χρηστών"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:44001
+#: ../netcfg-common.templates:45001
 msgid "Unknown interface"
 msgstr "Άγνωστη διασύνδεση"
 
@@ -684,7 +684,7 @@ msgstr "Άγνωστη διασύνδεση"
 #. Description
 #. base-installer progress bar item
 #. :sl1:
-#: ../netcfg-common.templates:45001
+#: ../netcfg-common.templates:46001
 msgid "Storing network settings..."
 msgstr "Αποθήκευση των ρυθμίσεων δικτύου..."
 
@@ -692,21 +692,21 @@ msgstr "Αποθήκευση των ρυθμίσεων δικτύου..."
 #. Description
 #. Item in the main menu to select this package
 #. :sl1:
-#: ../netcfg-common.templates:46001
+#: ../netcfg-common.templates:47001
 msgid "Configure the network"
 msgstr "Ρύθμιση του δικτύου"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:48001
+#: ../netcfg-common.templates:49001
 msgid "Waiting time (in seconds) for link detection:"
 msgstr "Χρόνος αναμονής (σε δευτερόλεπτα) για την ανίχνευση της σύνδεσης:"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:48001
+#: ../netcfg-common.templates:49001
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
@@ -717,14 +717,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid "Invalid network link detection waiting time"
 msgstr "Μη έγκυρος χρόνος αναμονής για την ανίχνευση της δικτυακής σύνδεσης"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
@@ -736,21 +736,21 @@ msgstr ""
 #. Choices
 #. Translators: please do not translate the variable essid_list
 #. :sl1:
-#: ../netcfg-common.templates:50001
+#: ../netcfg-common.templates:51001
 msgid "${essid_list} Enter ESSID manually"
 msgstr "${essid_list} Εισάγετε το όνομα ESSID με το χέρι"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:50002
+#: ../netcfg-common.templates:51002
 msgid "Wireless network:"
 msgstr "Ασύρματο δικτύο:"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:50002
+#: ../netcfg-common.templates:51002
 msgid "Select the wireless network to use during the installation process."
 msgstr ""
 "Επιλέξτε το ασύρματο δίκτυο που θέλετε να χρησιμοποιήσετε κατά τη διάρκεια "

@@ -24,9 +24,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-i\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-02 05:01+0000\n"
-"PO-Revision-Date: 2010-02-27 10:20+0530\n"
-"Last-Translator: Kartik Mistry <kartik@debian.org>\n"
+"POT-Creation-Date: 2012-10-13 22:02+0000\n"
+"PO-Revision-Date: 2008-08-07 11:42+0530\n"
+"Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <team@utkarsh.org>\n"
 "Language: gu\n"
 "MIME-Version: 1.0\n"
@@ -38,16 +38,14 @@ msgstr ""
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid "Auto-configure networking?"
-msgstr "નેટવર્કને DHCP વડે આપમેળે-રૂપરેખાંકિત કરશો?"
+msgstr "નેટવર્કને આપમેળે-રૂપરેખાંકિત કરશો?"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -55,10 +53,10 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"નેટવર્કિંગ DHCP વડે રુપરેખાંકિત કરી શકાય છે અથવા જાતે બધી માહિતી નાખીને કરી શકાય છે. જો "
-"તમે DHCP ઉપયોગ કરવાનું પસંદ કરો અને સ્થાપક કામ કરે તેવુ રુપરેખાંકન તમારા નેટવર્કનાં DHCP "
-"સર્વરમાંથી મેળવવા અસમર્થ હોય તો, DHCP વડે રુપરેખાંકન કર્યા બાદ તમને તમારુ નેટવર્ક જાતે "
-"રુપરેખાંકિત કરવાની તક આપવામાં આવશે."
+"નેટવર્કિંગ જાતે બધી માહિતી નાખીને, અથવા DHCP (અથવા વિવિધ IPv6-સંબંઘિત રીતો) વડે આપમેળે "
+"રુપરેખાંકિત કરી શકાય છે. જો તમે DHCP ઉપયોગ કરવાનું પસંદ કરશો અને સ્થાપક કામ કરે તેવું "
+"રુપરેખાંકન તમારા નેટવર્કમાંથી મેળવવા અસમર્થ હોય તો, તમને તમારુ નેટવર્ક જાતે રુપરેખાંકિત "
+"કરવાની તક આપવામાં આવશે."
 
 #. Type: string
 #. Description
@@ -391,21 +389,21 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:19001
+#: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
 msgstr "અયોગ્ય યજમાનનામ"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:19001
+#: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
 msgstr "નામ \"${hostname}\" અયોગ્ય છે."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:19001
+#: ../netcfg-common.templates:20001
 msgid ""
 "A valid hostname may contain only the numbers 0-9, upper and lowercase "
 "letters (A-Z and a-z), and the minus sign. It must be at most "
@@ -419,14 +417,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:20001
+#: ../netcfg-common.templates:21001
 msgid "Error"
 msgstr "ક્ષતિ"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:20001
+#: ../netcfg-common.templates:21001
 msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
@@ -437,14 +435,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:21001
+#: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
 msgstr "કોઇ નેટવર્ક ઇન્ટરફેસ મળ્યું નહી"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:21001
+#: ../netcfg-common.templates:22001
 msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
@@ -453,7 +451,7 @@ msgstr "કોઇ નેટવર્ક ઇન્ટરફેસ મળ્યુ
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:21001
+#: ../netcfg-common.templates:22001
 msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
@@ -466,7 +464,7 @@ msgstr ""
 #. A "kill switch" is a physical switch found on some network cards that
 #. disables the card.
 #. :sl2:
-#: ../netcfg-common.templates:22001
+#: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
 msgstr "${iface} પર સક્રિય સ્વીચ બંધ કરો"
 
@@ -475,7 +473,7 @@ msgstr "${iface} પર સક્રિય સ્વીચ બંધ કરો"
 #. A "kill switch" is a physical switch found on some network cards that
 #. disables the card.
 #. :sl2:
-#: ../netcfg-common.templates:22001
+#: ../netcfg-common.templates:23001
 msgid ""
 "${iface} appears to have been disabled by means of a physical \"kill switch"
 "\". If you intend to use this interface, please switch it on before "
@@ -492,7 +490,7 @@ msgstr ""
 #. Choices MUST be separated by commas
 #. You MUST use standard commas not special commas for your language
 #. You MUST NOT use commas inside choices
-#: ../netcfg-common.templates:23001
+#: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
 msgstr "માળખાગત (વ્યવસ્થિત) નેટવર્ક"
 
@@ -504,19 +502,19 @@ msgstr "માળખાગત (વ્યવસ્થિત) નેટવર્�
 #. Choices MUST be separated by commas
 #. You MUST use standard commas not special commas for your language
 #. You MUST NOT use commas inside choices
-#: ../netcfg-common.templates:23001
+#: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
 msgstr "કામચલાઉ નેટવર્ક (પીઅર ટુ પીઅર)"
 
 #. Type: select
 #. Description
-#: ../netcfg-common.templates:23002
+#: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
 msgstr "વાયરલેસ નેટર્વકનો પ્રકાર:"
 
 #. Type: select
 #. Description
-#: ../netcfg-common.templates:23002
+#: ../netcfg-common.templates:24002
 msgid ""
 "Wireless networks are either managed or ad-hoc. If you use a real access "
 "point of some sort, your network is Managed. If another computer is your "
@@ -529,125 +527,125 @@ msgstr ""
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:24001
+#: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
 msgstr "વાયરલેસ નેટવર્ક રૂપરેખાંકન"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:25001
+#: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
 msgstr "વાયરલેસ એક્સેસ બિંદુઓ શોધી રહ્યા છીએ..."
 
 #. Type: text
 #. Description
-#: ../netcfg-common.templates:27001
+#: ../netcfg-common.templates:28001
 msgid "Detecting link on ${interface}; please wait..."
 msgstr "${interface} પરનું જોડાણ ચકાસે છે, મહેરબાની કરી રાહ જુઓ..."
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:28001
+#: ../netcfg-common.templates:29001
 msgid "<none>"
 msgstr "<કંઇ નહી>"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:29001
+#: ../netcfg-common.templates:30001
 msgid "Wireless ethernet (802.11x)"
 msgstr "વાયરલેસ ઇથરનેટ (802.11x)"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:30001
+#: ../netcfg-common.templates:31001
 msgid "wireless"
 msgstr "વાયરલેસ"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:31001
+#: ../netcfg-common.templates:32001
 msgid "Ethernet"
 msgstr "ઇથરનેટ"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:32001
+#: ../netcfg-common.templates:33001
 msgid "Token Ring"
 msgstr "ટોકન રિંગ"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:33001
+#: ../netcfg-common.templates:34001
 msgid "USB net"
 msgstr "યુએસબી નેટ"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:35001
+#: ../netcfg-common.templates:36001
 msgid "Serial-line IP"
 msgstr "રેખીય-લાઇન IP"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:36001
+#: ../netcfg-common.templates:37001
 msgid "Parallel-port IP"
 msgstr "સમાંતર-પોર્ટ IP"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:37001
+#: ../netcfg-common.templates:38001
 msgid "Point-to-Point Protocol"
 msgstr "પોઈન્ટ-ટુ-પોઈન્ટ પ્રોટોકોલ"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:38001
+#: ../netcfg-common.templates:39001
 msgid "IPv6-in-IPv4"
 msgstr "IPv4-માં-IPv6"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:39001
+#: ../netcfg-common.templates:40001
 msgid "ISDN Point-to-Point Protocol"
 msgstr "ISDN પોઈન્ટ-ટુ-પોઈન્ટ પ્રોટોકોલ"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:40001
+#: ../netcfg-common.templates:41001
 msgid "Channel-to-channel"
 msgstr "ચેનલ-ટુ-ચેનલ"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:41001
+#: ../netcfg-common.templates:42001
 msgid "Real channel-to-channel"
 msgstr "ખરૂં ચેનલ-ટુ-ચેનલ"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:43001
+#: ../netcfg-common.templates:44001
 msgid "Inter-user communication vehicle"
 msgstr "આંતરિક-વપરાશકર્તા વાતચીત વાહન"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:44001
+#: ../netcfg-common.templates:45001
 msgid "Unknown interface"
 msgstr "અજ્ઞાત ઇન્ટરફેસ"
 
@@ -655,7 +653,7 @@ msgstr "અજ્ઞાત ઇન્ટરફેસ"
 #. Description
 #. base-installer progress bar item
 #. :sl1:
-#: ../netcfg-common.templates:45001
+#: ../netcfg-common.templates:46001
 msgid "Storing network settings..."
 msgstr "નેટવર્ક ગોઠવણીઓ સંગ્રહી રહ્યા છીએ..."
 
@@ -663,21 +661,21 @@ msgstr "નેટવર્ક ગોઠવણીઓ સંગ્રહી રહ
 #. Description
 #. Item in the main menu to select this package
 #. :sl1:
-#: ../netcfg-common.templates:46001
+#: ../netcfg-common.templates:47001
 msgid "Configure the network"
 msgstr "નેટવર્ક રૂપરેખાંકિત કરો"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:48001
+#: ../netcfg-common.templates:49001
 msgid "Waiting time (in seconds) for link detection:"
 msgstr "કડી શોધવા માટે રાહ જોવાનો સમય (સેકન્ડ્સમાં):"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:48001
+#: ../netcfg-common.templates:49001
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
@@ -686,14 +684,14 @@ msgstr "મહેરબાની કરી નેટવર્ક કડી મ�
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid "Invalid network link detection waiting time"
 msgstr "નેટવર્ક કડી શોધવા માટે રાહ જોવાનો અયોગ્ય સમય"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
@@ -705,21 +703,21 @@ msgstr ""
 #. Choices
 #. Translators: please do not translate the variable essid_list
 #. :sl1:
-#: ../netcfg-common.templates:50001
+#: ../netcfg-common.templates:51001
 msgid "${essid_list} Enter ESSID manually"
 msgstr "${essid_list} ESSID જાતે દાખલ કરો"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:50002
+#: ../netcfg-common.templates:51002
 msgid "Wireless network:"
 msgstr "વાયરલેસ નેટર્વક:"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:50002
+#: ../netcfg-common.templates:51002
 msgid "Select the wireless network to use during the installation process."
 msgstr "સ્થાપન પક્રિયામાં ઉપયોગ કરવાનું વાયરલેસ નેટવર્ક પસંદ કરો."
 
@@ -914,9 +912,8 @@ msgstr "વાયરલેસ નેટર્વકને ફરી રૂપર
 #. IPv6
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
-#, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "vmelilo રૂપરેખાંકન બનાવે છે..."
+msgstr "IPv6 આપમેળે રુપરેખાંકન પ્રયત્ન કરે છે..."
 
 #. Type: text
 #. Description
@@ -924,15 +921,14 @@ msgstr "vmelilo રૂપરેખાંકન બનાવે છે..."
 #. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr ""
+msgstr "કડી-સ્થાનિક સરનામાં માટે રાહ જુવે છે..."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
-#, fuzzy
 msgid "Configuring the network with DHCPv6"
-msgstr "નેટવર્ક DHCP સાથે રૂપરેખાંકિત કરો"
+msgstr "DHCPv6 સાથે નેટવર્ક રૂપરેખાંકિત કરો"
 
 #. Type: string
 #. Description
@@ -948,7 +944,7 @@ msgstr "IP સરનામું:"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr ""
+msgstr "IP સરનામું એ તમારા કોમ્પ્યુટર માટે ઐક્ય છે અને કદાચ:"
 
 #. Type: string
 #. Description
@@ -959,6 +955,8 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
+" * પૂર્ણવિરામ વડે જુદા પાડેલાં ચાર આંકડાઓ (IPv4);\n"
+" * મહાવિરામ વડે જુદાં પાડેલ હેક્સાડેસિમલ અક્ષરોનો સમુહ (IPv6)."
 
 #. Type: string
 #. Description
@@ -966,18 +964,15 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr ""
+msgstr "તમે વૈકલ્પિક રીતે CIDR નેટમાસ્ક ઉમેરી શકો છો (જેવું કે \"/24\")."
 
 #. Type: string
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-static.templates:1001
-#, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
-msgstr ""
-"જો તમને ખબર ન હોય કે શું દાખલ કરવું તો, તમારા દસ્તાવેજની મદદ લો , અથવા મોડ્યુલ ન લાવવા "
-"માટે તેને ખાલી છોડી દો."
+msgstr "જો તમને ખબર ન હોય કે અહીં શું ઉપયોગ કરવું, તમારા નેટવર્ક સંચાલકની મદદ લો."
 
 #. Type: error
 #. Description
@@ -992,7 +987,6 @@ msgstr "ખરાબ IP સરનામું"
 #. IPv6
 #. :sl2:
 #: ../netcfg-static.templates:2001
-#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
@@ -1000,7 +994,8 @@ msgid ""
 "try again."
 msgstr ""
 "તમે આપેલ IP સરનામું ખરાબ છે. તે x.x.x.x બંધારણમાં હોવું જોઇએ જ્યાં દરેક 'x' 255 કરતાં વધુ ન "
-"હોવો જોઇએ. મહેરબાની કરી ફરી પ્રયત્ન કરો."
+"હોવો જોઇએ (IPv4 સરનામું), અથવા હેક્સાડેસિમલ આંકડાઓ મહાવિરામ વડે જુદા પાડેલા હોય (IPv6 "
+"સરનામું). મહેરબાની કરી ફરી પ્રયત્ન કરો."
 
 #. Type: string
 #. Description
@@ -1096,7 +1091,7 @@ msgstr "તમે તમારૂં આઇપી સરનામું, ને�
 #. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr ""
+msgstr "બિંદુ-થી-બિંદુ કડીઓ પર IPv6 ને આધાર નથી"
 
 #. Type: error
 #. Description
@@ -1107,6 +1102,8 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
+"IPv6 સરનામું બિંદુ-થી-બિંદુ કડીઓ પર રુપરેખાંકિત કરી શકાતું નથી.  મહેરબાની કરી IPv4 સરનામું "
+"વાપરો, અથવા પાછાં જાવ અને બીજું નેટવર્ક ઇન્ટરફેસ વાપરો."
 
 #. Type: boolean
 #. Description

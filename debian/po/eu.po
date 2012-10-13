@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-02 05:01+0000\n"
+"POT-Creation-Date: 2012-10-13 22:02+0000\n"
 "PO-Revision-Date: 2012-05-06 15:56+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: debian-l10n-eu@lists.debian.org\n"
@@ -395,21 +395,21 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:19001
+#: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
 msgstr "Ostalari-izen baliogabea"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:19001
+#: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
 msgstr "\"${hostname}\" izena baliogabea da."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:19001
+#: ../netcfg-common.templates:20001
 msgid ""
 "A valid hostname may contain only the numbers 0-9, upper and lowercase "
 "letters (A-Z and a-z), and the minus sign. It must be at most "
@@ -423,14 +423,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:20001
+#: ../netcfg-common.templates:21001
 msgid "Error"
 msgstr "Errorea"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:20001
+#: ../netcfg-common.templates:21001
 msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
@@ -441,14 +441,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:21001
+#: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
 msgstr "Ez da sareko interfazerik detektatu"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:21001
+#: ../netcfg-common.templates:22001
 msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
@@ -459,7 +459,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:21001
+#: ../netcfg-common.templates:22001
 msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
@@ -472,7 +472,7 @@ msgstr ""
 #. A "kill switch" is a physical switch found on some network cards that
 #. disables the card.
 #. :sl2:
-#: ../netcfg-common.templates:22001
+#: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
 msgstr "'Kill switch' ${iface}(e)n aktibatuta"
 
@@ -481,7 +481,7 @@ msgstr "'Kill switch' ${iface}(e)n aktibatuta"
 #. A "kill switch" is a physical switch found on some network cards that
 #. disables the card.
 #. :sl2:
-#: ../netcfg-common.templates:22001
+#: ../netcfg-common.templates:23001
 msgid ""
 "${iface} appears to have been disabled by means of a physical \"kill switch"
 "\". If you intend to use this interface, please switch it on before "
@@ -498,7 +498,7 @@ msgstr ""
 #. Choices MUST be separated by commas
 #. You MUST use standard commas not special commas for your language
 #. You MUST NOT use commas inside choices
-#: ../netcfg-common.templates:23001
+#: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
 msgstr "Azpiegitura sarea (kudeatua)"
 
@@ -510,19 +510,19 @@ msgstr "Azpiegitura sarea (kudeatua)"
 #. Choices MUST be separated by commas
 #. You MUST use standard commas not special commas for your language
 #. You MUST NOT use commas inside choices
-#: ../netcfg-common.templates:23001
+#: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
 msgstr "Ad-hoc sarea (pareko artekoa)"
 
 #. Type: select
 #. Description
-#: ../netcfg-common.templates:23002
+#: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
 msgstr "Haririk gabeko sare mota:"
 
 #. Type: select
 #. Description
-#: ../netcfg-common.templates:23002
+#: ../netcfg-common.templates:24002
 msgid ""
 "Wireless networks are either managed or ad-hoc. If you use a real access "
 "point of some sort, your network is Managed. If another computer is your "
@@ -535,125 +535,125 @@ msgstr ""
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:24001
+#: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
 msgstr "Haririk gabeko sarearen konfigurazioa"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:25001
+#: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
 msgstr "Haririk gabeko sarbide-puntuak bilatzen..."
 
 #. Type: text
 #. Description
-#: ../netcfg-common.templates:27001
+#: ../netcfg-common.templates:28001
 msgid "Detecting link on ${interface}; please wait..."
 msgstr "${interface}-ko lotura antzematen; itxoin mesedez..."
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:28001
+#: ../netcfg-common.templates:29001
 msgid "<none>"
 msgstr "<bat ere ez>"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:29001
+#: ../netcfg-common.templates:30001
 msgid "Wireless ethernet (802.11x)"
 msgstr "Haririk gabeko ethernet (802.11x)"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:30001
+#: ../netcfg-common.templates:31001
 msgid "wireless"
 msgstr "haririk gabea"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:31001
+#: ../netcfg-common.templates:32001
 msgid "Ethernet"
 msgstr "Ethernet"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:32001
+#: ../netcfg-common.templates:33001
 msgid "Token Ring"
 msgstr "Token Ring"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:33001
+#: ../netcfg-common.templates:34001
 msgid "USB net"
 msgstr "USB sarea"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:35001
+#: ../netcfg-common.templates:36001
 msgid "Serial-line IP"
 msgstr "Serieko lineako IP"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:36001
+#: ../netcfg-common.templates:37001
 msgid "Parallel-port IP"
 msgstr "Ataka paraleloko IPa"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:37001
+#: ../netcfg-common.templates:38001
 msgid "Point-to-Point Protocol"
 msgstr "Puntutik punturako protokoloa"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:38001
+#: ../netcfg-common.templates:39001
 msgid "IPv6-in-IPv4"
 msgstr "IPv6-IPv4-ean"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:39001
+#: ../netcfg-common.templates:40001
 msgid "ISDN Point-to-Point Protocol"
 msgstr "ISDN puntutik punturako protokoloa"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:40001
+#: ../netcfg-common.templates:41001
 msgid "Channel-to-channel"
 msgstr "Kanaletik kanalera"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:41001
+#: ../netcfg-common.templates:42001
 msgid "Real channel-to-channel"
 msgstr "Benetako kanaletik kanalera"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:43001
+#: ../netcfg-common.templates:44001
 msgid "Inter-user communication vehicle"
 msgstr "Erabiltzaileen arteko komunikazio ibilgailua"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:44001
+#: ../netcfg-common.templates:45001
 msgid "Unknown interface"
 msgstr "Interfaze ezezaguna"
 
@@ -661,7 +661,7 @@ msgstr "Interfaze ezezaguna"
 #. Description
 #. base-installer progress bar item
 #. :sl1:
-#: ../netcfg-common.templates:45001
+#: ../netcfg-common.templates:46001
 msgid "Storing network settings..."
 msgstr "Sarearen ezarpenak gordetzen..."
 
@@ -669,21 +669,21 @@ msgstr "Sarearen ezarpenak gordetzen..."
 #. Description
 #. Item in the main menu to select this package
 #. :sl1:
-#: ../netcfg-common.templates:46001
+#: ../netcfg-common.templates:47001
 msgid "Configure the network"
 msgstr "Konfiguratu sarea"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:48001
+#: ../netcfg-common.templates:49001
 msgid "Waiting time (in seconds) for link detection:"
 msgstr "Lotura antzemateko itxoiteko denbora (segundutan):"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:48001
+#: ../netcfg-common.templates:49001
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
@@ -692,14 +692,14 @@ msgstr "Idatzi sare konexioaren zai gehienez itxoingo den denbora muga."
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid "Invalid network link detection waiting time"
 msgstr "Konexio antzemate itxoite denbora baliogabea"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
@@ -711,21 +711,21 @@ msgstr ""
 #. Choices
 #. Translators: please do not translate the variable essid_list
 #. :sl1:
-#: ../netcfg-common.templates:50001
+#: ../netcfg-common.templates:51001
 msgid "${essid_list} Enter ESSID manually"
 msgstr "${essid_list} Eskuz Idatzi ESSIDa"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:50002
+#: ../netcfg-common.templates:51002
 msgid "Wireless network:"
 msgstr "Haririk gabeko sarea:"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:50002
+#: ../netcfg-common.templates:51002
 msgid "Select the wireless network to use during the installation process."
 msgstr ""
 "Hautatu instalazio prozesuan erabili behar den haririk gabeko sarearein "
