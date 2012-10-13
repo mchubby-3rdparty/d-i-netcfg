@@ -1,3 +1,10 @@
+netcfg (1.99) UNRELEASED; urgency=low
+
+  * netcfg.c (main): Remove a local definition of hostname.
+    (Closes: #690330)
+
+ -- Philipp Kern <pkern@debian.org>  Sat, 13 Oct 2012 13:47:58 +0200
+
 netcfg (1.98) unstable; urgency=low
 
   * Re-upload without cruft from my checkout, oops.
