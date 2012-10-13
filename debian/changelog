@@ -2,6 +2,9 @@ netcfg (1.99) UNRELEASED; urgency=low
 
   * netcfg.c (main): Remove a local definition of hostname.
     (Closes: #690330)
+  * Override the hostname found via DHCP or DNS with the preseeded
+    value of the new variable netcfg/hostname, if set. Patch by
+    Floris Bos. (Closes: #606636)
 
  -- Philipp Kern <pkern@debian.org>  Sat, 13 Oct 2012 13:47:58 +0200
 

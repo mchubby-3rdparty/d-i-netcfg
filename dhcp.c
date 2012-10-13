@@ -559,12 +559,19 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
             {
                 char buf[MAXHOSTNAMELEN + 1] = { 0 };
                 /*
-                 * Default to the hostname returned via DHCP, if any,
+                 * If the netcfg/hostname preseed value is set use that
+                 * otherwise default to the hostname returned via DHCP, if any,
                  * otherwise to the requested DHCP hostname
                  * otherwise to the hostname found in DNS for the IP address
                  * of the interface
                  */
-                if (gethostname(buf, sizeof(buf)) == 0
+                debconf_get(client, "netcfg/hostname");
+                if (!empty_str(client->value)) {
+                    strncpy(buf, client->value, MAXHOSTNAMELEN);
+                    di_debug("Using preseeded hostname");
+                    preseed_hostname_from_fqdn(client, buf);
+                }
+                else if (gethostname(buf, sizeof(buf)) == 0
                     && !empty_str(buf)
                     && strcmp(buf, "(none)")
                     ) {

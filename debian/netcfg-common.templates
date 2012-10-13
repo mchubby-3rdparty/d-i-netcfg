@@ -152,6 +152,11 @@ _Description: Hostname:
  administrator. If you are setting up your own home network, you can make
  something up here.
 
+Template: netcfg/hostname
+Type: string
+Description: for internal use; can be preseeded
+ Hostname to set for the system; ignores names provided by DHCP or DNS.
+
 Template: netcfg/invalid_hostname
 Type: error
 # :sl2:

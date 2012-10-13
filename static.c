@@ -608,8 +608,15 @@ int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *ifa
             break;
         case GET_HOSTNAME:
             {
-                char buf[MAXHOSTNAMELEN + 1];
-                if (get_hostname_from_dns(iface, buf, sizeof(buf)))
+                char buf[MAXHOSTNAMELEN + 1] = { 0 };
+
+                debconf_get(client, "netcfg/hostname");
+                if (!empty_str(client->value))
+                {
+                    strncpy(buf, client->value, MAXHOSTNAMELEN);
+                    preseed_hostname_from_fqdn(client, buf);
+                }
+                else if (get_hostname_from_dns(iface, buf, sizeof(buf)))
                     preseed_hostname_from_fqdn(client, buf);
             }
             state = (netcfg_get_hostname(client, "netcfg/get_hostname", hostname, 1)) ?
