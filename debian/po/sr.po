@@ -4,13 +4,13 @@
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
 # Serbian/Cyrillic messages for debian-installer.
-# Copyright (C) 2010 Software in the Public Interest, Inc.
+# Copyright (C) 2010-2012 Software in the Public Interest, Inc.
 # Copyright (C) 2008 THE cp6Linux'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the debian-installer package.
-# Karolina Kalic <karolina@resenje.org>, 2010-2011.
-# Janos Guljas <janos@resenje.org>, 2010-2011.
+# Karolina Kalic <karolina@resenje.org>, 2010-2012.
+# Janos Guljas <janos@resenje.org>, 2010-2012.
 # Veselin Mijušković <veselin.mijuskovic@gmail.com>, 2008.
-#
+# Milan Kostic <kosticmilan77@open.telekom.rs>, 2012.
 #
 # Translations from iso-codes:
 #   Aleksandar Jelenak <aleksandar.jelenak@gmail.com>, 2010.
@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-13 22:02+0000\n"
-"PO-Revision-Date: 2012-08-13 19:49+0100\n"
+"PO-Revision-Date: 2012-10-19 22:10+0100\n"
 "Last-Translator: Karolina Kalic <karolina@resenje.org>\n"
 "Language-Team: Serbian <debian-l10n-serbian@lists.debian.org>\n"
 "Language: \n"
@@ -38,16 +38,14 @@ msgstr ""
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid "Auto-configure networking?"
-msgstr "Аутоматски подеси мрежу помоћу DHCP-а?"
+msgstr "Аутоматски подеси мрежу?"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -55,10 +53,11 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"Умрежавање може бити подешено или помоћу DHCP или ручним уношењем свих "
-"података. Ако изаберете DHCP, а програм за инсталацију не буде могао "
-"добавити ваљане радне поставке са DHCP сервера на вашој мрежи, ипак ћете "
-"моћи подесити своју мрежу и ручно."
+"Умрежавање може бити подешено или помоћу DHCP (аутоматски) или ручним "
+"уношењем свих података (па и по разним за IPv6 специфичним методама). Ако "
+"изаберете DHCP, а програм за инсталацију не буде могао добавити ваљане радне "
+"поставке са DHCP сервера на вашој мрежи, ипак ћете моћи подесити своју мрежу "
+"и ручно."
 
 #. Type: string
 #. Description
@@ -925,9 +924,8 @@ msgstr "Поново подеси бежичну мрежу"
 #. IPv6
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
-#, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "Креирање vmelilo конфигурације..."
+msgstr "Проба IPv6 аутоконфигурације..."
 
 #. Type: text
 #. Description
@@ -935,15 +933,14 @@ msgstr "Креирање vmelilo конфигурације..."
 #. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr ""
+msgstr "Чекање на адресу локалног линка..."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
-#, fuzzy
 msgid "Configuring the network with DHCPv6"
-msgstr "Подешавање мреже помоћу DHCP-а"
+msgstr "Подешавање мреже помоћу DHCPv6"
 
 #. Type: string
 #. Description
@@ -959,7 +956,7 @@ msgstr "IP адреса:"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr ""
+msgstr "IP aдреса је јединствена за овај рачунар и може бити:"
 
 #. Type: string
 #. Description
@@ -970,6 +967,8 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
+" * четири бројева раздвојених тачком (IPv4);\n"
+" * осам бројева раздвојених двотачком (IPv6)."
 
 #. Type: string
 #. Description
@@ -977,18 +976,15 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr ""
+msgstr "Можете такође опционо навести CIDR мрежну маску (на пример \"/24\")."
 
 #. Type: string
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-static.templates:1001
-#, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
-msgstr ""
-"Ако не знате шта да унесете, консултујте документацију или оставите поље "
-"празно како се модул не би учитао."
+msgstr "Ако не знате шта да унесете, консултујте вашег мрежног администратора."
 
 #. Type: error
 #. Description
@@ -1003,7 +999,6 @@ msgstr "Погрешна IP адреса"
 #. IPv6
 #. :sl2:
 #: ../netcfg-static.templates:2001
-#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
@@ -1011,7 +1006,9 @@ msgid ""
 "try again."
 msgstr ""
 "Ова IP  адреса није исправна. Требало би да буде у облику х.х.х.х где је "
-"сваки „х“ мањи од 255. Пробајте још једном."
+"сваки „х“ мањи од 255 (важи за IPv4 адресе), или низ у групама "
+"хексдецималног записа развдојених двотачком (важи за IPv6 адресе). Пробајте "
+"још једном."
 
 #. Type: string
 #. Description
@@ -1111,7 +1108,7 @@ msgstr ""
 #. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr ""
+msgstr "IPv6 са двопунктним линковима није подржан"
 
 #. Type: error
 #. Description
@@ -1122,6 +1119,8 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
+"IPv6 aдресе не могу се конфигурисати са двопунктним линковима. Користите "
+"IPv4 адресу, или се вратите назад па изаберите другачији интерфејс."
 
 #. Type: boolean
 #. Description
