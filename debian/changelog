@@ -1,5 +1,6 @@
-netcfg (1.99) UNRELEASED; urgency=low
+netcfg (1.99) unstable; urgency=low
 
+  [ Philipp Kern ]
   * netcfg.c (main): Remove a local definition of hostname.
     (Closes: #690330)
   * Override the hostname found via DHCP or DNS with the preseeded
@@ -7,7 +8,19 @@ netcfg (1.99) UNRELEASED; urgency=low
     Floris Bos. (Closes: #606636)
   * Add myself to uploaders.
 
- -- Philipp Kern <pkern@debian.org>  Fri, 26 Oct 2012 11:10:17 +0200
+  [ Updated translations ]
+  * Amharic (am.po) by Tegegne Tefera
+  * Asturian (ast.po) by Mikel González
+  * Welsh (cy.po) by Dafydd Tomos
+  * Esperanto (eo.po) by Felipe Castro
+  * Spanish (es.po) by Javier Fernández-Sanguino
+  * Galician (gl.po) by Jorge Barreiro
+  * Kannada (kn.po) by Prabodh
+  * Serbian (sr.po) by Karolina Kalic
+  * Tamil (ta.po) by Dr.T.Vasudevan
+  * Ukrainian (uk.po) by Yuri Chornoivan
+
+ -- Philipp Kern <pkern@debian.org>  Fri, 26 Oct 2012 11:11:53 +0200
 
 netcfg (1.98) unstable; urgency=low
 
