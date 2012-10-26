@@ -5,8 +5,9 @@ netcfg (1.99) UNRELEASED; urgency=low
   * Override the hostname found via DHCP or DNS with the preseeded
     value of the new variable netcfg/hostname, if set. Patch by
     Floris Bos. (Closes: #606636)
+  * Add myself to uploaders.
 
- -- Philipp Kern <pkern@debian.org>  Sat, 13 Oct 2012 13:47:58 +0200
+ -- Philipp Kern <pkern@debian.org>  Fri, 26 Oct 2012 11:10:17 +0200
 
 netcfg (1.98) unstable; urgency=low
 
