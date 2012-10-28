@@ -100,9 +100,9 @@ static int nc_wi_slaac(const struct netcfg_interface *interface, FILE *fd)
 	}
 
 	fprintf(fd, "iface %s inet6 auto\n", interface->name);
-	fprintf(fd, "\t# Activate RFC 4941 privacy extensions for outgoing connections. The\n");
+/*	fprintf(fd, "\t# Activate RFC 4941 privacy extensions for outgoing connections. The\n");
 	fprintf(fd, "\t# machine will still be reachable via its EUI-64 interface identifier.\n");
-	fprintf(fd, "\tprivext 2\n");
+	fprintf(fd, "\tprivext 2\n");*/
 
 	return 1;
 }

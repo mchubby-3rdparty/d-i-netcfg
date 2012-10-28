@@ -1,3 +1,11 @@
+netcfg (1.100) UNRELEASED; urgency=low
+
+  * Temporarily revert the activation of IPv6 privacy extensions
+    to cope with network-manager not commenting out the interfaces
+    stanza correctly.
+
+ -- Philipp Kern <pkern@debian.org>  Sun, 28 Oct 2012 08:44:44 +0100
+
 netcfg (1.99) unstable; urgency=low
 
   [ Philipp Kern ]
