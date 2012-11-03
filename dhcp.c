@@ -401,10 +401,14 @@ int ask_wifi_configuration (struct debconfclient *client, struct netcfg_interfac
                 ret = wireless_security_type(client, interface->name);
                 if (ret == GO_BACK)
                     wifistate = ESSID;
-                else if (ret == REPLY_WPA)
+                else if (ret == REPLY_WPA) {
                     wifistate = WPA;
-                else
+                    interface->wifi_security = REPLY_WPA;
+                }
+                else {
                     wifistate = WEP;
+                    interface->wifi_security = REPLY_WEP;
+                }
                 break;
             }
 

@@ -22,6 +22,7 @@
 */
 
 #include "netcfg.h"
+#include "nm-conf.h"
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -80,6 +81,7 @@ int main(int argc, char *argv[])
     char *defiface = NULL, *defwireless = NULL;
     response_t res;
     struct netcfg_interface interface;
+    struct nm_config_info nmconf;
 
     /* initialize libd-i */
     di_system_init("netcfg");
@@ -300,10 +302,14 @@ int main(int argc, char *argv[])
                 ret = wireless_security_type(client, interface.name);
                 if (ret == GO_BACK)
                     state = WCONFIG_ESSID;
-                else if (ret == REPLY_WPA)
+                else if (ret == REPLY_WPA) {
                     state = WCONFIG_WPA;
-                else
+                    interface.wifi_security = REPLY_WPA;
+                }
+                else {
                     state = WCONFIG_WEP;
+                    interface.wifi_security = REPLY_WEP;
+                }
                 break;
             }
 
@@ -337,6 +343,9 @@ int main(int argc, char *argv[])
             break;
 
         case QUIT:
+            nm_get_configuration(&interface, &nmconf);
+            nm_write_configuration(nmconf);
+
             netcfg_update_entropy();
             return 0;
         }
