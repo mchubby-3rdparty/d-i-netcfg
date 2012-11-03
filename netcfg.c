@@ -113,6 +113,14 @@ int main(int argc, char *argv[])
     else
         debconf_set(client, "netcfg/use_autoconfig", "true");
 
+    /* also support disable_dhcp for compatibility */
+    debconf_get(client, "netcfg/disable_dhcp");
+
+    if (!strcmp(client->value, "true"))
+        debconf_set(client, "netcfg/use_autoconfig", "false");
+    else
+        debconf_set(client, "netcfg/use_autoconfig", "true");
+
     for (;;) {
         switch(state) {
         case BACKUP:
