@@ -1,3 +1,9 @@
+netcfg (1.101) UNRELEASED; urgency=low
+
+  * Skip reachability test for empty gateway. (Closes: #690868)
+
+ -- Philipp Kern <pkern@debian.org>  Sat, 03 Nov 2012 21:24:15 +0100
+
 netcfg (1.100) unstable; urgency=low
 
   * Temporarily revert the activation of IPv6 privacy extensions

@@ -589,7 +589,7 @@ int netcfg_get_static(struct debconfclient *client, struct netcfg_interface *ifa
             if (netcfg_get_gateway(client, iface))
                 state = GET_NETMASK;
             else
-                if (!netcfg_gateway_reachable(iface))
+                if (strlen(iface->gateway) > 0 && !netcfg_gateway_reachable(iface))
                     state = GATEWAY_UNREACHABLE;
                 else
                     state = GET_NAMESERVERS;
