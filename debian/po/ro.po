@@ -35,7 +35,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ro\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-13 22:02+0000\n"
+"POT-Creation-Date: 2012-11-03 22:02+0000\n"
 "PO-Revision-Date: 2012-09-21 22:13+0300\n"
 "Last-Translator: Andrei POPESCU <andreimpopescu@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
@@ -567,112 +567,112 @@ msgstr "Se caută puncte de acces fără fir ..."
 
 #. Type: text
 #. Description
-#: ../netcfg-common.templates:28001
+#: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
 msgstr "Se detectează conexiunea pe ${interface}, vă rugăm să așteptați..."
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:29001
+#: ../netcfg-common.templates:30001
 msgid "<none>"
 msgstr "<nici una>"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:30001
+#: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
 msgstr "Ethernet fără fir (802.11x)"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:31001
+#: ../netcfg-common.templates:32001
 msgid "wireless"
 msgstr "fără fir (radio)"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:32001
+#: ../netcfg-common.templates:33001
 msgid "Ethernet"
 msgstr "Ethernet"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:33001
+#: ../netcfg-common.templates:34001
 msgid "Token Ring"
 msgstr "Token Ring"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:34001
+#: ../netcfg-common.templates:35001
 msgid "USB net"
 msgstr "Rețea USB"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:36001
+#: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
 msgstr "IP prin linie serială"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:37001
+#: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
 msgstr "IP prin port paralel"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:38001
+#: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
 msgstr "Protocol punct-la-punct"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:39001
+#: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
 msgstr "IPv6-în-IPv4"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:40001
+#: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
 msgstr "Protocol ISDN punct-la-punct"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:41001
+#: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
 msgstr "Canal-la-canal"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:42001
+#: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
 msgstr "Canal-la-canal real"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:44001
+#: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
 msgstr "Vehicul de comunicare inter-utilizator"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:45001
+#: ../netcfg-common.templates:46001
 msgid "Unknown interface"
 msgstr "Interfață necunoscută"
 
@@ -680,7 +680,7 @@ msgstr "Interfață necunoscută"
 #. Description
 #. base-installer progress bar item
 #. :sl1:
-#: ../netcfg-common.templates:46001
+#: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
 msgstr "Se stochează configurațiile de rețea ..."
 
@@ -688,21 +688,21 @@ msgstr "Se stochează configurațiile de rețea ..."
 #. Description
 #. Item in the main menu to select this package
 #. :sl1:
-#: ../netcfg-common.templates:47001
+#: ../netcfg-common.templates:48001
 msgid "Configure the network"
 msgstr "Configurarea rețelei"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
 msgstr "Timpul de așteptare (în secunde) pentru detectarea conexiunii:"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
@@ -713,14 +713,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:50001
+#: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
 msgstr "Timp de detectare a conexiunii la rețea nevalid"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:50001
+#: ../netcfg-common.templates:51001
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
@@ -732,21 +732,21 @@ msgstr ""
 #. Choices
 #. Translators: please do not translate the variable essid_list
 #. :sl1:
-#: ../netcfg-common.templates:51001
+#: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
 msgstr "${essid_list} Introduceți ESSID manual"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:51002
+#: ../netcfg-common.templates:52002
 msgid "Wireless network:"
 msgstr "Rețeaua fără fir:"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:51002
+#: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
 msgstr "Alegeți rețeaua fără fir de folosit în timpul procesul de instalare:"
 

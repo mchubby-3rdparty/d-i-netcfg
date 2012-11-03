@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-13 22:02+0000\n"
+"POT-Creation-Date: 2012-11-03 22:02+0000\n"
 "PO-Revision-Date: 2012-09-24 17:59+0530\n"
 "Last-Translator: Danishka Navin <danishka@gmail.com>\n"
 "Language-Team: Sinhala <info@hanthana.org>\n"
@@ -529,112 +529,112 @@ msgstr "රැහැන් තහිත ප්‍රවේශ අග්‍ර �
 
 #. Type: text
 #. Description
-#: ../netcfg-common.templates:28001
+#: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
 msgstr "${interface} මත සබඳතාවක් හඳුනාගනිමින්; කරුණාකර රැඳෙන්න..."
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:29001
+#: ../netcfg-common.templates:30001
 msgid "<none>"
 msgstr "<නොමැත>"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:30001
+#: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
 msgstr "රැහැන් රහිත ඊදර්නෙට් (802.11x)"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:31001
+#: ../netcfg-common.templates:32001
 msgid "wireless"
 msgstr "රැහැන් රහිත"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:32001
+#: ../netcfg-common.templates:33001
 msgid "Ethernet"
 msgstr "ඊදර්නෙට්"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:33001
+#: ../netcfg-common.templates:34001
 msgid "Token Ring"
 msgstr "ටෝකන වළල්ල"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:34001
+#: ../netcfg-common.templates:35001
 msgid "USB net"
 msgstr "USB ජාල"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:36001
+#: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
 msgstr "ශේණිගත-රේඛා IP "
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:37001
+#: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
 msgstr "සමාන්තර-පේනු IP"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:38001
+#: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
 msgstr "ලක්‍ෂයෙන්-ලක්‍ෂයට නීතිමාලාව"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:39001
+#: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
 msgstr "IPv6-in-IPv4"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:40001
+#: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
 msgstr "ISDN ලක්‍ෂයෙන්-ලක්‍ෂය නීතිමාලාව"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:41001
+#: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
 msgstr "චැනලයෙන්-චැනලයට"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:42001
+#: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
 msgstr "සත්‍ය චැනලයෙන්-චැනලයට"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:44001
+#: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
 msgstr "අන්තර් පරිශීලක සන්නිවේදන රථය"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:45001
+#: ../netcfg-common.templates:46001
 msgid "Unknown interface"
 msgstr "නොදන්නා අතුරුමුහුණතක්"
 
@@ -642,7 +642,7 @@ msgstr "නොදන්නා අතුරුමුහුණතක්"
 #. Description
 #. base-installer progress bar item
 #. :sl1:
-#: ../netcfg-common.templates:46001
+#: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
 msgstr "ජාල සැකසීම් ගබඩා කරමින්..."
 
@@ -650,21 +650,21 @@ msgstr "ජාල සැකසීම් ගබඩා කරමින්..."
 #. Description
 #. Item in the main menu to select this package
 #. :sl1:
-#: ../netcfg-common.templates:47001
+#: ../netcfg-common.templates:48001
 msgid "Configure the network"
 msgstr "ජාලය වින්‍යාසගත කරමින්"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
 msgstr "සබඳතා හඳුනාගැනීම සඳහා රැඳවුම් කාලය (තත්පර වලින්):"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
@@ -673,14 +673,14 @@ msgstr "ජාල සබඳතා හඳුනාගැනීමට රැඳී
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:50001
+#: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
 msgstr "වලංගු නොවන සබඳතා හැඳනීම් රැඳවුම් කාලය "
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:50001
+#: ../netcfg-common.templates:51001
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
@@ -692,21 +692,21 @@ msgstr ""
 #. Choices
 #. Translators: please do not translate the variable essid_list
 #. :sl1:
-#: ../netcfg-common.templates:51001
+#: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
 msgstr "${essid_list} ශ්‍රමිකව ESSID ඇතුළත් කරන්න"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:51002
+#: ../netcfg-common.templates:52002
 msgid "Wireless network:"
 msgstr "රැහැන් රහිත ජාලය:"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:51002
+#: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
 msgstr "ස්ථාපන ක්‍රියාවලිය අතරතුර භාවිත කරන රැහැන් රහිත ජාලය තෝරන්න."
 

@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-13 22:02+0000\n"
+"POT-Creation-Date: 2012-11-03 22:02+0000\n"
 "PO-Revision-Date: 2012-10-18 22:33-0300\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
@@ -549,112 +549,112 @@ msgstr "Serĉado de sendratajn retalir-punktojn..."
 
 #. Type: text
 #. Description
-#: ../netcfg-common.templates:28001
+#: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
 msgstr "Detektado de ligo en ${interface}, bonvolu atendi..."
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:29001
+#: ../netcfg-common.templates:30001
 msgid "<none>"
 msgstr "<nenio>"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:30001
+#: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
 msgstr "Sendrata Eterreto (802.11x)"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:31001
+#: ../netcfg-common.templates:32001
 msgid "wireless"
 msgstr "sendrata"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:32001
+#: ../netcfg-common.templates:33001
 msgid "Ethernet"
 msgstr "Eterreto"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:33001
+#: ../netcfg-common.templates:34001
 msgid "Token Ring"
 msgstr "Stafet-ringo"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:34001
+#: ../netcfg-common.templates:35001
 msgid "USB net"
 msgstr "USB-reto"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:36001
+#: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
 msgstr "Seri-linea IP"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:37001
+#: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
 msgstr "Paralel-porda IP"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:38001
+#: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
 msgstr "Punkt-al-Punkta Protokolo"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:39001
+#: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
 msgstr "IPv6-en-IPv4"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:40001
+#: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
 msgstr "'ISDN'-a Punkt-al-Punkta Protokolo"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:41001
+#: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
 msgstr "Kanal-al-Kanalo"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:42001
+#: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
 msgstr "Reala Kanal-al-Kanalo"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:44001
+#: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
 msgstr "Porinteruzanta komukik-vehiklo"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:45001
+#: ../netcfg-common.templates:46001
 msgid "Unknown interface"
 msgstr "Nekonata interfaco"
 
@@ -662,7 +662,7 @@ msgstr "Nekonata interfaco"
 #. Description
 #. base-installer progress bar item
 #. :sl1:
-#: ../netcfg-common.templates:46001
+#: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
 msgstr "Registrado de retaj agordoj..."
 
@@ -670,21 +670,21 @@ msgstr "Registrado de retaj agordoj..."
 #. Description
 #. Item in the main menu to select this package
 #. :sl1:
-#: ../netcfg-common.templates:47001
+#: ../netcfg-common.templates:48001
 msgid "Configure the network"
 msgstr "Agordi la reton"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
 msgstr "Atendada tempo (en sekundoj) por detekto de konekto:"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
@@ -695,14 +695,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:50001
+#: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
 msgstr "Malvalida atendada tempo por detekto de ret-konekto"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:50001
+#: ../netcfg-common.templates:51001
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
@@ -714,21 +714,21 @@ msgstr ""
 #. Choices
 #. Translators: please do not translate the variable essid_list
 #. :sl1:
-#: ../netcfg-common.templates:51001
+#: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
 msgstr "${essid_list} Enigi ESSID vi mem"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:51002
+#: ../netcfg-common.templates:52002
 msgid "Wireless network:"
 msgstr "Sendrata reto:"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:51002
+#: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
 msgstr "Elektu la sendratan reton uzotan dum la instalprocezo."
 

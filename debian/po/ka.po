@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer.2006071\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-13 22:02+0000\n"
+"POT-Creation-Date: 2012-11-03 22:02+0000\n"
 "PO-Revision-Date: 2011-03-01 12:49+0400\n"
 "Last-Translator: Aiet Kolkhi <aietkolkhi@gmail.com>\n"
 "Language-Team: Georgian\n"
@@ -544,112 +544,112 @@ msgstr "მიმდინარეობს უკაბელო ქსელ�
 
 #. Type: text
 #. Description
-#: ../netcfg-common.templates:28001
+#: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
 msgstr "მიმდინარეობს ${interface}-ზე ბმულის ამოცნობა; გთხოვთ, დაელოდოთ..."
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:29001
+#: ../netcfg-common.templates:30001
 msgid "<none>"
 msgstr "<არაა>"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:30001
+#: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
 msgstr "უკაბელო ethernet-ქსელი (802.11x)"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:31001
+#: ../netcfg-common.templates:32001
 msgid "wireless"
 msgstr "უკაბელო"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:32001
+#: ../netcfg-common.templates:33001
 msgid "Ethernet"
 msgstr "Ethernet"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:33001
+#: ../netcfg-common.templates:34001
 msgid "Token Ring"
 msgstr "Token Ring"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:34001
+#: ../netcfg-common.templates:35001
 msgid "USB net"
 msgstr "USB ქსელი"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:36001
+#: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
 msgstr "Serial-line IP"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:37001
+#: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
 msgstr "პარალელური პორტ IP"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:38001
+#: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
 msgstr "Point-to-Point პროტოკოლი"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:39001
+#: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
 msgstr "IPv6-in-IPv4"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:40001
+#: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
 msgstr "ISDN Point-to-Point პროტოკოლი"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:41001
+#: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
 msgstr "Channel-to-channel"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:42001
+#: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
 msgstr "რეალური channel-to-channel"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:44001
+#: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
 msgstr "Inter-user communication vehicle"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:45001
+#: ../netcfg-common.templates:46001
 msgid "Unknown interface"
 msgstr "უცნობი ინტერფეისი"
 
@@ -657,7 +657,7 @@ msgstr "უცნობი ინტერფეისი"
 #. Description
 #. base-installer progress bar item
 #. :sl1:
-#: ../netcfg-common.templates:46001
+#: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
 msgstr "ქსელის პარამეტრების შენახვა ..."
 
@@ -665,21 +665,21 @@ msgstr "ქსელის პარამეტრების შენახ�
 #. Description
 #. Item in the main menu to select this package
 #. :sl1:
-#: ../netcfg-common.templates:47001
+#: ../netcfg-common.templates:48001
 msgid "Configure the network"
 msgstr "ქსელის კონფიგურაცია"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
 msgstr ""
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 #, fuzzy
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
@@ -689,14 +689,14 @@ msgstr "დაარქვით სახელი ახალ ლოგიკ
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:50001
+#: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
 msgstr ""
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:50001
+#: ../netcfg-common.templates:51001
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
@@ -706,14 +706,14 @@ msgstr ""
 #. Choices
 #. Translators: please do not translate the variable essid_list
 #. :sl1:
-#: ../netcfg-common.templates:51001
+#: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
 msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:51002
+#: ../netcfg-common.templates:52002
 #, fuzzy
 msgid "Wireless network:"
 msgstr "უსადენო ქსელის ტიპი:"
@@ -721,7 +721,7 @@ msgstr "უსადენო ქსელის ტიპი:"
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:51002
+#: ../netcfg-common.templates:52002
 #, fuzzy
 msgid "Select the wireless network to use during the installation process."
 msgstr "ამოირჩიეთ ინსტალაციის პროცესის შემდეგი საფეხური:"

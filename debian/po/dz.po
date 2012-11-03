@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dDz.po\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-13 22:02+0000\n"
+"POT-Creation-Date: 2012-11-03 22:02+0000\n"
 "PO-Revision-Date: 2012-02-29 04:41-0500\n"
 "Last-Translator: Jurmey Rabgay <jrabgay@dit.gov.bt>\n"
 "Language-Team: Dzongkha <pgeyleg@dit.gov.bt>\n"
@@ -543,7 +543,7 @@ msgstr "རླུང་འཕྲིན་འཛུལ་སྤྱོད་འབ
 
 #. Type: text
 #. Description
-#: ../netcfg-common.templates:28001
+#: ../netcfg-common.templates:29001
 #, fuzzy
 msgid "Detecting link on ${interface}; please wait..."
 msgstr "སྲ་ཆས་འདི་སྐྱོན་འཛིན་འབད་ནི་  བསྒུག་གནང་།"
@@ -551,105 +551,105 @@ msgstr "སྲ་ཆས་འདི་སྐྱོན་འཛིན་འབད
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:29001
+#: ../netcfg-common.templates:30001
 msgid "<none>"
 msgstr "<none>"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:30001
+#: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
 msgstr "རླུང་འཕྲིན་གྱི་ཨི་ཐར་ནེཊི་(802.11x)"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:31001
+#: ../netcfg-common.templates:32001
 msgid "wireless"
 msgstr "རླུང་འཕྲིན།"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:32001
+#: ../netcfg-common.templates:33001
 msgid "Ethernet"
 msgstr "ཨི་ཐར་ནེཊི་"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:33001
+#: ../netcfg-common.templates:34001
 msgid "Token Ring"
 msgstr "ངོ་རྟགས་ཨ་ལོང་།"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:34001
+#: ../netcfg-common.templates:35001
 msgid "USB net"
 msgstr "ཡུ་ཨེས་བི་ནེཊི།"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:36001
+#: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
 msgstr "ཨང་རིམ་-གྲལ་ཐིག་ ཨའི་པི།"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:37001
+#: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
 msgstr "མཉམ་སྤྱོད་-འདྲེན་ལམ་ ཨའི་པི།"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:38001
+#: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
 msgstr "ས་ཚིགས་ལས་ས་ཚིགས་ གནད་སྤེལ་ལམ་ལུགས།"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:39001
+#: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
 msgstr "ཨའི་པི་ཝི་༦-ནང་ཨའི་པི་ཝི་༤"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:40001
+#: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
 msgstr "ཨའི་ཨེས་ཌི་ཨེན་ས་ཚིགས་ ལས་ ས་ཚིགས་གནད་སྤེལ་ལམ་ལུགས།"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:41001
+#: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
 msgstr "རྒྱུ་ལམ་-ལས་-རྒྱུ་ལམ།"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:42001
+#: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
 msgstr "ངོ་མ་རྒྱུ་ལམ་-ལས-་རྒྱུ་ལམ།"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:44001
+#: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
 msgstr "ཕན་ཚུན་ལག་ལེན་པའི་རྒྱུ་འབྲེལ་འགྲུལ་འཁོར།"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../netcfg-common.templates:45001
+#: ../netcfg-common.templates:46001
 msgid "Unknown interface"
 msgstr "མ་ཤེསཔ་ངོས་འདྲ་བ།"
 
@@ -657,7 +657,7 @@ msgstr "མ་ཤེསཔ་ངོས་འདྲ་བ།"
 #. Description
 #. base-installer progress bar item
 #. :sl1:
-#: ../netcfg-common.templates:46001
+#: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
 msgstr "གསོག་འཇོག་ཡོངས་འབྲེལ་སྒྲག་སྟངས་ཚུ..."
 
@@ -665,21 +665,21 @@ msgstr "གསོག་འཇོག་ཡོངས་འབྲེལ་སྒྲ
 #. Description
 #. Item in the main menu to select this package
 #. :sl1:
-#: ../netcfg-common.templates:47001
+#: ../netcfg-common.templates:48001
 msgid "Configure the network"
 msgstr "ཡོངས་འབྲེལ་རིམ་སྒྲིག་འབད།"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
 msgstr "འབྲེལ་ལམ་སྐྱོན་འཛིན་བསྒུག་སྡོན་ནིའི་དུས་ཚོད་ ༼སྐར་ཆ་༽"
 
 #. Type: string
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:49001
+#: ../netcfg-common.templates:50001
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
@@ -688,14 +688,14 @@ msgstr "ཡོངས་འབྲེལ་ འབྲེལ་ལམ་སྐྱ�
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:50001
+#: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
 msgstr "ནུས་མེད་ ཡོངས་འབྲེལ་ འབྲེལ་ལམ་ སྐྱོན་འཛིན་བསྒུག་སྡོན་ནིའི་དུས་ཚོད་ "
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../netcfg-common.templates:50001
+#: ../netcfg-common.templates:51001
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
@@ -707,21 +707,21 @@ msgstr ""
 #. Choices
 #. Translators: please do not translate the variable essid_list
 #. :sl1:
-#: ../netcfg-common.templates:51001
+#: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
 msgstr "${essid_list} ESSID ལག་ཐོག་ལས་བཙུགས།"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:51002
+#: ../netcfg-common.templates:52002
 msgid "Wireless network:"
 msgstr "རླུང་འཕྲིན་ ཡོངས་འབྲེལ:"
 
 #. Type: select
 #. Description
 #. :sl1:
-#: ../netcfg-common.templates:51002
+#: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
 msgstr "གཞི་བཙུགས་ལས་སྦྱོར་གྱི་སྐབས་ ལག་ལེན་འཐབ་ནིའི་དོན་ལུ་ རླུང་འཕྲིན་ ཡོངས་འབྲེལ་ གདམ་ཁ་རྐྱབས:"
 
