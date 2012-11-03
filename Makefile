@@ -6,7 +6,7 @@ DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 CC		?= gcc
 TARGETS		?= netcfg-static netcfg
 
-LDOPTS		= -ldebconfclient -ldebian-installer
+LDOPTS		= -ldebconfclient -ldebian-installer -luuid
 CFLAGS		= -W -Wall -Werror -DNDEBUG -DNETCFG_VERSION="\"$(NETCFG_VERSION)\"" -DNETCFG_BUILD_DATE="\"$(NETCFG_BUILD_DATE)\"" -I.
 COMMON_OBJS	= netcfg-common.o wireless.o write_interface.o ipv6.o
 
@@ -38,7 +38,7 @@ endif
 all: $(TARGETS)
 
 netcfg-static: netcfg-static.o static.o ethtool-lite.o
-netcfg: netcfg.o dhcp.o static.o ethtool-lite.o wpa.o wpa_ctrl.o rdnssd.o autoconfig.o
+netcfg: netcfg.o dhcp.o static.o ethtool-lite.o wpa.o wpa_ctrl.o rdnssd.o autoconfig.o nm-conf.o
 
 ethtool-lite: ethtool-lite-test.o
 	$(CC) -o $@ $<
