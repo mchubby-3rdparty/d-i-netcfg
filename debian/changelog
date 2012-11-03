@@ -4,6 +4,8 @@ netcfg (1.101) UNRELEASED; urgency=low
   * Obey netcfg/disable_dhcp for compatibility reasons and disable
     autoconfig. There's no need to break old preseeding scripts,
     as the intent is clear.
+  * Add a debconf template for netcfg/disable_autoconfig and state
+    that netcfg/disable_dhcp is deprecated.
 
  -- Philipp Kern <pkern@debian.org>  Sat, 03 Nov 2012 21:24:15 +0100
 

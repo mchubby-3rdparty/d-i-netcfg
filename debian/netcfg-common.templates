@@ -220,11 +220,17 @@ Type: text
 # :sl2:
 _Description: Searching for wireless access points...
 
-Template: netcfg/disable_dhcp
+Template: netcfg/disable_autoconfig
 Type: boolean
 Default: false
 Description: for internal use; can be preseeded
  Set to true to force static network configuration
+
+Template: netcfg/disable_dhcp
+Type: boolean
+Default: false
+Description: for internal use; can be preseeded (deprecated)
+ Set to true to force static network configuration (deprecated)
 
 Template: netcfg/link_detect_progress
 Type: text
