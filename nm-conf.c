@@ -180,6 +180,31 @@ void nm_write_configuration(struct nm_config_info nmconf)
     nm_write_ipv6(config_file, nmconf.ipv6);
 
     fclose(config_file);
+
+    nm_write_connection_type(nmconf);
+}
+
+/* Write info about how the network was configured to a specific file, in
+ * order to be used in the finish install script. */
+void nm_write_connection_type(struct nm_config_info nmconf)
+{
+    FILE *f = fopen(NM_CONNECTION_FILE, "w");
+
+    if (nmconf.connection.type == WIFI) {
+        fprintf(f, "connection type: wireless\n");
+    }
+    else {
+        fprintf(f, "connection type: wired\n");
+    }
+
+    if (nmconf.connection.type == WIFI && nmconf.wireless.is_secured) {
+        fprintf(f, "security: secured\n");
+    }
+    else {
+        fprintf(f, "security: unsecured\n");
+    }
+
+    fclose(f);
 }
 
 /* Functions for extracting information from netcfg variables. */

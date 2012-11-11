@@ -38,6 +38,7 @@
 #define NM_DEFAULT_WIRELESS_SECURITY    "802-11-wireless-security"
 #define NM_DEFAULT_PATH_FOR_MAC         "/sys/class/net/%s/address"
 #define NM_CONFIG_FILE_PATH             "/etc/NetworkManager/system-connections"
+#define NM_CONNECTION_FILE              "/tmp/connection_type"
 
 #define NM_SETTINGS_CONNECTION          "[connection]"
 #define NM_SETTINGS_WIRELESS            "["NM_DEFAULT_WIRELESS"]"
@@ -133,6 +134,8 @@ void nm_write_ipv4(FILE *config_file, nm_ipv4 ipv4);
 void nm_write_ipv6(FILE *config_file, nm_ipv6 ipv6);
 
 void nm_write_configuration(struct nm_config_info nmconf);
+
+void nm_write_connection_type(struct nm_config_info nmconf);
 
 
 #ifdef WIRELESS
