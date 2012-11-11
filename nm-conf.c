@@ -322,7 +322,9 @@ void nm_get_wireless_security(struct netcfg_interface *niface, nm_wireless_secur
 /* Save IPv4 settings. */
 void nm_get_ipv4(struct netcfg_interface *niface, nm_ipv4 *ipv4)
 {
-    if (niface->address_family != AF_INET) {
+    /* DHCP wasn't used and there is no IPv4 address saved => didn't use ipv4
+     * so won't use it in the future. */
+    if (niface->dhcp == 0 && niface->address_family != AF_INET) {
         ipv4->used = 0;
         return;
     }
@@ -348,7 +350,9 @@ void nm_get_ipv4(struct netcfg_interface *niface, nm_ipv4 *ipv4)
 /* For the moment, just set it to ignore. */
 void nm_get_ipv6(struct netcfg_interface *niface, nm_ipv6 *ipv6)
 {
-    if (niface->address_family != AF_INET6) {
+    /* No IPv6 address, didn't use dhcpv6 or slaac so won't use ipv6. */
+    if (niface->address_family != AF_INET6 && niface->dhcpv6 == 0 &&
+            niface->slaac == 0) {
         ipv6->used = 0;
         return;
     }
