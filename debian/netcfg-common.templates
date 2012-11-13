@@ -334,13 +334,14 @@ Type: text
 # :sl1:
 _Description: Configure the network
 
-Template: netcfg/network-manager
-Type: boolean
-Default: true
-Description: for internal use; can be preseeded
- Set to false to prevent /etc/network/interfaces being adjusted for use by
- network-manager. If you do this, network-manager will probably not work
- correctly.
+Template: netcfg/target_network_config
+Type: select
+Choices-C: nm_config, ifupdown, loopback
+Choices: Network Manager, ifupdown (/etc/network/interfaces), No network
+configuration
+Description: Post installation network configuration:
+ Please choose what kind of network configuration you want to have on your
+ system after the installation process is complete.
 
 Template: netcfg/link_wait_timeout
 Type: string
