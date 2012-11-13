@@ -92,22 +92,15 @@ typedef struct nm_wireless_security
     };
 }   nm_wireless_security;
 
-typedef struct nm_ipv4
+typedef struct nm_ipvX
 {
-    int                     used;   /* 1 = true, 0 = false */
-    enum {AUTO, MANUAL}     method;
-    char *                  ip_address;
-    char *                  gateway;
-    char *                  nameservers[NETCFG_NAMESERVERS_MAX];
-    unsigned int            masklen;
-}   nm_ipv4;
-
-typedef struct nm_ipv6
-{
-    int                     used;   /* 1 = true, 0 = false */
-    enum {AUTO6, IGNORE}    method;
-    // TODO: actually have IPV6 config
-}   nm_ipv6;
+    int                             used;   /* 1 = true, 0 = false */
+    enum {AUTO, MANUAL, IGNORE}     method;
+    char *                          ip_address;
+    char *                          gateway;
+    char *                          nameservers[NETCFG_NAMESERVERS_MAX];
+    unsigned int                    masklen;
+}   nm_ipvX;
 
 
 typedef struct nm_config_info
@@ -116,8 +109,8 @@ typedef struct nm_config_info
     nm_wired                wired;
     nm_wireless             wireless;
     nm_wireless_security    wireless_security;
-    nm_ipv4                 ipv4;
-    nm_ipv6                 ipv6;
+    nm_ipvX                 ipv4;
+    nm_ipvX                 ipv6;
 }   nm_config_info;
 
 /* Here come functions: */
@@ -130,8 +123,8 @@ void nm_write_wireless_security(FILE *config_file, nm_wireless_security
 #endif
 void nm_write_connection(FILE *config_file, nm_connection connection);
 void nm_write_wired_specific_options(FILE *config_file, nm_wired wired);
-void nm_write_ipv4(FILE *config_file, nm_ipv4 ipv4);
-void nm_write_ipv6(FILE *config_file, nm_ipv6 ipv6);
+void nm_write_ipv4(FILE *config_file, nm_ipvX ipv4);
+void nm_write_ipv6(FILE *config_file, nm_ipvX ipv6);
 
 void nm_write_configuration(struct nm_config_info nmconf);
 
@@ -146,8 +139,8 @@ void nm_get_wireless_security(struct netcfg_interface *niface, nm_wireless_secur
 void nm_get_wired_connection(nm_connection *connection);
 void nm_get_mac_address(char *interface, char *mac_addr);
 void nm_get_wired_specific_options(struct netcfg_interface *niface, nm_wired *wired);
-void nm_get_ipv4(struct netcfg_interface *niface, nm_ipv4 *ipv4);
-void nm_get_ipv6(struct netcfg_interface *niface, nm_ipv6 *ipv6);
+void nm_get_ipv4(struct netcfg_interface *niface, nm_ipvX *ipv4);
+void nm_get_ipv6(struct netcfg_interface *niface, nm_ipvX *ipv6);
 
 #ifdef WIRELESS
 void nm_get_wireless_config(struct netcfg_interface *niface, struct nm_config_info *nmconf);

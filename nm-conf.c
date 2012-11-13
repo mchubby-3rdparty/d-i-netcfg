@@ -61,7 +61,51 @@ void nm_write_wireless_security(FILE *config_file, nm_wireless_security
 }
 #endif
 
-void nm_write_ipv4(FILE *config_file, nm_ipv4 ipv4)
+void nm_write_static_ipvX(FILE *config_file, nm_ipvX ipvx)
+{
+    char    buffer[NM_MAX_LEN_BUF], addr[NM_MAX_LEN_IPV4];
+    int     i;
+
+    /* Get DNS in printable format. */
+    memset(buffer, 0, NM_MAX_LEN_BUF);
+
+    for (i = 0; !empty_str(ipvx.nameservers[i]); i++) {
+        strcat(buffer, ipvx.nameservers[i]);
+        strcat(buffer, ";");
+    }
+
+    if (strcmp(buffer, "")) {
+        fprintf(config_file, "dns=%s\n", buffer);
+    }
+
+    /* Get addresses in printable format. */
+    memset(buffer, 0, NM_MAX_LEN_BUF);
+
+    /* Write IP address to the buffer. */
+    strcat(buffer, ipvx.ip_address);
+    strcat(buffer, ";");
+
+    /* Write netmask to the buffer. */
+    sprintf(addr, "%d", ipvx.masklen);
+    strcat(buffer, addr);
+    strcat(buffer, ";");
+
+    /* Write gateway address to the buffer. */
+    memset(addr, 0, NM_MAX_LEN_IPV4);
+    if (!empty_str(ipvx.gateway)) {
+        strncpy(addr, ipvx.gateway, NM_MAX_LEN_IPV4 - 1);
+    }
+    else {
+        strcpy(addr, "0");
+    }
+    strcat(buffer, addr);
+    strcat(buffer, ";");
+
+    /* Write config to the configuration file. */
+    fprintf(config_file, "addresses1=%s\n", buffer);
+}
+
+void nm_write_ipv4(FILE *config_file, nm_ipvX ipv4)
 {
     /* Don't write ipv4 settings if ipv4 wasn't used. */
     if (ipv4.used == 0) {
@@ -74,61 +118,33 @@ void nm_write_ipv4(FILE *config_file, nm_ipv4 ipv4)
         fprintf(config_file, "method=%s\n", "auto");
     }
     else {
-        char    buffer[NM_MAX_LEN_BUF], addr[NM_MAX_LEN_IPV4];
-        int     i;
-
         fprintf(config_file, "method=%s\n", "manual");
-
-        /* Get DNS in printable format. */
-        memset(buffer, 0, NM_MAX_LEN_BUF);
-
-        for (i = 0; !empty_str(ipv4.nameservers[i]); i++) {
-            strcat(buffer, ipv4.nameservers[i]);
-            strcat(buffer, ";");
-        }
-
-        if (strcmp(buffer, "")) {
-            fprintf(config_file, "dns=%s\n", buffer);
-        }
-
-        /* Get addresses in printable format. */
-        memset(buffer, 0, NM_MAX_LEN_BUF);
-
-        /* Write IP address to the buffer. */
-        strcat(buffer, ipv4.ip_address);
-        strcat(buffer, ";");
-
-        /* Write netmask to the buffer. */
-        sprintf(addr, "%d", ipv4.masklen);
-        strcat(buffer, addr);
-        strcat(buffer, ";");
-
-        /* Write gateway address to the buffer. */
-        memset(addr, 0, NM_MAX_LEN_IPV4);
-        if (!empty_str(ipv4.gateway)) {
-            strncpy(addr, ipv4.gateway, NM_MAX_LEN_IPV4 - 1);
-        }
-        else {
-            strcpy(addr, "0");
-        }
-        strcat(buffer, addr);
-        strcat(buffer, ";");
-
-        /* Write config to the configuration file. */
-        fprintf(config_file, "addresses1=%s\n", buffer);
+        nm_write_static_ipvX(config_file, ipv4);
     }
 }
 
-void nm_write_ipv6(FILE *config_file, nm_ipv6 ipv6)
+void nm_write_ipv6(FILE *config_file, nm_ipvX ipv6)
 {
+    /*
     if (ipv6.used == 0) {
         return;
     }
+    */
 
     fprintf(config_file, "\n%s\n", NM_SETTINGS_IPV6);
 
     if (ipv6.method == IGNORE) {
         fprintf(config_file, "method=%s\n", "ignore");
+    }
+    if (ipv6.method == AUTO) {
+        fprintf(config_file, "method=%s\n", "auto");
+        fprintf(config_file, "ip6-privacy=2\n");
+    }
+    if (ipv6.method == MANUAL) {
+        fprintf(config_file, "method=%s\n", "manual");
+        fprintf(config_file, "ip6-privacy=2\n");
+
+        nm_write_static_ipvX(config_file, ipv6);
     }
 }
 
@@ -320,7 +336,7 @@ void nm_get_wireless_security(struct netcfg_interface *niface, nm_wireless_secur
 #endif
 
 /* Save IPv4 settings. */
-void nm_get_ipv4(struct netcfg_interface *niface, nm_ipv4 *ipv4)
+void nm_get_ipv4(struct netcfg_interface *niface, nm_ipvX *ipv4)
 {
     /* DHCP wasn't used and there is no IPv4 address saved => didn't use ipv4
      * so won't use it in the future. */
@@ -348,17 +364,38 @@ void nm_get_ipv4(struct netcfg_interface *niface, nm_ipv4 *ipv4)
 }
 
 /* For the moment, just set it to ignore. */
-void nm_get_ipv6(struct netcfg_interface *niface, nm_ipv6 *ipv6)
+void nm_get_ipv6(struct netcfg_interface *niface, nm_ipvX *ipv6)
 {
     /* No IPv6 address, didn't use dhcpv6 or slaac so won't use ipv6. */
     if (niface->address_family != AF_INET6 && niface->dhcpv6 == 0 &&
             niface->slaac == 0) {
         ipv6->used = 0;
+        ipv6->method = IGNORE;
         return;
     }
 
     ipv6->used = 1;
-    ipv6->method = IGNORE;
+
+    if (niface->dhcpv6 == 1 || niface->slaac == 1) {
+        ipv6->method = AUTO;
+    }
+    else if (niface->address_family == AF_INET6) {
+        int i;
+
+        ipv6->method = MANUAL;
+
+        ipv6->ip_address = niface->ipaddress;
+        ipv6->gateway = niface->gateway;
+        ipv6->masklen = niface->masklen;
+
+        for (i = 0; i < NETCFG_NAMESERVERS_MAX; i++) {
+            ipv6->nameservers[i] = niface->nameservers[i];
+        }
+    }
+    else {
+        ipv6->method = IGNORE;
+    }
+
 }
 
 /* Extract all configs for a wireless interface, from both global netcfg
