@@ -168,13 +168,11 @@ void nm_write_configuration(struct nm_config_info nmconf)
     /* Open file using its full path. */
     sprintf(buffer, "%s/%s", NM_CONFIG_FILE_PATH, nmconf.connection.id);
     config_file = fopen(buffer, "w");
-    config_file = fopen(nmconf.connection.id, "w");
 
     if (config_file == NULL) {
         di_info("Unable to open file for writting configurations, "
                 "connection id might not be set or set to unproper "
                 "value. Current value: %s\n", nmconf.connection.id);
-        printf("Unable to open file\n");
         return;
     }
 
