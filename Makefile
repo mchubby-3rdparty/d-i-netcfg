@@ -6,12 +6,14 @@ DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 CC		?= gcc
 TARGETS		?= netcfg-static netcfg
 
-LDOPTS		= -ldebconfclient -ldebian-installer -luuid
+LDOPTS		= -ldebconfclient -ldebian-installer
 CFLAGS		= -W -Wall -Werror -DNDEBUG -DNETCFG_VERSION="\"$(NETCFG_VERSION)\"" -DNETCFG_BUILD_DATE="\"$(NETCFG_BUILD_DATE)\"" -I.
 COMMON_OBJS	= netcfg-common.o wireless.o write_interface.o ipv6.o
 
 WIRELESS	= 1
 ifneq ($(DEB_HOST_ARCH_OS),linux)
+LDOPTS		+= -luuid
+CFLAGS		+= -DLIBUUID
 WIRELESS	= 0
 endif
 ifeq ($(DEB_HOST_ARCH),s390)

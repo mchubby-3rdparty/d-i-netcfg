@@ -8,7 +8,6 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <ctype.h>
-#include <uuid/uuid.h>
 #include <debian-installer.h>
 
 #ifdef WIRELESS
@@ -27,7 +26,7 @@
 #define NM_MAX_LEN_WPA_PSK      65   /* 64 standard + NULL char */
 #define NM_MAX_LEN_WEP_KEY      30   /* Rough estimation (should be 26) */
 #define NM_MAX_LEN_PATH         128  /* Assume a path won't be longer */
-#define NM_MAX_LEN_UUID         40
+#define NM_MAX_LEN_UUID         37
 #define NM_NO_BITS_IPV4         32
 
 

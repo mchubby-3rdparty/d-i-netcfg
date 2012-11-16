@@ -1,6 +1,32 @@
 
 #include "nm-conf.h"
 
+#ifdef LIBUUID
+// libuuid is an heavyweight approach for UUID generation. Use it on
+// non-Linux platforms.
+# include <uuid/uuid.h>
+
+static void get_uuid(char* target)
+{
+    uuid_t uuid;
+    uuid_generate(uuid);
+    uuid_unparse(uuid, target);
+}
+#else
+// Linux provides a lightweight facility that can generate UUIDs for us.
+static void get_uuid(char* target)
+{
+    FILE* fp = fopen("/proc/sys/kernel/random/uuid", "r");
+    if (fgets(target, NM_MAX_LEN_UUID, fp) == NULL)
+    {
+        di_error("get_uuid() failed: %s", strerror(errno));
+        exit(1);
+    }
+    target[NM_MAX_LEN_UUID-1] = '\0'; // clear the newline
+    fclose(fp);
+}
+#endif
+
 
 /* Functions for printing informations in Network Manager format. */
 
@@ -228,14 +254,11 @@ void nm_write_connection_type(struct nm_config_info nmconf)
 #ifdef WIRELESS
 void nm_get_wireless_connection(struct netcfg_interface *niface, nm_connection *connection)
 {
-    uuid_t uuid;
-
     /* Use the wireless network name for connection id. */
     snprintf(connection->id, NM_MAX_LEN_ID, "Auto %s", niface->essid);
 
     /* Generate uuid. */
-    uuid_generate(uuid);
-    uuid_unparse(uuid, connection->uuid);
+    get_uuid(connection->uuid);
 
     connection->type = WIFI;
 }
@@ -244,14 +267,11 @@ void nm_get_wireless_connection(struct netcfg_interface *niface, nm_connection *
 /* Get info for the connection setting for wired networks. */
 void nm_get_wired_connection(nm_connection *connection)
 {
-    uuid_t uuid;
-
     /* This is the first wired connection. */
     snprintf(connection->id, NM_MAX_LEN_ID, NM_DEFAULT_WIRED_NAME);
 
     /* Generate uuid. */
-    uuid_generate(uuid);
-    uuid_unparse(uuid, connection->uuid);
+    get_uuid(connection->uuid);
 
     connection->type = WIRED;
 }
