@@ -52,7 +52,6 @@ if [ "$RET" == "$CONFIG_NM" ]; then
 	# Copy NM config file. First make sure the directory exists
 	mkdir -p /target/$FILE_PATH_NM_CONFIG
 	cp /$FILE_PATH_NM_CONFIG/* /target/$FILE_PATH_NM_CONFIG/
-	chmod 600 /target/$FILE_PATH_NM_CONFIG/*
 
 	# Rewrite /etc/network/interfaces to contain only loopback
 	netcfg write_loopback

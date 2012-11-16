@@ -1,5 +1,6 @@
 
 #include "nm-conf.h"
+#include <sys/stat.h>
 
 #ifdef LIBUUID
 // libuuid is an heavyweight approach for UUID generation. Use it on
@@ -194,6 +195,7 @@ void nm_write_configuration(struct nm_config_info nmconf)
     /* Open file using its full path. */
     sprintf(buffer, "%s/%s", NM_CONFIG_FILE_PATH, nmconf.connection.id);
     config_file = fopen(buffer, "w");
+    fchmod(fileno(config_file), 0600);
 
     if (config_file == NULL) {
         di_info("Unable to open file for writting configurations, "
