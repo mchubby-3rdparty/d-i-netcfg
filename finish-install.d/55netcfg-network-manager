@@ -29,7 +29,7 @@ CONFIG_LOOPBACK="loopback"
 db_get netcfg/target_network_config
 
 # Check for preseeding. If the value of the question is empty then set
-# default options.
+# default options. Document automatic selection changes in the template.
 if [ -z "$RET" ]; then
 	if $NM_IS_INSTALLED; then
 		db_set netcfg/target_network_config $CONFIG_NM
@@ -42,10 +42,6 @@ if [ -z "$RET" ]; then
 	fi
 fi
 
-# Ask the question regarding how the system should be configured.
-db_input medium netcfg/target_network_config || true
-db_go || true
-
 db_get netcfg/target_network_config
 
 if [ "$RET" == "$CONFIG_NM" ]; then
@@ -55,9 +51,7 @@ if [ "$RET" == "$CONFIG_NM" ]; then
 
 	# Rewrite /etc/network/interfaces to contain only loopback
 	netcfg write_loopback
-fi
-
-if [ "$RET" == "$CONFIG_LOOPBACK" ]; then
+elif [ "$RET" == "$CONFIG_LOOPBACK" ]; then
 	# Rewrite /etc/network/interfaces to contain only loopback
 	netcfg write_loopback
 fi
