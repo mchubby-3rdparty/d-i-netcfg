@@ -56,12 +56,6 @@ elif [ "$RET" == "$CONFIG_LOOPBACK" ]; then
 	netcfg write_loopback
 fi
 
-# Protect /e/n/i from being read if it contains a password
-if [ $NETCFG_CONNECTION_SECURITY == "secured" ] &&
-   [ "$RET" == "$CONFIG_INTERFACES" ]; then
-    chmod 600 $FILE_INTERFACES
-fi
-
 # Copy /etc/network/interfaces to target. Note: there's nothing particular to
 # be done if the /e/n/i option is chosen, since /e/n/i gets copied in any
 # situation.
