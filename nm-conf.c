@@ -257,7 +257,7 @@ void nm_write_connection_type(struct nm_config_info nmconf)
 void nm_get_wireless_connection(struct netcfg_interface *niface, nm_connection *connection)
 {
     /* Use the wireless network name for connection id. */
-    snprintf(connection->id, NM_MAX_LEN_ID, "Auto %s", niface->essid);
+    snprintf(connection->id, NM_MAX_LEN_ID, "%s", niface->essid);
 
     /* Generate uuid. */
     get_uuid(connection->uuid);
