@@ -42,14 +42,16 @@ void nm_write_connection(FILE *config_file, nm_connection connection)
 
 #ifdef WIRELESS
 void nm_write_wireless_specific_options(FILE *config_file,
-        nm_wireless wireless)
+        struct nm_config_info *nmconf)
 {
+    nm_wireless wireless = nmconf->wireless;
+
     fprintf(config_file, "\n%s\n", NM_SETTINGS_WIRELESS);
     fprintf(config_file, "ssid=%s\n", wireless.ssid);
     fprintf(config_file, "mode=%s\n", (wireless.mode == AD_HOC) ?
             "adhoc" : "infrastructure");
 
-    if (strcmp(wireless.mac_addr, "")) {
+    if (strcmp(wireless.mac_addr, "") && nmconf->connection.manual == 1) {
         fprintf(config_file, "mac=%s\n", wireless.mac_addr);
     }
     if (wireless.is_secured == TRUE) {
@@ -58,11 +60,14 @@ void nm_write_wireless_specific_options(FILE *config_file,
 }
 #endif
 
-void nm_write_wired_specific_options(FILE *config_file, nm_wired wired)
+void nm_write_wired_specific_options(FILE *config_file,
+        struct nm_config_info *nmconf)
 {
+    nm_wired wired = nmconf->wired;
+
     fprintf(config_file, "\n%s\n", NM_SETTINGS_WIRED);
 
-    if (strcmp(wired.mac_addr, "")) {
+    if (strcmp(wired.mac_addr, "") && nmconf->connection.manual == 1) {
         fprintf(config_file, "mac=%s\n", wired.mac_addr);
     }
 }
@@ -194,11 +199,11 @@ void nm_write_configuration(struct nm_config_info nmconf)
     nm_write_connection(config_file, nmconf.connection);
 
     if (nmconf.connection.type == WIRED) {
-        nm_write_wired_specific_options(config_file, nmconf.wired);
+        nm_write_wired_specific_options(config_file, &nmconf);
     }
 #ifdef WIRELESS
     else {
-        nm_write_wireless_specific_options(config_file, nmconf.wireless);
+        nm_write_wireless_specific_options(config_file, &nmconf);
         if (nmconf.wireless.is_secured) {
             nm_write_wireless_security(config_file, nmconf.wireless_security);
         }
@@ -448,5 +453,13 @@ void nm_get_configuration(struct netcfg_interface *niface, struct nm_config_info
         nm_get_wireless_config(niface, nmconf);
     }
 #endif
+    if (nmconf->ipv4.method == MANUAL || nmconf->ipv6.method == MANUAL) {
+        /* Manual address family configuration should be bound to a MAC
+         * address. Hence record this fact globally for the connection. */
+        nmconf->connection.manual = 1;
+    }
+    else {
+        nmconf->connection.manual = 0;
+    }
 }
 

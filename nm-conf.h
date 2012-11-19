@@ -57,10 +57,11 @@
  */
 typedef struct nm_connection
 {
-    char                    id[NM_MAX_LEN_ID];
-    char                    uuid[NM_MAX_LEN_UUID];
-    enum {WIRED, WIFI}  type;
-}   nm_connection;
+    char id[NM_MAX_LEN_ID];
+    char uuid[NM_MAX_LEN_UUID];
+    enum {WIRED, WIFI} type;
+    int manual; /* 1 = true, 0 = false */
+} nm_connection;
 
 typedef struct nm_wired
 {
@@ -116,12 +117,13 @@ typedef struct nm_config_info
 
 #ifdef WIRELESS
 void nm_write_wireless_specific_options(FILE *config_file,
-        nm_wireless wireless);
+        struct nm_config_info *nmconf);
 void nm_write_wireless_security(FILE *config_file, nm_wireless_security
         wireless_security);
 #endif
 void nm_write_connection(FILE *config_file, nm_connection connection);
-void nm_write_wired_specific_options(FILE *config_file, nm_wired wired);
+void nm_write_wired_specific_options(FILE *config_file,
+        struct nm_config_info *nmconf);
 void nm_write_ipv4(FILE *config_file, nm_ipvX ipv4);
 void nm_write_ipv6(FILE *config_file, nm_ipvX ipv6);
 
