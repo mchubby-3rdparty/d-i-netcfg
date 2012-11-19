@@ -134,11 +134,6 @@ void nm_write_static_ipvX(FILE *config_file, nm_ipvX ipvx)
 
 void nm_write_ipv4(FILE *config_file, nm_ipvX ipv4)
 {
-    /* Don't write ipv4 settings if ipv4 wasn't used. */
-    if (ipv4.used == 0) {
-        return;
-    }
-
     fprintf(config_file, "\n%s\n", NM_SETTINGS_IPV4);
 
     if (ipv4.method == AUTO) {
@@ -152,26 +147,18 @@ void nm_write_ipv4(FILE *config_file, nm_ipvX ipv4)
 
 void nm_write_ipv6(FILE *config_file, nm_ipvX ipv6)
 {
-    /*
-    if (ipv6.used == 0) {
-        return;
-    }
-    */
-
     fprintf(config_file, "\n%s\n", NM_SETTINGS_IPV6);
 
-    if (ipv6.method == IGNORE) {
-        fprintf(config_file, "method=%s\n", "ignore");
-    }
     if (ipv6.method == AUTO) {
         fprintf(config_file, "method=%s\n", "auto");
         fprintf(config_file, "ip6-privacy=2\n");
     }
-    if (ipv6.method == MANUAL) {
+    else if (ipv6.method == MANUAL) {
         fprintf(config_file, "method=%s\n", "manual");
-        fprintf(config_file, "ip6-privacy=2\n");
-
         nm_write_static_ipvX(config_file, ipv6);
+    }
+    else if (ipv6.method == IGNORE) {
+        fprintf(config_file, "method=%s\n", "ignore");
     }
 }
 
@@ -362,14 +349,15 @@ void nm_get_ipv4(struct netcfg_interface *niface, nm_ipvX *ipv4)
      * so won't use it in the future. */
     if (niface->dhcp == 0 && niface->address_family != AF_INET) {
         ipv4->used = 0;
-        return;
+    }
+    else {
+        ipv4->used = 1;
     }
 
-    ipv4->used = 1;
     if (niface->dhcp == 1) {
         ipv4->method = AUTO;
     }
-    else {
+    else if (niface->address_family == AF_INET) {
         int i;
 
         ipv4->method = MANUAL;
@@ -381,20 +369,23 @@ void nm_get_ipv4(struct netcfg_interface *niface, nm_ipvX *ipv4)
             ipv4->nameservers[i] = niface->nameservers[i];
         }
     }
+    else {
+        /* IPv4 might always be activated in the future. */
+        ipv4->method = AUTO;
+    }
 }
 
 /* For the moment, just set it to ignore. */
 void nm_get_ipv6(struct netcfg_interface *niface, nm_ipvX *ipv6)
 {
-    /* No IPv6 address, didn't use dhcpv6 or slaac so won't use ipv6. */
+    /* No IPv6 address, no dhcpv6, nor slaac, so wasn't used. */
     if (niface->address_family != AF_INET6 && niface->dhcpv6 == 0 &&
             niface->slaac == 0) {
         ipv6->used = 0;
-        ipv6->method = IGNORE;
-        return;
     }
-
-    ipv6->used = 1;
+    else {
+        ipv6->used = 1;
+    }
 
     if (niface->dhcpv6 == 1 || niface->slaac == 1) {
         ipv6->method = AUTO;
@@ -413,7 +404,8 @@ void nm_get_ipv6(struct netcfg_interface *niface, nm_ipvX *ipv6)
         }
     }
     else {
-        ipv6->method = IGNORE;
+        /* IPv6 might always be activated in the future. */
+        ipv6->method = AUTO;
     }
 
 }
