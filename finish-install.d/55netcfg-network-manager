@@ -34,7 +34,7 @@ if [ -z "$RET" ]; then
 	if $NM_IS_INSTALLED; then
 		db_set netcfg/target_network_config $CONFIG_NM
 	else
-		if [ "$NETCFG_CONNECTION_TYPE" == "wired" ]; then
+		if [ "$NETCFG_CONNECTION_TYPE" = "wired" ]; then
 			db_set netcfg/target_network_config $CONFIG_INTERFACES
 		else # wireless
 			db_set netcfg/target_network_config $CONFIG_LOOPBACK
@@ -44,14 +44,14 @@ fi
 
 db_get netcfg/target_network_config
 
-if [ "$RET" == "$CONFIG_NM" ]; then
+if [ "$RET" = "$CONFIG_NM" ]; then
 	# Copy NM config file. First make sure the directory exists
 	mkdir -p /target/$FILE_PATH_NM_CONFIG
 	cp /$FILE_PATH_NM_CONFIG/* /target/$FILE_PATH_NM_CONFIG/
 
 	# Rewrite /etc/network/interfaces to contain only loopback
 	netcfg write_loopback
-elif [ "$RET" == "$CONFIG_LOOPBACK" ]; then
+elif [ "$RET" = "$CONFIG_LOOPBACK" ]; then
 	# Rewrite /etc/network/interfaces to contain only loopback
 	netcfg write_loopback
 fi

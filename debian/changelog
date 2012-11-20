@@ -15,6 +15,9 @@ netcfg (1.102) UNRELEASED; urgency=low
   * nm-conf: Allow both IPv4 and IPv6 to be activated post-installation.
   * nm-conf: Only write out MAC addresses on static configurations.
 
+  [ Cyril Brulebois ]
+  * finish-install: Fix bashisms; equality tests are done with '='.
+
  -- Philipp Kern <pkern@debian.org>  Tue, 20 Nov 2012 00:42:34 +0100
 
 netcfg (1.101) unstable; urgency=low
