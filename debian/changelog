@@ -1,3 +1,22 @@
+netcfg (1.102) UNRELEASED; urgency=low
+
+  [ Sorina Sandu ]
+  * Write a network-manager configuration file in perference to ifupdown
+    if network-manager is found in the installed system. Configure
+    wired networking with ifupdown if not. Do not configure wireless
+    networking through ifupdown.
+
+  [ Philipp Kern ]
+  * nm-conf: Use Linux's random/uuid proc entry if available.
+  * Write out network-manager configuration files with mode 0600.
+  * Reword target_network_config template; do not ask the question.
+  * nm-conf: use ESSID as connection name
+  * finish-install: Do not set /etc/network/interfaces to mode 0600.
+  * nm-conf: Allow both IPv4 and IPv6 to be activated post-installation.
+  * nm-conf: Only write out MAC addresses on static configurations.
+
+ -- Philipp Kern <pkern@debian.org>  Tue, 20 Nov 2012 00:42:34 +0100
+
 netcfg (1.101) unstable; urgency=low
 
   * Skip reachability test for empty gateway. (Closes: #690868)
