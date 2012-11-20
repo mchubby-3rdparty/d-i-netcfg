@@ -187,13 +187,18 @@ void nm_write_configuration(struct nm_config_info nmconf)
     /* Open file using its full path. */
     sprintf(buffer, "%s/%s", NM_CONFIG_FILE_PATH, nmconf.connection.id);
     config_file = fopen(buffer, "w");
-    fchmod(fileno(config_file), 0600);
 
     if (config_file == NULL) {
-        di_info("Unable to open file for writting configurations, "
-                "connection id might not be set or set to unproper "
-                "value. Current value: %s\n", nmconf.connection.id);
+        di_info("Unable to open file for writing network-manager "
+                "configuration. The connection id (%s) might not be "
+                "set to a proper value.", nmconf.connection.id);
         return;
+    }
+
+    if (fchmod(fileno(config_file), 0600) != 0) {
+        di_error("network-manager connection file cannot be protected "
+                 "from reading: %s", strerror(errno));
+        exit(1);
     }
 
     nm_write_connection(config_file, nmconf.connection);
