@@ -1,4 +1,4 @@
-netcfg (1.102) UNRELEASED; urgency=low
+netcfg (1.102) unstable; urgency=low
 
   [ Sorina Sandu ]
   * On Linux: Write a network-manager configuration file in perference
@@ -19,7 +19,10 @@ netcfg (1.102) UNRELEASED; urgency=low
   [ Cyril Brulebois ]
   * finish-install: Fix bashisms; equality tests are done with '='.
 
- -- Philipp Kern <pkern@debian.org>  Tue, 20 Nov 2012 00:42:34 +0100
+  [ Updated translations ]
+  * Belarusian (be.po) by Viktar Siarheichyk
+
+ -- Philipp Kern <pkern@debian.org>  Thu, 22 Nov 2012 00:24:43 +0100
 
 netcfg (1.101) unstable; urgency=low
 
