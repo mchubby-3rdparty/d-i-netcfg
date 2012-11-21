@@ -12,8 +12,6 @@ COMMON_OBJS	= netcfg-common.o wireless.o write_interface.o ipv6.o
 
 WIRELESS	= 1
 ifneq ($(DEB_HOST_ARCH_OS),linux)
-LDOPTS		+= -luuid
-CFLAGS		+= -DLIBUUID
 WIRELESS	= 0
 endif
 ifeq ($(DEB_HOST_ARCH),s390)

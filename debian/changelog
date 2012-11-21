@@ -7,7 +7,7 @@ netcfg (1.102) UNRELEASED; urgency=low
     networking through ifupdown.
 
   [ Philipp Kern ]
-  * nm-conf: Use Linux's random/uuid proc entry if available.
+  * nm-conf: Use Linux's random/uuid proc entry.
   * Write out network-manager configuration files with mode 0600.
   * Reword target_network_config template; do not ask the question.
   * nm-conf: use ESSID as connection name

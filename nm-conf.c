@@ -3,19 +3,7 @@
 #include <sys/stat.h>
 #include <errno.h>
 
-#ifdef LIBUUID
-// libuuid is an heavyweight approach for UUID generation. Use it on
-// non-Linux platforms.
-# include <uuid/uuid.h>
-
-static void get_uuid(char* target)
-{
-    uuid_t uuid;
-    uuid_generate(uuid);
-    uuid_unparse(uuid, target);
-}
-#else
-// Linux provides a lightweight facility that can generate UUIDs for us.
+/* Linux provides a lightweight facility that can generate UUIDs for us. */
 static void get_uuid(char* target)
 {
     FILE* fp = fopen("/proc/sys/kernel/random/uuid", "r");
@@ -27,8 +15,6 @@ static void get_uuid(char* target)
     target[NM_MAX_LEN_UUID-1] = '\0'; // clear the newline
     fclose(fp);
 }
-#endif
-
 
 /* Functions for printing informations in Network Manager format. */
 
