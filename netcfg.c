@@ -81,7 +81,9 @@ int main(int argc, char *argv[])
     char *defiface = NULL, *defwireless = NULL;
     response_t res;
     struct netcfg_interface interface;
+#ifdef NM
     struct nm_config_info nmconf;
+#endif
 
     /* initialize libd-i */
     di_system_init("netcfg");
@@ -343,8 +345,10 @@ int main(int argc, char *argv[])
             break;
 
         case QUIT:
+#ifdef NM
             nm_get_configuration(&interface, &nmconf);
             nm_write_configuration(nmconf);
+#endif
 
             netcfg_update_entropy();
             return 0;

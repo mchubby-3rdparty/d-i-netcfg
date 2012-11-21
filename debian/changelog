@@ -14,6 +14,7 @@ netcfg (1.102) UNRELEASED; urgency=low
   * finish-install: Do not set /etc/network/interfaces to mode 0600.
   * nm-conf: Allow both IPv4 and IPv6 to be activated post-installation.
   * nm-conf: Only write out MAC addresses on static configurations.
+  * Do not compile in network-manager support on kFreeBSD & Hurd.
 
   [ Cyril Brulebois ]
   * finish-install: Fix bashisms; equality tests are done with '='.
