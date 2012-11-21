@@ -1,6 +1,7 @@
 
 #include "nm-conf.h"
 #include <sys/stat.h>
+#include <errno.h>
 
 #ifdef LIBUUID
 // libuuid is an heavyweight approach for UUID generation. Use it on
