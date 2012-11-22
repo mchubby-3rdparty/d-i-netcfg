@@ -119,17 +119,17 @@ typedef struct nm_config_info
 void nm_write_wireless_specific_options(FILE *config_file,
         struct nm_config_info *nmconf);
 void nm_write_wireless_security(FILE *config_file, nm_wireless_security
-        wireless_security);
+        *wireless_security);
 #endif
-void nm_write_connection(FILE *config_file, nm_connection connection);
+void nm_write_connection(FILE *config_file, nm_connection *connection);
 void nm_write_wired_specific_options(FILE *config_file,
         struct nm_config_info *nmconf);
-void nm_write_ipv4(FILE *config_file, nm_ipvX ipv4);
-void nm_write_ipv6(FILE *config_file, nm_ipvX ipv6);
+void nm_write_ipv4(FILE *config_file, nm_ipvX *ipv4);
+void nm_write_ipv6(FILE *config_file, nm_ipvX *ipv6);
 
-void nm_write_configuration(struct nm_config_info nmconf);
+void nm_write_configuration(struct nm_config_info *nmconf);
 
-void nm_write_connection_type(struct nm_config_info nmconf);
+void nm_write_connection_type(struct nm_config_info *nmconf);
 
 
 #ifdef WIRELESS

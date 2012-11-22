@@ -18,12 +18,12 @@ static void get_uuid(char* target)
 
 /* Functions for printing informations in Network Manager format. */
 
-void nm_write_connection(FILE *config_file, nm_connection connection)
+void nm_write_connection(FILE *config_file, nm_connection *connection)
 {
     fprintf(config_file, "\n%s\n", NM_SETTINGS_CONNECTION);
-    fprintf(config_file, "id=%s\n", connection.id);
-    fprintf(config_file, "uuid=%s\n", connection.uuid);
-    fprintf(config_file, "type=%s\n", (connection.type == WIFI) ?
+    fprintf(config_file, "id=%s\n", connection->id);
+    fprintf(config_file, "uuid=%s\n", connection->uuid);
+    fprintf(config_file, "type=%s\n", (connection->type == WIFI) ?
             NM_DEFAULT_WIRELESS : NM_DEFAULT_WIRED);
 }
 
@@ -61,26 +61,26 @@ void nm_write_wired_specific_options(FILE *config_file,
 
 #ifdef WIRELESS
 void nm_write_wireless_security(FILE *config_file, nm_wireless_security
-        wireless_security)
+        *wireless_security)
 {
     fprintf(config_file, "\n%s\n", NM_SETTINGS_WIRELESS_SECURITY);
 
-    if (wireless_security.key_mgmt == WPA_PSK) {
+    if (wireless_security->key_mgmt == WPA_PSK) {
         fprintf(config_file, "key-mgmt=%s\n", "wpa-psk");
-        fprintf(config_file, "psk=%s\n", wireless_security.psk);
+        fprintf(config_file, "psk=%s\n", wireless_security->psk);
     }
     else {
         fprintf(config_file, "key-mgmt=%s\n", "none");
         fprintf(config_file, "auth-alg=%s\n",
-                (wireless_security.auth_alg == OPEN) ? "open" : "shared");
-        fprintf(config_file, "wep-key0=%s\n", wireless_security.wep_key0);
+                (wireless_security->auth_alg == OPEN) ? "open" : "shared");
+        fprintf(config_file, "wep-key0=%s\n", wireless_security->wep_key0);
         fprintf(config_file, "wep-key-type=%d\n",
-                wireless_security.wep_key_type);
+                wireless_security->wep_key_type);
     }
 }
 #endif
 
-void nm_write_static_ipvX(FILE *config_file, nm_ipvX ipvx)
+void nm_write_static_ipvX(FILE *config_file, nm_ipvX *ipvx)
 {
     char    buffer[NM_MAX_LEN_BUF], addr[NM_MAX_LEN_IPV4];
     int     i;
@@ -88,8 +88,8 @@ void nm_write_static_ipvX(FILE *config_file, nm_ipvX ipvx)
     /* Get DNS in printable format. */
     memset(buffer, 0, NM_MAX_LEN_BUF);
 
-    for (i = 0; !empty_str(ipvx.nameservers[i]); i++) {
-        strcat(buffer, ipvx.nameservers[i]);
+    for (i = 0; !empty_str(ipvx->nameservers[i]); i++) {
+        strcat(buffer, ipvx->nameservers[i]);
         strcat(buffer, ";");
     }
 
@@ -101,18 +101,18 @@ void nm_write_static_ipvX(FILE *config_file, nm_ipvX ipvx)
     memset(buffer, 0, NM_MAX_LEN_BUF);
 
     /* Write IP address to the buffer. */
-    strcat(buffer, ipvx.ip_address);
+    strcat(buffer, ipvx->ip_address);
     strcat(buffer, ";");
 
     /* Write netmask to the buffer. */
-    sprintf(addr, "%d", ipvx.masklen);
+    sprintf(addr, "%d", ipvx->masklen);
     strcat(buffer, addr);
     strcat(buffer, ";");
 
     /* Write gateway address to the buffer. */
     memset(addr, 0, NM_MAX_LEN_IPV4);
-    if (!empty_str(ipvx.gateway)) {
-        strncpy(addr, ipvx.gateway, NM_MAX_LEN_IPV4 - 1);
+    if (!empty_str(ipvx->gateway)) {
+        strncpy(addr, ipvx->gateway, NM_MAX_LEN_IPV4 - 1);
     }
     else {
         strcpy(addr, "0");
@@ -124,11 +124,11 @@ void nm_write_static_ipvX(FILE *config_file, nm_ipvX ipvx)
     fprintf(config_file, "addresses1=%s\n", buffer);
 }
 
-void nm_write_ipv4(FILE *config_file, nm_ipvX ipv4)
+void nm_write_ipv4(FILE *config_file, nm_ipvX *ipv4)
 {
     fprintf(config_file, "\n%s\n", NM_SETTINGS_IPV4);
 
-    if (ipv4.method == AUTO) {
+    if (ipv4->method == AUTO) {
         fprintf(config_file, "method=%s\n", "auto");
     }
     else {
@@ -137,25 +137,25 @@ void nm_write_ipv4(FILE *config_file, nm_ipvX ipv4)
     }
 }
 
-void nm_write_ipv6(FILE *config_file, nm_ipvX ipv6)
+void nm_write_ipv6(FILE *config_file, nm_ipvX *ipv6)
 {
     fprintf(config_file, "\n%s\n", NM_SETTINGS_IPV6);
 
-    if (ipv6.method == AUTO) {
+    if (ipv6->method == AUTO) {
         fprintf(config_file, "method=%s\n", "auto");
         fprintf(config_file, "ip6-privacy=2\n");
     }
-    else if (ipv6.method == MANUAL) {
+    else if (ipv6->method == MANUAL) {
         fprintf(config_file, "method=%s\n", "manual");
         nm_write_static_ipvX(config_file, ipv6);
     }
-    else if (ipv6.method == IGNORE) {
+    else if (ipv6->method == IGNORE) {
         fprintf(config_file, "method=%s\n", "ignore");
     }
 }
 
 /* Write Network Manager config file. */
-void nm_write_configuration(struct nm_config_info nmconf)
+void nm_write_configuration(struct nm_config_info *nmconf)
 {
     FILE    *config_file;
     char    buffer[NM_MAX_LEN_BUF];
@@ -172,13 +172,13 @@ void nm_write_configuration(struct nm_config_info nmconf)
     di_exec_shell(buffer);
 
     /* Open file using its full path. */
-    sprintf(buffer, "%s/%s", NM_CONFIG_FILE_PATH, nmconf.connection.id);
+    sprintf(buffer, "%s/%s", NM_CONFIG_FILE_PATH, nmconf->connection.id);
     config_file = fopen(buffer, "w");
 
     if (config_file == NULL) {
         di_info("Unable to open file for writing network-manager "
                 "configuration. The connection id (%s) might not be "
-                "set to a proper value.", nmconf.connection.id);
+                "set to a proper value.", nmconf->connection.id);
         return;
     }
 
@@ -188,22 +188,22 @@ void nm_write_configuration(struct nm_config_info nmconf)
         exit(1);
     }
 
-    nm_write_connection(config_file, nmconf.connection);
+    nm_write_connection(config_file, &nmconf->connection);
 
-    if (nmconf.connection.type == WIRED) {
-        nm_write_wired_specific_options(config_file, &nmconf);
+    if (nmconf->connection.type == WIRED) {
+        nm_write_wired_specific_options(config_file, nmconf);
     }
 #ifdef WIRELESS
     else {
-        nm_write_wireless_specific_options(config_file, &nmconf);
-        if (nmconf.wireless.is_secured) {
-            nm_write_wireless_security(config_file, nmconf.wireless_security);
+        nm_write_wireless_specific_options(config_file, nmconf);
+        if (nmconf->wireless.is_secured) {
+            nm_write_wireless_security(config_file, &nmconf->wireless_security);
         }
     }
 #endif
 
-    nm_write_ipv4(config_file, nmconf.ipv4);
-    nm_write_ipv6(config_file, nmconf.ipv6);
+    nm_write_ipv4(config_file, &nmconf->ipv4);
+    nm_write_ipv6(config_file, &nmconf->ipv6);
 
     fclose(config_file);
 
@@ -212,18 +212,18 @@ void nm_write_configuration(struct nm_config_info nmconf)
 
 /* Write info about how the network was configured to a specific file, in
  * order to be used in the finish install script. */
-void nm_write_connection_type(struct nm_config_info nmconf)
+void nm_write_connection_type(struct nm_config_info *nmconf)
 {
     FILE *f = fopen(NM_CONNECTION_FILE, "w");
 
-    if (nmconf.connection.type == WIFI) {
+    if (nmconf->connection.type == WIFI) {
         fprintf(f, "connection type: wireless\n");
     }
     else {
         fprintf(f, "connection type: wired\n");
     }
 
-    if (nmconf.connection.type == WIFI && nmconf.wireless.is_secured) {
+    if (nmconf->connection.type == WIFI && nmconf->wireless.is_secured) {
         fprintf(f, "security: secured\n");
     }
     else {
