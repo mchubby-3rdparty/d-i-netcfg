@@ -82,8 +82,8 @@ void nm_write_wireless_security(FILE *config_file, nm_wireless_security
 
 void nm_write_static_ipvX(FILE *config_file, nm_ipvX *ipvx)
 {
-    char    buffer[NM_MAX_LEN_BUF], addr[NM_MAX_LEN_IPV4];
-    int     i;
+    char buffer[NM_MAX_LEN_BUF], addr[NM_MAX_LEN_IPV4];
+    int i;
 
     /* Get DNS in printable format. */
     memset(buffer, 0, NM_MAX_LEN_BUF);
@@ -157,8 +157,8 @@ void nm_write_ipv6(FILE *config_file, nm_ipvX *ipv6)
 /* Write Network Manager config file. */
 void nm_write_configuration(struct nm_config_info *nmconf)
 {
-    FILE    *config_file;
-    char    buffer[NM_MAX_LEN_BUF];
+    FILE *config_file;
+    char buffer[NM_MAX_LEN_BUF];
 
     /* Create the directory for the config file and clear any possible
      * previous files found there. */
@@ -265,8 +265,8 @@ void nm_get_wired_connection(nm_connection *connection)
 /* Get MAC address from default file. */
 void nm_get_mac_address(char *interface, char *mac_addr)
 {
-    char    file_name[NM_MAX_LEN_PATH];
-    FILE    *file;
+    char file_name[NM_MAX_LEN_PATH];
+    FILE *file;
 
     snprintf(file_name, NM_MAX_LEN_PATH, NM_DEFAULT_PATH_FOR_MAC, interface);
     file = fopen(file_name, "r");

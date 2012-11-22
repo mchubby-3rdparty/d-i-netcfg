@@ -65,52 +65,52 @@ typedef struct nm_connection
 
 typedef struct nm_wired
 {
-    char                            mac_addr[NM_MAX_LEN_MAC_ADDR];
+    char mac_addr[NM_MAX_LEN_MAC_ADDR];
 }   nm_wired;
 
 typedef struct nm_wireless
 {
-    char                            ssid[NM_MAX_LEN_SSID];
-    char                            mac_addr[NM_MAX_LEN_MAC_ADDR];
-    enum {AD_HOC, INFRASTRUCTURE}   mode;
-    enum {FALSE = 0, TRUE = 1}      is_secured; /* 1 = secure, 0 = unsecure */
+    char ssid[NM_MAX_LEN_SSID];
+    char mac_addr[NM_MAX_LEN_MAC_ADDR];
+    enum {AD_HOC, INFRASTRUCTURE} mode;
+    enum {FALSE = 0, TRUE = 1} is_secured; /* 1 = secure, 0 = unsecure */
 }   nm_wireless;
 
 typedef struct nm_wireless_security
 {
-    enum {WEP_KEY, WPA_PSK}         key_mgmt;
+    enum {WEP_KEY, WPA_PSK} key_mgmt;
 
     union
     {
-        char                psk[NM_MAX_LEN_WPA_PSK];
+        char psk[NM_MAX_LEN_WPA_PSK];
         struct
         {
-            enum {HEX_ASCII = 1, PASSPHRASE = 2}  wep_key_type;
-            enum {OPEN, SHARED}                   auth_alg;
-            unsigned char                         wep_key0[NM_MAX_LEN_WEP_KEY];
+            enum {HEX_ASCII = 1, PASSPHRASE = 2} wep_key_type;
+            enum {OPEN, SHARED} auth_alg;
+            unsigned char wep_key0[NM_MAX_LEN_WEP_KEY];
         };
     };
 }   nm_wireless_security;
 
 typedef struct nm_ipvX
 {
-    int                             used;   /* 1 = true, 0 = false */
-    enum {AUTO, MANUAL, IGNORE}     method;
-    char *                          ip_address;
-    char *                          gateway;
-    char *                          nameservers[NETCFG_NAMESERVERS_MAX];
-    unsigned int                    masklen;
+    int used;   /* 1 = true, 0 = false */
+    enum {AUTO, MANUAL, IGNORE} method;
+    char *ip_address;
+    char *gateway;
+    char *nameservers[NETCFG_NAMESERVERS_MAX];
+    unsigned int masklen;
 }   nm_ipvX;
 
 
 typedef struct nm_config_info
 {
-    nm_connection           connection;
-    nm_wired                wired;
-    nm_wireless             wireless;
-    nm_wireless_security    wireless_security;
-    nm_ipvX                 ipv4;
-    nm_ipvX                 ipv6;
+    nm_connection connection;
+    nm_wired wired;
+    nm_wireless wireless;
+    nm_wireless_security wireless_security;
+    nm_ipvX ipv4;
+    nm_ipvX ipv6;
 }   nm_config_info;
 
 /* Here come functions: */
