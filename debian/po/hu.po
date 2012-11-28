@@ -20,12 +20,14 @@
 #   Gabor Kelemen <kelemeng@gnome.hu>, 2006, 2007.
 #   Kalman Kemenczy <kkemenczy@gmail.com>, 2010.
 #   Andras TIMAR <timar@gnome.hu>, 2000-2001.
+# SZERVÁC Attila <sas@321.hu>, 2012.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2012-04-21 09:42+0100\n"
+"PO-Revision-Date: 2012-11-28 18:33+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
 "org>\n"
@@ -40,16 +42,14 @@ msgstr ""
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid "Auto-configure networking?"
-msgstr "A hálózat beállítása DHCP módú legyen?"
+msgstr "Megpróbáljam automatikusan beállítani a hálózatot DHCP-vel?"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -57,8 +57,9 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"A hálózat konfigurálása vagy DHCP-vel, vagy az összes szükséges adat kézi "
-"beírásával történhet. Ha a DHCP nem működik, lehetőség lesz a hálózat kézi "
+"A hálózat konfigurálása történhet DHCP-vel (vagy annak IPv6-specifikus "
+"módszereivel), vagy az összes szükséges adat  beírásával. Ha a telepítő DHCP-"
+"vel nem tudja beállítani a hálózatot, lehetőséged lesz a hálózat kézi "
 "beállítására."
 
 #. Type: string
@@ -159,7 +160,6 @@ msgstr "Nem leltem drótnélküli hálózatot"
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
-#, fuzzy
 msgid ""
 "${iface} is a wireless network interface. Please enter the name (the ESSID) "
 "of the wireless network you would like ${iface} to use. To connect to any "
@@ -714,23 +714,21 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
-msgstr ""
+msgstr "${essid_list} ESSID (hálózat azonosító) megadása"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
-#, fuzzy
 msgid "Wireless network:"
-msgstr "Drótnélküli hálózat típusa:"
+msgstr "Vezeték nélküli hálózat:"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
-#, fuzzy
 msgid "Select the wireless network to use during the installation process."
-msgstr "Válaszd ki a telepítőfolyamat következő lépését:"
+msgstr "Válassz vezeték nélküli hálózatot a telepítéshez:"
 
 #. Type: string
 #. Description
@@ -958,7 +956,7 @@ msgstr "IP-cím:"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr ""
+msgstr "Az IP cím a számítógépre jellemző egyedi azonosító, ami lehet:"
 
 #. Type: string
 #. Description
@@ -969,6 +967,8 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
+" * négy, pontokkal elválasztott szám (IPv4);\n"
+" * hexadecimális számok kettősponttal elválasztva (IPv6)."
 
 #. Type: string
 #. Description
@@ -976,18 +976,17 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr ""
+msgstr "Megadhatsz egy CIDR hálózati maszkot is (mint pl. a \"/24\")."
 
 #. Type: string
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-static.templates:1001
-#, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr ""
-"Bizonytalanság esetén, az eszköz leírásához kell fordulni, vagy üresen "
-"hagyni a modul mellőzéséhez."
+"Ha nem tudod, hogy mit írj ide, kérdezd meg a rendszergazdát vagy az "
+"internet szolgáltatót."
 
 #. Type: error
 #. Description
