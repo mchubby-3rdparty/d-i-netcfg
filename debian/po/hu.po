@@ -21,14 +21,15 @@
 #   Kalman Kemenczy <kkemenczy@gmail.com>, 2010.
 #   Andras TIMAR <timar@gnome.hu>, 2000-2001.
 # SZERVÁC Attila <sas@321.hu>, 2012.
+# Dr. Nagy Elemér Károly <eknagy@omikk.bme.hu>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2012-11-28 18:33+0100\n"
-"Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
+"PO-Revision-Date: 2012-11-29 19:23+0100\n"
+"Last-Translator: Dr. Nagy Elemér Károly <eknagy@omikk.bme.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
 "org>\n"
 "Language: \n"
@@ -315,13 +316,12 @@ msgstr "Hibás ESSID"
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
-#, fuzzy
 msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
 "characters, but may contain all kinds of characters."
 msgstr ""
-"\"${essid}\" ESSID hibás. Az ESSID-k legfeljebb 32 tetszőleges karakterből "
-"állhatnak."
+"Az \"${essid}\" ESSID hibás. Egy ESSID-k legfeljebb ${max_essid_len} "
+"karakterből állhat, bár tetszőleges karaktert tartalmazhat."
 
 #. Type: text
 #. Description
@@ -680,24 +680,25 @@ msgstr "Hálózat konfigurálása"
 #. :sl3:
 #: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
-msgstr ""
+msgstr "Várakozási idő (másodpercben) a kapcsolat észlelésére:"
 
 #. Type: string
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:50001
-#, fuzzy
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
-msgstr "Add meg az új logikai kötet nevét."
+msgstr ""
+"Kérlek add meg, hogy maximum meddig várakozzak a hálózati kapcsolat "
+"érzékelésekor."
 
 #. Type: error
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
-msgstr ""
+msgstr "Érvénytelen várakozási idő hálózati kapcsolat észleléséhez"
 
 #. Type: error
 #. Description
@@ -707,6 +708,8 @@ msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
 msgstr ""
+"A megadott érték érvénytelen. A hálózati kapcsolat észlelésének maximális "
+"várakozási ideje (másodpercben megadva) pozitív egész szám kell legyen."
 
 #. Type: select
 #. Choices
@@ -922,9 +925,8 @@ msgstr "Drótnélküli hálózat újrakonfigurálása"
 #. IPv6
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
-#, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "Vmelilo konfiguráció létrehozása..."
+msgstr "Megpróbálom az IPv6 automatikus beállítását..."
 
 #. Type: text
 #. Description
@@ -932,15 +934,14 @@ msgstr "Vmelilo konfiguráció létrehozása..."
 #. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr ""
+msgstr "Automatikus magánhálózati IP-címre várok..."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
-#, fuzzy
 msgid "Configuring the network with DHCPv6"
-msgstr "Hálózat konfigurálása DHCP-vel"
+msgstr "Hálózat konfigurálása DHCPv6-al"
 
 #. Type: string
 #. Description
@@ -1001,15 +1002,16 @@ msgstr "Hibás IP-cím"
 #. IPv6
 #. :sl2:
 #: ../netcfg-static.templates:2001
-#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"A megadott IP-cím formája hibás. A helyes forma x.x.x.x, ahol az 'x'-ek 255-"
-"nél nem nagyobb természetes számok. Próbáld újra."
+"A megadott IP-cím formája hibás. A helyes forma vagy x.x.x.x, ahol egy-egy "
+"'x' egy 255-nél nem nagyobb számot jelöl (IPv4 cím esetén), vagy valahány "
+"hexadecimális számcsoport kettősponttal elválasztva (IPv6 esetén). Kérlek "
+"próbáld újra."
 
 #. Type: string
 #. Description
@@ -1105,7 +1107,7 @@ msgstr "Talán a megadott IP-cím, hálózati maszk és/vagy átjárócím hibá
 #. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr ""
+msgstr "Az IPv6 nem támogatott pont-pont (point-to-point) kapcsolatoknál"
 
 #. Type: error
 #. Description
@@ -1116,6 +1118,9 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
+"IPv6 címet nem lehet pont-pont (point-to-point) kapcsolatoknál beállítani. "
+"Kérlek használj IPv4 címet vagy lépj vissza és válassz másik hálózati "
+"csatolót."
 
 #. Type: boolean
 #. Description
