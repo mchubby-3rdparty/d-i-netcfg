@@ -1243,6 +1243,15 @@ int get_hostname_from_dns (const struct netcfg_interface *interface, char *hostn
             di_warning("Unknown address family in interface passed to seed_hostname_from_dns(): %i", interface->address_family);
             return 0;
         }
+
+        if (err) {
+            di_debug("getnameinfo() returned %i: errno %i (%s)", err, errno, strerror(errno));
+        }
+
+        if (err == 0) {
+            /* We found a name!  We found a name! */
+            di_debug("Hostname found: %s", hostname);
+        }
     } else {
         /* Autoconfigured interface; we need to find the IP address ourselves
          */

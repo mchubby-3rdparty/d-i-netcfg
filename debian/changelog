@@ -1,3 +1,10 @@
+netcfg (1.103) UNRELEASED; urgency=low
+
+  * netcfg-common.c: Re-enable debug output for IPv4 DNS resolution in
+    get_hostname_from_dns.
+
+ -- Philipp Kern <pkern@debian.org>  Mon, 03 Dec 2012 21:55:27 +0100
+
 netcfg (1.102) unstable; urgency=low
 
   [ Sorina Sandu ]
