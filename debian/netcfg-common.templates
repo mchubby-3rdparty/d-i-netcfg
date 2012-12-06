@@ -26,6 +26,37 @@ _Description: Domain name:
  If you are setting up a home network, you can make something up, but make
  sure you use the same domain name on all your computers.
 
+Template: netcfg/use_vlan
+Type: boolean
+Default: false
+# :sl6:
+_Description: Are you configuring on an IEEE 802.1Q VLAN trunk port?
+ Virtual LAN (VLAN) is a concept of partitioning a physical network to create
+ distinct broadcast domains. Packets can be marked for different IDs by
+ tagging, so that a single interconnect (trunk) may be used to transport
+ data for various VLANs.
+ .
+ If your network interface is directly attached to a VLAN trunk port,
+ specifying a VLAN ID may be necessary to get a working connection.
+
+Template: netcfg/vlan_id
+Type: string
+# :sl6:
+_Description: VLAN ID (1-4094):
+ VLAN IDs are divided into a normal range and an extended range:
+ .
+ Normal range IDs are 1-1005. 1 is the default native VLAN,
+ and 1002-1005 are reserved for Token Ring and FDDI VLANs.
+ Extended range IDs are 1006-4094, which are designed for service
+ providers and have fewer options.
+
+Template: netcfg/vlan_cmderror
+Type: error
+# :sl6:
+_Description: Error setting VLAN
+ The command used to set VLAN during installation got an error,
+ please go back and try again.
+
 Template: netcfg/get_nameservers
 Type: string
 # :sl1:

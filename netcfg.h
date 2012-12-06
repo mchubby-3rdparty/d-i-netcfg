@@ -269,4 +269,6 @@ extern void cleanup_dhcpv6_client(void);
 extern int start_dhcpv6_client(struct debconfclient *client, const struct netcfg_interface *interface);
 extern int netcfg_autoconfig(struct debconfclient *client, struct netcfg_interface *interface);
 
+extern int netcfg_set_vlan(struct netcfg_interface *interface, struct debconfclient *client);
+
 #endif /* _NETCFG_H_ */

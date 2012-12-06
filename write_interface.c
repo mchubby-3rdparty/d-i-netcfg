@@ -43,6 +43,21 @@ static int nc_wi_loopback(const struct netcfg_interface *interface, FILE *fd)
 	return 1;
 }
 
+/* Write VLAN settings, such as: vlan_raw_device eth0
+*/
+static int nc_wi_vlan(const struct netcfg_interface *interface, FILE *fd)
+{
+    char *dup_name, *strip_name;
+    dup_name = strdup(interface->name);
+    strip_name = strsep(&dup_name, ".");
+    if(strip_name != NULL){
+        fprintf(fd, "\tvlan_raw_device %s\n", strip_name);
+	}
+    free(dup_name);
+	return 1;
+}
+
+
 static int nc_wi_wireless_options(const struct netcfg_interface *interface, FILE *fd)
 {
 	/*
@@ -270,7 +285,10 @@ int netcfg_write_interface(const struct netcfg_interface *interface)
 		di_debug("Writing static IPv6 stanza for %s", interface->name);
 		rv = nc_wi_static_ipv6(interface, fd);
 	}
-	
+	if (rv && strchr(interface->name, '.')){
+		di_debug("Writing VLAN: %s", interface->name);
+		rv = nc_wi_vlan(interface, fd);
+	}
 	if (rv && interface && is_wireless_iface(interface->name)) {
 		di_debug("Writing wireless options for %s", interface->name);
 		rv = nc_wi_wireless_options(interface, fd);

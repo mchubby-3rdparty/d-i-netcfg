@@ -224,6 +224,11 @@ int main(int argc, char *argv[])
                 else
                     state = GET_METHOD;
             }
+
+            if(netcfg_set_vlan(&interface, client) == GO_BACK){
+                state = BACKUP;
+            }
+
             break;
         case GET_HOSTNAME_ONLY:
             if(netcfg_get_hostname(client, "netcfg/get_hostname", hostname, 0))

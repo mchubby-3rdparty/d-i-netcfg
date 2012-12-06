@@ -9,8 +9,8 @@ TARGETS		?= netcfg-static netcfg
 LDOPTS		= -ldebconfclient -ldebian-installer
 CFLAGS		= -W -Wall -Werror -DNDEBUG -DNETCFG_VERSION="\"$(NETCFG_VERSION)\"" -DNETCFG_BUILD_DATE="\"$(NETCFG_BUILD_DATE)\"" -I.
 COMMON_OBJS	= netcfg-common.o wireless.o write_interface.o ipv6.o
-NETCFG_O   	= netcfg.o dhcp.o static.o ethtool-lite.o wpa.o wpa_ctrl.o rdnssd.o autoconfig.o
-NETCFG_STATIC_O	= netcfg-static.o static.o ethtool-lite.o
+NETCFG_O   	= netcfg.o dhcp.o static.o ethtool-lite.o wpa.o wpa_ctrl.o rdnssd.o autoconfig.o vlan.o
+NETCFG_STATIC_O	= netcfg-static.o static.o ethtool-lite.o vlan.o
 
 WIRELESS	= 1
 NM		= 1
