@@ -346,8 +346,10 @@ int main(int argc, char *argv[])
 
         case QUIT:
 #ifdef NM
-            nm_get_configuration(&interface, &nmconf);
-            nm_write_configuration(nmconf);
+            if (num_interfaces > 0) {
+                nm_get_configuration(&interface, &nmconf);
+                nm_write_configuration(nmconf);
+            }
 #endif
 
             netcfg_update_entropy();
