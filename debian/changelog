@@ -1,11 +1,15 @@
-netcfg (1.103) UNRELEASED; urgency=low
+netcfg (1.103) unstable; urgency=low
 
+  [ Philipp Kern ]
   * netcfg-common.c: Re-enable debug output for IPv4 DNS resolution in
     get_hostname_from_dns.
   * netcfg.c: Only write out NM configuration if at least one interface
     was found. (Closes: #695486)
 
- -- Philipp Kern <pkern@debian.org>  Mon, 03 Dec 2012 21:55:27 +0100
+  [ Updated translations ]
+  * Hungarian (hu.po) by Dr. Nagy Elemér Károly
+
+ -- Philipp Kern <pkern@debian.org>  Mon, 10 Dec 2012 18:20:53 +0100
 
 netcfg (1.102) unstable; urgency=low
 
