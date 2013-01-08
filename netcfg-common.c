@@ -1245,7 +1245,7 @@ int get_hostname_from_dns (const struct netcfg_interface *interface, char *hostn
         }
 
         if (err) {
-            di_debug("getnameinfo() returned %i: errno %i (%s)", err, errno, strerror(errno));
+            di_debug("getnameinfo() returned %i (%s)", err, err == EAI_SYSTEM ? strerror(errno) : gai_strerror(err));
         }
 
         if (err == 0) {
@@ -1291,7 +1291,7 @@ int get_hostname_from_dns (const struct netcfg_interface *interface, char *hostn
                                     : sizeof(struct sockaddr_in6),
                               hostname, max_hostname_len, NULL, 0, NI_NAMEREQD);
             if (err) {
-                di_debug("getnameinfo() returned %i: errno %i (%s)", err, errno, strerror(errno));
+                di_debug("getnameinfo() returned %i (%s)", err, err == EAI_SYSTEM ? strerror(errno) : gai_strerror(err));
             }
                               
             if (err == 0) {
