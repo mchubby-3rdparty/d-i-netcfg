@@ -1,7 +1,12 @@
 netcfg (1.105) UNRELEASED; urgency=low
 
+  [ Christian Perrier ]
   * Fix mistranslation in French translation.
     Closes: #699192
+
+  [ Steven Chamberlain ]
+  * Fix FTBFS when PATH ends up with ":/bin" because of an off-by-2 bug
+    in srunner_mock_path function in test/srunner.c
 
  -- Christian Perrier <bubulle@debian.org>  Tue, 29 Jan 2013 19:20:39 +0100
 

@@ -51,7 +51,7 @@ void srunner_mock_path(const char *testcase)
 	original_path = strdup(getenv("PATH"));
 	
 	new_path_len = strlen(test_run_root)
-	               + 10 /* /mock_paths/ */
+	               + 12 /* /mock_paths/ */
 	               + strlen(testcase) + 1 /* : */
 	               + strlen(original_path) + 1 /* \0 */;
 	
