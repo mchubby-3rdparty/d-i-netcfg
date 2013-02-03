@@ -1,4 +1,4 @@
-netcfg (1.105) UNRELEASED; urgency=low
+netcfg (1.105) unstable; urgency=low
 
   [ Christian Perrier ]
   * Fix mistranslation in French translation.
@@ -8,7 +8,7 @@ netcfg (1.105) UNRELEASED; urgency=low
   * Fix FTBFS when PATH ends up with ":/bin" because of an off-by-2 bug
     in srunner_mock_path function in test/srunner.c
 
- -- Christian Perrier <bubulle@debian.org>  Tue, 29 Jan 2013 19:20:39 +0100
+ -- Christian Perrier <bubulle@debian.org>  Sun, 03 Feb 2013 18:09:07 +0100
 
 netcfg (1.104) unstable; urgency=low
 
