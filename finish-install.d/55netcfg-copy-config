@@ -8,6 +8,15 @@ FILE_PATH_NM_CONFIG=etc/NetworkManager/system-connections
 FILE_INTERFACES=/etc/network/interfaces
 FILE_NETCFG_CONNECTION_TYPE=/tmp/connection_type
 
+# The connection type file is written by the nm-conf code.
+# The base-installer snippet will already take care of copying
+# the generated interfaces file, so if we are not dealing
+# with nm-conf anyway: just exit.
+if [ ! -e $FILE_NETCFG_CONNECTION_TYPE ]; then
+	logger -t netcfg "DEBUG: copy-config: $FILE_NETCFG_CONNECTION_TYPE not found: netcfg did not complete or was compiled without network-manager support; exiting."
+	exit 0
+fi
+
 # Flag to determine whether Network Manager is installed.
 if in-target dpkg -l network-manager >/dev/null 2>&1; then
 	NM_IS_INSTALLED=true
