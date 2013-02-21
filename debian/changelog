@@ -1,10 +1,10 @@
-netcfg (1.107) UNRELEASED; urgency=low
+netcfg (1.107) unstable; urgency=low
 
   * finish-install.d/55netcfg-copy-config: Do not rely on dpkg -l
     to check if a package is installed; use dpkg-query -s instead
     and check status explicitly. (Closes: #700939)
 
- -- Philipp Kern <pkern@debian.org>  Wed, 20 Feb 2013 11:36:50 +0100
+ -- Philipp Kern <pkern@debian.org>  Thu, 21 Feb 2013 15:02:54 +0100
 
 netcfg (1.106) unstable; urgency=low
 
