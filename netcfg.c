@@ -122,8 +122,6 @@ int main(int argc, char *argv[])
 
     if (!strcmp(client->value, "true"))
         debconf_set(client, "netcfg/use_autoconfig", "false");
-    else
-        debconf_set(client, "netcfg/use_autoconfig", "true");
 
     for (;;) {
         switch(state) {
