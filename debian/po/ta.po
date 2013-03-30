@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: ta\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2013-03-29 15:30+0530\n"
+"PO-Revision-Date: 2013-03-30 20:36+0530\n"
 "Last-Translator: Dr.T.Vasudevan <drtvasudevan@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -675,7 +675,7 @@ msgstr "வலையமைப்பை வடிவமை"
 #. :sl3:
 #: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
-msgstr ""
+msgstr "இணைப்பு கண்டு பிடிப்புக்கு காத்திருக்கும் நேரம்(வினாடிகளில்)"
 
 #. Type: string
 #. Description
