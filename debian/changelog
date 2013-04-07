@@ -1,4 +1,4 @@
-netcfg (1.108) UNRELEASED; urgency=low
+netcfg (1.108) unstable; urgency=low
 
   [ Samuel Thibault ]
   * Do not set netcfg/use_autoconfig to true just because netcfg/disable_dhcp
@@ -9,7 +9,12 @@ netcfg (1.108) UNRELEASED; urgency=low
   * Install iw whenever wireless-tools is installed on the target.
     Patch by Charles Plessy. (Closes: #697890)
 
- -- Samuel Thibault <sthibault@debian.org>  Mon, 25 Mar 2013 23:30:44 +0100
+  [ Updated translations ]
+  * Amharic (am.po) by Tegegne Tefera
+  * Croatian (hr.po) by Tomislav Krznar
+  * Tamil (ta.po) by Dr.T.Vasudevan
+
+ -- Philipp Kern <pkern@debian.org>  Sun, 07 Apr 2013 22:00:45 +0200
 
 netcfg (1.107) unstable; urgency=low
 
