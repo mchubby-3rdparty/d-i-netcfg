@@ -83,7 +83,7 @@ int main(int argc, char** argv)
         case WCONFIG:
             if (requested_wireless_tools == 0) {
                 requested_wireless_tools = 1;
-                di_exec_shell("apt-install wireless-tools");
+                di_exec_shell("apt-install iw wireless-tools");
             }
             state = WCONFIG_ESSID;
             break;

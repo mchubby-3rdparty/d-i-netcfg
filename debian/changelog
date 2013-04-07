@@ -1,8 +1,13 @@
 netcfg (1.108) UNRELEASED; urgency=low
 
+  [ Samuel Thibault ]
   * Do not set netcfg/use_autoconfig to true just because netcfg/disable_dhcp
     is false (which is the default), otherwise netcfg/disable_autoconfig has no
     effect. (Closes: #703747, #688273)
+
+  [ Philipp Kern ]
+  * Install iw whenever wireless-tools is installed on the target.
+    Patch by Charles Plessy. (Closes: #697890)
 
  -- Samuel Thibault <sthibault@debian.org>  Mon, 25 Mar 2013 23:30:44 +0100
 
