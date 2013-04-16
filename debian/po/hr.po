@@ -15,14 +15,14 @@
 #   Krunoslav Gernhard, 2004
 #   Vladimir Vuksan <vuksan@veus.hr>, 2000.
 #   Vlatko Kosturjak, 2001
-# Tomislav Krznar <tomislav.krznar@gmail.com>, 2012.
+# Tomislav Krznar <tomislav.krznar@gmail.com>, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Debian-installer 1st-stage master file HR\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2013-03-29 17:33+0100\n"
+"PO-Revision-Date: 2013-04-16 05:30+0200\n"
 "Last-Translator: Tomislav Krznar <tomislav.krznar@gmail.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -30,7 +30,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. Type: boolean
 #. Description
@@ -56,7 +56,7 @@ msgstr ""
 "korištenjem DHCP-a (ili nizom IPv6 specifičnih načina) za automatsko "
 "otkrivanje mrežnih postavki. Ako izaberete automatsko podešavanje, a program "
 "za instalaciju ne bude mogao dobiti valjane radne postavke s vaše mreže, "
-"ipak ćete moći podesiti svoju mrežu i ručno."
+"ipak ćete moći i ručno podesiti svoju mrežu."
 
 #. Type: string
 #. Description
@@ -120,9 +120,9 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
-"Vaš sustav ima više mrežnih sučelja. Odredite koje ćete rabiti kao osnovno "
-"mrežno sučelje tijekom instalacije Debiana. Ako je moguće, izabrano je prvo "
-"pronađeno spojeno mrežno sučelje."
+"Vaš sustav ima više mrežnih sučelja. Odredite koje ćete koristiti kao "
+"osnovno mrežno sučelje tijekom instalacije Debiana. Ako je moguće, izabrano "
+"je prvo pronađeno spojeno mrežno sučelje."
 
 #. Type: string
 #. Description
@@ -524,9 +524,9 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
-"Bežične mreže su ili upravljane (stalne) ili ad-hoc (ptp). Ako rabite neku "
-"vrst stalne točke pristupa, vaša je mreža upravljana. Ako je vaša 'točka "
-"pristupa' drugo računalo, onda je vaša mreža ad-hoc."
+"Bežične mreže su ili upravljane (stalne) ili ad-hoc (ptp). Ako koristite "
+"neku vrstu stvarne pristupne točke, vaša je mreža upravljana. Ako je vaša "
+"'pristupna točka' drugo računalo, onda je vaša mreža ad-hoc."
 
 #. Type: text
 #. Description
@@ -546,7 +546,7 @@ msgstr "Tražim bežične točke pristupa..."
 #. Description
 #: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
-msgstr "Tražim vezu na ${interface}; molim pričekajte..."
+msgstr "Tražim vezu na ${interface}, molim pričekajte..."
 
 #. Type: text
 #. Description
@@ -709,7 +709,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
-msgstr "${essid_list} Unesite ESSID ručno"
+msgstr "${essid_list} Ručno unesite ESSID"
 
 #. Type: select
 #. Description
@@ -729,6 +729,7 @@ msgstr "Izaberite bežičnu mrežu koja će se koristiti tijekom instalacije."
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
+#, fuzzy
 msgid "DHCP hostname:"
 msgstr "Ime računala u DHCP-u:"
 
@@ -736,6 +737,7 @@ msgstr "Ime računala u DHCP-u:"
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
+#, fuzzy
 msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
@@ -748,14 +750,14 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "Most other users can just leave this blank."
-msgstr "Večina ostalih korisnika može ovo ostaviti prazno."
+msgstr "Većina ostalih korisnika može ovo ostaviti prazno."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr "Podešavam mrežu pomoću DHCP"
+msgstr "Podešavam mrežu pomoću DHCP-a"
 
 #. Type: text
 #. Description
@@ -802,6 +804,7 @@ msgstr "Iznova pokušaj automatsko podešavanje mreže"
 #. below a 65 columns limit (which means 65 characters
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
+#, fuzzy
 msgid "Retry network autoconfiguration with a DHCP hostname"
 msgstr "Iznova pokušaj automatsko podešavanje mreže s imenom u DHCP-u"
 
@@ -844,8 +847,8 @@ msgid ""
 "autoconfiguration with a hostname that you provide."
 msgstr ""
 "Odavde možete iznova pokušati automatsko DHCP podešavanje mreže (možda vašem "
-"DHCP poslužitelju treba vremena da odgovori), ili ručno podesiti mrežu. Neki "
-"DHCP poslužitelji traže da klijent pošalje ime računala DHCP-om, pa možete "
+"DHCP poslužitelju treba vremena da odgovori) ili ručno podesiti mrežu. Neki "
+"DHCP poslužitelji traže da klijent pošalje ime računala DHCP-om pa možete "
 "pokušati i na taj način."
 
 #. Type: note
@@ -863,8 +866,8 @@ msgid ""
 "Your network is probably not using the DHCP protocol. Alternatively, the "
 "DHCP server may be slow or some network hardware is not working properly."
 msgstr ""
-"Vaša mreža vjerojatno ne koristi DHCP protokol, ili je možda DHCP "
-"poslužitelj spor, ili koji dio mrežnoga sklopovlja ne radi ispravno."
+"Vaša mreža vjerojatno ne koristi DHCP protokol, možda je DHCP poslužitelj "
+"spor ili neki dio mrežnoga sklopovlja ne radi ispravno."
 
 #. Type: boolean
 #. Description
@@ -960,7 +963,7 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
-" * četiri broja odvojena točkama (IPv4);\n"
+" * četiri broja odvojena točkama (IPv4),\n"
 " * blokovi heksadekadskih znakova odvojeni dvotočjima (IPv6)."
 
 #. Type: string
@@ -977,7 +980,7 @@ msgstr "Također možete unijeti i CIDR mrežnu masku (npr. \"/24\")."
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "If you don't know what to use here, consult your network administrator."
-msgstr "Ako ne znate što koristiti, kontaktirajte administratora vaše mreže."
+msgstr "Ako ne znate što koristiti, upitajte administratora vaše mreže."
 
 #. Type: error
 #. Description
@@ -1040,7 +1043,7 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
-"Mrežna maska (netmask) se rabi za određivanje koji su strojevi lokalni na "
+"Mrežna maska (netmask) se koristi za određivanje koji su strojevi lokalni na "
 "vašoj mreži. Upitajte svog mrežnog administratora ako je ne znate. Mrežna "
 "maska se upisuje kao četiri broja odvojena točkama."
 
@@ -1067,7 +1070,7 @@ msgstr ""
 "odvojena točkama) koja ukazuje na mrežni usmjerivač koji je pretpostavljeni "
 "usmjerivač prometa. Sav mrežni promet koji ide izvan vaše LAN mreže (npr. na "
 "Internet) šalje se kroz njega. U rijetkim slučajevima, možda nemate "
-"usmjerivač; ako je tako, ostavite prazno. Ako ne znate odgovor, upitajte "
+"usmjerivač. Ako je tako, ostavite prazno. Ako ne znate odgovor, upitajte "
 "svog mrežnog administratora."
 
 #. Type: error
@@ -1152,4 +1155,4 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
-msgstr "Podesi mrežu rabeći statičko adresiranje"
+msgstr "Podesi mrežu korištenjem statičkog adresiranja"
