@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: Debian-installer 1st-stage master file HR\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2013-04-17 18:08+0200\n"
+"PO-Revision-Date: 2013-04-27 02:15+0200\n"
 "Last-Translator: Tomislav Krznar <tomislav.krznar@gmail.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -730,7 +730,6 @@ msgstr "Izaberite bežičnu mrežu koja će se koristiti tijekom instalacije."
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
-#, fuzzy
 msgid "DHCP hostname:"
 msgstr "Ime računala u DHCP-u:"
 
@@ -738,7 +737,6 @@ msgstr "Ime računala u DHCP-u:"
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
-#, fuzzy
 msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
@@ -805,7 +803,6 @@ msgstr "Iznova pokušaj automatsko podešavanje mreže"
 #. below a 65 columns limit (which means 65 characters
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
-#, fuzzy
 msgid "Retry network autoconfiguration with a DHCP hostname"
 msgstr "Iznova pokušaj automatsko podešavanje mreže s imenom u DHCP-u"
 
