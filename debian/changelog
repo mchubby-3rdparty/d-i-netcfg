@@ -1,8 +1,12 @@
-netcfg (1.109) UNRELEASED; urgency=low
+netcfg (1.109) unstable; urgency=low
 
+  [ Samuel Thibault ]
   * Fix build on hurd-i386.
 
- -- Samuel Thibault <sthibault@debian.org>  Sun, 05 May 2013 22:33:31 +0200
+  [ Updated translations ]
+  * Croatian (hr.po) by Tomislav Krznar
+
+ -- Christian Perrier <bubulle@debian.org>  Sun, 12 May 2013 17:38:57 +0200
 
 netcfg (1.108) unstable; urgency=low
 
