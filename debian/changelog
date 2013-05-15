@@ -1,8 +1,9 @@
-netcfg (1.110) UNRELEASED; urgency=low
+netcfg (1.110) unstable; urgency=low
 
+  [ Colin Watson ]
   * Use correct compiler when cross-building.
 
- -- Colin Watson <cjwatson@debian.org>  Tue, 14 May 2013 21:04:19 +0100
+ -- Christian Perrier <bubulle@debian.org>  Wed, 15 May 2013 17:56:14 +0200
 
 netcfg (1.109) unstable; urgency=low
 
