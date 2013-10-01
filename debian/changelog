@@ -8,6 +8,10 @@ netcfg (1.111) UNRELEASED; urgency=low
   * Use check.pc to link in libcheck, in order to pull needed libraries
     (Closes: Bug#713616)
 
+  [ Philipp Kern ]
+  * Wrap dpkg-query call to check for network-manager with sh.
+    Thanks to Michael Biebl for the patch. (Closes: #717449)
+
  -- Dmitrijs Ledkovs <xnox@debian.org>  Fri, 07 Jun 2013 00:26:03 +0100
 
 netcfg (1.110) unstable; urgency=low
