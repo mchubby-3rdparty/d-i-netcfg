@@ -8,6 +8,9 @@ netcfg (1.111) UNRELEASED; urgency=low
   * Add -lm after -lcheck, since libcheck.a needs some maths functions.
     (Closes: Bug#713616)
 
+  [ Cyril Brulebois ]
+  * Also add -lpthread and -lrt.
+
   [ Philipp Kern ]
   * Wrap dpkg-query call to check for network-manager with sh.
     Thanks to Michael Biebl for the patch. (Closes: #717449)
