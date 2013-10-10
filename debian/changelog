@@ -1,4 +1,4 @@
-netcfg (1.111) UNRELEASED; urgency=low
+netcfg (1.111) unstable; urgency=high
 
   [ Dmitrijs Ledkovs ]
   * Bump debhelper compat level to 9.
@@ -10,12 +10,13 @@ netcfg (1.111) UNRELEASED; urgency=low
 
   [ Cyril Brulebois ]
   * Also add -lpthread and -lrt.
+  * Set urgency to high for the bugfix below and the upcoming d-i release.
 
   [ Philipp Kern ]
   * Wrap dpkg-query call to check for network-manager with sh.
     Thanks to Michael Biebl for the patch. (Closes: #717449)
 
- -- Dmitrijs Ledkovs <xnox@debian.org>  Fri, 07 Jun 2013 00:26:03 +0100
+ -- Cyril Brulebois <kibi@debian.org>  Thu, 10 Oct 2013 17:49:45 +0200
 
 netcfg (1.110) unstable; urgency=low
 
