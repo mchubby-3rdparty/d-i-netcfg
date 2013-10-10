@@ -10,7 +10,7 @@ TESTS = test/test_inet_mton.o						\
 OBJECTS = netcfg-common.o wireless.o ethtool-lite.o ipv6.o write_interface.o
 
 test/run: $(TESTS) $(OBJECTS) test/srunner.o
-	$(CC) -o $@ $^ $(LDOPTS) $(shell pkg-config --libs check)
+	$(CC) -o $@ $^ $(LDOPTS) -lcheck -lm
 
 test: test/run
 	@echo "----------------------------------------"

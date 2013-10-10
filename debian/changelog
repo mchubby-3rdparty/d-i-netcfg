@@ -5,7 +5,7 @@ netcfg (1.111) UNRELEASED; urgency=low
   * Set Vcs-* to canonical format.
 
   [ Samuel Thibault ]
-  * Use check.pc to link in libcheck, in order to pull needed libraries
+  * Add -lm after -lcheck, since libcheck.a needs some maths functions.
     (Closes: Bug#713616)
 
   [ Philipp Kern ]
