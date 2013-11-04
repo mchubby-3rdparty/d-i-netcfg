@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: debian-installer_packages_po_sublevel1_bs\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2012-04-11 12:57+0100\n"
+"PO-Revision-Date: 2012-03-16 13:07+0100\n"
 "Last-Translator: Armin Besirovic <armin@linux.org.ba>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
 "Language: bs\n"
@@ -42,14 +42,13 @@ msgstr ""
 #: ../netcfg-common.templates:2001
 #, fuzzy
 msgid "Auto-configure networking?"
-msgstr "Automatski podesiti mrežu sa DHCP-om?"
+msgstr "Automatski podesiti mrežu?"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -57,44 +56,46 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"Umrežavanje može biti podešeno putem DHCP-a ili ručno unošenjem svih "
-"informacija. Ako izaberete DHCP i instalater ne bude u mogućnosti da dobije "
-"ispravnu konfiguraciju od DHCP servera na vašoj mreži, daće vam se prilika "
-"da podesite vašu mrežu ručno nakon pokušaja podešavanja putem DHCP-a."
+"Umrežavanje može biti podešeno ručno unošenjem svih informacija ili putem "
+"DHCP-a(ili razne IPv6-specifične metode) da podesite mrežu automatski. Ako "
+"izabereteautomatsko podešavanje i instaler ne bude u mogućnosti podesiti "
+"mrežu tako da radi dat će Vam se prilika da podesite mrežu ručno"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:3001
 msgid "Domain name:"
-msgstr "Domain name:"
+msgstr "Ime domene:"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:3001
+#, fuzzy
 msgid ""
 "The domain name is the part of your Internet address to the right of your "
 "host name.  It is often something that ends in .com, .net, .edu, or .org.  "
 "If you are setting up a home network, you can make something up, but make "
 "sure you use the same domain name on all your computers."
 msgstr ""
-"domain name je dio vaše Internet adrese desno od vašeg host namea.  To je "
-"ime koje se često završava s .com, .net, .edu ili .org.  Ako postavljate "
-"kućnu mrežu, možete izmisliti neko ime, ali pobrinite se da koristite isti "
-"domain name na svim vašim kompjuterima."
+"Ime domene je dio vaše Internet adrese desno od vašeg host imena.  To "
+"jeobično nešto što se često završava na .com, .net, .edu ili .org.  Ako "
+"postavljatekućnu mrežu, možete izmisliti nešto, ali pobrinite se da "
+"koristite istoime domene na svim vašim kompjuterima."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
 msgid "Name server addresses:"
-msgstr "Adrese (DNS) name servera:"
+msgstr "Adrese servera:"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
+#, fuzzy
 msgid ""
 "The name servers are used to look up host names on the network. Please enter "
 "the IP addresses (not host names) of up to 3 name servers, separated by "
@@ -102,11 +103,11 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
-"Name serveri se koriste za prepoznavanje naziva računara na mreži. Molim "
-"unesite IP adrese (ne host nameove) do 3 (DNS) name servera, razdvojene "
-"razmaknicama. Nemojte koristiti zareze. Serveri će biti ispitivani "
-"redoslijedom kojim ste ih unijeli. Ako ne želite koristiti name servere, "
-"samo ostavite ovo polje prazno."
+"Ime servera se koristi za prepoznavanje imena računara na mreži. "
+"Molimunesite IP adrese (ne host imena) do 3 imena servera, "
+"razdvojenerazmacima. Nemojte koristiti zareze. Serveri će biti "
+"ispitivaniredoslijedom kojim ste ih unijeli. Ako ne želite koristiti ime "
+"servera,samo ostavite ovo polje prazno."
 
 #. Type: select
 #. Description
@@ -125,8 +126,8 @@ msgid ""
 "connected network interface found has been selected."
 msgstr ""
 "Vaš sistem ima višestruke mrežne interfejse. Odaberite jedan koji ćete "
-"koristiti kao primarni mrežni interfejs tokom instalacije. Ako je bilo "
-"moguće, prvi pronađeni povezani mrežni interfejs je odabran."
+"koristiti kao primarni mrežni interfejs tokom instaliranja. Ako jemoguće, "
+"prvi pronađeni povezani mrežni interfejs je odabran."
 
 #. Type: string
 #. Description
@@ -162,15 +163,14 @@ msgstr "Neuspio pokušaj pronalaženja bežične mreže."
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
-#, fuzzy
 msgid ""
 "${iface} is a wireless network interface. Please enter the name (the ESSID) "
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
-"${iface} je bežični mrežni interfejs. Molim unesite naziv (ESSID) bežične "
-"mreže koju želite da ${iface} koristi. Ako želite koristiti bilo koju "
-"dostupnu mrežu, ostavite ovo polje prazno."
+"${iface} je bežični mrežni interfejs. Molim unesite ime (ESSID) bežične "
+"mreže koju želite ${iface} koristiti. Da biste koristili bilo koju dostupnu "
+"mrežu, ostavite ovo polje prazno."
 
 #. Type: select
 #. Choices
@@ -392,10 +392,10 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
-"Hostname je jedna riječ koja identifikuje vaš sistem na mreži.  Ako ne znate "
+"Hostname je jedna riječ koja identificira vaš sistem na mreži.  Ako ne znate "
 "kakav bi trebao biti vaš hostname, konsultirajte vašeg mrežnog "
 "administratora.  Ako postavljate vašu vlastitu kućnu mrežu, onda možete "
-"izmisliti nešto ovdje."
+"izmisliti nešto."
 
 #. Type: error
 #. Description
@@ -668,7 +668,7 @@ msgstr "Nepoznati interfejs"
 #. :sl1:
 #: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
-msgstr "Spremam mrežne postavke ..."
+msgstr "Spremanje mrežnih postavki ..."
 
 #. Type: text
 #. Description
@@ -676,7 +676,7 @@ msgstr "Spremam mrežne postavke ..."
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr "Podesi mrežu"
+msgstr "Podesite mrežu"
 
 #. Type: string
 #. Description
@@ -717,23 +717,21 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
-msgstr ""
+msgstr "${essid_list} pritisnite ESSID ručno"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
-#, fuzzy
 msgid "Wireless network:"
-msgstr "Tip bežične mreže:"
+msgstr "Bežična mreža:"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
-#, fuzzy
 msgid "Select the wireless network to use during the installation process."
-msgstr "Izaberite sljedeći korak instalacionog procesa:"
+msgstr "Izaberite bežičnu mrežu za korištenje tokom procesa instaliranja:"
 
 #. Type: string
 #. Description
@@ -750,7 +748,7 @@ msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
 msgstr ""
-"Možda biste trebali unijeti DHCP host name. Ako koristite kablovski modem, "
+"Možda biste trebali unijeti DHCP host ime. Ako koristite kablovski modem, "
 "trebali biste ovdje navesti broj računa."
 
 #. Type: string
@@ -765,14 +763,14 @@ msgstr "Većina korisnika može ovo ostaviti prazno."
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr "Podešavam mrežu preko DHCP-a"
+msgstr "Podešavanje mreže preko DHCP-a"
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr "Uspješnja autokonfiguracija mreže"
+msgstr "Uspješna autokonfiguracija mreže"
 
 #. Type: error
 #. Description
@@ -823,7 +821,7 @@ msgstr "Ponovi auto podešavanje mreže s hostname-om DHCP servera"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr "Ručno podesi mrežu"
+msgstr "Ručno podesite mrežu"
 
 #. Type: select
 #. Choices
@@ -833,7 +831,7 @@ msgstr "Ručno podesi mrežu"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr "Ne podešavaj mrežu sada"
+msgstr "Ne podešavajte mrežu sada"
 
 #. Type: select
 #. Description
@@ -855,7 +853,7 @@ msgid ""
 msgstr ""
 "Odavde možete izabrati da ponovo pokušate DHCP automatsku konfiguraciju "
 "mreže (što može uspjeti ako vašem DHCP serveru treba dugo vremena da "
-"odgovori) ili možete ju podesiti ručno. Neki DHCP serveri zahtijevaju slanje "
+"odgovori) ili je možete podesiti ručno. Neki DHCP serveri zahtijevaju slanje "
 "njihovog DHCP hostnamea, tako da možete odabrati da ponovo pokušate DHCP "
 "automatsku konfiguraciju mreže sa hostname-om koji navedete."
 
@@ -961,7 +959,7 @@ msgstr "IP adresa:"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr ""
+msgstr "IP adresa je unikatns i može biti:"
 
 #. Type: string
 #. Description
@@ -972,6 +970,8 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
+" * četiri broja odvojena tačkama (IPv4);\n"
+"  * blokovi heksadecimalnih znakova odvojenih dvotačkama (IPv6)"
 
 #. Type: string
 #. Description
@@ -980,17 +980,16 @@ msgstr ""
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
 msgstr ""
+"Također možete opcionalno priložiti CIDR netmask (kao što su \"/ 24 \")."
 
 #. Type: string
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-static.templates:1001
-#, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr ""
-"Ako ne znate sta da unesete, pogledajte dokumentaciju, ili ostavite prazno "
-"da se modul ne učitava."
+"Ako ne znate šta koristiti ovdje, konsultirajte svog mrežnog administratora."
 
 #. Type: error
 #. Description
@@ -1048,14 +1047,15 @@ msgstr "Netmask:"
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:4001
+#, fuzzy
 msgid ""
 "The netmask is used to determine which machines are local to your network.  "
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
-"netmask se koristi za određivanje koje mašine su lokalno na vašoj mreži.  "
-"Konsultujte se s vašim mrežnim administratorom ako ne znate vrijednost.  "
-"netmask se treba unijeti kao četiri broja rastavljena tačkama."
+"Netmask se koristi za određivanje koje mašine su lokalne na vašoj mreži."
+"Konsultirajte se s vašim mrežnim administratorom ako ne znate vrijednost."
+"Netmask se treba unijeti kao četiri broja rastavljena tačkama."
 
 #. Type: string
 #. Description
@@ -1080,8 +1080,8 @@ msgstr ""
 "gateway router, takođe poznat kao default router.  Sav promet koji ide izvan "
 "vašeg LAN-a (na primjer, na Internet) se šalje preko ovog routera.  U "
 "rijetkim prlikama, možete biti bez routera; u tom slučaju, možete ovo "
-"ostaviti prazno.  Ako ne znate podesan odgovor na ovo pitanje, konsultujte "
-"se sa vašim mrežnim administratorom."
+"ostaviti prazno.  Ako ne znate podesan odgovor na ovo pitanje, konsultirajte "
+"se s vašim mrežnim administratorom."
 
 #. Type: error
 #. Description
@@ -1152,7 +1152,7 @@ msgid ""
 " nameservers   = ${nameservers}"
 msgstr ""
 " interfejs     = ${interface}\n"
-" ipadresa     = ${ipaddress}\n"
+" ipadresa      = ${ipaddress}\n"
 " netmask       = ${netmask}\n"
 " gateway       = ${gateway}\n"
 " pointopoint   = ${pointopoint}\n"
