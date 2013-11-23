@@ -22,17 +22,18 @@
 #   Andras TIMAR <timar@gnome.hu>, 2000-2001.
 # SZERVÁC Attila <sas@321.hu>, 2012.
 # Dr. Nagy Elemér Károly <eknagy@omikk.bme.hu>, 2012.
+# Judit Gyimesi <judit.gyimesi.x@gmail.com>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2012-11-29 19:23+0100\n"
-"Last-Translator: Dr. Nagy Elemér Károly <eknagy@omikk.bme.hu>\n"
+"PO-Revision-Date: 2013-11-18 21:15+0100\n"
+"Last-Translator: Judit Gyimesi <judit.gyimesi.x@gmail.com>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
 "org>\n"
-"Language: \n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,10 +59,10 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"A hálózat konfigurálása történhet DHCP-vel (vagy annak IPv6-specifikus "
-"módszereivel), vagy az összes szükséges adat  beírásával. Ha a telepítő DHCP-"
-"vel nem tudja beállítani a hálózatot, lehetőséged lesz a hálózat kézi "
-"beállítására."
+"A hálózat konfigurálása történhet az összes szükséges adat beírásával, vagy "
+"automatikusan, DHCP-vel (vagy annak IPv6-specifikus módszereivel). Ha az "
+"automata módot választja, de a  telepítő a DHCP-vel nem tudja beállítani a "
+"hálózatot, lehetősége lesz a hálózat kézi beállítására."
 
 #. Type: string
 #. Description
@@ -103,9 +104,10 @@ msgid ""
 "this field blank."
 msgstr ""
 "A névkiszolgálók a hálózaton található gépek neveit oldják fel. Szóközökkel "
-"elválasztva meg kell adni legfeljebb 3 névkiszolgáló IP- címét. A listában "
-"lévő 1. névkiszolgálót kérdezi majd le mindig először a rendszer. "
-"Névkiszolgáló nélküli használat esetén üresen kell hagyni ezt a mezőt."
+"elválasztva meg kell adni legfeljebb 3 névkiszolgáló IP- címét. Vesszőt ne "
+"használjon. A listában lévő első  névkiszolgálót kérdezi majd le mindig "
+"először a rendszer. Ha nem kíván névkiszolgálót használni, hagyja üresen ezt "
+"a mezőt."
 
 #. Type: select
 #. Description
@@ -123,9 +125,9 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
-"E gépen több hálózati csatoló van. Válaszd ki a telepítéskor használt "
+"E gépen több hálózati csatoló van. Válassza ki a telepítéskor használandó "
 "elsődleges hálózati csatolót. Az először megtalált csatlakoztatott hálózati "
-"csatolót már kiválasztottam (ha ez lehetséges volt)"
+"csatolót már kiválasztottam (ha ez lehetséges volt)."
 
 #. Type: string
 #. Description
@@ -155,7 +157,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
-msgstr "Nem leltem drótnélküli hálózatot"
+msgstr "Nem leltem drótnélküli hálózatot."
 
 #. Type: string
 #. Description
@@ -166,9 +168,9 @@ msgid ""
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
-"${iface} egy drótnélküli hálózati csatoló. Add meg a drótnélküli hálózat "
-"nevét (ESSID), melyet ${iface} csatoló által használnál. Ha bármely elérhető "
-"hálózat megfelel, hagyd üresen."
+"${iface} egy drótnélküli hálózati csatoló. Adja meg a drótnélküli hálózat "
+"nevét (ESSID), melyet ${iface} csatoló által használna. Ha bármely elérhető "
+"hálózat megfelel, hagyja üresen."
 
 #. Type: select
 #. Choices
@@ -377,7 +379,7 @@ msgstr "Gépnév:"
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Please enter the hostname for this system."
-msgstr "Add meg a rendszer gépnevét."
+msgstr "Adja meg a rendszer gépnevét."
 
 #. Type: string
 #. Description
@@ -389,9 +391,9 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
-"A gépnév egy szó, mely a hálózatban azonosítja a rendszert. Ha nem tudod, mi "
-"legyen a gépnév, a hálózati rendszergazda segít. Saját, otthoni hálózat "
-"esetén bármi lehet."
+"A gépnév egy szó, mely a hálózatban azonosítja a rendszerét. Ha nem tudja, "
+"mi legyen a gépnév, beszéljen a hálózati rendszergazdájával. Saját, otthoni "
+"hálózat esetén bármi lehet."
 
 #. Type: error
 #. Description
@@ -552,7 +554,7 @@ msgstr "Drótnélküli elérési pontok felderítése..."
 #. Description
 #: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
-msgstr "Kapcsolat érzekelese itt: ${interface}; türelem..."
+msgstr "Kapcsolat érzékelése itt: ${interface}; kérem, várjon..."
 
 #. Type: text
 #. Description
@@ -673,7 +675,7 @@ msgstr "Hálózati beállítások rögzítése ..."
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr "Hálózat konfigurálása"
+msgstr "Hálózat beállítása"
 
 #. Type: string
 #. Description
@@ -731,7 +733,7 @@ msgstr "Vezeték nélküli hálózat:"
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
-msgstr "Válassz vezeték nélküli hálózatot a telepítéshez:"
+msgstr "Válasszon vezeték nélküli hálózatot a telepítéshez:"
 
 #. Type: string
 #. Description
@@ -748,8 +750,8 @@ msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
 msgstr ""
-"Itt megadhatsz egy DHCP-gépnevet. Ha kábelmodemet használsz, a "
-"felhasználóneved add meg."
+"Szükség lehet DHCP-gépnév megadására. Ha kábelmodemet használ, lehetséges, "
+"hogy az előfizetői azonosítóját (account number) kell megadnia."
 
 #. Type: string
 #. Description
@@ -763,14 +765,14 @@ msgstr "Más felhasználók nyugodtan hagyhatják üresen."
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr "Hálózat konfigurálása DHCP-vel"
+msgstr "Hálózat beállítása DHCP-vel"
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr "A hálózat automatikus konfigurálása sikerült"
+msgstr "A hálózat automatikus beállítása sikerült"
 
 #. Type: error
 #. Description
@@ -802,7 +804,7 @@ msgstr "A DHCP-beállító folyamat megszakítva."
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration"
-msgstr "Hálózati autokonfigurálás újrapróbálása"
+msgstr "Automatikus hálózatbeállítás újrapróbálása"
 
 #. Type: select
 #. Choices
@@ -812,7 +814,7 @@ msgstr "Hálózati autokonfigurálás újrapróbálása"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
-msgstr "Hálózati autokonfigurálás újrapróbálása DHCP-gépnévvel"
+msgstr "Automatikus hálózatbeállítás újrapróbálása DHCP-gépnévvel"
 
 #. Type: select
 #. Choices
@@ -822,7 +824,7 @@ msgstr "Hálózati autokonfigurálás újrapróbálása DHCP-gépnévvel"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr "Hálózat kézi konfigurálása"
+msgstr "Hálózat kézi beállítása"
 
 #. Type: select
 #. Choices
@@ -832,14 +834,14 @@ msgstr "Hálózat kézi konfigurálása"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr "Hálózatkonfigurálás elhalasztása"
+msgstr "Hálózatbeállítás elhalasztása"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:6002
 msgid "Network configuration method:"
-msgstr "Hálózat konfigurálásának módja:"
+msgstr "A hálózat beállításának módja:"
 
 #. Type: select
 #. Description
@@ -852,17 +854,17 @@ msgid ""
 "by the client, so you can also choose to retry DHCP network "
 "autoconfiguration with a hostname that you provide."
 msgstr ""
-"Ismét megkísérelhető a hálózati DHCP autokonfigurálás (ami sikerülhet, ha a "
-"DHCP kiszolgáló lassan válaszol) vagy a hálózat kézi beállítása. Pár DHCP "
-"kiszolgáló DHCP gépnevet igényel, így az autokonfiguráció ennek megadásával "
-"is újrapróbálható."
+"Ismét megkísérelhető a hálózati DHCP automatikus beállítása (ami sikerülhet, "
+"ha a DHCP kiszolgáló lassan válaszol) vagy a hálózat kézi beállítása. Pár "
+"DHCP kiszolgáló DHCP gépnevet igényel, így az automatikus hálózatbeállítás "
+"ennek megadásával is újrapróbálható."
 
 #. Type: note
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:7001
 msgid "Network autoconfiguration failed"
-msgstr "Az automatikus hálózat-beállítás sikertelen"
+msgstr "Az automatikus hálózatbeállítás sikertelen"
 
 #. Type: note
 #. Description
@@ -977,7 +979,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr "Megadhatsz egy CIDR hálózati maszkot is (mint pl. a \"/24\")."
+msgstr "Megadhat egy CIDR hálózati maszkot is (mint pl. a \"/24\")."
 
 #. Type: string
 #. Description
@@ -986,7 +988,7 @@ msgstr "Megadhatsz egy CIDR hálózati maszkot is (mint pl. a \"/24\")."
 #: ../netcfg-static.templates:1001
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr ""
-"Ha nem tudod, hogy mit írj ide, kérdezd meg a rendszergazdát vagy az "
+"Ha nem tudja, hogy mit írjon ide, kérdezze meg a rendszergazdát vagy az "
 "internet szolgáltatót."
 
 #. Type: error
@@ -1050,9 +1052,9 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
-"A hálózati maszk a jelen géppel egy alhálózatba tartozó gépeket jelöli ki. "
-"Kétség esetén a hálózati rendszergazda segít. A hálózati maszk 4 pontokkal "
-"elválasztott számból áll."
+"A hálózati maszk a jelen géppel egy alhálózatba tartozó gépeket jelöli. "
+"Kétség esetén forduljon a hálózati rendszergazdájához. A hálózati maszkot "
+"négy, pontokkal elválasztott számként kell megadni."
 
 #. Type: string
 #. Description
@@ -1073,11 +1075,11 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
-"Az átjáró egy IP-cím (4 pontokkal elválasztott szám), ami az átjáró-"
+"Az átjáró egy IP-cím (négy, pontokkal elválasztott szám), ami az átjáró-"
 "útválasztót (alapértelmezett útválasztót) jelöli ki. A helyi hálóból kifelé "
 "(például az Internetre) irányuló forgalmat ez az útválasztó kezeli. Egyes "
 "ritka esetekben (amikor nincs közbeeső útvonalválasztó) e mező üresen "
-"maradhat. Kétség esetén a hálózati rendszergazda segít."
+"maradhat. Kétség esetén forduljon a hálózati rendszergazdájához."
 
 #. Type: error
 #. Description
@@ -1127,7 +1129,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
-msgstr "Az adatok helyesek?"
+msgstr "Helyesek az adatok?"
 
 #. Type: boolean
 #. Description
