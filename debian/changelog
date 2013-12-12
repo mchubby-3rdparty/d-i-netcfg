@@ -1,8 +1,8 @@
-netcfg (1.113) UNRELEASED; urgency=low
+netcfg (1.113) unstable; urgency=low
 
   * Add arm64 to the Architecture field.
 
- -- dann frazier <dannf@debian.org>  Thu, 12 Dec 2013 10:34:50 -0700
+ -- dann frazier <dannf@debian.org>  Thu, 12 Dec 2013 10:47:25 -0700
 
 netcfg (1.112) unstable; urgency=low
 
