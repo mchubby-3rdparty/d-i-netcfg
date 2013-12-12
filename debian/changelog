@@ -1,10 +1,10 @@
-netcfg (1.114) UNRELEASED; urgency=low
+netcfg (1.114) unstable; urgency=low
 
   * Make netcfg Arch: any again. This reverts a change made in version
     0.23 over a decade ago, intended to omit s390, which apparently
     is no longer needed.
 
- -- dann frazier <dannf@debian.org>  Thu, 12 Dec 2013 11:29:08 -0700
+ -- dann frazier <dannf@debian.org>  Thu, 12 Dec 2013 15:02:28 -0700
 
 netcfg (1.113) unstable; urgency=low
 
