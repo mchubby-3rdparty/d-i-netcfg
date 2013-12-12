@@ -11,7 +11,7 @@ Vcs-Git: git://anonscm.debian.org/d-i/netcfg.git
 
 Package: netcfg
 Package-Type: udeb
-Architecture: i386 amd64 alpha arm arm64 armel armeb armhf hppa ia64 m68k mips mipsel powerpc sparc kfreebsd-i386 kfreebsd-amd64 hurd-i386 sh4 sparc64 ppc64
+Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends},
 	ethernet-card-detection,
 	isc-dhcp-client-udeb [kfreebsd-any hurd-any],
