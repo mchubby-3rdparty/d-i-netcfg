@@ -1,3 +1,10 @@
+netcfg (1.115) UNRELEASED; urgency=medium
+
+  [ Updated translations ]
+  * Hungarian (hu.po) by Judit Gyimesi
+
+ -- Cyril Brulebois <kibi@debian.org>  Fri, 14 Mar 2014 17:22:12 +0100
+
 netcfg (1.114) unstable; urgency=low
 
   * Make netcfg Arch: any again. This reverts a change made in version
