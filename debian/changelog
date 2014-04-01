@@ -1,3 +1,10 @@
+netcfg (1.116) UNRELEASED; urgency=medium
+
+  * Substitute hostname rather than client->value in netcfg_get_hostname, to
+    avoid substituting nonsense like "value set" in some cases.
+
+ -- Colin Watson <cjwatson@debian.org>  Tue, 01 Apr 2014 17:47:47 +0100
+
 netcfg (1.115) unstable; urgency=medium
 
   [ Updated translations ]
