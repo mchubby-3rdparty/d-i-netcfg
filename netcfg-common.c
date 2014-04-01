@@ -1040,6 +1040,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char *host
             debconf_go(client);
             debconf_set(client, template, "debian");
             *hostname = '\0';
+            continue;
         }
 
         if (accept_domain && (s = strchr(hostname, '.'))) {

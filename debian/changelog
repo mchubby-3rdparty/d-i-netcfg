@@ -2,6 +2,8 @@ netcfg (1.116) UNRELEASED; urgency=medium
 
   * Substitute hostname rather than client->value in netcfg_get_hostname, to
     avoid substituting nonsense like "value set" in some cases.
+  * Don't issue duplicate error messages if the hostname fails both the
+    valid_domain and valid_hostname tests.
 
  -- Colin Watson <cjwatson@debian.org>  Tue, 01 Apr 2014 17:47:47 +0100
 
