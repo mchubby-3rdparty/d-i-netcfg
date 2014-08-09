@@ -1,10 +1,10 @@
-netcfg (1.118) UNRELEASED; urgency=medium
+netcfg (1.118) unstable; urgency=high
 
   * Fix support for entering an ESSID manually, it was previously
     getting ignored (Closes: #757478). Thanks to James Cowgill for the
     report and the patch!
 
- -- Cyril Brulebois <kibi@debian.org>  Sat, 09 Aug 2014 21:18:05 +0200
+ -- Cyril Brulebois <kibi@debian.org>  Sat, 09 Aug 2014 21:47:27 +0200
 
 netcfg (1.117) unstable; urgency=low
 
