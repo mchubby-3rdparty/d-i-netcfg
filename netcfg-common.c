@@ -640,7 +640,7 @@ static char *get_bootif(void)
             char *subst;
 
             s += sizeof("BOOTIF=") - 1;
-            bootif_len = strcspn(s, " ");
+            bootif_len = strcspn(s, " \n");
             if (bootif_len != (ETH_ALEN * 3 - 1) + 3)
                 continue;
             bootif = strndup(s + 3, bootif_len - 3); /* skip hardware type */

@@ -5,6 +5,8 @@ netcfg (1.119) UNRELEASED; urgency=medium
     base-installer hook earlier, and copying it again makes it hard to
     modify /target/etc/network/interfaces in a preseed file (closes:
     #709017, LP: #1361902).
+  * Fix BOOTIF detection to handle the newline at the end of a line read
+    from /proc/cmdline (LP: #1350302).
 
  -- Colin Watson <cjwatson@debian.org>  Thu, 28 Aug 2014 20:05:42 +0100
 
