@@ -1,3 +1,13 @@
+netcfg (1.119) UNRELEASED; urgency=medium
+
+  * Don't copy /etc/network/interfaces to /target if
+    netcfg/target_network_config=ifupdown; it's already been copied by the
+    base-installer hook earlier, and copying it again makes it hard to
+    modify /target/etc/network/interfaces in a preseed file (closes:
+    #709017).
+
+ -- Colin Watson <cjwatson@debian.org>  Thu, 28 Aug 2014 20:05:42 +0100
+
 netcfg (1.118) unstable; urgency=high
 
   * Fix support for entering an ESSID manually, it was previously
