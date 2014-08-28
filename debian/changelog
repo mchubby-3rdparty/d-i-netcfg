@@ -1,5 +1,6 @@
-netcfg (1.119) UNRELEASED; urgency=medium
+netcfg (1.119) unstable; urgency=medium
 
+  [ Colin Watson ]
   * Don't copy /etc/network/interfaces to /target if
     netcfg/target_network_config=ifupdown; it's already been copied by the
     base-installer hook earlier, and copying it again makes it hard to
@@ -8,7 +9,10 @@ netcfg (1.119) UNRELEASED; urgency=medium
   * Fix BOOTIF detection to handle the newline at the end of a line read
     from /proc/cmdline (LP: #1350302).
 
- -- Colin Watson <cjwatson@debian.org>  Thu, 28 Aug 2014 20:05:42 +0100
+  [ Updated translations ]
+  * Estonian (et.po) by Mattias Põldaru
+
+ -- Colin Watson <cjwatson@debian.org>  Thu, 28 Aug 2014 20:26:09 +0100
 
 netcfg (1.118) unstable; urgency=high
 
