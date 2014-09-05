@@ -1,3 +1,13 @@
+netcfg (1.120) UNRELEASED; urgency=medium
+
+  [ Steven Chamberlain ]
+  * Do not kill_dhcp_client after setting the hostname and domain,
+    otherwise Linux udhcpc will stop renewing its lease, and on other
+    platforms dhclient will de-configure the network interface
+    (Closes: #757711, #757988)
+
+ -- Debian Install System Team <debian-boot@lists.debian.org>  Fri, 29 Aug 2014 22:05:47 +0100
+
 netcfg (1.119) unstable; urgency=medium
 
   [ Colin Watson ]

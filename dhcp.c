@@ -614,7 +614,6 @@ int netcfg_activate_dhcp (struct debconfclient *client, struct netcfg_interface 
                 netcfg_write_loopback();
                 netcfg_write_interface(interface);
                 netcfg_write_resolv(domain, interface);
-                kill_dhcp_client();
                 stop_rdnssd();
 
                 return 0;
