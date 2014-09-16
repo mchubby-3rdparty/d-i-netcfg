@@ -114,7 +114,7 @@ static int start_wpa_daemon(struct debconfclient *client, const char *if_name)
     if (wpa_supplicant_pid == 0) {
         fclose(client->out);
         if (execlp("wpa_supplicant", "wpa_supplicant", "-i", if_name, "-C",
-                   WPASUPP_CTRL, "-P", WPAPID, "-B", NULL) == -1) {
+                   WPASUPP_CTRL, "-P", WPAPID, "-B", "-s", "-d", NULL) == -1) {
             di_error("could not exec wpasupplicant: %s", strerror(errno));
             return 1;
         }

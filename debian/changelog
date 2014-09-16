@@ -1,3 +1,13 @@
+netcfg (1.121) UNRELEASED; urgency=medium
+
+  * Pass extra options to wpa_supplicant:
+     - syslog mode (-s), which needs a patched wpa package (see #761922).
+     - debug mode (-d), so that it gets a bit more verbose. There's
+       also an even more verbose mode (-dd) but that might be overkill
+       for the general case (Closes: #761923).
+
+ -- Cyril Brulebois <kibi@debian.org>  Mon, 15 Sep 2014 22:38:46 +0200
+
 netcfg (1.120) unstable; urgency=medium
 
   [ Steven Chamberlain ]
