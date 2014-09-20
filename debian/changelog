@@ -1,3 +1,10 @@
+netcfg (1.121) unstable; urgency=low
+
+  [ Updated translations ]
+  * Turkish (tr.po) by Mert Dirik
+
+ -- Christian Perrier <bubulle@debian.org>  Sat, 20 Sep 2014 10:14:09 +0200
+
 netcfg (1.120) unstable; urgency=medium
 
   [ Steven Chamberlain ]
