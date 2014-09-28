@@ -1,10 +1,10 @@
-netcfg (1.108+deb7u2) UNRELEASED; urgency=low
+netcfg (1.108+deb7u2) wheezy; urgency=low
 
   * Fix support for entering an ESSID manually, it was previously
     getting ignored (Closes: #757478). Thanks to James Cowgill for the
     report and the patch!
 
- -- Cyril Brulebois <kibi@debian.org>  Sat, 09 Aug 2014 22:03:14 +0200
+ -- Cyril Brulebois <kibi@debian.org>  Sun, 28 Sep 2014 17:11:31 +0200
 
 netcfg (1.108+deb7u1) wheezy; urgency=low
 
