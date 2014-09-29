@@ -1,3 +1,11 @@
+netcfg (1.122) UNRELEASED; urgency=medium
+
+  * netcfg-static.c: call netcfg_interface_init() on struct
+    netcfg_interface before using it to avoid calling free() on a random
+    pointer.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 29 Sep 2014 06:57:14 +0200
+
 netcfg (1.121) unstable; urgency=low
 
   [ Updated translations ]
