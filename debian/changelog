@@ -1,10 +1,10 @@
-netcfg (1.123) UNRELEASED; urgency=medium
+netcfg (1.123) unstable; urgency=medium
 
   * Fix missing bounds check on nameserver array iteration, leading to a
     crash when 4 (or more) nameservers are available (Closes: #768218).
     Thanks, Kjell Braden, for the bug report, patch, and tests!
 
- -- Cyril Brulebois <kibi@debian.org>  Thu, 06 Nov 2014 12:13:40 +0100
+ -- Cyril Brulebois <kibi@debian.org>  Thu, 06 Nov 2014 13:49:31 +0100
 
 netcfg (1.122) unstable; urgency=medium
 
