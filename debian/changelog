@@ -1,3 +1,10 @@
+netcfg (1.124) unstable; urgency=low
+
+  [ Updated translations ]
+  * Galician (gl.po) by Jorge Barreiro
+
+ -- Christian Perrier <bubulle@debian.org>  Sat, 15 Nov 2014 07:47:55 +0100
+
 netcfg (1.123) unstable; urgency=medium
 
   * Fix missing bounds check on nameserver array iteration, leading to a
