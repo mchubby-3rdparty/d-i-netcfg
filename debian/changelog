@@ -1,3 +1,9 @@
+netcfg (1.125) unstable; urgency=medium
+
+  * Re-upload without stray files.
+
+ -- Cyril Brulebois <kibi@debian.org>  Tue, 25 Nov 2014 11:35:43 +0100
+
 netcfg (1.124) unstable; urgency=low
 
   [ Updated translations ]
