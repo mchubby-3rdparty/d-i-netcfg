@@ -1,3 +1,11 @@
+netcfg (1.126) unstable; urgency=low
+
+  [ Updated translations ]
+  * Spanish (es.po) by Javier Fernández-Sanguino Peña
+  * Simplified Chinese (zh_CN.po) by YunQiang Su
+
+ -- Christian Perrier <bubulle@debian.org>  Sun, 07 Dec 2014 21:36:11 +0100
+
 netcfg (1.125) unstable; urgency=medium
 
   * Re-upload without stray files.
