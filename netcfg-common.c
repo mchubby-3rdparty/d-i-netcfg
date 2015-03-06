@@ -1469,7 +1469,7 @@ int netcfg_detect_link(struct debconfclient *client, const struct netcfg_interfa
 {
     char arping[256];
     int count, rv = 0;
-    int link_waits;
+    int link_waits = 12;  /* default for netcfg/link_wait_timeout times 4 */
     int gw_tries = NETCFG_GATEWAY_REACHABILITY_TRIES;
     const char *if_name = interface->name;
     const char *gateway = interface->gateway;
