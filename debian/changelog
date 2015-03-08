@@ -1,8 +1,12 @@
-netcfg (1.128) UNRELEASED; urgency=medium
+netcfg (1.129) unstable; urgency=medium
 
+  [ Colin Watson ]
   * Pacify GCC 5 misdetecting link_waits as uninitialised (closes: #778023).
 
- -- Colin Watson <cjwatson@debian.org>  Fri, 06 Mar 2015 13:59:34 +0000
+  [ Updated translations ]
+  * Danish (da.po) by Joe Hansen
+
+ -- Christian Perrier <bubulle@debian.org>  Sun, 08 Mar 2015 07:53:02 +0100
 
 netcfg (1.127) unstable; urgency=medium
 
