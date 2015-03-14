@@ -1,9 +1,10 @@
-netcfg (1.130) UNRELEASED; urgency=medium
+netcfg (1.130) unstable; urgency=medium
 
+  [ Colin Watson ]
   * Don't build the compilation date and time into the binary.  This made
     the build unreproducible.
 
- -- Colin Watson <cjwatson@debian.org>  Sat, 14 Mar 2015 00:27:47 +0000
+ -- Christian Perrier <bubulle@debian.org>  Sat, 14 Mar 2015 08:34:09 +0100
 
 netcfg (1.129) unstable; urgency=medium
 
