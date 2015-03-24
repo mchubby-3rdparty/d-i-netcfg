@@ -1,3 +1,13 @@
+netcfg (1.131) unstable; urgency=medium
+
+  * Kill the DHCP client on Linux again and keep it running on kFreeBSD.
+    This unbreaks network configuration on Linux when a DHCPv6 server is
+    present on the network segment. However it also means that the
+    DHCPv4 lease is no longer being refreshed (not a regression over
+    stable). (Closes: #768188)
+
+ -- Philipp Kern <pkern@debian.org>  Tue, 24 Mar 2015 21:48:00 +0100
+
 netcfg (1.130) unstable; urgency=medium
 
   [ Colin Watson ]
