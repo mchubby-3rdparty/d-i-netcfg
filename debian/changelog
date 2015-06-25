@@ -1,3 +1,11 @@
+netcfg (1.132) unstable; urgency=medium
+
+  [ Updated translations ]
+  * Portuguese (Brazil) (pt_BR.po) by Adriano Rafael Gomes
+  * Turkish (tr.po) by Mert Dirik
+
+ -- Christian Perrier <bubulle@debian.org>  Thu, 25 Jun 2015 15:11:32 +0200
+
 netcfg (1.131) unstable; urgency=medium
 
   * Kill the DHCP client on Linux again and keep it running on kFreeBSD.
