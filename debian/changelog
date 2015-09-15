@@ -1,3 +1,10 @@
+netcfg (1.131+deb8u1) UNRELEASED; urgency=medium
+
+  * Fix is_layer3_qeth on s390x to avoid bailing out if the network
+    driver is not qeth. (Closes: #798376)
+
+ -- Philipp Kern <pkern@debian.org>  Sat, 03 Oct 2015 18:42:26 +0200
+
 netcfg (1.131) unstable; urgency=medium
 
   * Kill the DHCP client on Linux again and keep it running on kFreeBSD.
