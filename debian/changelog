@@ -2,6 +2,7 @@ netcfg (1.134) unstable; urgency=medium
 
   * Fix is_layer3_qeth on s390x to avoid bailing out if the network
     driver is not qeth. (Closes: #798376)
+  * Link against libsubunit to resolve a FTBFS.
 
  -- Philipp Kern <pkern@debian.org>  Mon, 17 Aug 2015 17:12:10 +0200
 
