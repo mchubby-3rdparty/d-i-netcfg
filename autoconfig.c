@@ -114,6 +114,7 @@ int start_dhcpv6_client(struct debconfclient *client, const struct netcfg_interf
 			i = 0;
 			arguments[i++] = "dhclient";
 			arguments[i++] = "-6";
+			arguments[i++] = "-1";
 			if (interface->v6_stateless_config)
 				arguments[i++] = "-S";
 			arguments[i++] = "-cf";
