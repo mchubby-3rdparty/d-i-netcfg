@@ -1,3 +1,11 @@
+netcfg (1.131+deb8u1+kbsd8u1) UNRELEASED; urgency=medium
+
+  * Run the ISC DHCPv6 client (only used on kfreebsd) with the -1 flag
+    so that it eventually times out.  Similar issue to #767188 but
+    having a different cause, this is much more easily fixed.
+
+ -- Steven Chamberlain <steven@pyro.eu.org>  Mon, 05 Oct 2015 19:29:25 +0000
+
 netcfg (1.131+deb8u1) stable; urgency=medium
 
   * Fix is_layer3_qeth on s390x to avoid bailing out if the network
