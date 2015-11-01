@@ -1,3 +1,10 @@
+netcfg (1.135) UNRELEASED; urgency=medium
+
+  * ethtool-lite: read the kernel's carrier detection result from sysfs
+    on Linux (Closes: #591012)
+
+ -- Philipp Kern <pkern@debian.org>  Sun, 01 Nov 2015 21:59:00 +0100
+
 netcfg (1.134) unstable; urgency=medium
 
   * Fix is_layer3_qeth on s390x to avoid bailing out if the network
