@@ -1,6 +1,7 @@
 /* The best bits of mii-diag and ethtool mixed into one big jelly roll. */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
@@ -22,19 +23,7 @@
 
 #if defined(__linux__)
 
-#ifndef ETHTOOL_GLINK
-# define ETHTOOL_GLINK 0x0000000a
-#endif
-
-#ifndef SIOCETHTOOL
-# define SIOCETHTOOL 0x8946
-#endif
-
-struct ethtool_value
-{
-	u_int32_t cmd;
-	u_int32_t data;
-};
+#define SYSCLASSNET "/sys/class/net/"
 
 #elif defined(__FreeBSD_kernel__)
 
@@ -53,9 +42,12 @@ int ethtool_lite (const char * iface)
 #endif
 
 #if defined(__linux__)
-	char filename[1024];
-	snprintf(filename, sizeof(filename), "/sys/class/net/%s/carrier", iface);
+	int len = strlen(SYSCLASSNET) + strlen(iface) + strlen("/carrier") + 1;
+	char* filename = malloc(len);
+	snprintf(filename, len, SYSCLASSNET "%s/carrier", iface);
 	FILE* fp = fopen(filename, "r");
+	free(filename);
+
 	char result[2];
 	if (fgets(result, sizeof(result), fp) == NULL) {
 		fclose(fp);
