@@ -1,10 +1,11 @@
-netcfg (1.135) UNRELEASED; urgency=medium
+netcfg (1.135) unstable; urgency=medium
 
+  [ Philipp Kern ]
   * ethtool-lite: read the kernel's carrier detection result from sysfs
     on Linux (Closes: #591012)
   * Default wireless_security_type to WPA. (Closes: #798373)
 
- -- Philipp Kern <pkern@debian.org>  Sun, 01 Nov 2015 21:59:00 +0100
+ -- Christian Perrier <bubulle@debian.org>  Tue, 03 Nov 2015 14:03:53 +0100
 
 netcfg (1.134) unstable; urgency=medium
 
