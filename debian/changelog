@@ -1,4 +1,4 @@
-netcfg (1.131+deb8u1+kbsd8u1) UNRELEASED; urgency=medium
+netcfg (1.131+deb8u1+kbsd8u1) jessie-kfreebsd; urgency=medium
 
   * Run the ISC DHCPv6 client (only used on kfreebsd) with the -1 flag
     so that it eventually times out.  Similar issue to #767188 but
