@@ -1,7 +1,19 @@
+#include <arpa/inet.h>
+#include <ctype.h>
+#include <errno.h>
+#include <netinet/in.h>
+#include <stdio.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+
+#ifdef WIRELESS
+#include <iwlib.h>
+#endif
+
+#include <debian-installer.h>
 
 #include "nm-conf.h"
-#include <sys/stat.h>
-#include <errno.h>
 
 /* Linux provides a lightweight facility that can generate UUIDs for us. */
 static void get_uuid(char* target)
@@ -155,6 +167,29 @@ void nm_write_ipv6(FILE *config_file, nm_ipvX ipv6)
     }
 }
 
+/* Write info about how the network was configured to a specific file, in
+ * order to be used in the finish install script. */
+void nm_write_connection_type(struct nm_config_info nmconf)
+{
+    FILE *f = fopen(NM_CONNECTION_FILE, "w");
+
+    if (nmconf.connection.type == WIFI) {
+        fprintf(f, "connection type: wireless\n");
+    }
+    else {
+        fprintf(f, "connection type: wired\n");
+    }
+
+    if (nmconf.connection.type == WIFI && nmconf.wireless.is_secured) {
+        fprintf(f, "security: secured\n");
+    }
+    else {
+        fprintf(f, "security: unsecured\n");
+    }
+
+    fclose(f);
+}
+
 /* Write Network Manager config file. */
 void nm_write_configuration(struct nm_config_info nmconf)
 {
@@ -211,35 +246,12 @@ void nm_write_configuration(struct nm_config_info nmconf)
     nm_write_connection_type(nmconf);
 }
 
-/* Write info about how the network was configured to a specific file, in
- * order to be used in the finish install script. */
-void nm_write_connection_type(struct nm_config_info nmconf)
-{
-    FILE *f = fopen(NM_CONNECTION_FILE, "w");
-
-    if (nmconf.connection.type == WIFI) {
-        fprintf(f, "connection type: wireless\n");
-    }
-    else {
-        fprintf(f, "connection type: wired\n");
-    }
-
-    if (nmconf.connection.type == WIFI && nmconf.wireless.is_secured) {
-        fprintf(f, "security: secured\n");
-    }
-    else {
-        fprintf(f, "security: unsecured\n");
-    }
-
-    fclose(f);
-}
-
 /* Functions for extracting information from netcfg variables. */
 
 /* Get info for the connection setting for wireless networks. */
 
 #ifdef WIRELESS
-void nm_get_wireless_connection(struct netcfg_interface *niface, nm_connection *connection)
+static void nm_get_wireless_connection(struct netcfg_interface *niface, nm_connection *connection)
 {
     /* Use the wireless network name for connection id. */
     snprintf(connection->id, NM_MAX_LEN_ID, "%s", niface->essid);
@@ -252,7 +264,7 @@ void nm_get_wireless_connection(struct netcfg_interface *niface, nm_connection *
 #endif
 
 /* Get info for the connection setting for wired networks. */
-void nm_get_wired_connection(nm_connection *connection)
+static void nm_get_wired_connection(nm_connection *connection)
 {
     /* This is the first wired connection. */
     snprintf(connection->id, NM_MAX_LEN_ID, NM_DEFAULT_WIRED_NAME);
@@ -264,7 +276,7 @@ void nm_get_wired_connection(nm_connection *connection)
 }
 
 /* Get MAC address from default file. */
-void nm_get_mac_address(char *interface, char *mac_addr)
+static void nm_get_mac_address(char *interface, char *mac_addr)
 {
     char    file_name[NM_MAX_LEN_PATH];
     FILE    *file;
@@ -288,7 +300,7 @@ void nm_get_mac_address(char *interface, char *mac_addr)
 }
 
 #ifdef WIRELESS
-void nm_get_wireless_specific_options(struct netcfg_interface *niface, nm_wireless *wireless)
+static void nm_get_wireless_specific_options(struct netcfg_interface *niface, nm_wireless *wireless)
 {
     strncpy(wireless->ssid, niface->essid, NM_MAX_LEN_SSID);
 
@@ -314,14 +326,14 @@ void nm_get_wireless_specific_options(struct netcfg_interface *niface, nm_wirele
 #endif
 
 /* Only set MAC address, the others have good defaults in NM. */
-void nm_get_wired_specific_options(struct netcfg_interface *niface, nm_wired *wired)
+static void nm_get_wired_specific_options(struct netcfg_interface *niface, nm_wired *wired)
 {
     nm_get_mac_address(niface->name, wired->mac_addr);
 }
 
 /* Security type for wireless networks. */
 #ifdef WIRELESS
-void nm_get_wireless_security(struct netcfg_interface *niface, nm_wireless_security *wireless_security)
+static void nm_get_wireless_security(struct netcfg_interface *niface, nm_wireless_security *wireless_security)
 {
     if (niface->wifi_security == REPLY_WPA) {
         wireless_security->key_mgmt = WPA_PSK;
@@ -341,7 +353,7 @@ void nm_get_wireless_security(struct netcfg_interface *niface, nm_wireless_secur
 #endif
 
 /* Save IPv4 settings. */
-void nm_get_ipv4(struct netcfg_interface *niface, nm_ipvX *ipv4)
+static void nm_get_ipv4(struct netcfg_interface *niface, nm_ipvX *ipv4)
 {
     /* DHCP wasn't used and there is no IPv4 address saved => didn't use ipv4
      * so won't use it in the future. */
@@ -374,7 +386,7 @@ void nm_get_ipv4(struct netcfg_interface *niface, nm_ipvX *ipv4)
 }
 
 /* For the moment, just set it to ignore. */
-void nm_get_ipv6(struct netcfg_interface *niface, nm_ipvX *ipv6)
+static void nm_get_ipv6(struct netcfg_interface *niface, nm_ipvX *ipv6)
 {
     /* No IPv6 address, no dhcpv6, nor slaac, so wasn't used. */
     if (niface->address_family != AF_INET6 && niface->dhcpv6 == 0 &&
@@ -411,7 +423,7 @@ void nm_get_ipv6(struct netcfg_interface *niface, nm_ipvX *ipv6)
 /* Extract all configs for a wireless interface, from both global netcfg
  * values and other resources. */
 #ifdef WIRELESS
-void nm_get_wireless_config(struct netcfg_interface *niface, struct nm_config_info *nmconf)
+static void nm_get_wireless_config(struct netcfg_interface *niface, struct nm_config_info *nmconf)
 {
     nm_get_wireless_connection(niface, &(nmconf->connection));
     nm_get_wireless_specific_options(niface, &(nmconf->wireless));
@@ -426,7 +438,7 @@ void nm_get_wireless_config(struct netcfg_interface *niface, struct nm_config_in
 #endif
 
 /* Extract all configs for a wired interface. */
-void nm_get_wired_config(struct netcfg_interface *niface, struct nm_config_info *nmconf)
+static void nm_get_wired_config(struct netcfg_interface *niface, struct nm_config_info *nmconf)
 {
     nm_get_wired_connection(&(nmconf->connection));
     nm_get_wired_specific_options(niface, &(nmconf->wired));
