@@ -30,7 +30,7 @@ static void get_uuid(char* target)
 
 /* Functions for printing informations in Network Manager format. */
 
-void nm_write_connection(FILE *config_file, nm_connection connection)
+static void nm_write_connection(FILE *config_file, nm_connection connection)
 {
     fprintf(config_file, "\n%s\n", NM_SETTINGS_CONNECTION);
     fprintf(config_file, "id=%s\n", connection.id);
@@ -40,7 +40,7 @@ void nm_write_connection(FILE *config_file, nm_connection connection)
 }
 
 #ifdef WIRELESS
-void nm_write_wireless_specific_options(FILE *config_file,
+static void nm_write_wireless_specific_options(FILE *config_file,
         struct nm_config_info *nmconf)
 {
     nm_wireless wireless = nmconf->wireless;
@@ -59,7 +59,7 @@ void nm_write_wireless_specific_options(FILE *config_file,
 }
 #endif
 
-void nm_write_wired_specific_options(FILE *config_file,
+static void nm_write_wired_specific_options(FILE *config_file,
         struct nm_config_info *nmconf)
 {
     nm_wired wired = nmconf->wired;
@@ -72,7 +72,7 @@ void nm_write_wired_specific_options(FILE *config_file,
 }
 
 #ifdef WIRELESS
-void nm_write_wireless_security(FILE *config_file, nm_wireless_security
+static void nm_write_wireless_security(FILE *config_file, nm_wireless_security
         wireless_security)
 {
     fprintf(config_file, "\n%s\n", NM_SETTINGS_WIRELESS_SECURITY);
@@ -92,7 +92,7 @@ void nm_write_wireless_security(FILE *config_file, nm_wireless_security
 }
 #endif
 
-void nm_write_static_ipvX(FILE *config_file, nm_ipvX ipvx)
+static void nm_write_static_ipvX(FILE *config_file, nm_ipvX ipvx)
 {
     char    buffer[NM_MAX_LEN_BUF], addr[NM_MAX_LEN_IPV4];
     int     i;
@@ -137,7 +137,7 @@ void nm_write_static_ipvX(FILE *config_file, nm_ipvX ipvx)
     fprintf(config_file, "addresses1=%s\n", buffer);
 }
 
-void nm_write_ipv4(FILE *config_file, nm_ipvX ipv4)
+static void nm_write_ipv4(FILE *config_file, nm_ipvX ipv4)
 {
     fprintf(config_file, "\n%s\n", NM_SETTINGS_IPV4);
 
@@ -150,7 +150,7 @@ void nm_write_ipv4(FILE *config_file, nm_ipvX ipv4)
     }
 }
 
-void nm_write_ipv6(FILE *config_file, nm_ipvX ipv6)
+static void nm_write_ipv6(FILE *config_file, nm_ipvX ipv6)
 {
     fprintf(config_file, "\n%s\n", NM_SETTINGS_IPV6);
 
@@ -169,7 +169,7 @@ void nm_write_ipv6(FILE *config_file, nm_ipvX ipv6)
 
 /* Write info about how the network was configured to a specific file, in
  * order to be used in the finish install script. */
-void nm_write_connection_type(struct nm_config_info nmconf)
+static void nm_write_connection_type(struct nm_config_info nmconf)
 {
     FILE *f = fopen(NM_CONNECTION_FILE, "w");
 
