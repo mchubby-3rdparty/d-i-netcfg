@@ -1,8 +1,8 @@
-netcfg (1.136) UNRELEASED; urgency=medium
+netcfg (1.136) unstable; urgency=medium
 
   * Fix confusing indentation pointed out by GCC 6 (closes: #811589).
 
- -- Colin Watson <cjwatson@debian.org>  Wed, 20 Jan 2016 13:41:12 +0000
+ -- Colin Watson <cjwatson@debian.org>  Wed, 20 Jan 2016 13:43:39 +0000
 
 netcfg (1.135) unstable; urgency=medium
 
