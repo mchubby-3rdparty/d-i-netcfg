@@ -1,3 +1,9 @@
+netcfg (1.137) UNRELEASED; urgency=medium
+
+  * Use HTTPS for Vcs-* URLs, and link to cgit rather than gitweb.
+
+ -- Colin Watson <cjwatson@debian.org>  Fri, 29 Jan 2016 13:35:19 +0000
+
 netcfg (1.136) unstable; urgency=medium
 
   * Fix confusing indentation pointed out by GCC 6 (closes: #811589).
