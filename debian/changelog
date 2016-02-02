@@ -1,8 +1,9 @@
-netcfg (1.137) UNRELEASED; urgency=medium
+netcfg (1.137) unstable; urgency=medium
 
+  [ Colin Watson ]
   * Use HTTPS for Vcs-* URLs, and link to cgit rather than gitweb.
 
- -- Colin Watson <cjwatson@debian.org>  Fri, 29 Jan 2016 13:35:19 +0000
+ -- Christian Perrier <bubulle@debian.org>  Tue, 02 Feb 2016 07:02:48 +0100
 
 netcfg (1.136) unstable; urgency=medium
 
