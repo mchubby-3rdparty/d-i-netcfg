@@ -2,6 +2,7 @@ netcfg (1.138) UNRELEASED; urgency=medium
 
   [ Hendrik Brueckner ]
   * common/ipaddr: remove leading and trailing whitespaces
+  * static: trim user-specified values for IP and other addresses
   * Closes: #818611, LP: #1541955
 
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Wed, 30 Mar 2016 12:13:56 +0100
