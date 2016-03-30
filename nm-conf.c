@@ -290,12 +290,12 @@ static void nm_get_mac_address(char *interface, char *mac_addr)
     else {
         int i;
 
-        fscanf(file, "%s\n", mac_addr);
-
-        /* Should be upper case. */
-        for (i = 0; mac_addr[i]; i++) {
-            mac_addr[i] = toupper(mac_addr[i]);
-        }
+        if (fscanf(file, "%s\n", mac_addr) != EOF) {
+            /* Should be upper case. */
+            for (i = 0; mac_addr[i]; i++) {
+                mac_addr[i] = toupper(mac_addr[i]);
+            }
+	}
     }
 }
 
