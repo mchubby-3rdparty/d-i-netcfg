@@ -8,6 +8,8 @@ netcfg (1.138) UNRELEASED; urgency=medium
   [ Dimitri John Ledkov ]
   * dhcp.c: check return result of two more fgets calls
   * nm-conf.c: check return result of fscanf
+  * Makefile: link with -lm to resolve undefined log and other functions
+  * All of above resolves FTBFS
 
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Wed, 30 Mar 2016 12:13:56 +0100
 
