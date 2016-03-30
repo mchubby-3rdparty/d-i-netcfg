@@ -711,14 +711,15 @@ int netcfg_dhcp(struct debconfclient *client, struct netcfg_interface *interface
     if (!have_domain && (d = fopen(DOMAIN_FILE, "r")) != NULL) {
         di_debug("Reading domain name returned via DHCP");
         domain[0] = '\0';
-        fgets(domain, sizeof(domain), d);
-        rtrim(domain);
+        while (fgets(domain, sizeof(domain), d) != NULL) {
+            rtrim(domain);
+            di_debug("DHCP domain name is '%s'", domain);
+            if (!empty_str(domain)) {
+                have_domain = 1;
+            }
+        }
         fclose(d);
         unlink(DOMAIN_FILE);
-        di_debug("DHCP domain name is '%s'", domain);
-        if (!empty_str(domain)) {
-            have_domain = 1;
-        }
     }
 
     /*
@@ -731,8 +732,9 @@ int netcfg_dhcp(struct debconfclient *client, struct netcfg_interface *interface
         
         di_debug("Reading NTP servers from DHCP info");
         
-        fgets(ntpservers, DHCP_OPTION_LEN, d);
-        rtrim(ntpservers);
+        while (fgets(ntpservers, DHCP_OPTION_LEN, d) != NULL) {
+            rtrim(ntpservers);
+        }
         fclose(d);
         unlink(NTP_SERVER_FILE);
 
