@@ -3,50 +3,13 @@
 #
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
-# Traditional Chinese messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
-#
-#
-# Translations from iso-codes:
-#   Tobias Quathamer <toddy@debian.org>, 2007.
-#   Wei-Lun Chao <chaoweilun@gmail.com>, 2008, 2009.
-#   Free Software Foundation, Inc., 2002, 2003
-#   Alastair McKinstry <mckinstry@computer.org>, 2001,2002
-#   Translations from KDE:
-#   - AceLan <acelan@kde.linux.org.tw>, 2001
-#   - Kenduest Lee <kenduest@i18n.linux.org.tw>, 2001
-#   Tetralet <tetralet@gmail.com> 2004, 2007, 2008, 2009, 2010
-#   趙惟倫 <chaoweilun@gmail.com> 2010
-#   LI Daobing <lidaobing@gmail.com>, 2007.
-#   Hominid He(viperii) <hominid@39.net>, 2007.
-#   Mai Hao Hui <mhh@126.com>, 2001.
-#   Abel Cheung <abelcheung@gmail.com>, 2007.
-#   JOE MAN <trmetal@yahoo.com.hk>, 2001.
-#   Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>, 2005.
-#   Yao Wei (魏銘廷) <mwei@lxde.org>, 2012.
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2012-09-28 01:56+0000\n"
-"Last-Translator: imacat <imacat@mail.imacat.idv.tw>\n"
-"Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
-"debian.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
 msgid "Auto-configure networking?"
-msgstr "要自動設定網路嗎？"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -60,15 +23,13 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"您可以手動輸入網路設定，或使用 DHCP （或各種 IPv6 的方法）自動偵測網路設定。"
-"即使自動偵測網路設定失敗，您還是可以手動設定網路。"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:3001
 msgid "Domain name:"
-msgstr "網域名稱:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -80,16 +41,13 @@ msgid ""
 "If you are setting up a home network, you can make something up, but make "
 "sure you use the same domain name on all your computers."
 msgstr ""
-"網域名稱 (Domain Name) 是您的網際網路位址中，主機名稱之後的那一部分。它通常是"
-"以 .com、.net、.edu 或 .org 結尾。如果您正在設定的是家用網路，您可以隨意取一"
-"個，但是要確保您在所有電腦上所使用的網域名稱都是一樣的。"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
 msgid "Name server addresses:"
-msgstr "名稱伺服器位址:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -102,17 +60,13 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
-"名稱伺服器 (Name Server) 是用來在網路上查詢主機名稱 (Host Name) 的。請以空格"
-"分隔，不要使用逗號，輸入最多三個名稱伺服器的 IP 位址 (不是主機名稱)。在進行查"
-"詢時將優先使用列表中的第一個名稱伺服器。如果您不想使用任何名稱伺服器，直接在"
-"欄位中留白即可。"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:5001
 msgid "Primary network interface:"
-msgstr "主要網路介面:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -123,8 +77,6 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
-"您的系統有多個網路介面。請選擇其中之一來做為進行安裝時的主要網路介面。若可"
-"以，已指定為使用第一個被找到的已連線之網路介面。"
 
 #. Type: string
 #. Description
@@ -134,7 +86,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
-msgstr "${iface} 的無線 ESSID:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -145,15 +97,13 @@ msgid ""
 "of the wireless network you would like ${iface} to use. If you would like to "
 "use any available network, leave this field blank."
 msgstr ""
-"${iface} 是一個無線網路的介面。請輸入 ${iface} 所要使用的無線網路的名稱 "
-"(ESSID)。如果您想使用任何可用的網路，直接在欄位中留白即可。"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
-msgstr "搜尋可用的無線網路失敗。"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -164,27 +114,25 @@ msgid ""
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
-"${iface} 是無線網路介面卡。請輸入 ${iface} 要用的無線網路的名稱 (ESSID)。若隨"
-"便連上哪個網路都好，此欄請留白。"
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WEP/Open Network"
-msgstr "WEP/開放網路"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WPA/WPA2 PSK"
-msgstr "WPA/WPA2 PSK"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:8002
 msgid "Wireless network type for ${iface}:"
-msgstr "${iface} 的無線網路類型:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -194,15 +142,13 @@ msgid ""
 "Choose WEP/Open if the network is open or secured with WEP. Choose WPA/WPA2 "
 "if the network is protected with WPA/WPA2 PSK (Pre-Shared Key)."
 msgstr ""
-"如果這個網路是開放網路或是 WEP 加密的網路，請選擇 WEP/開放網路。如果這個網路"
-"是 WPA/WPA2 PSK (預先共用金鑰) 加密網路，請選擇 WPA/WPA2。"
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:9001
 msgid "WEP key for wireless device ${iface}:"
-msgstr "無線裝置 ${iface} 的 WEP 密鑰:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -211,7 +157,7 @@ msgstr "無線裝置 ${iface} 的 WEP 密鑰:"
 msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
-msgstr "若有需要，請輸入無線裝置 ${iface} 裝置的 WEP 安全密鑰。輸入方式有兩種:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -221,8 +167,6 @@ msgid ""
 "If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
-"如果您的 WEP 密鑰使用的是 nnnn-nnnn-nn、nn:nn:nn:nn:nn:nn:nn:nn 或 nnnnnnnn "
-"(其中的 n 是數字) 這種格式的話，請在欄位中依原樣直接輸入即可。"
 
 #. Type: string
 #. Description
@@ -232,8 +176,6 @@ msgid ""
 "If your WEP key is in the format of a passphrase, prefix it with "
 "'s:' (without quotes)."
 msgstr ""
-"如果您的 WEP 密鑰使用的格式是密語 (一串文字) 的話，請在前面加上 's:' (不含引"
-"號)。"
 
 #. Type: string
 #. Description
@@ -242,14 +184,14 @@ msgstr ""
 msgid ""
 "Of course, if there is no WEP key for your wireless network, leave this "
 "field blank."
-msgstr "當然，如果您的無線網路並不使用 WEP 密鑰，在欄位中留白即可。"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:10001
 msgid "Invalid WEP key"
-msgstr "不正確的 WEP 密鑰"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -259,15 +201,13 @@ msgid ""
 "The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
 "next screen carefully on how to enter your WEP key correctly, and try again."
 msgstr ""
-"這個 WEP 密鑰 '${wepkey}' 並不正確。請仔細參考下一個畫面裡的說明來了解如何正"
-"確得輸入 WEP 密鑰，然後再試一次。"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:11001
 msgid "Invalid passphrase"
-msgstr "不正確的密語"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -276,14 +216,14 @@ msgstr "不正確的密語"
 msgid ""
 "The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
 "too short (less than 8 characters)."
-msgstr "此 WPA/WPA2 PSK 密語太長 (超過 64 個字元) 或太短 (少於 8 個字元)。"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
 msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
-msgstr "無線裝置 ${iface} WPA/WPA2 密語:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -292,14 +232,14 @@ msgstr "無線裝置 ${iface} WPA/WPA2 密語:"
 msgid ""
 "Enter the passphrase for WPA/WPA2 PSK authentication. This should be the "
 "passphrase defined for the wireless network you are trying to use."
-msgstr "請輸入 WPA/WPA2 PSK 的密語，此應為您嘗試連線的無線網路的密語。"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
-msgstr "不正確的 ESSID"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -309,14 +249,13 @@ msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
 "characters, but may contain all kinds of characters."
 msgstr ""
-"這個 ESSID ${essid} 無效。ESSID 最多 ${max_essid_len} 個字元，可用任一字元。"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:14001
 msgid "Attempting to exchange keys with the access point..."
-msgstr "正在嘗試與無線網路基地台交換金鑰……"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -326,21 +265,21 @@ msgstr "正在嘗試與無線網路基地台交換金鑰……"
 #. :sl1:
 #: ../netcfg-common.templates:15001 ../netcfg-dhcp.templates:3001
 msgid "This may take some time."
-msgstr "這也許會花上一些時間。"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:16001
 msgid "WPA/WPA2 connection succeeded"
-msgstr "WPA/WPA2 連線成功"
+msgstr ""
 
 #. Type: note
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:17001
 msgid "Failure of key exchange and association"
-msgstr "交換金鑰與組合失敗"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -349,21 +288,21 @@ msgstr "交換金鑰與組合失敗"
 msgid ""
 "The exchange of keys and association with the access point failed. Please "
 "check the WPA/WPA2 parameters you provided."
-msgstr "與無線網路基地台交換金鑰與組合失敗。請檢查您提供的 WPA/WPA2 參數。"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Hostname:"
-msgstr "主機名稱:"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Please enter the hostname for this system."
-msgstr "請輸入系統的主機名稱。"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -375,23 +314,20 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
-"主機名稱 (HostName) 是用來在網路中辨別您的系統的一個單字。如果您不知道這個系"
-"統的主機名稱應該是什麼，請洽詢您的網路管理員。如果您正在設定的是自己的家用網"
-"路，那麼可以隨意取個名字。"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
-msgstr "不正確的主機名稱"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
-msgstr "\"${hostname}\" 這個名稱並不正確。"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -403,15 +339,13 @@ msgid ""
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
-"正確的主機名稱應當只包含了 數字 0-9、小寫字母 a-z 和 減號，最多為 "
-"${maxhostnamelen} 個字元，且不能以減號開頭或結尾。"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:21001
 msgid "Error"
-msgstr "錯誤"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -420,14 +354,14 @@ msgstr "錯誤"
 msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
-msgstr "發生錯誤，網路設定程序已被中止。您可以從安裝程序主選單重新嘗試。"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
-msgstr "探測不到任何網路介面"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -436,7 +370,7 @@ msgstr "探測不到任何網路介面"
 msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
-msgstr "探測不到任何的網路介面。安裝系統無法找到網路裝置。"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -446,8 +380,6 @@ msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
 msgstr ""
-"您可能得替您的網路卡載入某個專用的模組，如果您手上有的話。請返回至網路硬體裝"
-"置偵測步驟來進行這個動作。"
 
 #. Type: note
 #. Description
@@ -456,7 +388,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
-msgstr "在 ${iface} 上啟用了禁用開關 (kill switch)"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -469,8 +401,6 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
-"${iface} 似乎被一種硬體的 \"禁用開關\" (kill switch) 給強制關閉了。如果您想要"
-"使用這個網路介面，請在繼續進行之前將它打開。"
 
 #. Type: select
 #. Choices
@@ -482,7 +412,7 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
-msgstr "共用 (Managed) 網路"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -494,13 +424,13 @@ msgstr "共用 (Managed) 網路"
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
-msgstr "Ad-hoc 網路 (點對點)"
+msgstr ""
 
 #. Type: select
 #. Description
 #: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
-msgstr "無線網路的類型:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -510,133 +440,131 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
-"無線網路有 Managed 及 Ad-hoc 兩種類型。如果您是以某些實體裝置做為基地台，您的"
-"網路就是 Managed。而或者您的基地台是另一台電腦，那麼您的網路則可能是 Ad-hoc。"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
-msgstr "無線網路設定"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
-msgstr "正在尋找無線基地台……"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
-msgstr "正在偵測 ${interface} 上的連結，請稍候……"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:30001
 msgid "<none>"
-msgstr "<無>"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
-msgstr "無線網路卡 (802.11x)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:32001
 msgid "wireless"
-msgstr "無線網路"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:33001
 msgid "Ethernet"
-msgstr "網路卡"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:34001
 msgid "Token Ring"
-msgstr "Token Ring"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:35001
 msgid "USB net"
-msgstr "USB net"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
-msgstr "串列線 IP (SLIP)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
-msgstr "並行埠 IP (PLIP)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
-msgstr "點對點通訊協定 (PPP)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
-msgstr "IPv6-in-IPv4"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
-msgstr "ISDN 點對點通訊協定"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
-msgstr "Channel-to-channel"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
-msgstr "Real channel-to-channel"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
-msgstr "Inter-user communication vehicle"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:46001
 msgid "Unknown interface"
-msgstr "不明介面"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -644,7 +572,7 @@ msgstr "不明介面"
 #. :sl1:
 #: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
-msgstr "正在儲存網路設定……"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -652,14 +580,14 @@ msgstr "正在儲存網路設定……"
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr "網路設定"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
-msgstr "連結偵測的等待時間（秒）："
+msgstr ""
 
 #. Type: string
 #. Description
@@ -668,14 +596,14 @@ msgstr "連結偵測的等待時間（秒）："
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
-msgstr "請輸入偵測網路連線的等待時間上限。"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
-msgstr "不正確的偵測網路連線等待時間"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -684,7 +612,7 @@ msgstr "不正確的偵測網路連線等待時間"
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
-msgstr "您所輸入的值並不正確，偵測網路連線的等待時間上限（秒）必須為正整數。"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -692,28 +620,28 @@ msgstr "您所輸入的值並不正確，偵測網路連線的等待時間上限
 #. :sl1:
 #: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
-msgstr "${essid_list} 請手動輸入 ESSID"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Wireless network:"
-msgstr "無線網路："
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
-msgstr "請選擇安裝時要連線的無線網路。"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "DHCP hostname:"
-msgstr "DHCP 主機名稱:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -723,50 +651,48 @@ msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
 msgstr ""
-"您可能需要提供一個 DHCP 主機名稱。如果您所使用的是 cable modem，可能還得在此"
-"指定一個帳號。"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "Most other users can just leave this blank."
-msgstr "大多數的其它使用者可以在此直接留白。"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr "使用 DHCP 來設定網路"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr "網路自動設定成功了"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client found"
-msgstr "找不到 DHCP 用戶端程式"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
-msgstr "找不到 DHCP 用戶端程式。欠缺了 pump 或 dhcp-client 套件。"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "The DHCP configuration process has been aborted."
-msgstr "DHCP 的設定程序已被中止。"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -776,7 +702,7 @@ msgstr "DHCP 的設定程序已被中止。"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration"
-msgstr "再次嘗試網路自動設定"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -786,7 +712,7 @@ msgstr "再次嘗試網路自動設定"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
-msgstr "利用 DHCP 主機名稱來再次嘗試網路自動設定"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -796,7 +722,7 @@ msgstr "利用 DHCP 主機名稱來再次嘗試網路自動設定"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr "手動設定網路"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -806,14 +732,14 @@ msgstr "手動設定網路"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr "不要在此時進行網路的設定"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:6002
 msgid "Network configuration method:"
-msgstr "網路的設定方式:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -826,17 +752,13 @@ msgid ""
 "by the client, so you can also choose to retry DHCP network "
 "autoconfiguration with a hostname that you provide."
 msgstr ""
-"在此，您可以選擇再一次試著使用 DHCP 來自動設定網路 (如果是因為您的 DHCP 伺服"
-"器的回應時間較長，那可能會奏效)，或是直接以手動設定網路。有些 DHCP 伺服器會要"
-"求用戶端傳送特定的 DHCP 主機名稱，因而您可以在重新試著以 DHCP 來自動設定網路"
-"時提供這個主機名稱。"
 
 #. Type: note
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:7001
 msgid "Network autoconfiguration failed"
-msgstr "網路自動設定失敗了"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -846,15 +768,13 @@ msgid ""
 "Your network is probably not using the DHCP protocol. Alternatively, the "
 "DHCP server may be slow or some network hardware is not working properly."
 msgstr ""
-"您的網路很可能並不使用 DHCP 協定。也有可能是 DHCP 伺服器回應過慢，或者是某些"
-"網路設備未能正常運作。"
 
 #. Type: boolean
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
 msgid "Continue without a default route?"
-msgstr "是否不使用 Default Route 並繼續進行？"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -867,10 +787,6 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
-"網路自動設定成功了。然而，卻沒有指定預設的路由 (Default Route): 系統無法得知"
-"該如何才能和網際網路上的主機進行連線。除非您手上有著第一張安裝光"
-"碟、'Netinst' 光碟、或是有辨法在您區域網路中取得所需套件，否則安裝作業將會無"
-"法繼續進行。"
 
 #. Type: boolean
 #. Description
@@ -880,15 +796,13 @@ msgid ""
 "If you are unsure, you should not continue without a default route: contact "
 "your local network administrator about this problem."
 msgstr ""
-"若不確定，您不該在沒有設定 Default Route 的情況下繼續進行；請向您區域網路的管"
-"理員反應這個問題。"
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:9001
 msgid "Reconfigure the wireless network"
-msgstr "重新設定無線網路"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -900,7 +814,7 @@ msgstr "重新設定無線網路"
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "嚐試 IPv6 自動設定..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -908,14 +822,14 @@ msgstr "嚐試 IPv6 自動設定..."
 #. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr "等待 link-local 位址..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
 msgid "Configuring the network with DHCPv6"
-msgstr "用 DHCPv6 設定網路"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -923,7 +837,7 @@ msgstr "用 DHCPv6 設定網路"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr "IP 位址："
+msgstr ""
 
 #. Type: string
 #. Description
@@ -931,7 +845,7 @@ msgstr "IP 位址："
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr "IP 位址專屬於你的電腦，可能是："
+msgstr ""
 
 #. Type: string
 #. Description
@@ -941,7 +855,7 @@ msgstr "IP 位址專屬於你的電腦，可能是："
 msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
-msgstr "* 句點隔開的四個數字 (IPv4)。* 冒號隔開的十六進位字元詞組 (IPv6)。"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -949,7 +863,7 @@ msgstr "* 句點隔開的四個數字 (IPv4)。* 冒號隔開的十六進位字�
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr "你可以加上 CIDR 網路遮罩（如 \"/24\"）。"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -957,7 +871,7 @@ msgstr "你可以加上 CIDR 網路遮罩（如 \"/24\"）。"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "If you don't know what to use here, consult your network administrator."
-msgstr "若不知道要用什麼，請詢問您的網管人員。"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -965,7 +879,7 @@ msgstr "若不知道要用什麼，請詢問您的網管人員。"
 #. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "IP 位址格式有誤"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -978,15 +892,13 @@ msgid ""
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"您的 IP 位址格式有誤。它的格式應該像是 x.x.x.x，每一個 x 都不可以超過 255"
-"（IPv4 位址），或是由冒號隔開的十六進位字元詞組（IPv6 位址）。請更正。"
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:3001
 msgid "Point-to-point address:"
-msgstr "點對點位址:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -998,16 +910,13 @@ msgid ""
 "know the value.  The point-to-point address should be entered as four "
 "numbers separated by periods."
 msgstr ""
-"點對點位址 (Point-to-Point Address) 是用來決定點對點網路的另一個端點。如果您"
-"不知道位址，請洽詢您的網路管理員。在此所輸入的點對點位址應該是由四個由句點分"
-"隔的數字所組成。"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:4001
 msgid "Netmask:"
-msgstr "網路遮罩:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1018,16 +927,13 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
-"網路遮罩 (NetMask) 是用來決定哪些機器是位於您的區域網路中。如果您不知道這個遮"
-"罩值，請洽詢您的網路管理員。在此所輸入的網路遮罩應該是由四個由句點分隔的數字"
-"所組成。"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:5001
 msgid "Gateway:"
-msgstr "閘道:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1041,24 +947,20 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
-"閘道 (Gateway) 是用來指定閘道路由器 (也常叫做預設路由器) 的 IP 位址 (四個由句"
-"點分隔的數字)。所有通往區域網路外部的連線 (例如，連接上網際網路) 都要藉由這個"
-"路由器來傳送。在某些罕見情況裡，您可能沒有使用路由器﹔在此情況下，直接在欄位"
-"中留白即可。如果您不知道這個問題的適切答案，請洽詢您的網路管理員。"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "Unreachable gateway"
-msgstr "無法通連的閘道"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "The gateway address you entered is unreachable."
-msgstr "您所輸入的閘道位址是無法通連的。"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1066,7 +968,7 @@ msgstr "您所輸入的閘道位址是無法通連的。"
 #: ../netcfg-static.templates:6001
 msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
-msgstr "也許您所輸入的 IP 位址、網路遮罩 和/或 閘道 有誤。"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1074,7 +976,7 @@ msgstr "也許您所輸入的 IP 位址、網路遮罩 和/或 閘道 有誤。"
 #. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr "點對點連線不支援 IPv6"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1085,22 +987,20 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
-"點對點連線上無法設定 IPv6 位址。請改用 IPv4 位址，或回上一步，改選另一個網路"
-"介面卡。"
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
-msgstr "這些資訊是否正確？"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
-msgstr "目前已設定的網路參數:"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1114,12 +1014,6 @@ msgid ""
 " pointopoint   = ${pointopoint}\n"
 " nameservers   = ${nameservers}"
 msgstr ""
-" 介面          = ${interface}\n"
-" IP 位址       = ${ipaddress}\n"
-" 網路遮罩      = ${netmask}\n"
-" 閘道          = ${gateway}\n"
-" 點對點        = ${pointopoint}\n"
-" 名稱伺服器    = ${nameservers}"
 
 #. Type: text
 #. Description
@@ -1127,4 +1021,4 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
-msgstr "使用靜態位址來設定網路"
+msgstr ""

@@ -3,42 +3,13 @@
 #
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
-# Thai translation of debian-installer.
-# Copyright (C) 2006-2012 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
-# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2006-2011.
-#
-#
-# Translations from iso-codes:
-#   Tobias Quathamer <toddy@debian.org>, 2007.
-#     Translations taken from ICU SVN on 2007-09-09
-#   Free Software Foundation, Inc., 2002,2003,2004
-#   Alastair McKinstry <mckinstry@computer.org>, 2002, 2004
-#   Translations from KDE:
-#   - Thanomsub Noppaburana <donga@midaassets.com>
-#   Thanomsub Noppaburana <donga@midaassets.com> (Translations from KDE)
-#   Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2012
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2012-09-27 22:16+0700\n"
-"Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
-"Language-Team: Thai <thai-l10n@googlegroups.com>\n"
-"Language: th\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
 msgid "Auto-configure networking?"
-msgstr "ตั้งค่าเครือข่ายแบบอัตโนมัติหรือไม่?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -52,17 +23,13 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"คุณสามารถตั้งค่าเครือข่ายโดยป้อนข้อมูลทั้งหมดเอง หรือโดยใช้ DHCP (หรือวิธีการจำเพาะอื่นสำหรับ "
-"IPv6) ก็ได้ ถ้าคุณเลือกที่จะตั้งค่าแบบอัตโนมัติ "
-"และโปรแกรมติดตั้งไม่สามารถขอค่าตั้งที่ใช้การได้จากเครือข่ายของคุณแล้ว "
-"คุณก็ยังมีโอกาสที่จะตั้งค่าเครือข่ายของคุณด้วยตัวเอง"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:3001
 msgid "Domain name:"
-msgstr "ชื่อโดเมน:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -74,16 +41,13 @@ msgid ""
 "If you are setting up a home network, you can make something up, but make "
 "sure you use the same domain name on all your computers."
 msgstr ""
-"ชื่อโดเมนคือส่วนของที่อยู่อินเทอร์เน็ตที่อยู่ถัดจากชื่อโฮสต์ของคุณ โดยส่วนใหญ่จะลงท้ายด้วย .com, ."
-"net, .edu, .org หรือ .th  หากคุณแค่กำลังตั้งเครือข่ายในบ้าน คุณอาจสมมุติชื่ออะไรขึ้นมาก็ได้ "
-"แต่ขอให้แน่ใจว่าคุณใช้ชื่อโดเมนเหมือนกันทุกเครื่อง"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
 msgid "Name server addresses:"
-msgstr "ที่อยู่ของ namer server:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -96,17 +60,13 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
-"name server ใช้เปิดหาที่อยู่ของชื่อเครื่องในเครือข่าย กรุณาป้อนหมายเลขไอพี (ไม่ใช่ชื่อโฮสต์) ของ "
-"name server โดยป้อนได้ถึง 3 หมายเลข คั่นด้วยช่องว่าง อย่าใช้จุลภาค  name server "
-"แรกในรายการ จะเป็นเครื่องแรกที่ถูกถามก่อน หากคุณไม่ต้องการใช้ name server ใดๆ เลย "
-"ก็ปล่อยช่องข้อมูลนี้ว่างไว้"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:5001
 msgid "Primary network interface:"
-msgstr "อินเทอร์เฟซหลักสำหรับเชื่อมต่อเครือข่าย:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -117,9 +77,6 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
-"ระบบของคุณมีอินเทอร์เฟซสำหรับเชื่อมต่อเครือข่ายหลายอินเทอร์เฟซ "
-"เลือกอินเทอร์เฟซหนึ่งที่จะใช้เป็นอินเทอร์เฟซหลักระหว่างการติดตั้ง ถ้าเป็นไปได้ "
-"โปรแกรมจะเลือกอินเทอร์เฟซแรกที่พบว่ามีการเชื่อมต่อไว้"
 
 #. Type: string
 #. Description
@@ -129,7 +86,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
-msgstr "ESSID ของเครือข่ายไร้สายสำหรับ ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -140,15 +97,13 @@ msgid ""
 "of the wireless network you would like ${iface} to use. If you would like to "
 "use any available network, leave this field blank."
 msgstr ""
-"${iface} เป็นอินเทอร์เฟซเครือข่ายไร้สาย กรุณาป้อนชื่อ (ESSID) ของเครือข่ายไร้สายที่จะให้ "
-"${iface} ใช้ ถ้าคุณต้องการใช้เครือข่ายใดก็ได้ที่มีอยู่ ก็ปล่อยช่องนี้ให้ว่างไว้"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
-msgstr "ไม่สามารถหาเครือข่ายไร้สายที่มีอยู่ได้"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -159,27 +114,25 @@ msgid ""
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
-"${iface} เป็นอินเทอร์เฟซเครือข่ายไร้สาย กรุณาป้อนชื่อ (ESSID) ของเครือข่ายไร้สายที่จะให้ "
-"${iface} ใช้ ถ้าคุณต้องการใช้เครือข่ายใดก็ได้ที่มีอยู่ ก็ปล่อยช่องนี้ให้ว่างไว้"
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WEP/Open Network"
-msgstr "WEP/เครือข่ายเปิด"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WPA/WPA2 PSK"
-msgstr "WPA/WPA2 PSK"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:8002
 msgid "Wireless network type for ${iface}:"
-msgstr "ชนิดของเครือข่ายไร้สายสำหรับ ${iface}:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -189,15 +142,13 @@ msgid ""
 "Choose WEP/Open if the network is open or secured with WEP. Choose WPA/WPA2 "
 "if the network is protected with WPA/WPA2 PSK (Pre-Shared Key)."
 msgstr ""
-"เลือก WEP/เครือข่ายเปิด ถ้าเครือข่ายเป็นแบบเปิดหรือมีการรักษาความปลอดภัยด้วย WEP เลือก WPA/"
-"WPA2 ถ้าเครือข่ายรักษาความปลอดภัยด้วย WPA/WPA2 PSK (กุญแจที่แบ่งปันล่วงหน้า)"
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:9001
 msgid "WEP key for wireless device ${iface}:"
-msgstr "กุญแจ WEP สำหรับอุปกรณ์ไร้สาย ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -207,8 +158,6 @@ msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
 msgstr ""
-"หากจำเป็นต้องใช้ กรุณาป้อนกุญแจนิรภัยแบบ WEP สำหรับอุปกรณ์ไร้สาย ${iface} "
-"มีวิธีป้อนกุญแจนี้ได้สองวิธี:"
 
 #. Type: string
 #. Description
@@ -218,8 +167,6 @@ msgid ""
 "If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
-"ถ้ากุญแจ WEP ของคุณอยู่ในรูป 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn' หรือ "
-"'nnnnnnnn' โดยที่ n เป็นตัวเลข ก็ป้อนเข้ามาในรูปแบบดังกล่าวได้เลย"
 
 #. Type: string
 #. Description
@@ -229,7 +176,6 @@ msgid ""
 "If your WEP key is in the format of a passphrase, prefix it with "
 "'s:' (without quotes)."
 msgstr ""
-"ถ้ากุญแจ WEP ของคุณอยู่ในรูปวลีรหัสผ่าน ก็นำหน้าวลีรหัสผ่านด้วย 's:' (โดยไม่ต้องมีอัญประกาศ)"
 
 #. Type: string
 #. Description
@@ -238,14 +184,14 @@ msgstr ""
 msgid ""
 "Of course, if there is no WEP key for your wireless network, leave this "
 "field blank."
-msgstr "และแน่นอน ถ้าเครือข่ายของคุณไม่ต้องใช้กุญแจ WEP ก็ปล่อยช่องนี้ให้ว่างไว้"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:10001
 msgid "Invalid WEP key"
-msgstr "กุญแจ WEP ไม่ถูกต้อง"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -255,15 +201,13 @@ msgid ""
 "The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
 "next screen carefully on how to enter your WEP key correctly, and try again."
 msgstr ""
-"กุญแจ WEP '${wepkey}' ไม่ถูกต้อง กรุณาอ่านคำอธิบายในหน้าจอถัดไปอย่างละเอียด "
-"เกี่ยวกับวิธีการป้อนกุญแจ WEP อย่างถูกต้อง แล้วลองอีกครั้ง"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:11001
 msgid "Invalid passphrase"
-msgstr "วลีรหัสผ่านผิดพลาด"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -273,14 +217,13 @@ msgid ""
 "The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
 "too short (less than 8 characters)."
 msgstr ""
-"วลีรหัสผ่าน WPA/WPA2 PSK ยาวเกินไป (เกิน 64 ตัวอักษร) หรือสั้นเกินไป (ต่ำกว่า 8 ตัวอักษร)"
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
 msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
-msgstr "วลีรหัสผ่าน WPA/WPA2 สำหรับอุปกรณ์ไร้สาย ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -290,15 +233,13 @@ msgid ""
 "Enter the passphrase for WPA/WPA2 PSK authentication. This should be the "
 "passphrase defined for the wireless network you are trying to use."
 msgstr ""
-"ป้อนวลีรหัสผ่านสำหรับยืนยันตัวบุคคลแบบ WPA/WPA2 PSK "
-"ซึ่งเป็นวลีรหัสผ่านที่กำหนดไว้สำหรับเครือข่ายไร้สายที่คุณกำลังพยายามจะใช้"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
-msgstr "ESSID ไม่ถูกต้อง"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -308,15 +249,13 @@ msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
 "characters, but may contain all kinds of characters."
 msgstr ""
-"ESSID \"${essid}\" ไม่ถูกต้อง  ESSID ยาวได้ไม่เกิน ${max_essid_len} อักขระ "
-"และสามารถมีอักขระชนิดใดก็ได้"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:14001
 msgid "Attempting to exchange keys with the access point..."
-msgstr "กำลังพยายามแลกเปลี่ยนกุญแจกับ access point..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -326,21 +265,21 @@ msgstr "กำลังพยายามแลกเปลี่ยนกุญ
 #. :sl1:
 #: ../netcfg-common.templates:15001 ../netcfg-dhcp.templates:3001
 msgid "This may take some time."
-msgstr "อาจใช้เวลาสักครู่"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:16001
 msgid "WPA/WPA2 connection succeeded"
-msgstr "เชื่อมต่อ WPA/WPA2 สำเร็จแล้ว"
+msgstr ""
 
 #. Type: note
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:17001
 msgid "Failure of key exchange and association"
-msgstr "แลกเปลี่ยนกุญแจและเชื่อมโยงไม่สำเร็จ"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -350,22 +289,20 @@ msgid ""
 "The exchange of keys and association with the access point failed. Please "
 "check the WPA/WPA2 parameters you provided."
 msgstr ""
-"แลกเปลี่ยนกุญแจและเชื่อมโยงกับ access point ไม่สำเร็จ กรุณาตรวจสอบพารามิเตอร์ WPA/WPA2 "
-"ที่คุณป้อน"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Hostname:"
-msgstr "ชื่อโฮสต์:"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Please enter the hostname for this system."
-msgstr "กรุณาป้อนชื่อโฮสต์ของเครื่องนี้"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -377,23 +314,20 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
-"ชื่อโฮสต์คือคำเดี่ยวๆ ที่ใช้เรียกเครื่องของคุณในเครือข่าย "
-"ถ้าคุณไม่ทราบว่าชื่อโฮสต์ของคุณควรเป็นชื่ออะไร กรุณาสอบถามผู้ดูแลเครือข่ายของคุณ "
-"ถ้าคุณแค่กำลังตั้งเครือข่ายในบ้าน คุณอาจสมมุติชื่ออะไรขึ้นมาก็ได้"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
-msgstr "ชื่อโฮสต์ไม่ถูกต้อง"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
-msgstr "ชื่อ \"${hostname}\" ไม่ถูกต้อง"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -405,16 +339,13 @@ msgid ""
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
-"ชื่อโฮสต์ที่ใช้ได้ ควรใช้เฉพาะตัวเลข 0-9, อักษรตัวพิมพ์ใหญ่และตัวพิมพ์เล็ก (A-Z และ a-z), "
-"และเครื่องหมายลบเท่านั้น ยาวได้ไม่เกิน ${maxhostnamelen} อักขระ "
-"และห้ามขึ้นต้นหรือลงท้ายด้วยเครื่องหมายลบ"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:21001
 msgid "Error"
-msgstr "ผิดพลาด"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -424,14 +355,13 @@ msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
 msgstr ""
-"เกิดข้อผิดพลาด และการตั้งค่าเครือข่ายถูกยกเลิก คุณอาจลองใหม่ได้จากเมนูหลักของโปรแกรมติดตั้ง"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
-msgstr "ไม่พบอินเทอร์เฟซเครือข่าย"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -440,7 +370,7 @@ msgstr "ไม่พบอินเทอร์เฟซเครือข่า
 msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
-msgstr "ไม่พบอินเทอร์เฟซเครือข่าย ระบบติดตั้งตรวจหาอุปกรณ์เครือข่ายไม่พบ"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -450,8 +380,6 @@ msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
 msgstr ""
-"คุณอาจต้องโหลดมอดูลสำหรับการ์ดเครือข่ายของคุณแบบเจาะจงถ้ามี "
-"โดยย้อนกลับไปที่ขั้นตอนการตรวจหาฮาร์ดแวร์เครือข่าย"
 
 #. Type: note
 #. Description
@@ -460,7 +388,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
-msgstr "มีการเปิดใช้ kill switch ที่ ${iface}"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -473,8 +401,6 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
-"พบว่า ${iface} ถูกปิดใช้งานโดย \"kill switch\" ที่ตัวเครื่อง "
-"หากคุณต้องการจะใช้อินเทอร์เฟซนี้ กรุณาเปิดสวิตช์ดังกล่าวก่อนดำเนินการต่อไป"
 
 #. Type: select
 #. Choices
@@ -486,7 +412,7 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
-msgstr "เครือข่าย infrastructure (managed)"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -498,13 +424,13 @@ msgstr "เครือข่าย infrastructure (managed)"
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
-msgstr "เครือข่าย ad-hoc (peer to peer)"
+msgstr ""
 
 #. Type: select
 #. Description
 #: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
-msgstr "ชนิดของเครือข่ายไร้สาย:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -514,134 +440,131 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
-"เครือข่ายไร้สายมีแบบ managed และแบบ ad-hoc  ถ้าคุณใช้ access point แท้ๆ แบบใดแบบหนึ่ง "
-"เครือข่ายของคุณก็เป็นแบบ managed แต่ถ้าคุณใช้คอมพิวเตอร์อีกเครื่องเป็น 'access point' ของคุณ "
-"เครือข่ายของคุณอาจเป็นแบบ ad-hoc"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
-msgstr "การตั้งค่าเครือข่ายไร้สาย"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
-msgstr "กำลังค้นหา access point ไร้สาย..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
-msgstr "กำลังตรวจหาการเชื่อมต่อที่ ${interface} กรุณารอสักครู่..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:30001
 msgid "<none>"
-msgstr "<ไม่มี>"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
-msgstr "อีเทอร์เน็ตไร้สาย (802.11x)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:32001
 msgid "wireless"
-msgstr "ไร้สาย"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:33001
 msgid "Ethernet"
-msgstr "อีเทอร์เน็ต"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:34001
 msgid "Token Ring"
-msgstr "โทเค็นริง"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:35001
 msgid "USB net"
-msgstr "USB net"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
-msgstr "IP ผ่านสายอนุกรม"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
-msgstr "IP ผ่านพอร์ตขนาน"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
-msgstr "Point-to-Point Protocol"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
-msgstr "IPv6-in-IPv4"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
-msgstr "ISDN Point-to-Point Protocol"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
-msgstr "Channel-to-channel"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
-msgstr "Real channel-to-channel"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
-msgstr "Inter-user communication vehicle"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:46001
 msgid "Unknown interface"
-msgstr "อินเทอร์เฟซไม่ทราบชนิด"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -649,7 +572,7 @@ msgstr "อินเทอร์เฟซไม่ทราบชนิด"
 #. :sl1:
 #: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
-msgstr "กำลังเติมค่าตั้งเครือข่าย..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -657,14 +580,14 @@ msgstr "กำลังเติมค่าตั้งเครือข่า
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr "ตั้งค่าเครือข่าย"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
-msgstr "เวลาคอยการตรวจหาการเชื่อมต่อเครือข่าย (เป็นวินาที):"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -673,14 +596,14 @@ msgstr "เวลาคอยการตรวจหาการเชื่อ
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
-msgstr "กรุณาตั้งเวลาที่นานที่สุดที่คุณจะคอยการตรวจหาการเชื่อมต่อเครือข่าย"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
-msgstr "เวลาคอยการตรวจหาการเชื่อมต่อเครือข่ายไม่ถูกต้อง"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -690,8 +613,6 @@ msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
 msgstr ""
-"ค่าที่คุณป้อนไม่ใช่ค่าที่ใช้การได้ เวลาที่นานที่สุดที่จะคอยการตรวจหาการเชื่อมต่อเครือข่าย (เป็นวินาที) "
-"ต้องเป็นจำนวนเต็มบวก"
 
 #. Type: select
 #. Choices
@@ -699,28 +620,28 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
-msgstr "${essid_list} ป้อน ESSID เอง"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Wireless network:"
-msgstr "เครือข่ายไร้สาย:"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
-msgstr "กรุณาเลือกเครือข่ายไร้สายที่จะใช้ระหว่างการติดตั้ง"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "DHCP hostname:"
-msgstr "ชื่อโฮสต์ DHCP:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -729,49 +650,49 @@ msgstr "ชื่อโฮสต์ DHCP:"
 msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
-msgstr "คุณอาจต้องระบุชื่อโฮสต์ DHCP และถ้าคุณใช้เคเบิลโมเด็ม คุณอาจต้องระบุหมายเลขบัญชีที่นี่"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "Most other users can just leave this blank."
-msgstr "ผู้ใช้อื่นส่วนใหญ่สามารถปล่อยช่องนี้ให้ว่างไว้ได้"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr "กำลังตั้งค่าเครือข่ายด้วย DHCP"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr "ตั้งค่าเครือข่ายโดยอัตโนมัติได้สำเร็จ"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client found"
-msgstr "ไม่มีไคลเอนต์ DHCP"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
-msgstr "ไม่พบไคลเอนต์ DHCP  แพกเกจนี้ต้องใช้ pump หรือ dhcp-client"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "The DHCP configuration process has been aborted."
-msgstr "ยกเลิกกระบวนการตั้งค่า DHCP"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -781,7 +702,7 @@ msgstr "ยกเลิกกระบวนการตั้งค่า DHCP"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration"
-msgstr "ลองตั้งค่าเครือข่ายอัตโนมัติอีกครั้ง"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -791,7 +712,7 @@ msgstr "ลองตั้งค่าเครือข่ายอัตโน
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
-msgstr "ลองตั้งค่าเครือข่ายอัตโนมัติอีกครั้ง ด้วยชื่อโฮสต์ DHCP"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -801,7 +722,7 @@ msgstr "ลองตั้งค่าเครือข่ายอัตโน
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr "ตั้งค่าเครือข่ายเอง"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -811,14 +732,14 @@ msgstr "ตั้งค่าเครือข่ายเอง"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr "ไม่ต้องตั้งค่าเครือข่ายในตอนนี้"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:6002
 msgid "Network configuration method:"
-msgstr "วิธีตั้งค่าเครือข่าย:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -831,18 +752,13 @@ msgid ""
 "by the client, so you can also choose to retry DHCP network "
 "autoconfiguration with a hostname that you provide."
 msgstr ""
-"จากจุดนี้ คุณสามารถเลือกที่จะลองตั้งค่าเครือข่ายโดยอัตโนมัติด้วย DHCP อีกครั้ง "
-"(ซึ่งอาจได้ผลในกรณีที่เซิร์ฟเวอร์ DHCP ของคุณใช้เวลาตอบสนองนาน) "
-"หรือคุณอาจเลือกที่จะตั้งค่าเครือข่ายเอง นอกจากนี้ เซิร์ฟเวอร์ DHCP "
-"บางตัวต้องการให้ไคลเอนต์ส่งชื่อโฮสต์ DHCP ไปให้ ดังนั้น "
-"คุณอาจเลือกที่จะลองตั้งค่าเครือข่ายโดยอัตโนมัติด้วย DHCP โดยระบุชื่อโฮสต์ก็ได้"
 
 #. Type: note
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:7001
 msgid "Network autoconfiguration failed"
-msgstr "ตั้งค่าเครือข่ายอัตโนมัติไม่สำเร็จ"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -852,15 +768,13 @@ msgid ""
 "Your network is probably not using the DHCP protocol. Alternatively, the "
 "DHCP server may be slow or some network hardware is not working properly."
 msgstr ""
-"เครือข่ายของคุณอาจไม่ได้ใช้โพรโทคอล DHCP อยู่ หรือมิฉะนั้น เซิร์ฟเวอร์ DHCP อาจจะทำงานช้า "
-"หรือฮาร์ดแวร์เครือข่ายบางชิ้นอาจไม่ทำงาน"
 
 #. Type: boolean
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
 msgid "Continue without a default route?"
-msgstr "จะทำงานต่อโดยไม่มีเส้นทางเครือข่ายปริยายหรือไม่?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -873,10 +787,6 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
-"ตั้งค่าเครือข่ายอัตโนมัติได้สำเร็จ แต่ไม่ปรากฏมีเส้นทางเครือข่ายปริยาย กล่าวคือ "
-"เครื่องของคุณจะไม่สามารถติดต่อกับเครื่องต่างๆ ในอินเทอร์เน็ตได้ "
-"ซึ่งจะทำให้ไม่สามารถทำงานต่อไปได้ นอกจากคุณจะมีแผ่นซีดีติดตั้งแผ่นแรก หรือมีซีดี 'Netinst' "
-"หรือมีแพกเกจทั้งหมดอยู่ในเครือข่ายท้องถิ่นแล้ว"
 
 #. Type: boolean
 #. Description
@@ -886,15 +796,13 @@ msgid ""
 "If you are unsure, you should not continue without a default route: contact "
 "your local network administrator about this problem."
 msgstr ""
-"หากคุณไม่แน่ใจ คุณไม่ควรทำงานต่อโดยไม่มีเส้นทางเครือข่ายปริยาย "
-"กรุณาติตด่อผู้ดูแลเครือข่ายของคุณเพื่อรายงานปัญหานี้"
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:9001
 msgid "Reconfigure the wireless network"
-msgstr "ตั้งค่าเครือข่ายไร้สายอีกครั้ง"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -906,7 +814,7 @@ msgstr "ตั้งค่าเครือข่ายไร้สายอี
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "กำลังพยายามตั้งค่า IPv6 แบบอัตโนมัติ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -914,14 +822,14 @@ msgstr "กำลังพยายามตั้งค่า IPv6 แบบอ
 #. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr "กำลังรอที่อยู่ของลิงก์เฉพาะที่..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
 msgid "Configuring the network with DHCPv6"
-msgstr "กำลังตั้งค่าเครือข่ายด้วย DHCPv6"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -929,7 +837,7 @@ msgstr "กำลังตั้งค่าเครือข่ายด้ว
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr "หมายเลข IP:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -937,7 +845,7 @@ msgstr "หมายเลข IP:"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr "หมายเลข IP ของเครื่องคุณต้องไม่ซ้ำกับเครื่องอื่น และอาจเป็น:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -948,8 +856,6 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
-" * ตัวเลขสี่ตัวคั่นด้วยจุด (IPv4)\n"
-" * ตัวเลขฐานสิบหกหลายตัวคั่นด้วยทวิภาค (IPv6)"
 
 #. Type: string
 #. Description
@@ -957,7 +863,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr "นอกจากนี้ คุณสามารถเพิ่มเน็ตแมสก์ CIDR (เช่น \"/24\") ได้ด้วย"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -965,7 +871,7 @@ msgstr "นอกจากนี้ คุณสามารถเพิ่ม�
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "If you don't know what to use here, consult your network administrator."
-msgstr "หากคุณไม่ทราบว่าจะใช้ค่าอะไร ก็กรุณาปรึกษาผู้ดูแลเครือข่ายของคุณ"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -973,7 +879,7 @@ msgstr "หากคุณไม่ทราบว่าจะใช้ค่า
 #. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "หมายเลข IP ผิดรูปแบบ"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -986,16 +892,13 @@ msgid ""
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"หมายเลข IP ที่คุณป้อน มีรูปแบบไม่ถูกต้อง รูปแบบที่ถูกต้องอยู่ในรูป x.x.x.x โดยที่ 'x' แต่ละตัว "
-"เป็นตัวเลขที่ไม่เกิน 255 (หมายเลข IPv4) หรือลำดับของตัวเลขฐานสิบหกคั่นด้วยทวิภาค (ที่อยู่ "
-"IPv6) กรุณาป้อนใหม่"
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:3001
 msgid "Point-to-point address:"
-msgstr "หมายเลข point-to-point:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1007,16 +910,13 @@ msgid ""
 "know the value.  The point-to-point address should be entered as four "
 "numbers separated by periods."
 msgstr ""
-"หมายเลข point-to-point ใช้ระบุที่อยู่อีกฝั่งหนึ่งของเครือข่าย point to point  "
-"กรุณาสอบถามผู้ดูแลเครือข่ายของคุณหากคุณไม่ทราบค่านี้ หมายเลข point-to-point "
-"ควรอยู่ในรูปตัวเลขสี่ตัวคั่นด้วยเครื่องหมายจุด"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:4001
 msgid "Netmask:"
-msgstr "เน็ตแมสก์:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1027,16 +927,13 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
-"เน็ตแมสก์ใช้กำหนดว่าเครื่องใดอยู่ในเครือข่ายท้องถิ่นของคุณบ้าง "
-"กรุณาสอบถามผู้ดูแลเครือข่ายของคุณหากคุณไม่ทราบค่านี้ "
-"เน็ตแมสก์ควรอยู่ในรูปตัวเลขสี่ตัวคั่นด้วยเครื่องหมายจุด"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:5001
 msgid "Gateway:"
-msgstr "เกตเวย์:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1050,25 +947,20 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
-"เกตเวย์คือหมายเลข IP (ตัวเลขสี่ตัวคั่นด้วยเครื่องหมายจุด) ของเราเตอร์ที่เป็นเกตเวย์ "
-"หรือที่เรียกว่าเราเตอร์ปริยาย การจราจรทุกอย่างที่ออกจาก LAN (เช่น ออกสู่อินเทอร์เน็ต) "
-"จะถูกส่งผ่านเราเตอร์นี้ ในบางกรณี (ซี่งไม่ค่อยพบ) คุณอาจไม่มีเราเตอร์ "
-"คุณสามารถปล่อยช่องนี้ให้ว่างไว้ได้ แต่ถ้าคุณไม่ทราบค่าที่เหมาะสมสำหรับคำถามนี้ "
-"กรุณาสอบถามจากผู้ดูแลเครือข่ายของคุณ"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "Unreachable gateway"
-msgstr "ติดต่อเกตเวย์ไม่ได้"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "The gateway address you entered is unreachable."
-msgstr "ที่อยู่เกตเวย์ที่คุณป้อนไม่สามารถติดต่อได้"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1076,7 +968,7 @@ msgstr "ที่อยู่เกตเวย์ที่คุณป้อน
 #: ../netcfg-static.templates:6001
 msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
-msgstr "คุณอาจป้อนค่าผิดในช่องหมายเลข IP ของคุณ หรือค่าเน็ตแมสก์ หรือหมายเลขเกตเวย์"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1084,7 +976,7 @@ msgstr "คุณอาจป้อนค่าผิดในช่องหม
 #. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr "ไม่รองรับ IPv6 ในลิงก์แบบจุดต่อจุด"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1095,22 +987,20 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
-"ไม่สามารถตั้งค่าหมายเลข IPv6 กับลิงก์แบบจุดต่อจุดได้ กรุณาใช้หมายเลข IPv4 แทน "
-"หรือย้อนกลับไปเลือกอินเทอร์เฟซเครือข่ายช่องอื่น"
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
-msgstr "ข้อมูลนี้ถูกต้องหรือไม่?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
-msgstr "ค่าตั้งปัจจุบันของเครือข่าย:"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1124,12 +1014,6 @@ msgid ""
 " pointopoint   = ${pointopoint}\n"
 " nameservers   = ${nameservers}"
 msgstr ""
-" อินเทอร์เฟซ      = ${interface}\n"
-" หมายเลข IP     = ${ipaddress}\n"
-" เน็ตแมสก์        = ${netmask}\n"
-" เกตเวย์         = ${gateway}\n"
-" point-to-point = ${pointopoint}\n"
-" name server    = ${nameservers}"
 
 #. Type: text
 #. Description
@@ -1137,4 +1021,4 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
-msgstr "ตั้งค่าเครือข่ายโดยระบุที่อยู่ตายตัว"
+msgstr ""
