@@ -3,13 +3,42 @@
 #
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
+# Persian messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+# , 2005.
+#
+# Translations from iso-codes:
+#   Alastair McKinstry - further translations from ICU-3.0
+#   Alastair McKinstry <mckinstry@computer.org>, 2001,2004.
+#   Free Software Foundation, Inc., 2001,2003,2004
+#   Roozbeh Pournader <roozbeh@farsiweb.info>, 2004,2005.
+#   Sharif FarsiWeb, Inc., 2004
+#   Tobias Quathamer <toddy@debian.org>, 2007.
+#     Translations taken from ICU SVN on 2007-09-09
+#   Translations from kde:
+#   - FarsiKDE Team <info@farsikde.org>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fa\n"
+"Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
+"POT-Creation-Date: 2012-11-03 22:02+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Debian-l10n-persian <debian-l10n-persian@lists.debian.org>\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
 msgid "Auto-configure networking?"
-msgstr ""
+msgstr "پیکربندی خودکار شبکه؟"
 
 #. Type: boolean
 #. Description
@@ -23,13 +52,18 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
+"شبکه را می‌توان با وارد کردن اطلاعات بصورت دستی و یا با استفاده از DHCP (و یا "
+"انواع روش‌های خاص IPv6) برای شناسایی خودکار تنظیمات شبکهپیکربندی کرد.اگر شما "
+"تصمیم به استفاده از پیکربندی خودکار دارید و برنامه نصاب قادر به دریافت "
+"تنظیمات کاری از شبکه نباشد،این فرصت به شما داده خواهد شد تا شبکه را بصورت "
+"دستی پیکربندی کنید."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:3001
 msgid "Domain name:"
-msgstr ""
+msgstr "نام دامنه:"
 
 #. Type: string
 #. Description
@@ -41,13 +75,17 @@ msgid ""
 "If you are setting up a home network, you can make something up, but make "
 "sure you use the same domain name on all your computers."
 msgstr ""
+"نام دامنه یکی از بخش‌های آدرس اینترنت شماست که در سمت راست نام میزبان قرار "
+"میگیرد. به صورت رسمی چیزی است که با .com,net.,edu. پایان می‌یابد. اگر شما در "
+"حال برپایی یک شبکه محلی هستید میتوانید از هر چیزی استفاده  کنید، فقط توجه "
+"کنید که برای تمام کامپبوترها از یک نام دامنه استفاده کنید."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
 msgid "Name server addresses:"
-msgstr ""
+msgstr "آدرس سرور نام‌ها (Name Server):"
 
 #. Type: string
 #. Description
@@ -60,13 +98,16 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
+"سرور نام‌ها برای پیدا کردن اسامی میزبانها در دامنه به کار میاید. لطفا آدرس IP "
+"سرور نامها  (حداکثر سه مورد) که بوسیلهٔ فضای خالی جدا میشوند را وارد کنید. "
+"اگر از هیچ  سرور نامی نمیخواهید استفاده کنید این قسمت را خالی بگذارید."
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:5001
 msgid "Primary network interface:"
-msgstr ""
+msgstr "درگاهی اولیه  شبکهٔ:"
 
 #. Type: select
 #. Description
@@ -77,6 +118,9 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
+"سیستم شما چند درگاه شبکه دارد. یکی از آن‌ها را به عنوان درگاه شبکهٔ اولیه در "
+"هنگام نصب دبیان انتخاب کنید. در صورت امکان اولین درگاه شناسایی شده را انتخاب "
+"کنید."
 
 #. Type: string
 #. Description
@@ -86,7 +130,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
-msgstr ""
+msgstr "ESSID بی‌سیم برای ${iface}:"
 
 #. Type: string
 #. Description
@@ -97,13 +141,16 @@ msgid ""
 "of the wireless network you would like ${iface} to use. If you would like to "
 "use any available network, leave this field blank."
 msgstr ""
+"آیا ${iface} یک درگاه شبکه بی سیم است. لطفاً نام شبکه بی سیمی (ESSID) که "
+"می‌خواهید, ${iface} از آن استفاده کند را وارد کنید. در صورتی که می‌خواهید هر "
+"شبکه ای که در دسترس بود را استفاده کنید, این قسمت را خالی بگذارید."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
-msgstr ""
+msgstr "تلاش برای یافتن شبکه بی‌سیم موجود، با شکست مواجه شد."
 
 #. Type: string
 #. Description
@@ -114,25 +161,28 @@ msgid ""
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
+"${iface} یک واسط شبکه بی‌سیم است.لطفا نام شبکه بی‌سیمی که (ESSID) که می‌خواهید, "
+"${iface} از آن استفاده کند را وارد کنید.برای اتصال به هر شبکه بی‌سیم در دسترس،"
+"این قسمت را خالی بگذارید."
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WEP/Open Network"
-msgstr ""
+msgstr "WEP/Open Network"
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WPA/WPA2 PSK"
-msgstr ""
+msgstr "WPA/WPA2 PSK"
 
 #. Type: select
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:8002
 msgid "Wireless network type for ${iface}:"
-msgstr ""
+msgstr "نوع شبکه بی سیم برای درگاه  ${iface}:"
 
 #. Type: select
 #. Description
@@ -142,13 +192,16 @@ msgid ""
 "Choose WEP/Open if the network is open or secured with WEP. Choose WPA/WPA2 "
 "if the network is protected with WPA/WPA2 PSK (Pre-Shared Key)."
 msgstr ""
+"گزینه WEP/Open را در صورت که شبکه باز است و یا با کلید WEP امن شده است "
+"انتخاب کنید. گزینه WPA/WPA2 را در صورتی که شبکه توسط رمزنگاری WPA/WPA2 PSK "
+"(Pre-Shared Key) محافظت می‌شود، انتخاب کنید."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:9001
 msgid "WEP key for wireless device ${iface}:"
-msgstr ""
+msgstr "کلید WEP برای دستگاه بی‌سیم ${iface}:"
 
 #. Type: string
 #. Description
@@ -158,6 +211,8 @@ msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
 msgstr ""
+"در صورت وجود نام کلید امنیتی WEP را برای دستگاه بیسیم ${iface} وارد کنید. "
+"برای این کار دو راه موجود است:"
 
 #. Type: string
 #. Description
@@ -167,6 +222,8 @@ msgid ""
 "If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
+"اگر کلید امنیتی شما به شکل  'nnnn-nnnn-nn' یا 'nnnnnnnn' است،آِنرا همانگونه "
+"که هست در این جا وارد کنید.ا"
 
 #. Type: string
 #. Description
@@ -176,6 +233,8 @@ msgid ""
 "If your WEP key is in the format of a passphrase, prefix it with "
 "'s:' (without quotes)."
 msgstr ""
+"اگر کلید امنیتی WAP شما به صورت یک عبارت است آن را با پیشوند ':s' (بدون "
+"علامت نقل قول) وارد کنید."
 
 #. Type: string
 #. Description
@@ -184,14 +243,14 @@ msgstr ""
 msgid ""
 "Of course, if there is no WEP key for your wireless network, leave this "
 "field blank."
-msgstr ""
+msgstr "اگر کلید امنیتی WEP وجود ندارد این جا را خالی بگذارید."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:10001
 msgid "Invalid WEP key"
-msgstr ""
+msgstr "کلید WEP نامعتبر"
 
 #. Type: error
 #. Description
@@ -201,13 +260,15 @@ msgid ""
 "The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
 "next screen carefully on how to enter your WEP key correctly, and try again."
 msgstr ""
+"کلید WEP '${wepkey}' نامعتبر است. لطفاً با دقت به دستورات نصب در صفحهٔ بعد "
+"برای چگونگی وارد نمودن صحیح کلید WEP توجه کنید، و دوباره سعی نمائید."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:11001
 msgid "Invalid passphrase"
-msgstr ""
+msgstr "کلمه رمز نامعتبر"
 
 #. Type: error
 #. Description
@@ -217,13 +278,15 @@ msgid ""
 "The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
 "too short (less than 8 characters)."
 msgstr ""
+"کله عبور WPA/WPA2 PSK یا بسیار بلند است (بیش از ۶۴ حرف) یا بسیار کوتاه است "
+"(کمتر از ۸ حرف)."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
 msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
-msgstr ""
+msgstr "کلمه عبور WPA/WPA2 برای درگاه بی‌سیم ${iface}:"
 
 #. Type: string
 #. Description
@@ -233,13 +296,15 @@ msgid ""
 "Enter the passphrase for WPA/WPA2 PSK authentication. This should be the "
 "passphrase defined for the wireless network you are trying to use."
 msgstr ""
+"کلمه عبور را برای احراز هویت WPA/WPA2 PSK وارد نمایید. این کلمه عبور توسط "
+"شبکه بی‌سیمی که قصد دارید به آن متصل شوید تعریف شده است."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
-msgstr ""
+msgstr "ESSID نامعتبر"
 
 #. Type: error
 #. Description
@@ -249,13 +314,15 @@ msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
 "characters, but may contain all kinds of characters."
 msgstr ""
+"ESSID «${essid}» نامتعبر است. ESSIDها فقط ممکن است حداکثر ۳۲ کاراکتر طول "
+"داشته باشند،اما ممکن است حاوی انواع کاراکترها باشند."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:14001
 msgid "Attempting to exchange keys with the access point..."
-msgstr ""
+msgstr "تلاش برای تبادل کلید با access point ..."
 
 #. Type: text
 #. Description
@@ -265,21 +332,21 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:15001 ../netcfg-dhcp.templates:3001
 msgid "This may take some time."
-msgstr ""
+msgstr "این کار ممکن است زمان گیر باشد."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:16001
 msgid "WPA/WPA2 connection succeeded"
-msgstr ""
+msgstr "ارتباط WPA/WPA2 با موفقیت برقرار شد"
 
 #. Type: note
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:17001
 msgid "Failure of key exchange and association"
-msgstr ""
+msgstr "تبادل کلید شکست خورد."
 
 #. Type: note
 #. Description
@@ -289,20 +356,22 @@ msgid ""
 "The exchange of keys and association with the access point failed. Please "
 "check the WPA/WPA2 parameters you provided."
 msgstr ""
+"تبادل کلید با access point شکست خورد. لطفا گزینه های WPA/WPA2 که مشخص "
+"کرده‌اید را مجدداً بازبینی کنید."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Hostname:"
-msgstr ""
+msgstr "نام میزبان:"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Please enter the hostname for this system."
-msgstr ""
+msgstr "لطفا نام میزبان را برای این سیستم وارد کنید."
 
 #. Type: string
 #. Description
@@ -314,20 +383,23 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
+"نام میزبان کلمه‌ایست که رایانهٔ شما را به شبکه معرفی میکند. اگر نمیدانید نام "
+"میزبان شما چیست با مدیر شبکهٔ خود تماس بگیرید. اگر شبکهٔ محلی برای خود تنظیم "
+"میکنید این نام میتواند هرچه میخواهید باشد."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
-msgstr ""
+msgstr "نام میزبان نامعتبر"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
-msgstr ""
+msgstr "نام «${hostname}» نامعتبر است."
 
 #. Type: error
 #. Description
@@ -339,13 +411,16 @@ msgid ""
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
+"یک hostname معتبر می‌تواند شامل فقط اعداد 0-9، حروف کوچک و بزرگ (A-Z و a-z)، "
+"و خط تیره باشد. باید باید حداکثر شامل  ${maxhostnamelen} حرف باشد و با خط "
+"تیره شروع و یا پایان نیابد."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:21001
 msgid "Error"
-msgstr ""
+msgstr "خطا"
 
 #. Type: error
 #. Description
@@ -355,13 +430,15 @@ msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
 msgstr ""
+"خطایی رخ داد و فرآیند پیکربندی شکست خورد. می‌توانید از منوی اصلی نصب دوباره "
+"سعی نمائید."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
-msgstr ""
+msgstr "هیچ رابط شبکه‌ای تشخیص داده نشد"
 
 #. Type: error
 #. Description
@@ -370,7 +447,7 @@ msgstr ""
 msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
-msgstr ""
+msgstr "هیچ واسط شبکه‌ای یافت نشد. سیستم نصب نتوانست ابزار شبکه‌ای را پیدا کند."
 
 #. Type: error
 #. Description
@@ -380,6 +457,8 @@ msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
 msgstr ""
+"ممکن است لازم داشته باشید که ماژول به خصوصی برای کارت شبکهٔ خود، اگر دارید، "
+"بارگذاری نمائید. برای این کار، به مرحلهٔ تشخیص سخت‌افزار شبکه باز گردید."
 
 #. Type: note
 #. Description
@@ -388,7 +467,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
-msgstr ""
+msgstr "سوئیچ Kill روی ${iface} فعال شد."
 
 #. Type: note
 #. Description
@@ -401,6 +480,8 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
+"${iface} به نظر می‌آید به وسیلهٔ یک «kill switch» فیزیکی غیرفعال شده است. اگر "
+"قصد دارید از این واسط استفاده نمائید، لطفاً قبل از ادامه آنرا فعال کنید."
 
 #. Type: select
 #. Choices
@@ -412,7 +493,7 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
-msgstr ""
+msgstr "زیرساخت (مدیریت‌شده) شبکه"
 
 #. Type: select
 #. Choices
@@ -424,13 +505,13 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
-msgstr ""
+msgstr "شبکهٔ Ad-hoc (جفت به جفت)"
 
 #. Type: select
 #. Description
 #: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
-msgstr ""
+msgstr "تنظیم مجدد شبکهٔ بیسیم:"
 
 #. Type: select
 #. Description
@@ -440,131 +521,134 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
+"شبکه‌های بیسیم یا به صورت managed هستند یا به صورت ad-hoc : اگر شما از یک "
+"نقطهٔ دسترسی واقعی استفاده می‌کنید، شبکهٔ شما از نوع managed است اما اگر رایانهٔ "
+"دیگری نقطهٔ دسترسی شماست، شبکهٔ شما احتمالا ad-hoc است. "
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
-msgstr ""
+msgstr "تنظیمات شبکهٔ بیسیم"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
-msgstr ""
+msgstr "جستجوی نقاط دسترسی بیسیم..."
 
 #. Type: text
 #. Description
 #: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
-msgstr ""
+msgstr "جستجوی لینک ${interface}; لطفا صبر کنید ..."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:30001
 msgid "<none>"
-msgstr ""
+msgstr "<هیچ‌یک>"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
-msgstr ""
+msgstr "اترنت بی‌سیم (802.11x)"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:32001
 msgid "wireless"
-msgstr ""
+msgstr "بی‌سیم"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:33001
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:34001
 msgid "Token Ring"
-msgstr ""
+msgstr "Token Ring"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:35001
 msgid "USB net"
-msgstr ""
+msgstr "شبکهٔ USB"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
-msgstr ""
+msgstr "Serial-line IP"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
-msgstr ""
+msgstr "Parallel-port IP"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
-msgstr ""
+msgstr "Point-to-Point پروتکل"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
-msgstr ""
+msgstr "IPv6-in-IPv4"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
-msgstr ""
+msgstr "ISDN Point-to-Point پروتکل"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
-msgstr ""
+msgstr "Channel-to-channel"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
-msgstr ""
+msgstr "Real channel-to-channel"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
-msgstr ""
+msgstr "Inter-user وسیلهٔ ارتباطی"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:46001
 msgid "Unknown interface"
-msgstr ""
+msgstr "واسط نامعلوم"
 
 #. Type: text
 #. Description
@@ -572,7 +656,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
-msgstr ""
+msgstr "ذخیره کردن تنظیمات شبکه ..."
 
 #. Type: text
 #. Description
@@ -580,14 +664,14 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr ""
+msgstr "تنظیم شبکه"
 
 #. Type: string
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
-msgstr ""
+msgstr "زمان انتظار (به ثانیه) برای تشخیص پیوند:"
 
 #. Type: string
 #. Description
@@ -597,13 +681,14 @@ msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
 msgstr ""
+"لطفا حداکثر زمان دلخواه جهت منتظر ماندن برای تشخیص پیوند شبکه را وارد کنید."
 
 #. Type: error
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
-msgstr ""
+msgstr "زمان نامعتبر برای تشخیص پیوند شبکه"
 
 #. Type: error
 #. Description
@@ -613,6 +698,8 @@ msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
 msgstr ""
+"مقداری که شما وارد کردید معتبر نیست.حداکثر زمان انتظار (به ثانیه) برای تشخیص "
+"پیوند شبکه باید یک عدد صحیح مثبت باشد."
 
 #. Type: select
 #. Choices
@@ -620,28 +707,28 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
-msgstr ""
+msgstr "${essid_list} ESSID را به صورت دستی وارد کنید"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Wireless network:"
-msgstr ""
+msgstr "شبکه بی‌سیم:"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
-msgstr ""
+msgstr "شبکه بی‌سیم را برای استفاده در فرآیند نصب انتخاب کنید."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "DHCP hostname:"
-msgstr ""
+msgstr "نام میزبان DHCP:"
 
 #. Type: string
 #. Description
@@ -651,48 +738,50 @@ msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
 msgstr ""
+"شما نیاز به معرفی یک میزبان DHCP دارید. اگر از مودم کابلی استفاده میکنید "
+"باید شمارهٔ حساب(account) خود را وارد کنید."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "Most other users can just leave this blank."
-msgstr ""
+msgstr "اکثر کاربران می‌توانند این جا را خالی بگذارند."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr ""
+msgstr "تنظیم شبکه با DHCP"
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr ""
+msgstr "تنظیم خودکار شبکه موفق بود."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client found"
-msgstr ""
+msgstr "هیچ ... DHCP پیدا نشد"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
-msgstr ""
+msgstr "هیچ کلاینت DHCP یافت نشد. این بسته به pump یا dhcp-client احتیاح دارد."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "The DHCP configuration process has been aborted."
-msgstr ""
+msgstr "پروسه‌ٔ پیکربندی DHCP خارج شده است."
 
 #. Type: select
 #. Choices
@@ -702,7 +791,7 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration"
-msgstr ""
+msgstr "تلاش مجدد برای تنظیم خودکار شبکه "
 
 #. Type: select
 #. Choices
@@ -712,7 +801,7 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
-msgstr ""
+msgstr "تلاش مجدد برای تنظیم خودکار شبکه  با نام میزبان DHCP"
 
 #. Type: select
 #. Choices
@@ -722,7 +811,7 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr ""
+msgstr "تنظیم دستی شبکه"
 
 #. Type: select
 #. Choices
@@ -732,14 +821,14 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr ""
+msgstr "تنظیم شبکه را به بعد موکول کن"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:6002
 msgid "Network configuration method:"
-msgstr ""
+msgstr "روش تنظیم شبکه:"
 
 #. Type: select
 #. Description
@@ -752,13 +841,18 @@ msgid ""
 "by the client, so you can also choose to retry DHCP network "
 "autoconfiguration with a hostname that you provide."
 msgstr ""
+"شما این امکان را دارید که مجددا برای تنظیم شبکه بوسیلهٔ DHCP اقدام کنید(که "
+"ممکن است موفق شوید اگر سرور DHCP شما زمان زیادی برای پاسخ گویی لازم داشته "
+"باشد ) یا شبکه را به صورت دستی تنظیم کنید. برخی از سرورهای DHCP احتیاج دارند "
+"که نام میزبان توسط مشتری ارسال گردد، شما این امکان را نیز دارید که تنظیم "
+"DHCP را با نام میزبانی که انتخاب میکنید مجددا آزمایش کنید. "
 
 #. Type: note
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:7001
 msgid "Network autoconfiguration failed"
-msgstr ""
+msgstr "تنظیم خودکار شبکه شکست خورد"
 
 #. Type: note
 #. Description
@@ -768,13 +862,15 @@ msgid ""
 "Your network is probably not using the DHCP protocol. Alternatively, the "
 "DHCP server may be slow or some network hardware is not working properly."
 msgstr ""
+"احتمالا شبکهٔ شما از DHCP استفاده نمی‌کند. یا احتمال دارد سرور DHCP کند باشد و "
+"یا برخی از سخت‌افزارهای شبکه درست کارنکنند."
 
 #. Type: boolean
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
 msgid "Continue without a default route?"
-msgstr ""
+msgstr "بدون یک route پیش‌فرض ادامه می‌دهید؟"
 
 #. Type: boolean
 #. Description
@@ -787,6 +883,10 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
+"تنظیم خودکار شبکه موفقیت‌آمیز بود. اگرچه، هیچ مسیر پیش‌فرضی تنظیم نشد: سیستم "
+"نمی‌داند چگونه با میزبان‌های روی اینترنت ارتباط برقرار کند. این ادامهٔ نصب را "
+"غیرممکن خواهد کرد مگر اینکه شما CD-ROM اول نصب را داشته باشید، یک CD-ROM "
+"'Netinst'، یا بسته‌های موجود روی شبکه محلی."
 
 #. Type: boolean
 #. Description
@@ -796,13 +896,15 @@ msgid ""
 "If you are unsure, you should not continue without a default route: contact "
 "your local network administrator about this problem."
 msgstr ""
+"اگر مطمئن نیستید، نبایست بدون مسیر پیش‌فرض ادامه دهید: با مدیر شبکه محلی‌تان "
+"در مورد این مشکل تماس بگیرید."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:9001
 msgid "Reconfigure the wireless network"
-msgstr ""
+msgstr "تنظیم مجدد شبکهٔ بیسیم"
 
 #. Type: text
 #. Description
@@ -814,7 +916,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr ""
+msgstr "تلاش برای پیکربندی IPv6..."
 
 #. Type: text
 #. Description
@@ -822,14 +924,14 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr ""
+msgstr "در حال انتظار برای پیوند محلی نشانی..."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
 msgid "Configuring the network with DHCPv6"
-msgstr ""
+msgstr "پیکربندی شبکه با DHCPv6"
 
 #. Type: string
 #. Description
@@ -837,7 +939,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr ""
+msgstr "نشانی‌ IP:"
 
 #. Type: string
 #. Description
@@ -845,7 +947,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr ""
+msgstr "نشانی IP برای رایانه شما منحصر به فرد است و ممکن است:"
 
 #. Type: string
 #. Description
@@ -856,6 +958,8 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
+" * چهار رقم از هم جدا شده بوسیله نقطه (IPv4);\n"
+"  * بلوک‌هایی از کاراکترهای هگزادسیمال از هم جدا شده بوسیله دونقطه (IPv6)."
 
 #. Type: string
 #. Description
@@ -864,6 +968,8 @@ msgstr ""
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
 msgstr ""
+"شما همچنین میتوانید به صورت اختیاری یک ماسک شبکه CIDR اضافه کنید (مانند "
+"\"/24\")."
 
 #. Type: string
 #. Description
@@ -872,6 +978,7 @@ msgstr ""
 #: ../netcfg-static.templates:1001
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr ""
+"اگر نمی‌دانید چه‌چیزی در اینجا استفاده کنید، با مدیر شبکه خود مشورت کنید."
 
 #. Type: error
 #. Description
@@ -879,7 +986,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr ""
+msgstr "آدرس IP دارای نقص"
 
 #. Type: error
 #. Description
@@ -892,13 +999,17 @@ msgid ""
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
+"نشانی IP‌ که تعیین کرده‌اید نقص دارد.این نشانی باید به شکل x.x.x.x باشد که هر "
+"'x' (در نشانی IPv4) بزرگتر از 255 نیست و یا دنباله‌ای از بلوک‌های ارقام "
+"هگزادسیمال (در نشانی IPv6) است که بوسیله دونقطه از هم جدا شده‌اند.لطفاً دوباره "
+"تلاش کنید."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:3001
 msgid "Point-to-point address:"
-msgstr ""
+msgstr "آدرس Point-to-point:"
 
 #. Type: string
 #. Description
@@ -910,13 +1021,16 @@ msgid ""
 "know the value.  The point-to-point address should be entered as four "
 "numbers separated by periods."
 msgstr ""
+"آدرس point-to-point برای مطمئن شدن از دیگر نقطهٔ پایانی شبکه نقطه به نقطه "
+"استفاده می‌شود. اگر مقدار آنرا نمی‌دانید با مدیر شبکهٔ خود مشورت کنید. آدرس "
+"point-to-point باید به صورت چهار عدد جدا شده توسط نقطه‌ها وارد شود."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:4001
 msgid "Netmask:"
-msgstr ""
+msgstr "Netmask:"
 
 #. Type: string
 #. Description
@@ -927,13 +1041,16 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
+"netmask برای تعیین رایانه‌هایی که برای شبکهٔ شما محلی محسوب می‌شوند به کار "
+"میرود. اگر مقدار آن را نمیدانید با مدیر شبکه تماس بگیرید.  netmask به شکل "
+"چهار عدد است که با نقطه از هم جدا شده‌اند."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:5001
 msgid "Gateway:"
-msgstr ""
+msgstr "Gateway:"
 
 #. Type: string
 #. Description
@@ -947,20 +1064,24 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
+"gateway یک IPآدرس است که مشخص کنندهٔ gateway router یا همان default router "
+"است. تمام ترافیکی که از شبکه محلی شما بیرون می‌رود، از طریق این router "
+"فرستاده میشود. در بعضی شرایط شما ممکن است router نداشته باشید، در این صورت "
+"این جا را خالی بگذارید. اگر مطمئن نیستید با مدیر شبکه تماس بگیرید."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "Unreachable gateway"
-msgstr ""
+msgstr "گذرگاه غیرقابل دسترسی"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "The gateway address you entered is unreachable."
-msgstr ""
+msgstr "آدرس gateway که شما وارد کرده‌اید قابل دسترسی نیست."
 
 #. Type: error
 #. Description
@@ -969,6 +1090,8 @@ msgstr ""
 msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
 msgstr ""
+"شما ممکن است خطایی را هنگام وارد نمودن آدرس IP، netmask و یا گذرگاه مرتکب "
+"شده باشید."
 
 #. Type: error
 #. Description
@@ -976,7 +1099,7 @@ msgstr ""
 #. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr ""
+msgstr "IPv6 روی پیوندهای نقطه به نقطه پشتیبانی نمیشود"
 
 #. Type: error
 #. Description
@@ -987,20 +1110,23 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
+"نشانی‌های IPv6 نمیتوانند روی پیوندهای نقطه به نقطه پیکربندی شوند.لطفا از یک "
+"نشانی IPv4 استفاده کنید و یا به عقب برگردید و یک واسط شبکه متفاوت را انتخاب "
+"کنید."
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
-msgstr ""
+msgstr "آیا این اطلاعات صحیح است؟"
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
-msgstr ""
+msgstr "پارانترهای شبکه که در حال حاضر کورد استفاده هستند:"
 
 #. Type: boolean
 #. Description
@@ -1014,6 +1140,12 @@ msgid ""
 " pointopoint   = ${pointopoint}\n"
 " nameservers   = ${nameservers}"
 msgstr ""
+" interface     = ${interface}\n"
+" ipaddress     = ${ipaddress}\n"
+" netmask       = ${netmask}\n"
+" gateway       = ${gateway}\n"
+" pointopoint   = ${pointopoint}\n"
+" nameservers   = ${nameservers}"
 
 #. Type: text
 #. Description
@@ -1021,4 +1153,4 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
-msgstr ""
+msgstr "تنظیم شبکه با آدرس‌های ثابت"
