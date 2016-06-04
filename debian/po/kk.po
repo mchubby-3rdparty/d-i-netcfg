@@ -3,13 +3,41 @@
 #
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
+# Kazakh messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+# Talgat Daniyarov
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2008-2011
+# Dauren Sarsenov <daur88@inbox.ru>, 2008, 2009
+#
+# Translations from iso-codes:
+#   Alastair McKinstry <mckinstry@debian.org>, 2004.
+#   Sairan Kikkarin <sairan@sci.kz>, 2006
+#   KDE Kazakh l10n team, 2006
+#   Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2008, 2009, 2010
+#   Dauren Sarsenov <daur88@inbox.ru>, 2009
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debian-installer\n"
+"Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
+"POT-Creation-Date: 2012-11-03 22:02+0000\n"
+"PO-Revision-Date: 2012-09-18 11:32+0600\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
+"Language-Team: Kazakh \n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
 msgid "Auto-configure networking?"
-msgstr ""
+msgstr "Желіні автоматты түрде баптау керек пе?"
 
 #. Type: boolean
 #. Description
@@ -23,13 +51,17 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
+"Желі барлық ақпаратты қолмен енгізу немесе баптауларды автоанықтау үшін DHCP "
+"(немесе IPv6-ға тән тәсілдер) қолдану арқылы бапталады. Автобаптау таңдалса, "
+"және орнату бағдарламасы желіден қажетті жұмысқа жарамды ақпаратты ала "
+"алмаса, желіні колмен баптау мүмкіндігі беріледі."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:3001
 msgid "Domain name:"
-msgstr ""
+msgstr "Домен аты:"
 
 #. Type: string
 #. Description
@@ -41,13 +73,17 @@ msgid ""
 "If you are setting up a home network, you can make something up, but make "
 "sure you use the same domain name on all your computers."
 msgstr ""
+"Домен аты – бұл сіздің интернет-мекенжайыңызды анықтайтын компьютер атының "
+"оң жақ бөлігі. Көбінесе ол келесідей аяқталады: .сom, .net, .edu немесе ."
+"оrg. Егер сіз желіні үйіңізде орнатсаңыз, онда сіз өзіңіз бірдеңе көрсете "
+"аласыз, бірақ компьютерлеріңіздің бәрінде домен аты бірдей болуы керек."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
 msgid "Name server addresses:"
-msgstr ""
+msgstr "DNS сервер адресі:"
 
 #. Type: string
 #. Description
@@ -60,13 +96,17 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
+"DNS серверлері желіден компьютерлерді аттары бойынша іздеу үшін қолданылады. "
+"Үш сервердің IP адресін көрсетуге болады. Ажырату үшін үтір емес бос орын "
+"қолданылады. Серверлер көрсетілген рет бойынша сұралады. Егер сіз DNS "
+"қолданғыңыз келмесе орынды бос қалдырыңыз."
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:5001
 msgid "Primary network interface:"
-msgstr ""
+msgstr "Біріншілік желі интерфейсі:"
 
 #. Type: select
 #. Description
@@ -77,6 +117,9 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
+"Жүйеңізден бірнеше желілік интерфейс табылды. Орнату кезінде негізгі ретінде "
+"қолданылатын интерфейсті таңдаңыз. Мүмкіндігінше бірінші болып қосылған "
+"интерфейс таңдалды."
 
 #. Type: string
 #. Description
@@ -86,7 +129,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
-msgstr ""
+msgstr "${iface} үшін сымсыз ESSID:"
 
 #. Type: string
 #. Description
@@ -97,13 +140,16 @@ msgid ""
 "of the wireless network you would like ${iface} to use. If you would like to "
 "use any available network, leave this field blank."
 msgstr ""
+"${iface} сымсыз желі интерфейсі болып табылады. ${iface} үшін пайдаланғыңыз "
+"келетін желі атын (ESSID) енгізіңіз. Егер сіз кез келген қол жетерлік желіні "
+"пайдаланғыңыз келсе, бұл жолды бос қалдырыңыз."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
-msgstr ""
+msgstr "Қол жетерлік сымсыз байланыс табылмады."
 
 #. Type: string
 #. Description
@@ -114,25 +160,28 @@ msgid ""
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
+"${iface} - сымсыз желі интерфейсі болып табылады. ${iface} үшін "
+"пайдаланғыңыз келетін сымсыз желі атын (ESSID) енгізіңіз. Кез-келген "
+"қолжетерлік желіні пайдалана алу үшін, бұл жолды бос қалдырыңыз."
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WEP/Open Network"
-msgstr ""
+msgstr "WEP/Ашық желі"
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WPA/WPA2 PSK"
-msgstr ""
+msgstr "WPA/WPA2 PSK"
 
 #. Type: select
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:8002
 msgid "Wireless network type for ${iface}:"
-msgstr ""
+msgstr "${iface} үшін сымсыз желі түрі:"
 
 #. Type: select
 #. Description
@@ -142,13 +191,16 @@ msgid ""
 "Choose WEP/Open if the network is open or secured with WEP. Choose WPA/WPA2 "
 "if the network is protected with WPA/WPA2 PSK (Pre-Shared Key)."
 msgstr ""
+"Егер желі ашық не WEP көмегімен қорғалған болса, онда WEP/Ашық таңдаңыз. "
+"Егер желі WPA/WPA2 PSK (Pre-Shared Key) көмегімен қорғалған болса, WPA/WPA2 "
+"таңдаңыз."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:9001
 msgid "WEP key for wireless device ${iface}:"
-msgstr ""
+msgstr "${iface} сымсыз құрылғысының WEP кілті:"
 
 #. Type: string
 #. Description
@@ -158,6 +210,8 @@ msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
 msgstr ""
+"Керек болса, ${iface} сымсыз құрылғысының WEP қауіпсіздік кілтін енгізіңіз. "
+"Мұны істеу үшін екі тәсіл бар:"
 
 #. Type: string
 #. Description
@@ -167,6 +221,8 @@ msgid ""
 "If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
+"Егер сіздің WEP кілтіңіз 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn' немесе "
+"'nnnnnnnn' түрінде болса, мұндағы n - сандар, онда оны осы жерге енгізіңіз."
 
 #. Type: string
 #. Description
@@ -176,6 +232,8 @@ msgid ""
 "If your WEP key is in the format of a passphrase, prefix it with "
 "'s:' (without quotes)."
 msgstr ""
+"Егер WEP-кілтіңіз фраза кілті секілді көрінсе, алдына 's:' қосыңыз "
+"(тырнақшасыз)."
 
 #. Type: string
 #. Description
@@ -185,13 +243,15 @@ msgid ""
 "Of course, if there is no WEP key for your wireless network, leave this "
 "field blank."
 msgstr ""
+"Әрине, егер желіңіз үшін ешқандай WEP кілт жоқ болса, онда осы жолды бос "
+"қалдырыңыз."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:10001
 msgid "Invalid WEP key"
-msgstr ""
+msgstr "WEP кілті жарамсыз"
 
 #. Type: error
 #. Description
@@ -201,13 +261,15 @@ msgid ""
 "The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
 "next screen carefully on how to enter your WEP key correctly, and try again."
 msgstr ""
+"'${wepkey}' кілті дұрыс емес. WEP кілтін дұрыс енгізуді түсіну үшін келесі "
+"экрандағы түсініктемені оқыңыз. WEP кілтін енгізуді қайталап көріңіз."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:11001
 msgid "Invalid passphrase"
-msgstr ""
+msgstr "Кілт фразасы қате"
 
 #. Type: error
 #. Description
@@ -217,13 +279,15 @@ msgid ""
 "The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
 "too short (less than 8 characters)."
 msgstr ""
+"WPA/WPA2 PSK кілт фразасы не тым ұзын (64 таңбадан көп), не тым қысқа (8 "
+"таңбадан аз)."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
 msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
-msgstr ""
+msgstr "${iface} сымсыз құрылғысы үшін WPA/WPA2 кілт фразасы:"
 
 #. Type: string
 #. Description
@@ -233,13 +297,15 @@ msgid ""
 "Enter the passphrase for WPA/WPA2 PSK authentication. This should be the "
 "passphrase defined for the wireless network you are trying to use."
 msgstr ""
+"WPA/WPA2 PSK аутентификациясы үшін кілт фразаны енгізіңіз. Сіз қолданам "
+"деген сымсыз желі үшін ондай кілт фразасы орнатылған болуы тиіс."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
-msgstr ""
+msgstr "ESSID жарамсыз"
 
 #. Type: error
 #. Description
@@ -249,13 +315,15 @@ msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
 "characters, but may contain all kinds of characters."
 msgstr ""
+"ESSID \"${essid}\" қате. ESSID ұзындығы ${max_essid_len} таңбадан аспауы "
+"тиіс, құрамында кез-келген таңбалар болуы мүмкін."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:14001
 msgid "Attempting to exchange keys with the access point..."
-msgstr ""
+msgstr "Қатынау нүктесімен кілттермен алмасып көру талабы..."
 
 #. Type: text
 #. Description
@@ -265,21 +333,21 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:15001 ../netcfg-dhcp.templates:3001
 msgid "This may take some time."
-msgstr ""
+msgstr "Бұл әрекет біраз уақытты алуы мүмкін."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:16001
 msgid "WPA/WPA2 connection succeeded"
-msgstr ""
+msgstr "WPA/WPA2 байланысы сәтті"
 
 #. Type: note
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:17001
 msgid "Failure of key exchange and association"
-msgstr ""
+msgstr "Кілттермен алмасу мен ассоциация қатесі"
 
 #. Type: note
 #. Description
@@ -289,20 +357,22 @@ msgid ""
 "The exchange of keys and association with the access point failed. Please "
 "check the WPA/WPA2 parameters you provided."
 msgstr ""
+"Қатынау нүктесімен кілттермен алмасу мен ассоциация сәтсіз аяқталды. Сіз "
+"ұсынған WPA/WPA2 баптауларын тексеріңіз."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Hostname:"
-msgstr ""
+msgstr "Компьютер аты:"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Please enter the hostname for this system."
-msgstr ""
+msgstr "Осы компьютердің атын енгізіңіз."
 
 #. Type: string
 #. Description
@@ -314,20 +384,24 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
+"Компьютер аты - жүйеңізді желіден табуға арналған бір сөз. Егер сіз "
+"жүйеңіздің қандай болу керек екендігін білмесеңіз желілік "
+"администраторыңызбен ақылдасыңыз. Егер сіз жеке желі өз үйіңізге орнатсаңыз, "
+"кез келген атты таңдауға болады."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
-msgstr ""
+msgstr "Компьютер аты жарамсыз"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
-msgstr ""
+msgstr "\"${hostname}\" компьютер аты жарамсыз."
 
 #. Type: error
 #. Description
@@ -339,13 +413,16 @@ msgid ""
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
+"Компьютер аты 0-9 сандары, латын (A-Z мен a-z) әріптері және минус "
+"белгісінен тұруы мүмкін. Компьютер атының ұзындығы ${maxhostnamelen} "
+"таңбадан аспауы тиіс, минус белгісінен басталмауы және аяқталмауы керек."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:21001
 msgid "Error"
-msgstr ""
+msgstr "Қате"
 
 #. Type: error
 #. Description
@@ -355,13 +432,15 @@ msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
 msgstr ""
+"Қате кетіп, желіні баптау процесі тоқтатылды. Баптауды орнатудың негізгі "
+"мәзірінен қайталап көруіңізге болады."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
-msgstr ""
+msgstr "Ешбір желі интерфейсі табылмады"
 
 #. Type: error
 #. Description
@@ -371,6 +450,8 @@ msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
 msgstr ""
+"Ешбір желі интерфейсі табылмады. Орнату бағдарламасы желілік құрылғыны таба "
+"алмады."
 
 #. Type: error
 #. Description
@@ -380,6 +461,8 @@ msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
 msgstr ""
+"Желілік картаға арнайы модульді жүктеу қажет болса, желілік жабдықты анықтау "
+"қадамына оралыңыз."
 
 #. Type: note
 #. Description
@@ -388,7 +471,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
-msgstr ""
+msgstr "${iface} интерфейсінде kill switch қосулы тұр"
 
 #. Type: note
 #. Description
@@ -401,6 +484,8 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
+"${iface} физикалық \"kill switch\" көмегімен өшірілген. Осы интерфейсті "
+"қолдану үшін оны қосуыңыз керек."
 
 #. Type: select
 #. Choices
@@ -412,7 +497,7 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
-msgstr ""
+msgstr "Infrastructure (Басқарылатын) желісі"
 
 #. Type: select
 #. Choices
@@ -424,13 +509,13 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
-msgstr ""
+msgstr "Ad-hoc (Тікелей) желісі"
 
 #. Type: select
 #. Description
 #: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
-msgstr ""
+msgstr "Сымсыз желінің түрі:"
 
 #. Type: select
 #. Description
@@ -440,131 +525,135 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
+"Сымсыз желінің екі түрі бар: басқарушы желі (managed network) және тікелей "
+"қосу (ad hoc). Егер сіз желіге қандай да бір қатынасу нүктесімен (access "
+"point) қосылсаңыз, басқарушы желі таңдаңыз. Ал егер сіз біреудің "
+"компьютеріне тікелей қосылсаңыз, тікелей нұсқасын таңдаңыз."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
-msgstr ""
+msgstr "Сымсыз желіні баптау"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
-msgstr ""
+msgstr "Сымсыз желінің қатынаcу нүктелерін іздеу..."
 
 #. Type: text
 #. Description
 #: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
-msgstr ""
+msgstr "${interface} үшін желінің бар-жоғын тексеру; күтіңіз..."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:30001
 msgid "<none>"
-msgstr ""
+msgstr "<жоқ>"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
-msgstr ""
+msgstr "Сымсыз желі - (802.11x)"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:32001
 msgid "wireless"
-msgstr ""
+msgstr "сымсыз"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:33001
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:34001
 msgid "Token Ring"
-msgstr ""
+msgstr "Token Ring"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:35001
 msgid "USB net"
-msgstr ""
+msgstr "USB желі"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
-msgstr ""
+msgstr "Тізбекті IP (SLIP)"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
-msgstr ""
+msgstr "Параллель IP (PLIP)"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
-msgstr ""
+msgstr "PPP протоколы"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
-msgstr ""
+msgstr "IPv6-in-IPv4"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
-msgstr ""
+msgstr "ISDN PPP протоколы"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
-msgstr ""
+msgstr "Channel-to-channel (CTC)"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
-msgstr ""
+msgstr "Нақты channel-to-channel"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
-msgstr ""
+msgstr "Пайдаланушы арасында ақпарат алмасу өткізгіші (IUCV)"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:46001
 msgid "Unknown interface"
-msgstr ""
+msgstr "Белгісіз интерфейс"
 
 #. Type: text
 #. Description
@@ -572,7 +661,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
-msgstr ""
+msgstr "Желі баптауларын сақтау..."
 
 #. Type: text
 #. Description
@@ -580,14 +669,14 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr ""
+msgstr "Желіні баптау"
 
 #. Type: string
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
-msgstr ""
+msgstr "Желіде байланыс барын анықтауды күту уақыты (сек):"
 
 #. Type: string
 #. Description
@@ -596,14 +685,14 @@ msgstr ""
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
-msgstr ""
+msgstr "Желіде байланыс барын анықтауды максималды күту уақытын енгізіңіз."
 
 #. Type: error
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
-msgstr ""
+msgstr "Желіде байланыс барын анықтауды күту уақыты қате"
 
 #. Type: error
 #. Description
@@ -613,6 +702,8 @@ msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
 msgstr ""
+"Сіз енгізген мән қате. Желіде байланыс барын күту уақытының максималды "
+"шамасы (секундпен) оң сан болуы тиіс."
 
 #. Type: select
 #. Choices
@@ -620,28 +711,28 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
-msgstr ""
+msgstr "${essid_list} ESSID қолмен енгізіңіз"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Wireless network:"
-msgstr ""
+msgstr "Сымсыз желі:"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
-msgstr ""
+msgstr "Орнату кезінде қолдану үшін сымсыз желіні таңдаңыз."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "DHCP hostname:"
-msgstr ""
+msgstr "DHCP хост аты:"
 
 #. Type: string
 #. Description
@@ -651,34 +742,36 @@ msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
 msgstr ""
+"DHCP хост атын көрсету керек болуы мүмкін. Егер сіз кәбілдік модем "
+"пайдалансаңыз, тіркелгі нөмірін осында көрсетуіңізге болады."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "Most other users can just leave this blank."
-msgstr ""
+msgstr "Көп жағдайда мына жолды бос қалдыруға болады."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr ""
+msgstr "Желіні DHCP көмегімен баптау"
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr ""
+msgstr "Желіні автобаптау сәтті аяқталды"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client found"
-msgstr ""
+msgstr "DHCP клиенті табылған жоқ"
 
 #. Type: error
 #. Description
@@ -686,13 +779,15 @@ msgstr ""
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
 msgstr ""
+"DHCP клиенті табылған жоқ. Бұл пакетті орнату үшін pump немесе dhcp-client "
+"талап етіледі."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "The DHCP configuration process has been aborted."
-msgstr ""
+msgstr "DHCP баптау процесі тоқтатылды."
 
 #. Type: select
 #. Choices
@@ -702,7 +797,7 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration"
-msgstr ""
+msgstr "Желіні автобаптауды қайталау"
 
 #. Type: select
 #. Choices
@@ -712,7 +807,7 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
-msgstr ""
+msgstr "Желіні DHCP көмегімен баптауды қайталау"
 
 #. Type: select
 #. Choices
@@ -722,7 +817,7 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr ""
+msgstr "Желіні қолмен баптау"
 
 #. Type: select
 #. Choices
@@ -732,14 +827,14 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr ""
+msgstr "Желіні қолдан баптауды кейінге қалдыру"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:6002
 msgid "Network configuration method:"
-msgstr ""
+msgstr "Желіні баптау әдісі:"
 
 #. Type: select
 #. Description
@@ -752,13 +847,17 @@ msgid ""
 "by the client, so you can also choose to retry DHCP network "
 "autoconfiguration with a hostname that you provide."
 msgstr ""
+"Осы жерден DHCP автобаптауды қайталап көруге болады (DHCP сервері баяу жұмыс "
+"істесе, қайталап көріңіз) немесе желіні қолмен баптап көруге болады. Кейбір "
+"DHCP серверлер қайталанбайтын DHCP атын клиентке жіберіп барып, автобаптауды "
+"орындайды."
 
 #. Type: note
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:7001
 msgid "Network autoconfiguration failed"
-msgstr ""
+msgstr "Желіні автобаптау сәтсіз аяқталды"
 
 #. Type: note
 #. Description
@@ -768,13 +867,15 @@ msgid ""
 "Your network is probably not using the DHCP protocol. Alternatively, the "
 "DHCP server may be slow or some network hardware is not working properly."
 msgstr ""
+"Сіздің желі DHCP хаттамасын пайдаланбайтын сияқты. Немесе DHCP сервер баяу "
+"жұмыс істейді не/және жабдығы тозған."
 
 #. Type: boolean
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
 msgid "Continue without a default route?"
-msgstr ""
+msgstr "Бастапқы бағдарсыз (default route) жалғастыруды қалайсыз ба?"
 
 #. Type: boolean
 #. Description
@@ -787,6 +888,10 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
+"Желінің автобаптау сәтті аяқталды. Дегенмен, жүйе Интернеттегі серверлермен "
+"қалай байланысу керектігін әлі білмейді. Сондықтан орнатуды жалғастыру үшін "
+"орнату дискісінің біріншісі, 'Netinst' дискісі не жергілікті желідегі "
+"дестелер керек болады."
 
 #. Type: boolean
 #. Description
@@ -796,13 +901,15 @@ msgid ""
 "If you are unsure, you should not continue without a default route: contact "
 "your local network administrator about this problem."
 msgstr ""
+"Білмей тұрсаңыз, әдеттегі роутерсіз жалғастырмай, осы қиындықты шешу үшін "
+"желілік администратормен ақылдасыңыз."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:9001
 msgid "Reconfigure the wireless network"
-msgstr ""
+msgstr "Сымсыз желіні қайта баптау"
 
 #. Type: text
 #. Description
@@ -814,7 +921,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr ""
+msgstr "IPv6 автобаптау талабы..."
 
 #. Type: text
 #. Description
@@ -822,14 +929,14 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr ""
+msgstr "link-local адресін күту..."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
 msgid "Configuring the network with DHCPv6"
-msgstr ""
+msgstr "Желіні DHCPv6 көмегімен баптау"
 
 #. Type: string
 #. Description
@@ -837,7 +944,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr ""
+msgstr "IP адрес:"
 
 #. Type: string
 #. Description
@@ -845,7 +952,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr ""
+msgstr "IP адресі компьютеріңіз үшін бірегей, және келесідей болуы мүмкін:"
 
 #. Type: string
 #. Description
@@ -856,6 +963,8 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
+" * төрт сан, нүктелермен ажыратылған (IPv4);\n"
+" * оналтылық таңбалар блоктары, қос нүктелермен ажыратылған (IPv6)."
 
 #. Type: string
 #. Description
@@ -863,7 +972,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr ""
+msgstr "Қосымша түрде CIDR желілік маскасы көрсетілуі мүмкін (\"/24\" сияқты)."
 
 #. Type: string
 #. Description
@@ -872,6 +981,7 @@ msgstr ""
 #: ../netcfg-static.templates:1001
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr ""
+"Осында не жазатыңызды білмесеңіз, желілік администраторыңызға хабарласыңыз."
 
 #. Type: error
 #. Description
@@ -879,7 +989,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr ""
+msgstr "IP адрес дұрыс емес"
 
 #. Type: error
 #. Description
@@ -892,13 +1002,17 @@ msgid ""
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
+"Сіз көрсеткен IP адресі дұрыс емес. Адрес x.x.x.x түріде болуы керек, "
+"мұндағы x - 255 не одан кіші сан (IPv4  адресі), немесе қос нүктемен "
+"ажыратылған оналтылық сандар блоктарының тізбегі (IPv6 адресі). Тағы бір "
+"қайталап көріңіз."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:3001
 msgid "Point-to-point address:"
-msgstr ""
+msgstr "PPP адрес:"
 
 #. Type: string
 #. Description
@@ -910,13 +1024,16 @@ msgid ""
 "know the value.  The point-to-point address should be entered as four "
 "numbers separated by periods."
 msgstr ""
+"PPP адресі PPP қосылымының екінші соңын анықтауға қолданылады. Оның қандай "
+"болатынын білмесеңіз, желілік администратормен ақылдасыңыз. PPP адресі "
+"нүктелермен ажыратылған төрт сан түрінде енгізіледі."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:4001
 msgid "Netmask:"
-msgstr ""
+msgstr "Желі маскасы:"
 
 #. Type: string
 #. Description
@@ -927,13 +1044,16 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
+"Желі маскасы бір желіні бір желіден ажырату үшін қажет. Оның мәнін "
+"білмесеңіз, желілік администраторыңызбен ақылдасыңыз. Маска нүктемен "
+"ажыратылған төрт саннан тұрады."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:5001
 msgid "Gateway:"
-msgstr ""
+msgstr "Шлюз:"
 
 #. Type: string
 #. Description
@@ -947,20 +1067,25 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
+"Бұл IP-адрес (нүктелермен ажыратылған төрт сан) әдеттегі роутерді көрсетеді. "
+"Сіздің жергілікті желіңізден тыс шығатын барлық трафик (мысалы, интернет) "
+"осы роутер арқылы өтеді. Кей жағдайда сізде мұндай роутер болмауы да мүмкін; "
+"бұл жағдайда жолды бос қалдыру керек. Не жазарын білмесеңіз, желілік "
+"администраторыңызбен ақылдасыңыз."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "Unreachable gateway"
-msgstr ""
+msgstr "Шлюз табылмады"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "The gateway address you entered is unreachable."
-msgstr ""
+msgstr "Сіз көрсеткен адрес бойынша шлюз табылмады."
 
 #. Type: error
 #. Description
@@ -969,6 +1094,8 @@ msgstr ""
 msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
 msgstr ""
+"IP адрес, желі маскасы және/не шлюз адресін енгізген кезде қателескен "
+"шығарсыз."
 
 #. Type: error
 #. Description
@@ -976,7 +1103,7 @@ msgstr ""
 #. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr ""
+msgstr "Point-to-point байланыстары IPv6 қолдамайды"
 
 #. Type: error
 #. Description
@@ -987,20 +1114,22 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
+"IPv6 адрестерін point-to-point байланыстарда баптау мүмкін емес. IPv4 "
+"адресін қолданыңыз, немесе артқа оралып, басқа желілік құрылғысын таңдаңыз."
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
-msgstr ""
+msgstr "Осы ақпарат дұрыс па?"
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
-msgstr ""
+msgstr "Ағымдағы желілік баптаулар:"
 
 #. Type: boolean
 #. Description
@@ -1014,6 +1143,12 @@ msgid ""
 " pointopoint   = ${pointopoint}\n"
 " nameservers   = ${nameservers}"
 msgstr ""
+" интерфейс         = ${interface}\n"
+" ip-адрес             = ${ipaddress}\n"
+" желі маскасы     = ${netmask}\n"
+" шлюз                 = ${gateway}\n"
+" PPP адресі         = ${pointopoint}\n"
+" DNS серверлері = ${nameservers}"
 
 #. Type: text
 #. Description
@@ -1021,4 +1156,4 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
-msgstr ""
+msgstr "Желіні статикалық адрестеу арқылы баптау"

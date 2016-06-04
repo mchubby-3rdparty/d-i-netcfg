@@ -3,13 +3,42 @@
 #
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
+# Translation of Debian Installer templates to Brazilian Portuguese.
+# This file is distributed under the same license as debian-installer.
+#
+# Felipe Augusto van de Wiel (faw) <faw@debian.org>, 2008-2012.
+# Adriano Rafael Gomes <adrianorg@arg.eti.br>, 2010-2015.
+#
+# Translations from iso-codes:
+#   Alastair McKinstry <mckinstry@computer.org>, 2001-2002.
+#   Free Software Foundation, Inc., 2000
+#   Juan Carlos Castro y Castro <jcastro@vialink.com.br>, 2000-2005.
+#   Leonardo Ferreira Fontenelle <leonardof@gnome.org>, 2006-2009.
+#   Lisiane Sztoltz <lisiane@conectiva.com.br>
+#   Tobias Quathamer <toddy@debian.org>, 2007.
+#     Translations taken from ICU SVN on 2007-09-09
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debian-installer\n"
+"Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
+"POT-Creation-Date: 2012-11-03 22:02+0000\n"
+"PO-Revision-Date: 2015-06-06 10:16-0300\n"
+"Last-Translator: Adriano Rafael Gomes <adrianorg@arg.eti.br>\n"
+"Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
+"org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
 msgid "Auto-configure networking?"
-msgstr ""
+msgstr "Configurar a rede automaticamente?"
 
 #. Type: boolean
 #. Description
@@ -23,13 +52,19 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
+"A rede pode ser configurada informando manualmente todos os dados "
+"necessários ou usando DHCP (ou uma variedade de métodos específicos do IPv6) "
+"para detectar as configurações de rede automaticamente. Se você escolher "
+"usar autoconfiguração e o instalador não conseguir obter uma configuração "
+"funcional pela rede, você terá a oportunidade de configurar sua rede "
+"manualmente."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:3001
 msgid "Domain name:"
-msgstr ""
+msgstr "Nome de domínio:"
 
 #. Type: string
 #. Description
@@ -41,13 +76,18 @@ msgid ""
 "If you are setting up a home network, you can make something up, but make "
 "sure you use the same domain name on all your computers."
 msgstr ""
+"O nome do domínio é a parte de seu endereço Internet à direita do nome de "
+"sua máquina. Geralmente algo que finaliza com .com.br, .net.br, .edu.br, ."
+"org.br, .com, .net, .edu ou .org. Se você está configurando uma rede "
+"doméstica, você pode usar qualquer nome, mas certifique-se de usar o mesmo "
+"nome de domínio em todos os seus computadores."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
 msgid "Name server addresses:"
-msgstr ""
+msgstr "Endereços dos servidores de nomes:"
 
 #. Type: string
 #. Description
@@ -60,13 +100,18 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
+"Os servidores de nomes são usados para pesquisar nomes de máquinas na rede. "
+"Por favor, informe os endereços IP (e não os nomes de máquinas) de até 3 "
+"servidores de nomes, separados por espaços. Não use vírgulas. O primeiro "
+"servidor de nomes na lista será o primeiro a ser consultado. Se você não "
+"quiser usar nenhum servidor de nomes, deixe este campo em branco."
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:5001
 msgid "Primary network interface:"
-msgstr ""
+msgstr "Interface primária de rede:"
 
 #. Type: select
 #. Description
@@ -77,6 +122,9 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
+"Seu sistema possui múltiplas interfaces de rede. Escolha aquela que será "
+"usada como a interface primária de rede durante a instalação. Se possível, a "
+"primeira interface de rede conectada que foi encontrada estará selecionada."
 
 #. Type: string
 #. Description
@@ -86,7 +134,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
-msgstr ""
+msgstr "ESSID da rede sem fio para ${iface}:"
 
 #. Type: string
 #. Description
@@ -97,13 +145,16 @@ msgid ""
 "of the wireless network you would like ${iface} to use. If you would like to "
 "use any available network, leave this field blank."
 msgstr ""
+"${iface} é uma interface de rede sem fio. Por favor, informe o nome (o "
+"ESSID) da rede sem fio que você gostaria que a interface ${iface} usasse. Se "
+"você deseja usar qualquer rede disponível, deixe este campo em branco."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
-msgstr ""
+msgstr "A tentativa de encontrar uma rede sem fio disponível falhou."
 
 #. Type: string
 #. Description
@@ -114,25 +165,28 @@ msgid ""
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
+"${iface} é uma interface de rede sem fio. Por favor, informe o nome (o "
+"ESSID) da rede sem fio que você gostaria que a interface ${iface} usasse. "
+"Para se conectar a qualquer rede disponível, deixe este campo em branco."
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WEP/Open Network"
-msgstr ""
+msgstr "Rede Aberta/WEP"
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WPA/WPA2 PSK"
-msgstr ""
+msgstr "WPA/WPA2 PSK"
 
 #. Type: select
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:8002
 msgid "Wireless network type for ${iface}:"
-msgstr ""
+msgstr "Tipo da rede sem fio para ${iface}:"
 
 #. Type: select
 #. Description
@@ -142,13 +196,16 @@ msgid ""
 "Choose WEP/Open if the network is open or secured with WEP. Choose WPA/WPA2 "
 "if the network is protected with WPA/WPA2 PSK (Pre-Shared Key)."
 msgstr ""
+"Escolha WEP/Aberta se a rede é aberta ou protegida com WEP. Escolha WPA/WPA2 "
+"se a rede é protegida com WPA/WPA2 PSK (Pre-Shared Key -- \"Chave pré-"
+"compartilhada\")."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:9001
 msgid "WEP key for wireless device ${iface}:"
-msgstr ""
+msgstr "Chave WEP para o dispositivo de rede sem fio ${iface}:"
 
 #. Type: string
 #. Description
@@ -158,6 +215,8 @@ msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
 msgstr ""
+"Se aplicável, por favor, informe a chave de segurança WEP para o dispositivo "
+"de rede sem fio ${iface}. Existem duas formas de fazê-lo:"
 
 #. Type: string
 #. Description
@@ -167,6 +226,8 @@ msgid ""
 "If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
+"Se sua chave WEP está no formato 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn' "
+"ou 'nnnnnnnn', onde n é um número, simplesmente informe-a neste campo."
 
 #. Type: string
 #. Description
@@ -176,6 +237,8 @@ msgid ""
 "If your WEP key is in the format of a passphrase, prefix it with "
 "'s:' (without quotes)."
 msgstr ""
+"Se sua chave WEP está no formato de uma frase secreta, prefixe-a com "
+"'s:' (sem as aspas)."
 
 #. Type: string
 #. Description
@@ -185,13 +248,15 @@ msgid ""
 "Of course, if there is no WEP key for your wireless network, leave this "
 "field blank."
 msgstr ""
+"É claro, se não há uma chave WEP para sua rede sem fio, deixe este campo em "
+"branco."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:10001
 msgid "Invalid WEP key"
-msgstr ""
+msgstr "Chave WEP inválida"
 
 #. Type: error
 #. Description
@@ -201,13 +266,16 @@ msgid ""
 "The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
 "next screen carefully on how to enter your WEP key correctly, and try again."
 msgstr ""
+"A chave WEP '${wepkey}' é inválida. Por favor, consulte cuidadosamente as "
+"instruções na tela a seguir sobre como informar sua chave WEP corretamente e "
+"tente novamente."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:11001
 msgid "Invalid passphrase"
-msgstr ""
+msgstr "Frase secreta inválida"
 
 #. Type: error
 #. Description
@@ -217,13 +285,15 @@ msgid ""
 "The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
 "too short (less than 8 characters)."
 msgstr ""
+"A frase secreta WPA/WPA2 PSK é muito longa (mais de 64 caracteres) ou muito "
+"curta (menos de 8 caracteres)."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
 msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
-msgstr ""
+msgstr "Frase secreta WPA/WPA2 para o dispositivo de rede sem fio ${iface}:"
 
 #. Type: string
 #. Description
@@ -233,13 +303,15 @@ msgid ""
 "Enter the passphrase for WPA/WPA2 PSK authentication. This should be the "
 "passphrase defined for the wireless network you are trying to use."
 msgstr ""
+"Informe a frase secreta para a autenticação WPA/WPA2 PSK. Esta deverá ser a "
+"frase secreta definida para a rede sem fio que você está tentando usar."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
-msgstr ""
+msgstr "ESSID inválido"
 
 #. Type: error
 #. Description
@@ -249,13 +321,15 @@ msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
 "characters, but may contain all kinds of characters."
 msgstr ""
+"O ESSID \"${essid}\" é inválido. ESSIDs podem ter no máximo ${max_essid_len} "
+"caracteres, mas podem conter todos os tipos de caracteres."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:14001
 msgid "Attempting to exchange keys with the access point..."
-msgstr ""
+msgstr "Tentando trocar chaves com o ponto de acesso..."
 
 #. Type: text
 #. Description
@@ -265,21 +339,21 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:15001 ../netcfg-dhcp.templates:3001
 msgid "This may take some time."
-msgstr ""
+msgstr "Este processo pode levar algum tempo."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:16001
 msgid "WPA/WPA2 connection succeeded"
-msgstr ""
+msgstr "Conexão WPA/WPA2 realizada"
 
 #. Type: note
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:17001
 msgid "Failure of key exchange and association"
-msgstr ""
+msgstr "Falha na troca de chaves e associação"
 
 #. Type: note
 #. Description
@@ -289,20 +363,22 @@ msgid ""
 "The exchange of keys and association with the access point failed. Please "
 "check the WPA/WPA2 parameters you provided."
 msgstr ""
+"A troca de chaves e associação com o ponto de acesso falhou. Por favor, "
+"verifique os parâmetros WPA/WPA2 que você informou."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Hostname:"
-msgstr ""
+msgstr "Nome de máquina:"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Please enter the hostname for this system."
-msgstr ""
+msgstr "Por favor, informe o nome de máquina (\"hostname\") para este sistema."
 
 #. Type: string
 #. Description
@@ -314,20 +390,24 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
+"O nome de máquina (\"hostname\") é uma palavra única que identifica seu "
+"sistema na rede. Se você não sabe qual deve ser o nome de sua máquina, "
+"consulte o seu administrador de redes. Se você está configurando sua própria "
+"rede doméstica, você pode usar qualquer nome aqui."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
-msgstr ""
+msgstr "Nome de máquina inválido"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
-msgstr ""
+msgstr "O nome \"${hostname}\" é inválido."
 
 #. Type: error
 #. Description
@@ -339,13 +419,17 @@ msgid ""
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
+"Um nome de máquina válido pode conter somente números (0-9), letras "
+"minúsculas (a-z) e maiúsculas (A-Z) e o sinal de menos (hífen). Ele deve ter "
+"no máximo ${maxhostnamelen} caracteres e não pode começar ou terminar com um "
+"sinal de menos (hífen)."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:21001
 msgid "Error"
-msgstr ""
+msgstr "Erro"
 
 #. Type: error
 #. Description
@@ -355,13 +439,15 @@ msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
 msgstr ""
+"Um erro ocorreu e o processo de configuração de rede foi abortado. Você pode "
+"tentar executá-lo novamente a partir do menu principal."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
-msgstr ""
+msgstr "Nenhuma interface de rede foi detectada"
 
 #. Type: error
 #. Description
@@ -371,6 +457,8 @@ msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
 msgstr ""
+"Nenhuma interface de rede foi encontrada. O sistema de instalação não foi "
+"capaz de encontrar um dispositivo de rede."
 
 #. Type: error
 #. Description
@@ -380,6 +468,9 @@ msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
 msgstr ""
+"Você pode precisar carregar um módulo específico para sua placa de rede, "
+"caso você realmente possua uma. Para fazê-lo, retorne ao passo de detecção "
+"de hardware de rede."
 
 #. Type: note
 #. Description
@@ -388,7 +479,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
-msgstr ""
+msgstr "Chave liga/desliga desativada na interface ${iface}"
 
 #. Type: note
 #. Description
@@ -401,6 +492,9 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
+"A interface ${iface} parece ter sido desabilitada através de um chaveador "
+"físico (\"kill switch\"). Se você pretende usar esta interface, por favor, "
+"ligue-a antes de continuar."
 
 #. Type: select
 #. Choices
@@ -412,7 +506,7 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
-msgstr ""
+msgstr "Rede em modo infraestrutura (gerenciada)"
 
 #. Type: select
 #. Choices
@@ -424,13 +518,13 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
-msgstr ""
+msgstr "Rede em modo ad-hoc (ponto a ponto)"
 
 #. Type: select
 #. Description
 #: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
-msgstr ""
+msgstr "Tipo de rede sem fio:"
 
 #. Type: select
 #. Description
@@ -440,131 +534,134 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
+"Redes sem fio podem ser de dois tipos: gerenciadas (\"managed\") ou ad-hoc. "
+"Se você usa um ponto de acesso real de algum tipo, sua rede é Gerenciada. Se "
+"outro computador é seu 'ponto de acesso', então sua rede pode ser Ad-hoc."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
-msgstr ""
+msgstr "Configuração de rede sem fio"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
-msgstr ""
+msgstr "Procurando por pontos de acesso a redes sem fio..."
 
 #. Type: text
 #. Description
 #: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
-msgstr ""
+msgstr "Detectando conexão em ${interface}; por favor, aguarde..."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:30001
 msgid "<none>"
-msgstr ""
+msgstr "<nenhuma>"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
-msgstr ""
+msgstr "Rede ethernet sem fio (802.11x)"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:32001
 msgid "wireless"
-msgstr ""
+msgstr "sem fio"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:33001
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:34001
 msgid "Token Ring"
-msgstr ""
+msgstr "Token Ring"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:35001
 msgid "USB net"
-msgstr ""
+msgstr "Rede USB"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
-msgstr ""
+msgstr "IP Linha-Serial"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
-msgstr ""
+msgstr "IP Porta-Paralela"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
-msgstr ""
+msgstr "Protocolo Ponto-a-Ponto"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
-msgstr ""
+msgstr "IPv6-em-IPv4"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
-msgstr ""
+msgstr "Protocolo ISDN Ponto-a-Ponto"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
-msgstr ""
+msgstr "Canal-a-Canal"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
-msgstr ""
+msgstr "Canal-a-Canal real"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
-msgstr ""
+msgstr "Veículo de comunicação inter-usuário"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:46001
 msgid "Unknown interface"
-msgstr ""
+msgstr "Interface desconhecida"
 
 #. Type: text
 #. Description
@@ -572,7 +669,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
-msgstr ""
+msgstr "Armazenando configurações de rede..."
 
 #. Type: text
 #. Description
@@ -580,14 +677,14 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr ""
+msgstr "Configurar a rede"
 
 #. Type: string
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
-msgstr ""
+msgstr "Tempo de espera (em segundos) para detecção da conexão:"
 
 #. Type: string
 #. Description
@@ -597,13 +694,15 @@ msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
 msgstr ""
+"Por favor, informe o tempo máximo que você gostaria de esperar pela detecção "
+"da conexão de rede."
 
 #. Type: error
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
-msgstr ""
+msgstr "Tempo de espera para detecção da conexão de rede inválido"
 
 #. Type: error
 #. Description
@@ -613,6 +712,9 @@ msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
 msgstr ""
+"O valor que você forneceu não é válido. O tempo máximo de espera (em "
+"segundos) pela detecção da conexão de rede deve ser um número inteiro "
+"positivo."
 
 #. Type: select
 #. Choices
@@ -620,28 +722,28 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
-msgstr ""
+msgstr "${essid_list} Informar o ESSID manualmente"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Wireless network:"
-msgstr ""
+msgstr "Rede sem fio:"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
-msgstr ""
+msgstr "Selecione a rede sem fio a ser usada durante o processo de instalação."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "DHCP hostname:"
-msgstr ""
+msgstr "Nome de máquina DHCP:"
 
 #. Type: string
 #. Description
@@ -651,6 +753,8 @@ msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
 msgstr ""
+"Você pode precisar fornecer um nome de máquina DHCP. Se você está usando um "
+"\"cable modem\", você pode ter que especificar um número de conta aqui."
 
 #. Type: string
 #. Description
@@ -658,27 +762,28 @@ msgstr ""
 #: ../netcfg-dhcp.templates:1001
 msgid "Most other users can just leave this blank."
 msgstr ""
+"A maioria dos outros usuários pode simplesmente deixar este campo em branco."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr ""
+msgstr "Configurando a rede com DHCP"
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr ""
+msgstr "Configuração automática de rede finalizada com sucesso"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client found"
-msgstr ""
+msgstr "Nenhum cliente DHCP encontrado"
 
 #. Type: error
 #. Description
@@ -686,13 +791,15 @@ msgstr ""
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
 msgstr ""
+"Nenhum cliente DHCP foi encontrado. Este pacote requer o pump ou o dhcp-"
+"client."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "The DHCP configuration process has been aborted."
-msgstr ""
+msgstr "O processo de configuração do DHCP foi abortado."
 
 #. Type: select
 #. Choices
@@ -702,7 +809,7 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration"
-msgstr ""
+msgstr "Tentar novamente a configuração automática de rede"
 
 #. Type: select
 #. Choices
@@ -712,7 +819,7 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
-msgstr ""
+msgstr "Tentar configuração automática de rede com um \"hostname\" DHCP"
 
 #. Type: select
 #. Choices
@@ -722,7 +829,7 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr ""
+msgstr "Configurar a rede manualmente"
 
 #. Type: select
 #. Choices
@@ -732,14 +839,14 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr ""
+msgstr "Não configurar a rede agora"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:6002
 msgid "Network configuration method:"
-msgstr ""
+msgstr "Método de configuração de rede:"
 
 #. Type: select
 #. Description
@@ -752,13 +859,20 @@ msgid ""
 "by the client, so you can also choose to retry DHCP network "
 "autoconfiguration with a hostname that you provide."
 msgstr ""
+"Aqui você pode escolher entre tentar novamente a configuração automática de "
+"rede via DHCP (a qual pode funcionar caso seu servidor DHCP leve muito tempo "
+"para responder) ou configurar a rede manualmente. Alguns servidores DHCP "
+"requerem que um nome de máquina (\"hostname\") DHCP seja enviado pelo "
+"cliente e portanto você também pode optar por tentar novamente a "
+"configuração automática de rede via DHCP com um nome de máquina que você "
+"fornecer."
 
 #. Type: note
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:7001
 msgid "Network autoconfiguration failed"
-msgstr ""
+msgstr "Configuração automática de rede falhou"
 
 #. Type: note
 #. Description
@@ -768,13 +882,16 @@ msgid ""
 "Your network is probably not using the DHCP protocol. Alternatively, the "
 "DHCP server may be slow or some network hardware is not working properly."
 msgstr ""
+"Sua rede provavelmente não está usando o protocolo DHCP. Alternativamente, o "
+"servidor DHCP pode ser lento ou algum hardware de rede pode não estar "
+"funcionando corretamente."
 
 #. Type: boolean
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
 msgid "Continue without a default route?"
-msgstr ""
+msgstr "Continuar sem uma rota padrão?"
 
 #. Type: boolean
 #. Description
@@ -787,6 +904,11 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
+"A configuração automática de rede foi realizada com sucesso. Porém, nenhuma "
+"rota padrão foi definida: o sistema não sabe como se comunicar com máquinas "
+"na Internet. Isto faz com que seja impossível continuar a instalação a menos "
+"que você possua o primeiro CD-ROM de instalação, um CD-ROM do tipo 'Netinst' "
+"ou pacotes disponíveis em sua rede local."
 
 #. Type: boolean
 #. Description
@@ -796,13 +918,16 @@ msgid ""
 "If you are unsure, you should not continue without a default route: contact "
 "your local network administrator about this problem."
 msgstr ""
+"Em caso de dúvidas, você não deverá continuar sem uma rota padrão: entre em "
+"contato com o administrador de sua rede local para questioná-lo sobre esse "
+"problema."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:9001
 msgid "Reconfigure the wireless network"
-msgstr ""
+msgstr "Configurar novamente a rede sem fio"
 
 #. Type: text
 #. Description
@@ -814,7 +939,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr ""
+msgstr "Tentando autoconfiguração IPv6..."
 
 #. Type: text
 #. Description
@@ -822,14 +947,14 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr ""
+msgstr "Aguardando o endereço do link-local..."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
 msgid "Configuring the network with DHCPv6"
-msgstr ""
+msgstr "Configurando a rede com DHCPv6"
 
 #. Type: string
 #. Description
@@ -837,7 +962,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr ""
+msgstr "Endereço IP:"
 
 #. Type: string
 #. Description
@@ -845,7 +970,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr ""
+msgstr "O endereço IP é único para o seu computador e pode ser:"
 
 #. Type: string
 #. Description
@@ -856,6 +981,8 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
+" * quatro números separados por pontos (IPv4);\n"
+" * blocos de caracteres hexadecimais separados por dois-pontos (IPv6)."
 
 #. Type: string
 #. Description
@@ -864,6 +991,8 @@ msgstr ""
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
 msgstr ""
+"Opcionalmente, você também pode adicionar uma máscara de rede CIDR (tal como "
+"\"/24\")."
 
 #. Type: string
 #. Description
@@ -871,7 +1000,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "If you don't know what to use here, consult your network administrator."
-msgstr ""
+msgstr "Se você não sabe o que informar, consulte seu administrador de redes."
 
 #. Type: error
 #. Description
@@ -879,7 +1008,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr ""
+msgstr "Endereço IP malformado"
 
 #. Type: error
 #. Description
@@ -892,13 +1021,17 @@ msgid ""
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
+"O endereço IP que você informou está malformado. Ele deve estar no formato x."
+"x.x.x, onde cada 'x' não pode ser maior que 255 (um endereço IPv4), ou uma "
+"sequência de blocos de dígitos hexadecimais separados por dois-pontos (um "
+"endereço IPv6). Por favor, tente novamente."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:3001
 msgid "Point-to-point address:"
-msgstr ""
+msgstr "Endereço ponto-a-ponto:"
 
 #. Type: string
 #. Description
@@ -910,13 +1043,17 @@ msgid ""
 "know the value.  The point-to-point address should be entered as four "
 "numbers separated by periods."
 msgstr ""
+"O endereço ponto-a-ponto é usado para determinar a outra ponta da rede ponto-"
+"a-ponto. Consulte o administrador de sua rede se você não sabe que valor "
+"usar. O endereço ponto-a-ponto deve ser informado como quatro números "
+"separados por pontos."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:4001
 msgid "Netmask:"
-msgstr ""
+msgstr "Máscara de rede:"
 
 #. Type: string
 #. Description
@@ -927,13 +1064,16 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
+"A máscara de rede é usada para determinar quais máquinas são locais para sua "
+"rede. Consulte o seu administrador de redes se você não sabe o que usar. A "
+"máscara de rede deve ser informada como quatro números separados por pontos."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:5001
 msgid "Gateway:"
-msgstr ""
+msgstr "Gateway:"
 
 #. Type: string
 #. Description
@@ -947,20 +1087,27 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
+"O gateway é um endereço IP (quatro números separados por pontos) que indica "
+"o roteador gateway, também conhecido como o roteador padrão. Todo tráfego "
+"que vai para fora de sua LAN (por exemplo, para a Internet) é enviado "
+"através desse roteador. Em raras circunstâncias, você pode ficar sem um "
+"roteador. Nesse caso, este campo pode ser deixado em branco. Se você não "
+"souber a resposta correta para essa pergunta, consulte o seu administrador "
+"de redes."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "Unreachable gateway"
-msgstr ""
+msgstr "Gateway inalcançável"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "The gateway address you entered is unreachable."
-msgstr ""
+msgstr "O endereço do gateway que você informou é inalcançável."
 
 #. Type: error
 #. Description
@@ -969,6 +1116,8 @@ msgstr ""
 msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
 msgstr ""
+"Você pode ter cometido um erro ao informar seu endereço IP, máscara de rede "
+"e/ou gateway."
 
 #. Type: error
 #. Description
@@ -976,7 +1125,7 @@ msgstr ""
 #. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr ""
+msgstr "Não há suporte para IPv6 em links par-a-par/ponto-a-ponto"
 
 #. Type: error
 #. Description
@@ -987,20 +1136,23 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
+"Endereços IPv6 não podem ser configurados em links par-a-par/ponto-a-ponto. "
+"Por favor, use um endereço IPv4 ou volte e selecione uma interface diferente "
+"de rede."
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
-msgstr ""
+msgstr "Esta informação está correta?"
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
-msgstr ""
+msgstr "Parâmetros de rede configurados atualmente:"
 
 #. Type: boolean
 #. Description
@@ -1014,6 +1166,12 @@ msgid ""
 " pointopoint   = ${pointopoint}\n"
 " nameservers   = ${nameservers}"
 msgstr ""
+" interface           = ${interface}\n"
+" endereço IP         = ${ipaddress}\n"
+" máscara de rede     = ${netmask}\n"
+" gateway             = ${gateway}\n"
+" ponto-a-ponto       = ${pointopoint}\n"
+" servidores de nomes = ${nameservers}"
 
 #. Type: text
 #. Description
@@ -1021,4 +1179,4 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
-msgstr ""
+msgstr "Configurar a rede usando endereçamento estático"

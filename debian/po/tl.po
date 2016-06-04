@@ -3,19 +3,51 @@
 #
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
-#. Type: boolean
-#. Description
-#. IPv6
-#. :sl1:
-#: ../netcfg-common.templates:2001
-msgid "Auto-configure networking?"
+# Tagalog messages for debian-installer.
+# Copyright (C) 2004-2010 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+# Ipinamamahagi ang talaksang ito alinsunod sa lisensiya ng debian-installer.
+# Eric Pareja <xenos@upm.edu.ph>, 2004-200
+# Rick Bahague, Jr. <rbahaguejr@gmail.com>, 2004
+# Reviewed by Roel Cantada on Feb-Mar 2005.
+# Sinuri ni Roel Cantada noong Peb-Mar 2005.
+# This file is maintained by Eric Pareja <eric.pareja@gmail.com>
+# Inaalagaan ang talaksang ito ni Eric Pareja <eric.pareja@gmail.com>
+#
+# ituloy angsulong mga kapatid http://www.upm.edu.ph/~xenos
+#
+#
+# Translations from iso-codes:
+#   Eric Pareja <xenos@upm.edu.ph> 2005,2006
+#
+msgid ""
 msgstr ""
+"Project-Id-Version: debian-installer\n"
+"Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
+"POT-Creation-Date: 2012-11-03 22:02+0000\n"
+"PO-Revision-Date: 2010-07-09 22:53+0800\n"
+"Last-Translator: Eric Pareja <eric.pareja@gmail.com>\n"
+"Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
+"Language: tl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
+#, fuzzy
+msgid "Auto-configure networking?"
+msgstr "Pabayaan magsaayos ng awtomatiko ang network gamit ang DHCP?"
+
+#. Type: boolean
+#. Description
+#. IPv6
+#. :sl1:
+#: ../netcfg-common.templates:2001
+#, fuzzy
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -23,13 +55,18 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
+"Maaring i-configure ang networking na gamit ang DHCP o sa pagpasok ng "
+"setting mano-mano. Kung piliin niyong gamitin ang DHCP at hindi makakuha ang "
+"installer ng configuration na gumagana mula sa DHCP server sa inyong "
+"network, bibigyan kayo ng pagkakataon na i-configure ang network ninyo mano-"
+"mano matapos na masubukan i-configure ito sa pamamagitan ng DHCP."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:3001
 msgid "Domain name:"
-msgstr ""
+msgstr "Domain name:"
 
 #. Type: string
 #. Description
@@ -41,13 +78,17 @@ msgid ""
 "If you are setting up a home network, you can make something up, but make "
 "sure you use the same domain name on all your computers."
 msgstr ""
+"Ang domain name ay bahagi ng inyong Internet address sa kanan ng inyong host "
+"name. Kadalasan itong nagtatapos sa .com, .net, .edu, .org o .ph. Kung kayo "
+"ay nagtatayo ng pambahay na network, maaari kayong gumawa ng domain name na "
+"gagamitin ninyo sa lahat ng kompyuter niyo sa bahay."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
 msgid "Name server addresses:"
-msgstr ""
+msgstr "Name server addresses:"
 
 #. Type: string
 #. Description
@@ -60,13 +101,18 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
+"Ang mga name server ay ginagamit upang malaman ang mga pangalan ng mga "
+"makina sa network. Ibigay ang mga IP address (hindi pangalan ng makina) ng "
+"hanggang 3 mga name server, hiwalay ng mga puwang. Huwag gumamit ng komma. "
+"Ang unang name server sa listahan ay siyang unang tatanungin. Kung ayaw "
+"niyong gumamit ng alinmang name server, iwanan ang puwang na ito na blanko."
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:5001
 msgid "Primary network interface:"
-msgstr ""
+msgstr "Pangunahing network interface:"
 
 #. Type: select
 #. Description
@@ -77,6 +123,9 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
+"Ang inyong makina ay may ilang mga network interface. Piliin ang isa na "
+"gagamitin bilang pangunahing network interface para sa pagluklok. Kung "
+"maaari, ang unang network interface na nakakabit at nakita ay napili na."
 
 #. Type: string
 #. Description
@@ -86,13 +135,12 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
-msgstr ""
+msgstr "Wireless ESSID para sa ${iface}:"
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:6001
-#, fuzzy
 msgid ""
 "${iface} is a wireless network interface. Please enter the name (the ESSID) "
 "of the wireless network you would like ${iface} to use. If you would like to "
@@ -100,7 +148,7 @@ msgid ""
 msgstr ""
 "Ang ${iface} ay wireless network interface. Mangyari po lamang na ibigay ang "
 "pangalan (ang ESSID) ng wireless network na ninanais ninyong gamitin ng "
-"${iface}. Kung nais niyong laktawan ang pagsasaayos ng wireless network, "
+"${iface}. Kung nais niyong gamitin ang alinman sa mga network na maaari, "
 "iwanang blanko ang puwang na ito."
 
 #. Type: string
@@ -108,7 +156,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
-msgstr ""
+msgstr "Bigo sa paghanap ng magagamit na wireless network."
 
 #. Type: string
 #. Description
@@ -122,7 +170,7 @@ msgid ""
 msgstr ""
 "Ang ${iface} ay wireless network interface. Mangyari po lamang na ibigay ang "
 "pangalan (ang ESSID) ng wireless network na ninanais ninyong gamitin ng "
-"${iface}. Kung nais niyong laktawan ang pagsasaayos ng wireless network, "
+"${iface}. Kung nais niyong gamitin ang alinman sa mga network na maaari, "
 "iwanang blanko ang puwang na ito."
 
 #. Type: select
@@ -141,8 +189,9 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:8002
+#, fuzzy
 msgid "Wireless network type for ${iface}:"
-msgstr ""
+msgstr "Wireless ESSID para sa ${iface}:"
 
 #. Type: select
 #. Description
@@ -158,7 +207,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:9001
 msgid "WEP key for wireless device ${iface}:"
-msgstr ""
+msgstr "WEP key para sa wireless device ${iface}:"
 
 #. Type: string
 #. Description
@@ -168,6 +217,8 @@ msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
 msgstr ""
+"Kung kinakailangan, pakibigay lamang ang WEP security key para sa wireless "
+"device na ${iface}. May dalawang paraan upang gawin ito:"
 
 #. Type: string
 #. Description
@@ -177,6 +228,9 @@ msgid ""
 "If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
+"Kung ang inyong WEP key ay nasa anyong 'nnnn-nnnn-nn', 'nnnnnnnn' o 'nn:nn:"
+"nn:nn:nn:nn:nn:nn', kung saan ang n ay numero, ibigay lamang ito sa puwang "
+"na ito."
 
 #. Type: string
 #. Description
@@ -186,6 +240,8 @@ msgid ""
 "If your WEP key is in the format of a passphrase, prefix it with "
 "'s:' (without quotes)."
 msgstr ""
+"Kung ang inyong WEP key ay nasa anyong passphrase, pangunahan ito ng "
+"'s:' (walang mga kudlit)."
 
 #. Type: string
 #. Description
@@ -195,14 +251,15 @@ msgid ""
 "Of course, if there is no WEP key for your wireless network, leave this "
 "field blank."
 msgstr ""
+"Siyempre, kung walang WEP key para sa inyong wireless network, iwanan ang "
+"puwang na ito na blanko."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:10001
-#, fuzzy
 msgid "Invalid WEP key"
-msgstr "Hindi tanggap na disk"
+msgstr "Hindi tanggap ang WEP key"
 
 #. Type: error
 #. Description
@@ -212,6 +269,9 @@ msgid ""
 "The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
 "next screen carefully on how to enter your WEP key correctly, and try again."
 msgstr ""
+"Ang WEP key '${wepkey}' ay hindi tanggap. Basahing mabuti ang \"instructions"
+"\"sa susunod na screen kung paano ipasok ang inyong WEP key ng tama, at "
+"subukan muli."
 
 #. Type: error
 #. Description
@@ -219,7 +279,7 @@ msgstr ""
 #: ../netcfg-common.templates:11001
 #, fuzzy
 msgid "Invalid passphrase"
-msgstr "Hindi tanggap na disk"
+msgstr "Hindi tanggap na pangalan ang ibinigay."
 
 #. Type: error
 #. Description
@@ -234,8 +294,9 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
+#, fuzzy
 msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
-msgstr ""
+msgstr "WEP key para sa wireless device ${iface}:"
 
 #. Type: string
 #. Description
@@ -250,18 +311,20 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
-#, fuzzy
 msgid "Invalid ESSID"
-msgstr "Hindi tanggap na disk"
+msgstr "Hindi tanggap na ESSID"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
+#, fuzzy
 msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
 "characters, but may contain all kinds of characters."
 msgstr ""
+"Ang ESSID \"${essid}\" ay hindi tanggap. Ang mga ESSID ay maaari lamang "
+"umabot ng 32 na titik, pero maaari itong gumamit ng kahit anong titik."
 
 #. Type: text
 #. Description
@@ -278,7 +341,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:15001 ../netcfg-dhcp.templates:3001
 msgid "This may take some time."
-msgstr ""
+msgstr "Maaaring magtagal ito."
 
 #. Type: text
 #. Description
@@ -307,16 +370,15 @@ msgstr ""
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
-#, fuzzy
 msgid "Hostname:"
-msgstr "Portname:"
+msgstr "Hostname (pangalan):"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Please enter the hostname for this system."
-msgstr ""
+msgstr "Magbigay ng hostname (pangalan) para sa makinang ito."
 
 #. Type: string
 #. Description
@@ -328,39 +390,47 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
+"Ang hostname (pangalan) ay isang salita na nagpapakilala ng inyong makina sa "
+"network. Kung hindi ninyo alam kung anong hostname (pangalan) na nararapat "
+"sa makina niyo, kumonsulta sa inyong network administrator. Kung kayo ay "
+"nagtatayo ng sarili ninyong network, maaaring magimbento ng hostname "
+"(pangalan) dito."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
-#, fuzzy
 msgid "Invalid hostname"
-msgstr "Hindi tanggap na disk"
+msgstr "Hindi tanggap ang hostname (pangalan)"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
-msgstr ""
+msgstr "Ang pangalan \"${hostname}\" ay hindi tanggap."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
+#, fuzzy
 msgid ""
 "A valid hostname may contain only the numbers 0-9, upper and lowercase "
 "letters (A-Z and a-z), and the minus sign. It must be at most "
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
+"Ang tanggap na hostname (pangalan) ay naglalaman lamang ng mga numberong0-9, "
+"mga titik a-z, at ang minus sign. Ito ay naghahabang 2 hanggang 63 na titik, "
+"at hindi maaaring mag-umpisa o mag-tapos sa minus sign."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:21001
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #. Type: error
 #. Description
@@ -370,13 +440,15 @@ msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
 msgstr ""
+"May naganap na error at ang pagsasaayos ng network ay hininto. Maaari "
+"ninyong subukan ito muli mula sa ugat na menu ng pagluklok."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
-msgstr ""
+msgstr "Walang network interface na nakita"
 
 #. Type: error
 #. Description
@@ -386,6 +458,8 @@ msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
 msgstr ""
+"Walang network interface na nakita. Hindi nakahanap ng network device ang "
+"installer."
 
 #. Type: error
 #. Description
@@ -395,6 +469,9 @@ msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
 msgstr ""
+"Maaaring nangangailangan na magpasok ng nararapat na module para sa inyong "
+"network card, kung mayroon kayo nito. Kinakailangan na bumalik sa hakbang ng "
+"paghanap ng network hardware."
 
 #. Type: note
 #. Description
@@ -403,7 +480,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
-msgstr ""
+msgstr "Patayin ang switch na naka-enable sa ${iface}"
 
 #. Type: note
 #. Description
@@ -416,6 +493,8 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
+"Mukhang ang ${iface} ay nakapatay sa pamamagitan ng pisikal na switch. Kung "
+"balak ninyong gamitin ang interface na ito, i-on ang switch bago magpatuloy."
 
 #. Type: select
 #. Choices
@@ -427,7 +506,7 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
-msgstr ""
+msgstr "Infrastructure (Managed) network"
 
 #. Type: select
 #. Choices
@@ -439,13 +518,13 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
-msgstr ""
+msgstr "Ad-hoc network (Peer to peer)"
 
 #. Type: select
 #. Description
 #: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
-msgstr ""
+msgstr "Uri ng wireless network:"
 
 #. Type: select
 #. Description
@@ -455,132 +534,136 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
+"Ang mga wireless network ay managed o ad-hoc. Kung kayo ay gumagamit ng "
+"access point na totoo, ang inyong network ay Managed. Kung may ibang "
+"kompyuter na nagsisilbing 'access point', marahil ang inyong network ay Ad-"
+"hoc."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:25001
-#, fuzzy
 msgid "Wireless network configuration"
-msgstr "Binubuo ng pagkaayos ng CoLo"
+msgstr "Pagsasaayos ng wireless network"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
-msgstr ""
+msgstr "Naghahanap ng mga wireless access points ..."
 
 #. Type: text
 #. Description
 #: ../netcfg-common.templates:29001
+#, fuzzy
 msgid "Detecting link on ${interface}; please wait..."
-msgstr ""
+msgstr "Tinitignan ang hardware, maghintay lamang..."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:30001
 msgid "<none>"
-msgstr ""
+msgstr "<wala>"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
-msgstr ""
+msgstr "Wireless ethernet (802.11x)"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:32001
 msgid "wireless"
-msgstr ""
+msgstr "wireless"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:33001
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:34001
 msgid "Token Ring"
-msgstr ""
+msgstr "Token Ring"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:35001
 msgid "USB net"
-msgstr ""
+msgstr "USB net"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
-msgstr ""
+msgstr "Serial-line IP"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
-msgstr ""
+msgstr "Parallel-port IP"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
-msgstr ""
+msgstr "Point-to-Point Protocol"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
-msgstr ""
+msgstr "IPv6-in-IPv4"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
-msgstr ""
+msgstr "ISDN Point-to-Point Protocol"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
-msgstr ""
+msgstr "Channel-to-channel"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
-msgstr ""
+msgstr "Real channel-to-channel"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
-msgstr ""
+msgstr "Inter-user communication vehicle"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:46001
 msgid "Unknown interface"
-msgstr ""
+msgstr "Hindi kilalang interface"
 
 #. Type: text
 #. Description
@@ -588,7 +671,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
-msgstr ""
+msgstr "Iniimbak ang pagkaayos ng network ..."
 
 #. Type: text
 #. Description
@@ -596,7 +679,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr ""
+msgstr "Isaayos ang network"
 
 #. Type: string
 #. Description
@@ -609,10 +692,12 @@ msgstr ""
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:50001
+#, fuzzy
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
 msgstr ""
+"Ibigay ang pangalan na nais niyong gamitin para sa bagong logical volume"
 
 #. Type: error
 #. Description
@@ -642,23 +727,24 @@ msgstr ""
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
+#, fuzzy
 msgid "Wireless network:"
-msgstr ""
+msgstr "Uri ng wireless network:"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
+#, fuzzy
 msgid "Select the wireless network to use during the installation process."
-msgstr ""
+msgstr "Pumili ng susunod na hakbang sa pagluklok:"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
-#, fuzzy
 msgid "DHCP hostname:"
-msgstr "Portname:"
+msgstr "DHCP hostname:"
 
 #. Type: string
 #. Description
@@ -668,34 +754,37 @@ msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
 msgstr ""
+"Maaaring mangailangan na magbigay kayo ng pangalan para sa DHCP. Kung "
+"gumagamit kayo ng cable modem, maaaring ibigay ang account number o pangalan "
+"dito."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "Most other users can just leave this blank."
-msgstr ""
+msgstr "Maaaring iwanang blanko ng karamihan ng gumagamit nito."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr ""
+msgstr "Isinasaayos ang network gamit ang DHCP"
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr ""
+msgstr "Tagumpay ang pagsasaayos ng network"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client found"
-msgstr ""
+msgstr "Walang DHCP client na nahanap"
 
 #. Type: error
 #. Description
@@ -703,14 +792,15 @@ msgstr ""
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
 msgstr ""
+"Walang DHCP client na nahanap. Kailangan ng pakete na ito ng pump o dhcp-"
+"client."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
-#, fuzzy
 msgid "The DHCP configuration process has been aborted."
-msgstr "Hininto ang pagsasaayos ng mga partisiyon."
+msgstr "Ang pagsasaayos ng DHCP ay hininto."
 
 #. Type: select
 #. Choices
@@ -719,9 +809,8 @@ msgstr "Hininto ang pagsasaayos ng mga partisiyon."
 #. below a 65 columns limit (which means 65 characters
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
-#, fuzzy
 msgid "Retry network autoconfiguration"
-msgstr "Binubuo ng pagkaayos ng CoLo"
+msgstr "Subukan muli ang pagsasaayos ng network"
 
 #. Type: select
 #. Choices
@@ -732,6 +821,8 @@ msgstr "Binubuo ng pagkaayos ng CoLo"
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
 msgstr ""
+"Subukan muli ang pagsasaayos ng sarili ang network na may DHCP hostname "
+"(pangalan)"
 
 #. Type: select
 #. Choices
@@ -741,7 +832,7 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr ""
+msgstr "Isaayos ang network ng mano-mano"
 
 #. Type: select
 #. Choices
@@ -751,15 +842,14 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr ""
+msgstr "Huwag isaayos ang network sa ngayon"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:6002
-#, fuzzy
 msgid "Network configuration method:"
-msgstr "Binubuo ng pagkaayos ng CoLo"
+msgstr "Paraan ng pagsaayos ng network:"
 
 #. Type: select
 #. Description
@@ -772,14 +862,19 @@ msgid ""
 "by the client, so you can also choose to retry DHCP network "
 "autoconfiguration with a hostname that you provide."
 msgstr ""
+"Mula dito ay maaari ninyong piliin na subukan muli ang pagsasaayos na sarili "
+"ng network gamit ang DHCP (maaaring magtagumpay ito kung matagal sumagot ang "
+"DHCP server ninyo) o isaayos ang network mano-mano. May ilang mga DHCP "
+"server na nangangailangan ng DHCP hostname (pangalan) na ipadala ng client, "
+"kaya maaari din ninyong piliin na subukan ang pagsasaayos na sarili ng DHCP "
+"network na gamit ang hostname (pangalan) na bigay ninyo."
 
 #. Type: note
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:7001
-#, fuzzy
 msgid "Network autoconfiguration failed"
-msgstr "Bigo ang pagbuo ng talaksan ng pagkaayos ng vmelilo."
+msgstr "Bigo ang pagsasaayos ng sarili ng network"
 
 #. Type: note
 #. Description
@@ -789,13 +884,16 @@ msgid ""
 "Your network is probably not using the DHCP protocol. Alternatively, the "
 "DHCP server may be slow or some network hardware is not working properly."
 msgstr ""
+"Maaring hindi gumagamit ang inyong network ng DHCP protocol. Maaari din na "
+"mabagal sumagot ang DHCP server ninyo o kaya ay may hindi gumagana na "
+"network hardware."
 
 #. Type: boolean
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
 msgid "Continue without a default route?"
-msgstr ""
+msgstr "Magpatuloy na walang default route?"
 
 #. Type: boolean
 #. Description
@@ -808,6 +906,11 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
+"Tagumpay ang pagsasaayos ng awtomatiko ng network. Gayunpaman, walang "
+"default route na natagpuan: hindi alam ng makina kung paano "
+"makipagtalastasan sa ibang mga makina sa Internet. Hindi makakapagpatuloy "
+"ang pagluklok kung wala kayo ng unang CD-ROM na pangluklok, isang 'Netinst' "
+"CD-ROM o mga pakete na matatagpuan sa local network."
 
 #. Type: boolean
 #. Description
@@ -817,13 +920,16 @@ msgid ""
 "If you are unsure, you should not continue without a default route: contact "
 "your local network administrator about this problem."
 msgstr ""
+"Kung hindi kayo sigurado, hindi kayo dapat magpatuloy na walang default "
+"route: tawagan ang inyong local network administrator tungkol sa problemang "
+"ito."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:9001
 msgid "Reconfigure the wireless network"
-msgstr ""
+msgstr "Isaayos muli ang wireless network"
 
 #. Type: text
 #. Description
@@ -836,7 +942,7 @@ msgstr ""
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 #, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "Binubuo ng pagkaayos ng CoLo"
+msgstr "Binubuo ang pagkaayos ng vmelilo"
 
 #. Type: text
 #. Description
@@ -850,8 +956,9 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
+#, fuzzy
 msgid "Configuring the network with DHCPv6"
-msgstr ""
+msgstr "Isinasaayos ang network gamit ang DHCP"
 
 #. Type: string
 #. Description
@@ -859,7 +966,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr ""
+msgstr "IP address:"
 
 #. Type: string
 #. Description
@@ -895,9 +1002,8 @@ msgstr ""
 #, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr ""
-"Ang IP address ay unique sa inyong makina at binubuo ito ng apat na numero "
-"na pinaghihiwalay ng mga tuldok.  Kung hindi niyo alam kung ano ang "
-"gagamitin dito, kausapin ang inyong network administrator."
+"Kung hindi mo alam kung anong ilalagay, basahin ang iyong documentation, o "
+"iwanang blanko para hindi pumasok ang module."
 
 #. Type: error
 #. Description
@@ -905,26 +1011,29 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr ""
+msgstr "Maling anyo ng IP address"
 
 #. Type: error
 #. Description
 #. IPv6
 #. :sl2:
 #: ../netcfg-static.templates:2001
+#, fuzzy
 msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255 (an IPv4 address), or a sequence of "
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
+"Ang IP address na inyong binigay ay mali ang anyo. Ito ay dapat nasa anyong "
+"x.x.x.x na kung saan ang 'x' ay hindi lalagpas sa 255. Subukan niyong muli."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:3001
 msgid "Point-to-point address:"
-msgstr ""
+msgstr "Point-to-point address:"
 
 #. Type: string
 #. Description
@@ -936,13 +1045,17 @@ msgid ""
 "know the value.  The point-to-point address should be entered as four "
 "numbers separated by periods."
 msgstr ""
+"Ang point-to-point address ay ginagamit upang malaman ang kabilang dulo ng "
+"point-to-point network.  Kausapin ang inyong network administrator kung "
+"hindi ninyo alam ang halaga nito.  Ang point-to-point address ay dapat "
+"pinapasok bilang apat na numero na hiwalay ng mga tuldok."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:4001
 msgid "Netmask:"
-msgstr ""
+msgstr "Netmask:"
 
 #. Type: string
 #. Description
@@ -953,13 +1066,17 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
+"Ang netmask ay ginagamit upang malaman kung anong mga makina ay local sa "
+"inyong network.  Kausapin ang inyong network administrator kung hindi niyo "
+"alam ang halaga nito.  Ang netmask ay pinapasok bilang apat na numero na "
+"hiwalay ng tuldok."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:5001
 msgid "Gateway:"
-msgstr ""
+msgstr "Gateway:"
 
 #. Type: string
 #. Description
@@ -973,20 +1090,27 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
+"Ang gateway ay IP address (apat na numero na hiwalay ng mga tuldok) na "
+"nagpapakilala ng gateway router, na siyang kinikilala din sa katagang "
+"default router.  Lahat ng traffic na dumadaan palabas ng inyong LAN "
+"(halimbawa, patungong Internet) ay pinapadala sa pamamagitan nitong router.  "
+"May mga pagkakataaon na wala kayong router;  kung ganoon, maaari ninyong "
+"iwanang blanko itong puwang na ito.  Kung hindi niyo alam ang tamang sagot "
+"sa tanong na ito, kausapin ang inyong network administrator."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "Unreachable gateway"
-msgstr ""
+msgstr "Hindi naaabot ang gateway"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "The gateway address you entered is unreachable."
-msgstr ""
+msgstr "Ang gateway address na inyong binigay ay hindi naaabot."
 
 #. Type: error
 #. Description
@@ -995,6 +1119,7 @@ msgstr ""
 msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
 msgstr ""
+"Maaaring may pagkakamali sa pagpasok ng inyong IP address, netmask o gateway."
 
 #. Type: error
 #. Description
@@ -1018,7 +1143,6 @@ msgstr ""
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
-#, fuzzy
 msgid "Is this information correct?"
 msgstr "Tama ba ang mga impormasyon na mga ito?"
 
@@ -1027,7 +1151,7 @@ msgstr "Tama ba ang mga impormasyon na mga ito?"
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
-msgstr ""
+msgstr "Halaga ng pagkakaayos ng network ngayon:"
 
 #. Type: boolean
 #. Description
@@ -1041,6 +1165,12 @@ msgid ""
 " pointopoint   = ${pointopoint}\n"
 " nameservers   = ${nameservers}"
 msgstr ""
+" interface     = ${interface}\n"
+" ipaddress     = ${ipaddress}\n"
+" netmask       = ${netmask}\n"
+" gateway       = ${gateway}\n"
+" pointopoint   = ${pointopoint}\n"
+" nameservers   = ${nameservers}"
 
 #. Type: text
 #. Description
@@ -1048,4 +1178,4 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
-msgstr ""
+msgstr "Isaayos ang network sa pamamagitan ng static address"
