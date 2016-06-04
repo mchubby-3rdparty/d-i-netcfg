@@ -3,43 +3,13 @@
 #
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
-# Serbian/Cyrillic messages for debian-installer.
-# Copyright (C) 2010-2012 Software in the Public Interest, Inc.
-# Copyright (C) 2008 THE cp6Linux'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the debian-installer package.
-# Karolina Kalic <karolina@resenje.org>, 2010-2012.
-# Janos Guljas <janos@resenje.org>, 2010-2012.
-# Veselin Mijušković <veselin.mijuskovic@gmail.com>, 2008.
-# Milan Kostic <kosticmilan77@open.telekom.rs>, 2012.
-#
-# Translations from iso-codes:
-#   Aleksandar Jelenak <aleksandar.jelenak@gmail.com>, 2010.
-#   Copyright (C) 2003, 2004 Free Software Foundation, Inc.
-#   Danilo Segan <dsegan@gmx.net>, 2003, 2004, 2005.
-#   Milos Komarcevic <kmilos@gmail.com>, Caslav Ilic <caslav.ilic@gmx.net>, 2009.
-#   Tobias Quathamer <toddy@debian.org>, 2007.
-#     Translations taken from ICU SVN on 2007-09-09
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: Serbian <debian-l10n-serbian@lists.debian.org>\n"
-"Language: sr\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
 msgid "Auto-configure networking?"
-msgstr "Аутоматски подеси мрежу?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -53,18 +23,13 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"Умрежавање може бити подешено или помоћу DHCP (аутоматски) или ручним "
-"уношењем свих података (па и по разним за IPv6 специфичним методама). Ако "
-"изаберете DHCP, а програм за инсталацију не буде могао добавити ваљане радне "
-"поставке са DHCP сервера на вашој мрежи, ипак ћете моћи подесити своју мрежу "
-"и ручно."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:3001
 msgid "Domain name:"
-msgstr "Име домена:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -76,17 +41,13 @@ msgid ""
 "If you are setting up a home network, you can make something up, but make "
 "sure you use the same domain name on all your computers."
 msgstr ""
-"Име домена је део ваше Интернет адресе у десном делу имена вашег рачунара. "
-"То је обично нешто што завршава са .rs, .com, .net, .edu или .org. Ако "
-"подешавате кућну мрежу, можете га произвољно одредити, али морате користити "
-"исто име домена на свим вашим рачунарима."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
 msgid "Name server addresses:"
-msgstr "Адресе DNS сервера:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -99,17 +60,13 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
-"DNS сервери користе се за тражење имена рачунара на мрежи. Унесите IP адресе "
-"(не имена) до три DNS сервера, одвојене размацима. Не користите запете. Први "
-"DNS сервер на списку биће први пропитиван. Ако не желите користити DNS "
-"сервере, оставите поље празним."
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:5001
 msgid "Primary network interface:"
-msgstr "Основни мрежни интерфејс:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -120,9 +77,6 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
-"Ваш систем има више мрежних интерфејса. Одредите који ћете користити као "
-"основни мрежни интерфејс током инсталације. Ако је то могуће, биће изабран "
-"први пронађени мрежни интерфејс који је повезан на мрежу."
 
 #. Type: string
 #. Description
@@ -132,7 +86,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
-msgstr "Бежични ESSID за ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -143,16 +97,13 @@ msgid ""
 "of the wireless network you would like ${iface} to use. If you would like to "
 "use any available network, leave this field blank."
 msgstr ""
-"${iface} је бежични мрежни интерфејс. Унесите име (ESSID) бежичне мреже коју "
-"желите да ${iface} користи. Ако желите да користите било коју доступну "
-"мрежу, оставите поље празним."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
-msgstr "Покушај проналаска доступне бежичне мреже није успео."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -163,28 +114,25 @@ msgid ""
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
-"${iface} је бежични мрежни интерфејс. Унесите име (ESSID) бежичне мреже коју "
-"желите да ${iface} користи. За повезивање на било коју доступну мрежу, "
-"оставите празно поље."
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WEP/Open Network"
-msgstr "WEP/Отворена мрежа"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WPA/WPA2 PSK"
-msgstr "WPA/WPA2 PSK"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:8002
 msgid "Wireless network type for ${iface}:"
-msgstr "Бежични тип мреже за ${iface}:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -194,16 +142,13 @@ msgid ""
 "Choose WEP/Open if the network is open or secured with WEP. Choose WPA/WPA2 "
 "if the network is protected with WPA/WPA2 PSK (Pre-Shared Key)."
 msgstr ""
-"Изаберите WEP/Oтворена ако је мрежа отворена или осигурана WEP кључем. "
-"Изаберите WPA/WPA2 ако је мрежа заштићена WPA/WPA2 PSK (Pre-Shared Key) "
-"кључем."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:9001
 msgid "WEP key for wireless device ${iface}:"
-msgstr "WEP кључ за бежични уређај ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -213,8 +158,6 @@ msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
 msgstr ""
-"Ако је потребно, унесите сигурносни WEP кључ за бежични уређај ${iface}. То "
-"можете на два начина:"
 
 #. Type: string
 #. Description
@@ -224,8 +167,6 @@ msgid ""
 "If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
-"Ако је ваш WEP кључ у облику 'nnnn-nnnn-nn' 'nn:nn:nn:nn:nn:nn:nn:nn', или "
-"'nnnnnnnn', где је n број, само га унесите у ово поље таквог какав јесте."
 
 #. Type: string
 #. Description
@@ -235,8 +176,6 @@ msgid ""
 "If your WEP key is in the format of a passphrase, prefix it with "
 "'s:' (without quotes)."
 msgstr ""
-"Ако је ваш WEP кључ у облику лозинке, додајте му 's:' на почетак (без "
-"наводника)."
 
 #. Type: string
 #. Description
@@ -246,15 +185,13 @@ msgid ""
 "Of course, if there is no WEP key for your wireless network, leave this "
 "field blank."
 msgstr ""
-"Наравно, ако WEP кључ није постављен у вашој бежичној мрежи, оставите поље "
-"празним."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:10001
 msgid "Invalid WEP key"
-msgstr "Погрешан WEP кључ"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -264,15 +201,13 @@ msgid ""
 "The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
 "next screen carefully on how to enter your WEP key correctly, and try again."
 msgstr ""
-"WEP кључ '${wepkey}' је погрешан. Пажљиво пратите упутство на следећој "
-"страни о томе како се исправно уноси WEP кључ, а затим пробајте поново."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:11001
 msgid "Invalid passphrase"
-msgstr "Неисправна лозинка"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -282,15 +217,13 @@ msgid ""
 "The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
 "too short (less than 8 characters)."
 msgstr ""
-"WPA/WPA2 PSK фраза је била или предуга (више од 64 карактера) или прекратка "
-"(мање од 8 карактера)."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
 msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
-msgstr "WPA/WPA2 лозинка за бежични уређај ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -300,15 +233,13 @@ msgid ""
 "Enter the passphrase for WPA/WPA2 PSK authentication. This should be the "
 "passphrase defined for the wireless network you are trying to use."
 msgstr ""
-"Унесите фразу за WPA/WPA2 PSK аутентикацију. Ово треба да је фраза "
-"дефинисана за бежичну мрежу коју желите да користите."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
-msgstr "Неважећи ESSID"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -318,15 +249,13 @@ msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
 "characters, but may contain all kinds of characters."
 msgstr ""
-"ESSID \"${essid}\" је неважећи. Сваки ESSID може бити величине до "
-"${max_essid_len} знакова, али могу да садрже све врсте знакова."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:14001
 msgid "Attempting to exchange keys with the access point..."
-msgstr "Покушај размене кључа са приступном тачком..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -336,21 +265,21 @@ msgstr "Покушај размене кључа са приступном та�
 #. :sl1:
 #: ../netcfg-common.templates:15001 ../netcfg-dhcp.templates:3001
 msgid "This may take some time."
-msgstr "Ово може потрајати неко време."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:16001
 msgid "WPA/WPA2 connection succeeded"
-msgstr "WPA/WPA2 конекција је успела"
+msgstr ""
 
 #. Type: note
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:17001
 msgid "Failure of key exchange and association"
-msgstr "Неуспех размене кључа и повезивања"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -360,22 +289,20 @@ msgid ""
 "The exchange of keys and association with the access point failed. Please "
 "check the WPA/WPA2 parameters you provided."
 msgstr ""
-"Размена кључа и повезивање са приступном тачком није успела. Проверите WPA/"
-"WPA2 параметре које сте унели."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Hostname:"
-msgstr "Име рачунара:"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Please enter the hostname for this system."
-msgstr "Унесите име рачунара за овај систем."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -387,24 +314,20 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
-"Име рачунара је једна реч која идентификује ваш систем на мрежи. Ако не "
-"знате које име би требало да стоји, проверите код вешег мрежног "
-"администратора. Ако постављате вашу кућну мрежу, онда можете нешто да "
-"измислите."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
-msgstr "Неисправно име рачунара"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
-msgstr "Име \"${hostname}\" је нисправно."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -416,17 +339,13 @@ msgid ""
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
-"Важеће име рачунара може да садржи само бројеве од 0 до 9, велика и мала "
-"латинична слова (А-Z и a-z), и знак „минус“. Мора бити највише "
-"${maxhostnamelen} знака дуго, и не може почињати или се завршавати знаком "
-"„минус“."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:21001
 msgid "Error"
-msgstr "Грeшкa"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -436,15 +355,13 @@ msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
 msgstr ""
-"Дошло је до грешке и процес подешавања мреже је прекинут. Можете га поново "
-"покренути из главног менија инсталације."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
-msgstr "Није пронађен ни један мрежни прикључак"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -454,8 +371,6 @@ msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
 msgstr ""
-"Није пронађен ни један мрежни прикључак. Програм за инсталацију није "
-"пронашао мрежне уређаје."
 
 #. Type: error
 #. Description
@@ -465,8 +380,6 @@ msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
 msgstr ""
-"Можда треба да учитате специфичан модул за вашу мрежну карту, ако га имате. "
-"Да бисте то урадили, идите корак назад на препознавање мрежних уређаја."
 
 #. Type: note
 #. Description
@@ -475,7 +388,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
-msgstr "Kill прекидач на ${iface} укључен"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -488,9 +401,6 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
-"${iface} је изгледа искључен у смислу као да је физички „угашенд. Ако "
-"планирате да користите овај прикључак, укључите га пре него што наставите "
-"даље."
 
 #. Type: select
 #. Choices
@@ -502,7 +412,7 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
-msgstr "Инфраструктурна (управљана) мрежа"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -514,13 +424,13 @@ msgstr "Инфраструктурна (управљана) мрежа"
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
-msgstr "Ад-хок мрежа (Peer to peer)"
+msgstr ""
 
 #. Type: select
 #. Description
 #: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
-msgstr "Тип бежичне мреже:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -530,134 +440,131 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
-"Бежичне мреже су или управљане или ад-хок мреже. Уколико користите неку "
-"врсту стварне приступне тачке, ваша мрежа је управљана. У случају да је ваша "
-"приступна тачка неки други рачунар, онда ваша мрежа може бити ад-хок типа."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
-msgstr "Подешавање бежичне мреже"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
-msgstr "Тражење прикључне тачке бежичне мреже..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
-msgstr "Детектовање линка на ${interface}; сачекајте..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:30001
 msgid "<none>"
-msgstr "<ниједна>"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
-msgstr "Бежични етернет (802.11x)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:32001
 msgid "wireless"
-msgstr "бежично"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:33001
 msgid "Ethernet"
-msgstr "Етернет"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:34001
 msgid "Token Ring"
-msgstr "Токен прстен"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:35001
 msgid "USB net"
-msgstr "USB мрежа"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
-msgstr "IP преко серијске линије"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
-msgstr "IP преко паралелног порта"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
-msgstr "Протокол тачка-до-тачке (PPP)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
-msgstr "IPv6-преко-IPv4"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
-msgstr "ISDN тачка-до-тачке протокол"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
-msgstr "Канал-до-канала"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
-msgstr "Канал-до-канала"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
-msgstr "Мећукорисничко комуникационо возило"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:46001
 msgid "Unknown interface"
-msgstr "Непознат интерфејс"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -665,7 +572,7 @@ msgstr "Непознат интерфејс"
 #. :sl1:
 #: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
-msgstr "Снимање мрежних подешавања..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -673,14 +580,14 @@ msgstr "Снимање мрежних подешавања..."
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr "Подеси мрежу"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
-msgstr "Потребно време (у секундама) за детекцију линка:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -690,14 +597,13 @@ msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
 msgstr ""
-"Унесите максимално време које желите да чекате за детекцију мрежног линка."
 
 #. Type: error
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
-msgstr "Неисправно време чекања детекције мрежног линка"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -707,8 +613,6 @@ msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
 msgstr ""
-"Вредност коју сте унели није исправна. Максимално време чекања (у секундама) "
-"за детекцију мрежног линка мора бити позитиван цео број."
 
 #. Type: select
 #. Choices
@@ -716,28 +620,28 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
-msgstr "${essid_list} Унесите ESSID ручно"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Wireless network:"
-msgstr "Бежична мрежа:"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
-msgstr "Изаберите бежичну мрежу која ће се користити током инсталације:"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "DHCP hostname:"
-msgstr "DHCP име рачунара:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -747,50 +651,48 @@ msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
 msgstr ""
-"Можда ћете морати да унесете DHCP име рачунара. Ако користите кабловски "
-"модем, можда ћете морати да у овом пољу наведете број налога."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "Most other users can just leave this blank."
-msgstr "Већина осталих корисника може оставити ово празно."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr "Подешавање мреже помоћу DHCP-а"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr "Аутоматско подешавање мреже је било успешно"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client found"
-msgstr "Није нађен ни један DHCP клијент."
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
-msgstr "DHCP клијент не постоји. Овај пакет захтева „pump“ или „dhcp-client“."
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "The DHCP configuration process has been aborted."
-msgstr "Подешавање DHCP-а је прекинуто."
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -800,7 +702,7 @@ msgstr "Подешавање DHCP-а је прекинуто."
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration"
-msgstr "Покушај поново аутоматско подешавање мреже"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -810,7 +712,7 @@ msgstr "Покушај поново аутоматско подешавање м
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
-msgstr "Покушај поново аутоматско подешавање мреже са DHCP именом"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -820,7 +722,7 @@ msgstr "Покушај поново аутоматско подешавање м
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr "Подеси мрежу ручно"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -830,14 +732,14 @@ msgstr "Подеси мрежу ручно"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr "Немој подешавати мрежу сада"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:6002
 msgid "Network configuration method:"
-msgstr "Начин подешавања мреже:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -850,18 +752,13 @@ msgid ""
 "by the client, so you can also choose to retry DHCP network "
 "autoconfiguration with a hostname that you provide."
 msgstr ""
-"Овде можете одабрати поновно аутоматско подешавање помоћу DHCP-a (што ће "
-"помоћи ако вашем DHCP серверу треба времена да се одазове) или да ручно "
-"подесите мрежу. Неки DHCP сервери захтевају од клијента да пошаље и име "
-"рачунара, тако да можете поновити аутоматско подешавање DHCP-a са вашим "
-"именом рачунара."
 
 #. Type: note
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:7001
 msgid "Network autoconfiguration failed"
-msgstr "Аутоматско подешавање мреже није успело"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -871,15 +768,13 @@ msgid ""
 "Your network is probably not using the DHCP protocol. Alternatively, the "
 "DHCP server may be slow or some network hardware is not working properly."
 msgstr ""
-"Ваша мрежа вероватно не користи DHCP протокол. Друга могућност је да је DHCP "
-"сервер спор или неки мрежни уређај не ради добро."
 
 #. Type: boolean
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
 msgid "Continue without a default route?"
-msgstr "Наставити без подразумевајуће руте?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -892,10 +787,6 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
-"Самоподешавање мреже је успело. Додуше, ниједна подразумевана рута није "
-"подешена: систем не зна како да комуницира са рачунарима на Интернету. Ово "
-"ће онемогућити наставак инсталције осим ако имате први инсталациони диск, "
-"„Netinst“ диск, или доступне пакете на локалној мрежи."
 
 #. Type: boolean
 #. Description
@@ -905,15 +796,13 @@ msgid ""
 "If you are unsure, you should not continue without a default route: contact "
 "your local network administrator about this problem."
 msgstr ""
-"Ако нисте сигурни, не би требало да наставите даље без подразумевајуће "
-"трасеруте: контактирајте вашег администратора мреже о овом проблему."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:9001
 msgid "Reconfigure the wireless network"
-msgstr "Поново подеси бежичну мрежу"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -925,7 +814,7 @@ msgstr "Поново подеси бежичну мрежу"
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "Проба IPv6 аутоконфигурације..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -933,14 +822,14 @@ msgstr "Проба IPv6 аутоконфигурације..."
 #. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr "Чекање на адресу локалног линка..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
 msgid "Configuring the network with DHCPv6"
-msgstr "Подешавање мреже помоћу DHCPv6"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -948,7 +837,7 @@ msgstr "Подешавање мреже помоћу DHCPv6"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr "IP адреса:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -956,7 +845,7 @@ msgstr "IP адреса:"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr "IP aдреса је јединствена за овај рачунар и може бити:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -967,8 +856,6 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
-" * четири бројева раздвојених тачком (IPv4);\n"
-" * осам бројева раздвојених двотачком (IPv6)."
 
 #. Type: string
 #. Description
@@ -976,7 +863,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr "Можете такође опционо навести CIDR мрежну маску (на пример \"/24\")."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -984,7 +871,7 @@ msgstr "Можете такође опционо навести CIDR мрежн�
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "If you don't know what to use here, consult your network administrator."
-msgstr "Ако не знате шта да унесете, консултујте вашег мрежног администратора."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -992,7 +879,7 @@ msgstr "Ако не знате шта да унесете, консултујт�
 #. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "Погрешна IP адреса"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1005,17 +892,13 @@ msgid ""
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"Ова IP  адреса није исправна. Требало би да буде у облику х.х.х.х где је "
-"сваки „х“ мањи од 255 (важи за IPv4 адресе), или низ у групама "
-"хексдецималног записа развдојених двотачком (важи за IPv6 адресе). Пробајте "
-"још једном."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:3001
 msgid "Point-to-point address:"
-msgstr "Тачка-до-тачке адреса:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1027,17 +910,13 @@ msgid ""
 "know the value.  The point-to-point address should be entered as four "
 "numbers separated by periods."
 msgstr ""
-"Тачка-до-тачке адреса се користи за одређивање крајње тачке у тачка-до-тачке "
-"мрежама. Консултујте се са вашим администратором ако не знате тражене "
-"вредности. Тачка-до-тачке адреса треба да садржи четири броја раздвојени "
-"тачкама."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:4001
 msgid "Netmask:"
-msgstr "Мрежна маска:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1048,17 +927,13 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
-"Мрежна маска служи да одреди које машине су локалне за вашу мрежу.  "
-"Консултујте вашег мрежног администратора ако не знате вредност за овај "
-"параметар.  Мрежна маска би требала бити у облику четири броја раздвојена "
-"тачкама."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:5001
 msgid "Gateway:"
-msgstr "Мрежни пролаз (gateway):"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1072,25 +947,20 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
-"Мрежни пролаз је IP адреса (четири броја одвојена тачкама) која указује на "
-"рутер мрежног пролаза, такође познат као подразумевани рутер.  Сав саобраћај "
-"који иде ван ваше локалне мреже (на пример, ка Интернету) се шаље кроз овај "
-"рутер.  У ретким случајевима ово поље можете оставити непопуњено.  Ако не "
-"знате одговарајуће параметре, консултујте вашег мрежног администратора."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "Unreachable gateway"
-msgstr "Недоступан мрежни пролаз"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "The gateway address you entered is unreachable."
-msgstr "Мрежни пролаз чију адресу сте унели је недоступан."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1099,8 +969,6 @@ msgstr "Мрежни пролаз чију адресу сте унели је �
 msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
 msgstr ""
-"Можда сте починили грешку при куцању ваше IP адресе, мрежне маске и/или "
-"мрежног излаза."
 
 #. Type: error
 #. Description
@@ -1108,7 +976,7 @@ msgstr ""
 #. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr "IPv6 са двопунктним линковима није подржан"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1119,22 +987,20 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
-"IPv6 aдресе не могу се конфигурисати са двопунктним линковима. Користите "
-"IPv4 адресу, или се вратите назад па изаберите другачији интерфејс."
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
-msgstr "Да ли је ова информација тачна?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
-msgstr "Тренутно подешени мрежни параметри:"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1148,12 +1014,6 @@ msgid ""
 " pointopoint   = ${pointopoint}\n"
 " nameservers   = ${nameservers}"
 msgstr ""
-" интерфејс     = ${interface}\n"
-" IP адреса     = ${ipaddress}\n"
-" мрежна маска       = ${netmask}\n"
-" мрежни пролаз       = ${gateway}\n"
-" PPP   = ${pointopoint}\n"
-" DNS сервери   = ${nameservers}"
 
 #. Type: text
 #. Description
@@ -1161,4 +1021,4 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
-msgstr "Подешавање мреже са статичким адресирањем"
+msgstr ""

@@ -3,37 +3,13 @@
 #
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
-#
-#
-# Debian Installer master translation for Uyghur
-# Don't forget to properly fill-in the header of PO files
-#
-# Debian Installer translators, please read the D-I i18n documentation
-# in doc/i18n/i18n.txt
-#
-#
-# Translations from iso-codes:
-# Sahran <sahran.ug@gmail.com>, 2010.
-msgid ""
-msgstr ""
-"Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
-"Language: ug\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
 msgid "Auto-configure networking?"
-msgstr "تورنى ئۆزلۈكىدىن تەڭشەمدۇ؟"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -47,18 +23,13 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"ھەممە ئۇچۇرنى قولدا كىرگۈزۈپ تورنى سەپلىيەلەيسىز ياكى DHCP (ياكى كۆپ خىل "
-"IPv6 ئەمەلىي ئۇسۇلى)نى ئىشلىتىپ تور تەڭشىكىنى ئۆزلۈكىدىن بايقىيالايسىز. "
-"ئەگەر ئۆزلۈكىدىن سەپلەشنى تاللىغان بولسىڭىز ئەمما ئورناتقۇچ توردىكى "
-"مۇلازىمېتىردىن تور تەڭشىكىگە ئېرىشەلمىگەن بولسا سىناپ مەغلۇپ بولغاندىن "
-"كېيىن، سىزنىڭ تور سەپلىمىسىنى قولدا كىرگۈزۈش پۈرسىتىڭىز بار."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:3001
 msgid "Domain name:"
-msgstr "دائىرە ئاتى:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -70,18 +41,13 @@ msgid ""
 "If you are setting up a home network, you can make something up, but make "
 "sure you use the same domain name on all your computers."
 msgstr ""
-"دائىرە ئاتى ئىنتېرنېت ئادرېسىڭىزنىڭ بىر قىسمى بولۇپ ئاساسىي ئاپپارات ئاتىنىڭ "
-"كەينىگە قوشۇلىدۇ. ئۇ ئادەتتە .com، .net، .edu ياكى .org بىلەن ئاخىرلىشىدۇ. "
-"ئەگەر سىز ئىچكى توردىن بىرنى سەپلەۋاتقان بولسىڭىز، خالىغان بىرنى يېزىپ "
-"قويسىڭىز بولىدۇ ئەمما سىز ئىشلىتىۋاتقان كومپيۇتېر دائىرە ئاتىنىڭ "
-"ئوخشاشلىقىغا كاپالەتلىك قىلىڭ."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
 msgid "Name server addresses:"
-msgstr "ئات مۇلازىمەت ئادرېسى:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -94,18 +60,13 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
-"ئىسىم مۇلازىمېتىرى توردا ئاساسىي ئاپپارات ئاتىنى ئىزدەشكە ئىشلىتىلىدۇ. ئاز "
-"دېگەندە ئۈچ ئىسىم مۇلازىمېتىرىنىڭ IP ئادرېسىنى كىرگۈزۈڭ (ئاساسىي ئاپپارات "
-"ئاتى ئەمەس)، بوش ئورۇن بىلەن ئايرىڭ، چېكىتلىك پەش ئىشلەتمەڭ. تىزىملىكتىكى "
-"بىرىنچى مۇلازىمېتىر ئالدى بىلەن سۈرۈشتۈرۈلىدۇ. ئەگەر ھېچقانداق سىم "
-"مۇلازىمېتىرى ئىشلەتمەيدىغان بولسىڭىز بوش قالدۇرۇڭ."
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:5001
 msgid "Primary network interface:"
-msgstr "ئاساسىي تور ئارايۈزى:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -116,9 +77,6 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
-"سىستېمىڭىزدا كۆپ تور ئېغىزى باركەن ئورنىتىش جەريانىدا ئۇنىڭ ئىچىدىن ئاساسلىق "
-"ئېغىزدىن بىرنى تاللاڭ. ئەگەر مۇمكىن بولسا ئورنىتىش پروگراممىسى بىرىنچى "
-"ئۇلانغان تور ئېغىزىنى تاللايدۇ."
 
 #. Type: string
 #. Description
@@ -128,7 +86,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
-msgstr "${iface} نىڭ سىمسىز ESSID"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -139,16 +97,13 @@ msgid ""
 "of the wireless network you would like ${iface} to use. If you would like to "
 "use any available network, leave this field blank."
 msgstr ""
-"${iface} سىمسىز تور ئېغىزى، ${iface} نى كىرگۈزۈڭ، ئۇ سىمسىز تور ئاتى (ESSID) "
-"غا ئىشلىتىلىدۇ. ئەگەر خالىغان ئىشلەتكىلى بولىدىغان تورنى ئىشلەتمەكچى "
-"بولسىڭىز ئۇنداقتا بۇ جاينى بوش قالدۇرۇڭ."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
-msgstr "ئىشلەتكىلى بولىدىغان سىمسىز تورنى ئىزدەش مەغلۇپ بولدى."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -159,28 +114,25 @@ msgid ""
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
-"${iface} سىمسىز تور ئېغىزى، ${iface} غا ئىشلەتمەكچى بولغان سىمسىز تور ئاتى "
-"(ESSID) نى كىرگۈزۈڭ. ئەگەر خالىغان ئىشلەتكىلى بولىدىغان تورنى ئىشلەتمەكچى "
-"بولسىڭىز ئۇنداقتا بۇ جاينى بوش قالدۇرۇڭ."
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WEP/Open Network"
-msgstr "WEP/ئوچۇق تور"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WPA/WPA2 PSK"
-msgstr "WPA/WPA2 PSK"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:8002
 msgid "Wireless network type for ${iface}:"
-msgstr "${iface} نىڭ سىمسىز تور تىپى"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -190,15 +142,13 @@ msgid ""
 "Choose WEP/Open if the network is open or secured with WEP. Choose WPA/WPA2 "
 "if the network is protected with WPA/WPA2 PSK (Pre-Shared Key)."
 msgstr ""
-"ئەگەر تور WEP بىلەن بىخەتەرلەشتۇرۇلگەن بولسا WEP/ئوچۇق نى تاللاڭ. ئەگەر تور "
-"WPA/WPA2 PSK (Pre-Shared Key) بىلەن قوغدالغان بولسا WPA/WPA2 نى تاللاڭ."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:9001
 msgid "WEP key for wireless device ${iface}:"
-msgstr "سىمسىز تور ئۈسكۈنىسى ${iface} نىڭ WEP ئاچقۇچى:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -208,8 +158,6 @@ msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
 msgstr ""
-"زۆرۈر بولسا سىمسىز تور ئۈسكۈنىسى ${iface} نىڭ WEP بىخەتەرلىك ئاچقۇچىنى "
-"كىرگۈزۈڭ. كىرگۈزۈش ئۇسۇلى تۆۋەندىكىدەك ئىككى خىل:"
 
 #. Type: string
 #. Description
@@ -219,9 +167,6 @@ msgid ""
 "If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
-"ئەگەر سىزنىڭ WEP ئاچقۇچىڭىزنىڭ شەكلى 'nnnn-nnnn-nn' ،'nn:nn:nn:nn:nn:nn:nn:"
-"nn' ياكى 'nnnnnnnn' (بۇنىڭ ئىچىدىكى n بىر رەقەمنى كۆرسىتىدۇ) ئۇنى بىۋاسىتە "
-"كىرگۈزۈش رامكىسىغا يېزىڭ."
 
 #. Type: string
 #. Description
@@ -231,8 +176,6 @@ msgid ""
 "If your WEP key is in the format of a passphrase, prefix it with "
 "'s:' (without quotes)."
 msgstr ""
-"ئەگەر WEP ئاچقۇچىڭىز ھەرپ تىزمىسى بولسا ئالدىغا 's:' (تىرناقلارنى ئۆز ئىچىگە "
-"ئالمايدۇ) قوشۇڭ."
 
 #. Type: string
 #. Description
@@ -242,14 +185,13 @@ msgid ""
 "Of course, if there is no WEP key for your wireless network, leave this "
 "field blank."
 msgstr ""
-"ئەلۋەتتە، ئەگەر سىمسىز تورىڭىزنىڭ WEP ئاچقۇچى بولمىسا بۇ جاينى بوش قالدۇرۇڭ."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:10001
 msgid "Invalid WEP key"
-msgstr "WEP ئاچقۇچى ئىناۋەتسىز"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -259,16 +201,13 @@ msgid ""
 "The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
 "next screen carefully on how to enter your WEP key correctly, and try again."
 msgstr ""
-"مەزكۇر WEP ئاچقۇچى'${wepkey}' ئىناۋەتسىز. كېيىنكى ئېكراندىكى يېتەكلەش "
-"ئۇچۇرىنى تەپسىلىي ئوقۇپ WEP ئاچقۇچىنى قانداق قىلىپ توغرا كىرگۈزۈشنى چۈشىنىپ "
-"ئاندىن قايتا سىناڭ."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:11001
 msgid "Invalid passphrase"
-msgstr "ئىناۋەتسىز ئىم"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -278,14 +217,13 @@ msgid ""
 "The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
 "too short (less than 8 characters)."
 msgstr ""
-"WPA/WPA2 PSK ئىمى بەك ئۇزۇن(64 ھەرىپتىن جىق) ياكى بەك قىسقا(8 ھەرپتىن كىچىك)."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
 msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
-msgstr "سىمسىز ئۈسكىنە ${iface} نىڭ WPA/WPA2 ئىمى"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -295,15 +233,13 @@ msgid ""
 "Enter the passphrase for WPA/WPA2 PSK authentication. This should be the "
 "passphrase defined for the wireless network you are trying to use."
 msgstr ""
-"WPA/WPA2 PSK دەلىللەشنىڭ ئىم جۈملىسىنى كىرگۈزۈڭ. بۇسىز ئىشلەتمەكچى بولغان "
-"سىمسىز توردا بەلگىلەنگەن ئىم جۈملىسىدۇر."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
-msgstr "ESSID ئىناۋەتسىز"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -313,15 +249,13 @@ msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
 "characters, but may contain all kinds of characters."
 msgstr ""
-"بۇ ESSID \"${essid}\" ئىناۋەتسىز. ESSID ئەڭ ئۇزۇن بولغاندا ${max_essid_len} "
-"ھەرپ، ئەمما بارلىق ھەر بەلگىنى ئۆز ئىچىگە ئالسا بولىدۇ."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:14001
 msgid "Attempting to exchange keys with the access point..."
-msgstr "زىيارەت نۇقتىسى بىلەن ئاچقۇچلارنى ئالماشتۇرۇۋاتىدۇ."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -331,21 +265,21 @@ msgstr "زىيارەت نۇقتىسى بىلەن ئاچقۇچلارنى ئالم
 #. :sl1:
 #: ../netcfg-common.templates:15001 ../netcfg-dhcp.templates:3001
 msgid "This may take some time."
-msgstr "بۇنىڭغا بىر ئاز ۋاقىت كېتىشى مۇمكىن."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:16001
 msgid "WPA/WPA2 connection succeeded"
-msgstr "WPA/WPA2 باغلىنىشى مۇۋەپپەقىيەتلىك بولدى"
+msgstr ""
 
 #. Type: note
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:17001
 msgid "Failure of key exchange and association"
-msgstr "ئاچقۇچ ئالماشتۇرۇش ۋە  كېڭىشىش مەغلۇپ بولدى"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -355,22 +289,20 @@ msgid ""
 "The exchange of keys and association with the access point failed. Please "
 "check the WPA/WPA2 parameters you provided."
 msgstr ""
-"زىيارەت نۇقتىسى بىلەن ئاچقۇچلارنى ئالماشتۇرۇش ۋە كېڭىشىش مەغلۇپ بولدى. "
-"ئۆزىڭىز كىرگۈزگەن WPA/WPA2 پارامېتىرلىرىنى تەكشۈرۈڭ."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Hostname:"
-msgstr "Hostname:"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Please enter the hostname for this system."
-msgstr "بۇ سىستېمىنىڭ ئاساسىي ئاپپارات ئاتىنى كىرگۈزۈڭ."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -382,23 +314,20 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
-"ئاساسىي ئاپپارات ئاتى توردا سىستېمىڭىزنى ئىپادىلەيدىغان بىر سۆز. ئەگەر "
-"ئاساسىي ئاپپارات ئاتىنى بىلمىسىڭىز تور باشقۇرغۇچىدىن سوراڭ. ئەگەر ئىچكى "
-"تورنى تەڭشەۋاتقان بولسىڭىز خالىغان ئىسىمدىن بىرنى يازسىڭىز بولىدۇ."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
-msgstr "باش ماشىنا ئاتى ئىناۋەتسىز"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
-msgstr "\"${hostname}\" ئاتى ئىناۋەتسىز."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -410,16 +339,13 @@ msgid ""
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
-"توغرا بولغان ئاساسىي ئاپپارات ئاتى پەقەت رەقەم 0-9، چوڭ، كىچىك ھەرپ (A-Z ۋە "
-"a-z) ۋە ئېلىش بەلگىسىدىن تەركىب تاپىدۇ. ئۇزۇنلۇقى چوقۇم 2-63 ھەرپ ئارىلىقىدا "
-"بولۇشى ھەمدە ئېلىش بەلگىسى بىلەن باشلانماسلىقى ياكى ئاخىرلاشماسلىقى لازىم."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:21001
 msgid "Error"
-msgstr "خاتالىق"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -429,15 +355,13 @@ msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
 msgstr ""
-"خاتالىق يۈز بەردى، تور تەڭشەش جەريانى توختىتىلدى. سىز ئورنىتىش "
-"پروگراممىسىنىڭ باش تىزىملىكىدىن قايتا سىنىيالايسىز."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
-msgstr "تور ئېغىزى(كارتىسى) بايقالمىدى"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -446,7 +370,7 @@ msgstr "تور ئېغىزى(كارتىسى) بايقالمىدى"
 msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
-msgstr "تور ئېغىزى بايقالمىدى. ئورنىتىش سىستېمىسى تور ئۈسكۈنىسىنى تاپالمىدى."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -456,8 +380,6 @@ msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
 msgstr ""
-"ئەگەر تور كارتىڭىز ئالاھىدە بۆلەك ئىشلەتسە ئۇنى يۈكلىشىڭىز كېرەك. بۇ "
-"ۋەزىپىنى ئورۇنلاشتا تور قاتتىق دېتالىنى تەكشۈرۈش باسقۇچىغا قايتىڭ."
 
 #. Type: note
 #. Description
@@ -466,7 +388,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
-msgstr "${iface} دىكى Kill switch ئۈزچاتى ئېچىلدى"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -479,8 +401,6 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
-"${iface} نى \"kill switch\" ئۈزچاتى چەكلىدى. ئەگەر بۇ ئېغىزنى ئىشلەتمەكچى "
-"بولسىڭىز، ئورنىتىشنى داۋاملاشتۇرۇشتىن ئىلگىرى ئۇنى ئېچىڭ."
 
 #. Type: select
 #. Choices
@@ -492,7 +412,7 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
-msgstr "Infrastructure (Managed) تور"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -504,13 +424,13 @@ msgstr "Infrastructure (Managed) تور"
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
-msgstr "Ad-hoc تورى (نۇقتىدىن نۇقتىغا)"
+msgstr ""
 
 #. Type: select
 #. Description
 #: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
-msgstr "سىمسىز تور تىپى:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -520,135 +440,131 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
-"سىمسىز تور بەلكىم managed ياكى ad-hoc ئىككىدىن بىرى بولىدۇ. ئەگەر سىز مەلۇم "
-"رېئال ۋاقىتلىق كىرىش نۇقتىسىنى ئىشلەتكەن بولسىڭىز تورىڭىز managed. ئەگەر "
-"باشقا بىر كومپيۇتېرنى ئۇلىنىش نۇقتىسى قىلسىڭىز ئۇنداقتا سىزنىڭ تورىڭىز ad-"
-"hoc."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
-msgstr "سىمسىز تور سەپلىمىسى"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
-msgstr "سىمسىز تور زىيارەت نۇقتىسىنى ئىزدەۋاتىدۇ…"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
-msgstr "${interface} دىكى ئۇلانمىنى تەكشۈرۈۋاتىدۇ؛ سەل كۈتۈڭ…"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:30001
 msgid "<none>"
-msgstr "<يوق>"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
-msgstr "سىمسىز ethernet (802.11x)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:32001
 msgid "wireless"
-msgstr "سىمسىز"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:33001
 msgid "Ethernet"
-msgstr "ئېفىر تورى"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:34001
 msgid "Token Ring"
-msgstr "Token Ring"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:35001
 msgid "USB net"
-msgstr "USB تور"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
-msgstr "ئارقىمۇئارقا IP"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
-msgstr "پاراللېل ئېغىز IP"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
-msgstr "نۇقتىدىن نۇقتا كېلىشىمى"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
-msgstr "IPv6-in-IPv4"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
-msgstr "ISDN نۇقتىدىن نۇقتىغا كېلىشىمى"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
-msgstr "Channel-to-channel"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
-msgstr "ئەمەلىي channel-to-channel"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
-msgstr "Inter-user communication vehicle"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:46001
 msgid "Unknown interface"
-msgstr "نامەلۇم ئېغىز"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -656,7 +572,7 @@ msgstr "نامەلۇم ئېغىز"
 #. :sl1:
 #: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
-msgstr "تور تەڭشىكىنى ساقلاۋاتىدۇ…"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -664,14 +580,14 @@ msgstr "تور تەڭشىكىنى ساقلاۋاتىدۇ…"
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr "تور سەپلەيدۇ"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
-msgstr "ئۇلىنىش بايقاشنى كۈتۈش ۋاقتى (سېكۇنت):"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -680,14 +596,14 @@ msgstr "ئۇلىنىش بايقاشنى كۈتۈش ۋاقتى (سېكۇنت):"
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
-msgstr "تور ئۇلىنىشىنى بايقاشنىڭ ئەڭ ئۇزۇن كۈتۈش ۋاقتىنى كىرگۈزۈڭ."
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
-msgstr "ئىناۋەتسىز تور ئۇلىنىشنى بايقاشنىڭ كۈتۈش ۋاقتى"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -697,8 +613,6 @@ msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
 msgstr ""
-"تەمىنلىگەن قىممىتىڭىز ئىناۋەتسىز. تور ئۇلىنىشىنى بايقاشنىڭ ئەڭ ئۇزۇن كۈتۈش "
-"ۋاقتى (سېكۇنت)چوقۇم مۇسبەت پۈتۈن سان بولۇشى كېرەك."
 
 #. Type: select
 #. Choices
@@ -706,28 +620,28 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
-msgstr "${essid_list} دىكى ESSID نى قولدا كىرگۈزۈڭ"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Wireless network:"
-msgstr "سىمسىز تور:"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
-msgstr "ئورنىتىش جەريانىدا ئىشلىتىدىغان سىسمسىز تورنى تاللاڭ."
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "DHCP hostname:"
-msgstr "DHCP ئاساسىي ئاپپارات ئاتى:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -737,50 +651,48 @@ msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
 msgstr ""
-"سىز DHCP ئاساسىي ئاپپارات ئاتىدىن بىرنى تەمىنلىشىڭىز لازىم. ئەگەر "
-"ئىشلەتكىنىڭىز cable modem بولسا ھېساباتتىن بىرنى بەلگىلىشىڭىز لازىم."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "Most other users can just leave this blank."
-msgstr "زور كۆپچىلىك ئىشلەتكۈچىلەر بۇ جاينى بوش قالدۇرىدۇ."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr "DHCP ئارقىلىق تورنى سەپلەۋاتىدۇ"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr "تورنى ئۆزلۈكىدىن تەڭشەش مۇۋەپپەقىيەتلىك بولدى"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client found"
-msgstr "DHCP خېرىدارى تېپىلمىدى"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
-msgstr "DHCP خېرىدارى تېپىلمىدى، pump ياكى dhcp-client ئورنىتىش لازىم."
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "The DHCP configuration process has been aborted."
-msgstr "DHCP سەپلەش جەريانى توختىتىلدى."
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -790,7 +702,7 @@ msgstr "DHCP سەپلەش جەريانى توختىتىلدى."
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration"
-msgstr "تورنى ئۆزلۈكىدىن تەڭشەشنى قايتا سىنا"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -801,7 +713,6 @@ msgstr "تورنى ئۆزلۈكىدىن تەڭشەشنى قايتا سىنا"
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
 msgstr ""
-"DHCP ئاساسىي ئاپپارات ئاتىنى ئىشلىتىپ تورنى ئۆزلۈكىدىن تەڭشەشنى قايتا سىنايدۇ"
 
 #. Type: select
 #. Choices
@@ -811,7 +722,7 @@ msgstr ""
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr "تورنى قولدا سەپلەش"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -821,14 +732,14 @@ msgstr "تورنى قولدا سەپلەش"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr "تورنى ھازىر سەپلىمە"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:6002
 msgid "Network configuration method:"
-msgstr "تور سەپلەش ئۇسۇلى:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -841,19 +752,13 @@ msgid ""
 "by the client, so you can also choose to retry DHCP network "
 "autoconfiguration with a hostname that you provide."
 msgstr ""
-"بۇ يەردە DHCP تورنى ئۆزلۈكىدىن سەپلەشنى قايتا سىنىيالايسىز (ئەگەر DHCP "
-"مۇلازىمېتىرىڭىز ئۇزۇن ۋاقىت ئىنكاس قايتۇرمىسا، قايتا بىر سىناپ باقسىڭىز "
-"مۇۋەپپەقىيەتلىك بولۇشى مۇمكىن) ياكى تورنى ئۆزىڭىز سەپلىسىڭىزمۇ بولىدۇ. "
-"ئۇنىڭدىن سىرت، بەزى DHCP مۇلازىمېتىر خېرىدار كومپيۇتېرىنىڭ DHCP ئاساسىي "
-"ئاپپارات ئاتىنى يوللىشىنى تەلەپ قىلىدۇ، شۇڭلاشقا DHCP تورىنى ئۆزلۈكىدىن "
-"سەپلەشنى قايتا سىنىغاندا مۇشۇنداق ئاساسىي ئاپپارات ئاتىنى تەمىنلەڭ."
 
 #. Type: note
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:7001
 msgid "Network autoconfiguration failed"
-msgstr "تورنى ئۆزلۈكىدىن سەپلەش مەغلۇپ بولدى"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -863,16 +768,13 @@ msgid ""
 "Your network is probably not using the DHCP protocol. Alternatively, the "
 "DHCP server may be slow or some network hardware is not working properly."
 msgstr ""
-"تورىڭىز DHCP كېلىشىمىنى ئىشلەتمىگەندەك تۇرىدۇ، بەلكىم DHCP "
-"مۇلازىمېتىرىڭىزنىڭ ئىنكاسى بەك ئاستا ياكى تور ئۈسكۈنىڭىز نورمال خىزمەت "
-"قىلمىغان بولۇشى مۇمكىن."
 
 #. Type: boolean
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
 msgid "Continue without a default route?"
-msgstr "كۆڭۈلدىكى يول تاللىغۇچسىز داۋاملاشتۇرسۇنمۇ؟"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -885,10 +787,6 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
-"تورنى ئۆزلۈكىدىن تەڭشەش مۇۋەپپەقىيەتلىك. ئەمما كۆڭۈلدىكى يول تاللاش "
-"سەپلەنمىگەچكە كومپيۇتېر ئىنتېرنېتتىكى ئاساسىي ئاپپاراتقا ئۇلىنالمايدۇ. "
-"بىرىنچى ئورنىتىش دىسكىسى 'Netinst' ياكى يەرلىك تارماق توردا لازىملىق يۇمشاق "
-"دېتال بوغچىسى بولسا بۇ باشقا گەپ، بولمىسا ئورنىتىش داۋاملاشمايدۇ."
 
 #. Type: boolean
 #. Description
@@ -898,15 +796,13 @@ msgid ""
 "If you are unsure, you should not continue without a default route: contact "
 "your local network administrator about this problem."
 msgstr ""
-"ئەگەر سەۋەبىنى بىلمىسىڭىز، كۆڭۈلدىكى يول تاللىغۇچ يوق ئەھۋالدا ئورنىتىشنى "
-"داۋاملاشتۇرماڭ: تور باشقۇرغۇچىڭىزدىن مۇناسىۋەتلىك مەسىلىنى سوراڭ."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:9001
 msgid "Reconfigure the wireless network"
-msgstr "سىمسىز تورنى قايتا تەڭشەش"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -918,7 +814,7 @@ msgstr "سىمسىز تورنى قايتا تەڭشەش"
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "IPv6 نى ئۆزلۈكىدىن سەپلەشنى سىناۋاتىدۇ…"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -926,14 +822,14 @@ msgstr "IPv6 نى ئۆزلۈكىدىن سەپلەشنى سىناۋاتىدۇ…"
 #. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr "ئۇلىنىدىغان يەرلىك ئادرېسنى كۈتۈۋاتىدۇ…"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
 msgid "Configuring the network with DHCPv6"
-msgstr "تورنى DHCPv6 ئارقىلىق سەپلەۋاتىدۇ"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -941,7 +837,7 @@ msgstr "تورنى DHCPv6 ئارقىلىق سەپلەۋاتىدۇ"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr "IP ئادرېس:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -950,7 +846,6 @@ msgstr "IP ئادرېس:"
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
 msgstr ""
-"بۇ IP ئادرېس كومپيۇتېرىڭىزغا بىردىنبىردۇر ۋە تۆۋەندىكىدەك بولۇشى مۇمكىن:"
 
 #. Type: string
 #. Description
@@ -961,8 +856,6 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
-"* چېكىت بىلەن ئايرىلغان تۆت سان (IPv4);\n"
-"* قوش چېكىت بىلەن ئايرىلغان ئون ئالتىلىك سىستېمىدىكى ھەرپ بۆلەكلىرى (IPv6)."
 
 #. Type: string
 #. Description
@@ -970,7 +863,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr "سىز يەنە CIDR تور ماسكىسىنى قوشالايسىز (\"/24\" غا ئوخشاش)."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -979,8 +872,6 @@ msgstr "سىز يەنە CIDR تور ماسكىسىنى قوشالايسىز (\"/
 #: ../netcfg-static.templates:1001
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr ""
-"ئەگەر بۇ جايغا قانداق مەزمۇن كىرگۈزۈشنى بىلمىسىڭىز، تور باشقۇرغۇچىڭىزدىن "
-"سۈرۈشتۈرۈڭ."
 
 #. Type: error
 #. Description
@@ -988,7 +879,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "خاتا IP ئادرېس"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1001,17 +892,13 @@ msgid ""
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"سىز تەمىنلىگەن IP ئادرېسنىڭ شەكلى خاتا. ئۇنىڭ شەكلى x.x.x.x بولۇپ، ئۇنىڭدىكى "
-"'x' نىڭ قىممىتى 255 (IPv4 ئادرېس) تىن چوڭ بولمايدۇ ياكى قوش چېكىت بىلەن "
-"ئايرىلغان ئون ئالتىلىك سىستېمىدىكى رەقەم تەرتىپ بۆلەك ((IPv6 ئادرېس))نى "
-"تولدۇرۇڭ. قايتا سىناڭ."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:3001
 msgid "Point-to-point address:"
-msgstr "نۇقتىدىن نۇقتىغا ئادرېس:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1023,16 +910,13 @@ msgid ""
 "know the value.  The point-to-point address should be entered as four "
 "numbers separated by periods."
 msgstr ""
-"نۇقتىدىن نۇقتا ئادرېسى تورنىڭ يەنە بىر ئۇچىنى بەلگىلەشكە ئىشلىتىلىدۇ. ئەگەر "
-"ئادرېسنى بىلمىسىڭىز، تور باشقۇرغۇچىدىن سۈرۈشتۈرۈڭ.  نۇقتىدىن نۇقتا ئادرېسى "
-"چېكىت بىلەن ئايرىلغان تۆت گۇرۇپپا ساندىن تەشكىل تاپىدۇ."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:4001
 msgid "Netmask:"
-msgstr "تور نىقابلاش كودى:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1043,16 +927,13 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
-"تور ماسكىسى قايسى كومپيۇتېرلارنىڭ تورىڭىزدا ئىكەنلىكىنى جەزملەيدۇ. ئەگەر "
-"ماسكا قىممىتىنى بىلمىسىڭىز، تور باشقۇرغۇچىدىن سۈرۈشتۈرۈڭ. نىقابلاش كودى "
-"چېكىت بىلەن ئايرىلغان تۆت گۇرۇپپا ساندىن تەشكىل تاپىدۇ."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:5001
 msgid "Gateway:"
-msgstr "تور ئۆتكىلى:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1066,26 +947,20 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
-"تور ئۆتكىلى يول تاللىغۇچنىڭ IP ئادرېسىنى كۆرسىتىدۇ (چېكىت بىلەن ئايرىلغان "
-"تۆت گۇرۇپپا سان)، كۆڭۈلدىكى يول تاللىغۇچ دەپمۇ ئاتىلىدۇ. تارماق توردىن باشقا "
-"بارلىق ئالاقە (مەسىلەن، ئىنتېرنېتنى زىيارەت قىلىش) نىڭ ھەممىسى ئۇنىڭدىن "
-"ئۆتىدۇ. بەزى ناھايىتى ئاز ئۇچرايدىغان ئەھۋالدا، يول تاللىغۇچنى "
-"ئىشلەتمەسلىكىڭىز مۇمكىن؛ بۇ چاغدا بوش قالدۇرسىڭىزلا بولىدۇ. ئەگەر بۇ سوئالغا "
-"قانداق جاۋاب بېرىشنى بىلمىسىڭىز تور باشقۇرغۇچىدىن سۈرۈشتۈرۈڭ."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "Unreachable gateway"
-msgstr "يېتەلمەيدىغان تور ئۆتكىلى"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "The gateway address you entered is unreachable."
-msgstr "كىرگۈزگەن ئادرېسىڭىزغا يەتكىلى بولمايدۇ"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1094,7 +969,6 @@ msgstr "كىرگۈزگەن ئادرېسىڭىزغا يەتكىلى بولماي�
 msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
 msgstr ""
-"سىز كىرگۈزگەن IP ئادرېس، نىقابلاش كودى ياكى تور ئۆتكىلىڭىزدە خاتالىق بار."
 
 #. Type: error
 #. Description
@@ -1102,7 +976,7 @@ msgstr ""
 #. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr "بۇ IPv6 نۇقتىدىن نۇقتىغا ئۇلىنىشنى قوللىمايدۇ"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1113,22 +987,20 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
-"بۇ IPv6 ئادرېس نۇقتىدىن نۇقتىغا ئۇلىنىشنى سەپلەشنى قوللىمايدۇ. IPv4 ئادرېس "
-"ئىشلىتىڭ ياكى قايتىپ باشقا بىر تور ئېغىزىنى ئىشلىتىڭ."
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
-msgstr "بۇ ئۇچۇرلار توغرىمۇ؟"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
-msgstr "نۆۋەتتە سەپلەنگەن تور پارامېتىرلىرى:"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1142,12 +1014,6 @@ msgid ""
 " pointopoint   = ${pointopoint}\n"
 " nameservers   = ${nameservers}"
 msgstr ""
-" ئېغىز     = ${interface}\n"
-"ئادرېس IP     = ${ipaddress}\n"
-" تور ماسكىسى       = ${netmask}\n"
-" تور ئۆتكىلى       = ${gateway}\n"
-" نۇقتىدىن نۇقتا   = ${pointopoint}\n"
-" دائىرە ئاتى مۇلازىمېتىرى   = ${nameservers}"
 
 #. Type: text
 #. Description
@@ -1155,4 +1021,4 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
-msgstr "مۇقىم ئادرېس ئىشلىتىپ تور تەڭشەش"
+msgstr ""

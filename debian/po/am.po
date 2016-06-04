@@ -3,37 +3,13 @@
 #
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
-# Amharic translation for debian-installer
-# This file is distributed under the same license as the debian-installer package.
-# tegegne tefera <tefera@mekuria.com>, 2006.
-#
-#
-# Translations from iso-codes:
-#   Alastair McKinstry <mckinstry@debian.org>, 2004.
-#   Data taken from ICU-2.8; contributed by:
-#   - Daniel Yacob <yacob@geez.org>, Ge'ez Frontier Foundation
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2014-04-04 22:07+0100\n"
-"Last-Translator: Tegegne Tefera <tefera@mekuria.com>\n"
-"Language-Team: Amharic <linux-ethiopia@googlegroups.com>\n"
-"Language: am\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: n>1;\n"
-
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
 msgid "Auto-configure networking?"
-msgstr "ኣውታሩ በራስ ገዝ ይዘጋጅ?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -53,7 +29,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:3001
 msgid "Domain name:"
-msgstr "የዶሜን ስም፦"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -65,16 +41,13 @@ msgid ""
 "If you are setting up a home network, you can make something up, but make "
 "sure you use the same domain name on all your computers."
 msgstr ""
-"የዶሜን ስም የኢንተርኔት አድራሻዎ አካል ነው። ይኸውም ብዙ ጊዜ በ .com, .net, .edu, ወይም .org ያልቃል። "
-"የቤት የአስሊ መረብ የሚሰሩ ከሆነ የሚፈልጉትን ስም መውጣት ይችላሉ። ማስታወስ ያለብዎት ግን ሁሉም አስሊዎች ይህንን "
-"የዶሜን ስምን መጠቀም እንዳለባቸው ነው።"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
 msgid "Name server addresses:"
-msgstr "የስም አገልጋይ አድራሻ፦"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -87,16 +60,13 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
-"የስም ካዳሚዎቹ በአውታር ላይ የተጠሪዎችን ስም ለማግኘት ያገለግላል። እባክዎ እስከ 3  yemidersu በክፍት ቦታ "
-"የተለያዩ የIP አድራሻች (የተጠሪውን ስም ሳይሆን) ይስጡ። ኮማ (,) አይጠቀሙ። የመጀመሪያው ስም ካዳሚ የመጀመሪያው "
-"ተጠያቂ ይሆናል። ምንም የስም ካዳሚ ለመጠቀም የማይፈልጉ ከሆነ ይህንን ሳጥን ባዶ ይተዉት።"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:5001
 msgid "Primary network interface:"
-msgstr "ቀዳሚ የአውታር በይነገጽ፦"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -107,8 +77,6 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
-"ስርዓትዎ ብዙ የአውታር መገናኛ ካርዶች አሉት። በተከላው ወቅት እንደዋና የአውታር መገናኛ መጠቀም የሚፈልጉትን ካርድ "
-"ይምረጡ። ከተቻለ በመጀመሪያው የተገናኘው ካርድ ይመረጣል።"
 
 #. Type: string
 #. Description
@@ -118,7 +86,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
-msgstr "ሽቦ አልባ ESSID ለ ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -129,15 +97,13 @@ msgid ""
 "of the wireless network you would like ${iface} to use. If you would like to "
 "use any available network, leave this field blank."
 msgstr ""
-"${iface} የሽቦ-አልባ አውታር አካል ነው። እባክዎ ${iface} እንዲጥውቀምበት የሚፈልጉትን የአውታር ስም "
-"(ESSID) እዚህ ጋ ያስገቡ።  ካሉት አውታሮች አንዱን ለመጠቀም ከፈለጉ ይህንን ሳጥን ባዶ ይተዉት።"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
-msgstr "ሽቦኣልባ ኣውታርን የማግኘት ሙከራ ኣልተሳካም።"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -148,27 +114,25 @@ msgid ""
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
-"${iface} የሽቦ-አልባ አውታር አካል ነው። እባክዎ ${iface} እንዲጠቀምበት የሚፈልጉትን የአውታር ስም "
-"(ESSID) እዚህ ጋ ያስገቡ።  ካሉት አውታሮች አንዱን ለመጠቀም ከፈለጉ ይህንን ሳጥን ባዶ ይተዉት።"
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WEP/Open Network"
-msgstr "WEP/Open አውታር"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WPA/WPA2 PSK"
-msgstr "WPA/WPA2 PSK"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:8002
 msgid "Wireless network type for ${iface}:"
-msgstr "የሽቦ አልባ አውታር አይነት ለ ${iface}:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -178,15 +142,13 @@ msgid ""
 "Choose WEP/Open if the network is open or secured with WEP. Choose WPA/WPA2 "
 "if the network is protected with WPA/WPA2 PSK (Pre-Shared Key)."
 msgstr ""
-"Choose WEP/Open if the network is open or secured with WEP. Choose WPA/WPA2 "
-"if the network is protected with WPA/WPA2 PSK (Pre-Shared Key)."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:9001
 msgid "WEP key for wireless device ${iface}:"
-msgstr "ለሽቦአልባ አካል የWEP ቁልፍ ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -196,8 +158,6 @@ msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
 msgstr ""
-"ካለ እባክዎ እዚህ ጋ የሽቦ አልባ አካሉ ${iface}  የWEP ማለፊያ ቁልፍን ያስገቡ። ይህ በሁለት መንገድ ሊሆን "
-"ይችላል።"
 
 #. Type: string
 #. Description
@@ -207,8 +167,6 @@ msgid ""
 "If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
-"የ WEP ቁልፍ በ 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', ወይም በ 'nnnnnnnn', "
-"አይነትና  n ቁጥር ከሆነ እዚህ ሳጥን ውስጥ ያስገቡት።"
 
 #. Type: string
 #. Description
@@ -217,7 +175,7 @@ msgstr ""
 msgid ""
 "If your WEP key is in the format of a passphrase, prefix it with "
 "'s:' (without quotes)."
-msgstr "የWEP ቁልፍዎ የማለፊያቃል አይነት ከሆነ በ 's:' prefix ያድርጉት   (ያለ ጥቅሶቹ)."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -226,14 +184,14 @@ msgstr "የWEP ቁልፍዎ የማለፊያቃል አይነት ከሆነ በ 's:
 msgid ""
 "Of course, if there is no WEP key for your wireless network, leave this "
 "field blank."
-msgstr "ለሽቦአልባ አውታርዎ WEP ቁልፍ ካለዎት ይህንን ሳጥን ባዶ ሊያደርጉት ይችላሉ፡፡"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:10001
 msgid "Invalid WEP key"
-msgstr "የማይሰራ WEP ቁልፍ፦"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -243,15 +201,13 @@ msgid ""
 "The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
 "next screen carefully on how to enter your WEP key correctly, and try again."
 msgstr ""
-"የWEP ቁልፍ '${wepkey}' አይሰራም፡፡ እባክዎ በሚቀለው ገጽ ላይ የሚመጣውን ስለ WEP ቁልፍ አገባብ መመሪያ "
-"በጥንቃቄ ያንብቡና እንደገና ይሞክሩ፡፡ "
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:11001
 msgid "Invalid passphrase"
-msgstr "የማይሰራ ማለፊያ ሚስጢር ቃል "
+msgstr ""
 
 #. Type: error
 #. Description
@@ -261,15 +217,13 @@ msgid ""
 "The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
 "too short (less than 8 characters)."
 msgstr ""
-"The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
-"too short (less than 8 characters)."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
 msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
-msgstr "ለሽቦአልባ አካል የWEP/WPA2 ቁልፍ ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -285,7 +239,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
-msgstr "የማይሰራ ESSID"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -301,7 +255,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:14001
 msgid "Attempting to exchange keys with the access point..."
-msgstr "ከማገናኛ ጣብያ ጋር ለመገናኘት እየሞከ "
+msgstr ""
 
 #. Type: text
 #. Description
@@ -311,21 +265,21 @@ msgstr "ከማገናኛ ጣብያ ጋር ለመገናኘት እየሞከ "
 #. :sl1:
 #: ../netcfg-common.templates:15001 ../netcfg-dhcp.templates:3001
 msgid "This may take some time."
-msgstr "ይህ ምናልባት ጥቂት ጊዜ ሊወስድ ይችላል።"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:16001
 msgid "WPA/WPA2 connection succeeded"
-msgstr "WPA/WPA2 ግንኙነት ሰምሯል"
+msgstr ""
 
 #. Type: note
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:17001
 msgid "Failure of key exchange and association"
-msgstr "የቁልፍ ልውውጥ አልተሳካም"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -341,14 +295,14 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Hostname:"
-msgstr "የአገልጋይ ስም፦"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Please enter the hostname for this system."
-msgstr "እባክዎ ለስርዓቱ የአገልጋይ ስም ያስገቡ ፦"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -360,22 +314,20 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
-"የተጠሪ ስም ማለት ስርዓትዎን ለአውታሩ የምያስተዋውቅ አንድ ቃል ነው። የተጠሪ ስምዎ ምን እንደሆን ካላወቁ፣ የአውታር "
-"አስተዳዳሪዎን ይጠይቁ፡፡ የግል አውታር በማቋቋም ላይ ከሆኑ እዚህ ጋ መሰየም ይችላሉ።"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
-msgstr "የተሳሳተ አስተናባሪ ስም"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
-msgstr "\"${hostname}\" የሚለው ስም የለም።"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -387,15 +339,13 @@ msgid ""
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
-"ትክክለኛ የተጠሪ ስም፣ ከ0-9፣ ከa-z ያሉ የሮማን ትንሹ ፊደሎችንና የመቀነስ ምልክትን የያዘ ይሆናል። ርዝመቱም "
-"${maxhostnamelen} ሊሆን ሲችል የመቀነስ ምልክት በመጀመሪያ ወይም በመጨረሻ ላይ መሆን አኖርበትም።"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:21001
 msgid "Error"
-msgstr "ስህተት"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -404,14 +354,14 @@ msgstr "ስህተት"
 msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
-msgstr "ስህተት ተፈጥሮ የአውታር ማዘጋጀት ማዘጋጀት ሂደቱ ተቋርጧል። ምናልባት ከተከላ ምናሌው ሊሞክሩ ይችላሉ።"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
-msgstr "የአውታር በይነገጽ አልተገኘም"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -420,7 +370,7 @@ msgstr "የአውታር በይነገጽ አልተገኘም"
 msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
-msgstr "የተከላ ስርዓቱ ምንም የአውታር አካል አላገኘም። "
+msgstr ""
 
 #. Type: error
 #. Description
@@ -430,8 +380,6 @@ msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
 msgstr ""
-"የአውታር ካርድ ካለዎት ማናልባት ለካርዱ የሚስማማ የስልት ጥቅል መጫን የኖርቦታል። ለዚህም ወደ ጥር ነገር መፈለጊያ "
-"ደረጃ ይመለሱ።"
 
 #. Type: note
 #. Description
@@ -440,7 +388,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
-msgstr "Kill ቁልፍ በ${iface} ላይ በርቷል፡፡ "
+msgstr ""
 
 #. Type: note
 #. Description
@@ -453,8 +401,6 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
-"${iface} በ \"kill switch\" ከተግባር ውጪ የሆነ ይመስላል. ይህንን ገጽታ ለመጠቀም የሚፈልጉ ከሆነ "
-"በቅድሚያ ያስነሱት፡፡"
 
 #. Type: select
 #. Choices
@@ -466,7 +412,7 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
-msgstr "የInfrastructure (Managed) አውታር"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -478,13 +424,13 @@ msgstr "የInfrastructure (Managed) አውታር"
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
-msgstr "Ad-hoc አውታር (Peer to peer)"
+msgstr ""
 
 #. Type: select
 #. Description
 #: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
-msgstr "የሽቦ አልባ አውታር አይነት"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -494,133 +440,131 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
-"ሽቦ አልባ አውታሮች ቀጥታ ወይም ተጋሪ ናቸው። አስሊዎ በቀጥታ ከአስወጪ ጋር የሚገናኝ ከሆነ ቀጥታ በሌላ አስሊ ውስጥ "
-"አልፎ ከሆነ ተጋሪ አውታር ነው።"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
-msgstr "የሽቦ አልባ አውታር ማስተካከል"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
-msgstr "የሽቦአልባ ማግቢያ ጣቢያ በመፈለግ ላይ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
-msgstr "Detecting link on ${interface}; እባክዎ ይጠብቁ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:30001
 msgid "<none>"
-msgstr "<ምንም>"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
-msgstr "ሽቦአልባ ኤተርኔት (802.11x)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:32001
 msgid "wireless"
-msgstr "ሽቦአልባ"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:33001
 msgid "Ethernet"
-msgstr "ኤተርኔት"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:34001
 msgid "Token Ring"
-msgstr "ቶክን ክብ"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:35001
 msgid "USB net"
-msgstr "የUSB አውታር"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
-msgstr "ተከታታይ-መስመር ኢፕ"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
-msgstr "ጎንለጎን-በር ኢፕ"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
-msgstr "ከነጥብ-ነጥብ ፕሮቶኮል"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
-msgstr "IPv6-በ-IPv4 (ኢፕ_ዝ6-በ-ኢፕ_ዝ4)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
-msgstr "ISDN ከነጠብ-ነጥብ ፕሮቶኮል"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
-msgstr "ከቦይ-ቦይ"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
-msgstr "Real ከቦይ-ቦይ"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
-msgstr "የተጠቃሚዎች መገናኛ"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:46001
 msgid "Unknown interface"
-msgstr "የማይታወቅ በይነገጽ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -628,7 +572,7 @@ msgstr "የማይታወቅ በይነገጽ"
 #. :sl1:
 #: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
-msgstr "የአውታር ምርጫዎችን በማስቀመጥ ላይ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -636,7 +580,7 @@ msgstr "የአውታር ምርጫዎችን በማስቀመጥ ላይ"
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr "አውታር አዘጋጅ"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -649,11 +593,10 @@ msgstr ""
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:50001
-#, fuzzy
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
-msgstr "እባክዎ ለአዲሱ የይዘት ግሩፕ መጠቀም የሚፈልጉትን ስም ያስገቡ፡፡"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -677,28 +620,28 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
-msgstr "${essid_list} ESSID በጅ ያስገቡ"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Wireless network:"
-msgstr "ሽቦ አልባ አውታር፦"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
-msgstr "በተከላ ሂደቱ የሚጠቀሙበትን ሽቦኣልባ ኣውታር ይምረጡ፡"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "DHCP hostname:"
-msgstr "DHCP አገልጋይ ስም"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -708,49 +651,48 @@ msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
 msgstr ""
-"የDHCP ተጠሪን መስጠት ያስፈልግዎ ይሆናል። የሽቦ ሞደም የሚጠቀሙ ከሆነ የመዝገብ ቁጥርዎን እዚህ ማስገባት ይኖርብዎታል።"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "Most other users can just leave this blank."
-msgstr "አብዛኛው ተጠቃሚዎች ይህንን ባዶ ይትዉታል።"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr "አውታርን ከDHCP ጋር በማስተካከል ላይ"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr "የአውታር በራስ መስተካከሉ ተሳክቷል"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client found"
-msgstr "ምንም የDHCP ደንበኛ አልተገኘም"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
-msgstr "ምንም የDHCP ጠሪ አልተገኘም፡፡ ይህ ጥቅል pump ወይም dhcp-client ያስፈልገዋል፡፡"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "The DHCP configuration process has been aborted."
-msgstr "የDHCP ማስተካከል ሂደት ቆሟል።"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -760,7 +702,7 @@ msgstr "የDHCP ማስተካከል ሂደት ቆሟል።"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration"
-msgstr "የአውታር በራስ ማስተካከሉን እንደገና ሞክር"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -770,7 +712,7 @@ msgstr "የአውታር በራስ ማስተካከሉን እንደገና ሞክ�
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
-msgstr "የአውታር በራስ መዘጋጀትን ከDHCP hostname ጋር እንደገና ሞክር"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -780,7 +722,7 @@ msgstr "የአውታር በራስ መዘጋጀትን ከDHCP hostname ጋር እ
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr "አውታርን በእጅ አስተካክል"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -790,14 +732,14 @@ msgstr "አውታርን በእጅ አስተካክል"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr "አውታርን በአሁኑ ጊዜ አታስተካክለው"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:6002
 msgid "Network configuration method:"
-msgstr "የአውታር ማስተካከል ዘዴ፦"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -810,16 +752,13 @@ msgid ""
 "by the client, so you can also choose to retry DHCP network "
 "autoconfiguration with a hostname that you provide."
 msgstr ""
-"ከዚህ የDHCP አውታርን በራስ እንዲስተካከል መምረጥ ይችላሉ። DHCP ተጠሪው መልስ ፣እመስጠት ረጅም ጊዜ የሚፈጅ ከሆነ "
-"አውታሩን በጅ ለማስተካከል ይችላሉ። አንዳንድ DHCP ተጠሪዎች የDHCP ካዳሚ ስም በጠሪው እንዲሰደድ ይፈልጉ ይሆናል። "
-"ስለዚህ የሚሰጡት የካዳሚ ስም በመጠቀም በራስ ማስተከከሉን እንደገና ሊሞክሩ ይችላሉ።"
 
 #. Type: note
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:7001
 msgid "Network autoconfiguration failed"
-msgstr "የአውታር በራስ ማስተካከሉ አልተሳካም"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -829,15 +768,13 @@ msgid ""
 "Your network is probably not using the DHCP protocol. Alternatively, the "
 "DHCP server may be slow or some network hardware is not working properly."
 msgstr ""
-"ምናልባት አውታርዎ የDHCP ወግን አይጠቀም ይሆናል። ይህ ካልሆነ የDHCP ካዳሚው ቀሰስተኛ ወይም የአውታር ጥር አካሉ "
-"በትክክል የማይሰራ ይሆናል።"
 
 #. Type: boolean
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
 msgid "Continue without a default route?"
-msgstr "ቀዳሚ route ባይኖርም ይቀጥል?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -850,9 +787,6 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
-"የአውታር በራስ መስተካከል ተሳክቷል። ቢሆንም ምንም ቀዳሚ route አልተሰየመም፤ ስለዚህ ስርዓቱ በኢንተርኔት ላይ ካሉ "
-"ተጠሪዎች ጋር እንዴት እንደሚገናኝ አያውቅም። የመጀመሪያው የተከላ ሲዲ 'Netinst' ሲዲ ወይም በከባቢ አውታር ላይ "
-"ከለዎት በስተቀር ተከላውን መቀጠል አስቸጋሪ ይሆናል።"
 
 #. Type: boolean
 #. Description
@@ -861,14 +795,14 @@ msgstr ""
 msgid ""
 "If you are unsure, you should not continue without a default route: contact "
 "your local network administrator about this problem."
-msgstr "እርግጠኛ ካልሆኑ ካለ ቀዳሚ አስወጪ እንዳይቀጥሉ። ይህንን ችግር በተመለከተ የአውታር አስተዳዳሪዎን ያግኙ።"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:9001
 msgid "Reconfigure the wireless network"
-msgstr "የሽቦ አልባ አውታር ማስተካከልን እንደገና ሞክር"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -895,7 +829,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
 msgid "Configuring the network with DHCPv6"
-msgstr "አውታርን ከDHCPV6 ጋር በማስተካከል ላይ"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -903,7 +837,7 @@ msgstr "አውታርን ከDHCPV6 ጋር በማስተካከል ላይ"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr "IP ኣድራሻ፦"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -911,7 +845,7 @@ msgstr "IP ኣድራሻ፦"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr "IP አድራሻው ለአስሊዎ ብቻ የተሰጠ ሲሆን ምናልባት፡ "
+msgstr ""
 
 #. Type: string
 #. Description
@@ -922,8 +856,6 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
-" *አራት በነጥብ የተለያዩ ቁጥሮች (IPv4);\n"
-" * በኮሎን የተለያዩ hexadecimal የፊደል ቡድኖች(IPv6)."
 
 #. Type: string
 #. Description
@@ -931,7 +863,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr "የCIDR netmask የመለጠፍ ምርጫም አለዎት(ለምሳሌ \"/24\")."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -939,7 +871,7 @@ msgstr "የCIDR netmask የመለጠፍ ምርጫም አለዎት(ለምሳሌ \
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "If you don't know what to use here, consult your network administrator."
-msgstr "ምን መጠቀም እንዳለቦት ካላወቁ የኣውታር ኣስተዳዳሪውን ያማክሩ።"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -947,7 +879,7 @@ msgstr "ምን መጠቀም እንዳለቦት ካላወቁ የኣውታር ኣ�
 #. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "የተሳሳተ IP አድራሻ"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -966,7 +898,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-static.templates:3001
 msgid "Point-to-point address:"
-msgstr "ከነጥብ-ነጥብ አድራሻ"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -978,15 +910,13 @@ msgid ""
 "know the value.  The point-to-point address should be entered as four "
 "numbers separated by periods."
 msgstr ""
-"የ ከ-ነጥብ-ነጥብ አድራሻ በአውታሩ የአንደኛውን የመጨረሻ ነጥብ ለማወቅ ይጠቅማል፡፡ እሴቱ ስንት እንደሆን ካላወቁት "
-"የአውታር አስተዳዳሪዎ ያማክሩ፡፡ የከ-ነጥብ-ነጥብ አድራሻ እንደ አራት በነጥብ የተከፋፈሉ ቁጥሮች መሰጠት አለበት፡፡"
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:4001
 msgid "Netmask:"
-msgstr "ኔትማስክ፦"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -997,15 +927,13 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
-"netmask የትኞቹ አስሊዎች የከባቢ አስሊ እንደሆኑ ለማወቅ ይረዳል። እሴቱን ካላወቁ የአውታር አስተዳዳሪዎን ይጠይቁ። "
-"netmask የሚሰጠው በነጥብ በተለያዩ አራት ቁጥሮች ነው። "
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:5001
 msgid "Gateway:"
-msgstr "መናኽሪያ፦"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1019,24 +947,20 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
-"gateway ማለት የgateway  ሩተር ወይም ቀዳሚ ሩተርን የሚያመለክተው የIP አድራሻ (በነጥብ የተከፋፈሉ አራት "
-"ቁጥሮች) ነው። ማንኛውም ከከባቢ አውታርዎ የሚወጣ ትራፊክ (ለምሳሌ ወደ ኢንተርኔት) በዚህ ነው የሚያልፈው። በጣም ጥቂት "
-"በሆኑ አንዳንድ ሁኔታዎች ሩተር ላይኖር ይችላል፤ ይህ ከሆነ ይህንን ቦታ ባዶ ይተዉት። ትክክለኛውን መልስ ካላወቁ "
-"የአውታር አስተዳዳሪዎን ያማክሩ። "
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "Unreachable gateway"
-msgstr "የማይደረስበት መናኽሪያ"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "The gateway address you entered is unreachable."
-msgstr "ያስገቡት የገትዌይ አድራሻ ሊደረስበት አልተቻለም።"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1044,7 +968,7 @@ msgstr "ያስገቡት የገትዌይ አድራሻ ሊደረስበት አል�
 #: ../netcfg-static.templates:6001
 msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
-msgstr "IP አድራሻን፣ ኔትማስክ ወይም/እና መውጫ አስሊን ሲሰጡኡ ስህተት ሰርተው ይሆናል።"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1069,14 +993,14 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
-msgstr "ይህ መረጃ ትክክል ነው?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
-msgstr "በአሁኑ ጊዜ የተዘጋጁ የአውታር ግባቶች፦"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1090,12 +1014,6 @@ msgid ""
 " pointopoint   = ${pointopoint}\n"
 " nameservers   = ${nameservers}"
 msgstr ""
-"ኢንተርፌስ     = ${interface}\n"
-"አይፒአድራሻ     = ${ipaddress}\n"
-"ኔትማስክ       = ${netmask}\n"
-" ጌትዋይ       = ${gateway}\n"
-" ከነጥብነጥብ   = ${pointopoint}\n"
-"ስምተጠሪ   = ${nameservers}"
 
 #. Type: text
 #. Description
@@ -1103,4 +1021,4 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
-msgstr "ቋሚ አድራሻን በመጠቀም አውታር አስተካክል"
+msgstr ""

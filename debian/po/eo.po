@@ -3,40 +3,13 @@
 #
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
-# translation of Debian Installer templates to Esperanto.
-# Copyright (C) 2005-2013 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
-#
-# Samuel Gimeno <sgimeno@gmail.com>, 2005.
-# Serge Leblanc <serge.leblanc@wanadoo.fr>, 2005, 2006, 2007.
-# Felipe Castro <fefcas@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
-#
-# Translations from iso-codes:
-# Alastair McKInstry <mckinstry@computer.org>, 2001,2002.
-# Copyright (C) 2001,2002,2003,2004 Free Software Foundation, Inc.
-# D. Dale Gulledge <dsplat@rochester.rr.com> (translations from drakfw), 2001.
-# Edmund GRIMLEY EVANS <edmundo@rano.org>, 2004-2011
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
-"Language: eo\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
 msgid "Auto-configure networking?"
-msgstr "Ĉu aŭtomate akomodi la reton?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -50,18 +23,13 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"La reto povas esti akomodata aŭ per enigo de ĉiuj informoj permane aŭ per "
-"DHCP (aŭ per variaĵo de specifaj metodoj de IPv6) por detekti retajn "
-"agordojn aŭtomate. Se vi elektos aŭtomatan agordon kaj se la instalilo ne "
-"sukcesos funkciigi la  reton per tiu agordo, vi havos la oportunon agordi la "
-"reton permane."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:3001
 msgid "Domain name:"
-msgstr "Domajna nomo:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -73,17 +41,13 @@ msgid ""
 "If you are setting up a home network, you can make something up, but make "
 "sure you use the same domain name on all your computers."
 msgstr ""
-"La domajna nomo estas la dekstra parto de la interreta adreso de via sistemo-"
-"nomo. Ĝi ofte finiĝas per .com, .net, .edu aŭ .org. Se vi agordas vian "
-"hejman reton, vi povos uzi ian ajn nomon sed ĉiam uzu la saman nomon por "
-"ĉiuj komputiloj."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
 msgid "Name server addresses:"
-msgstr "Nomservilaj adresoj:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -96,18 +60,13 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
-"La nomserviloj estas uzataj por trovi aliajn sistemo-nomojn ĉeestantajn en "
-"la reto. Bonvolu tajpi iliajn 'IP'-adresojn (ne iliajn sistemo-nomojn); vi "
-"povas enskribi ĝis tri adresojn apartitajn per spacoj, nepre ne uzante "
-"komojn. La unua servilo de la listo, la unua provita. Se vi ne deziras uzi "
-"iun ajn nom-servilon, simple lasu tiun kampon malplena."
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:5001
 msgid "Primary network interface:"
-msgstr "Unuagrada ret-interfaco:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -118,9 +77,6 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
-"Via sistemo posedas multoblajn ret-interfacojn. Elektu tiun, kiun vi volas "
-"ĉefe uzi dum la instalado. Laŭ eble, la instalilo antaŭe elektis la unuan "
-"trovitan kaj konektitan ret-interfacon."
 
 #. Type: string
 #. Description
@@ -130,7 +86,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
-msgstr "Sendrata 'ESSID'-o por '${iface}'-o:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -141,16 +97,13 @@ msgid ""
 "of the wireless network you would like ${iface} to use. If you would like to "
 "use any available network, leave this field blank."
 msgstr ""
-"'${iface}' estas sendrata ret-interfaco. Bonvolu tajpi la nomon (ESSID) de "
-"la sendratan ret-interfacon, kiu estos uzita de '${iface}'-o. Se vi volos "
-"uzi  iun ajn disponigotan reton, lasu la kampon malplena."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
-msgstr "La serĉado de disponebla sendrata reto fiaskis."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -161,28 +114,25 @@ msgid ""
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
-"'${iface}' estas sendrata ret-interfaco. Bonvolu tajpi la nomon (ESSID) de "
-"la sendrata ret-interfaco, kiu estos uzata de '${iface}'. Por konekti al iu "
-"ajn disponigota reto, lasu la kampon malplena."
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WEP/Open Network"
-msgstr "WEP/Malferma Reto"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WPA/WPA2 PSK"
-msgstr "WPA/WPA2 PSK"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:8002
 msgid "Wireless network type for ${iface}:"
-msgstr "Tipo de sendrata reto por '${iface}'-o:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -192,16 +142,13 @@ msgid ""
 "Choose WEP/Open if the network is open or secured with WEP. Choose WPA/WPA2 "
 "if the network is protected with WPA/WPA2 PSK (Pre-Shared Key)."
 msgstr ""
-"Elektu WEP/Open se la reto estas malferma aŭ sekurigata per WEP. Elektu WPA/"
-"WPA2 se la reto estas protektata per WPA/WPA2 PSK (Pre-Shared Key, antaŭe "
-"disdonita ŝlosilo)."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:9001
 msgid "WEP key for wireless device ${iface}:"
-msgstr "Ĉifro-ŝlosilo 'WEP' por la sendrata aparato '${iface}':"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -211,8 +158,6 @@ msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
 msgstr ""
-"Laŭnecese, bonvolu tajpi la 'WEP'-sekuran ĉifroŝlosilon por la sendrata "
-"'${iface}'-aparato. Estas du manieroj fari tion:"
 
 #. Type: string
 #. Description
@@ -222,9 +167,6 @@ msgid ""
 "If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
-"Se via 'WEP'-ĉifroŝlosilo sekvas la strukturon 'nnnn-nnnn-nn', 'nn:nn:nn:nn:"
-"nn:nn:nn:nn', aŭ 'nnnnnnnn', kie 'n' estas numero, tajpu ĝin en la kampo "
-"simple tiel, kiel ĝi aperas."
 
 #. Type: string
 #. Description
@@ -234,8 +176,6 @@ msgid ""
 "If your WEP key is in the format of a passphrase, prefix it with "
 "'s:' (without quotes)."
 msgstr ""
-"Se via 'WEP'-ĉifroŝlosilo sekvas pasfrazan reĝimon, tajpu ĝin kun la "
-"prefikso's:' (sen la citiloj)."
 
 #. Type: string
 #. Description
@@ -245,15 +185,13 @@ msgid ""
 "Of course, if there is no WEP key for your wireless network, leave this "
 "field blank."
 msgstr ""
-"Kompreneble, se estas neniu ĉifro-ŝlosilo 'WEP' por via sendrata reto,  lasu "
-"la kampon malplena."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:10001
 msgid "Invalid WEP key"
-msgstr "Malvalida ĉifro-ŝlosilo 'WEP'"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -263,16 +201,13 @@ msgid ""
 "The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
 "next screen carefully on how to enter your WEP key correctly, and try again."
 msgstr ""
-"La 'WEP'-ĉifroŝlosilo '${wepkey}' estas malvalida. Bonvolu atente konsulti "
-"la sekvantan ekranon pri la maniero registri 'WEP'-ĉifroŝlosilon, kaj "
-"reprovu."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:11001
 msgid "Invalid passphrase"
-msgstr "Malvalida pasfrazo"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -282,15 +217,13 @@ msgid ""
 "The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
 "too short (less than 8 characters)."
 msgstr ""
-"La pasfrazo de WPA/WPA2 PS estis tro longa (pli ol 64 signoj) aŭ tro "
-"mallonga (malpli ol 8 signoj)."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
 msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
-msgstr "Pasfrazo 'WPA/WPA2' por la sendrata aparato '${iface}':"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -300,15 +233,13 @@ msgid ""
 "Enter the passphrase for WPA/WPA2 PSK authentication. This should be the "
 "passphrase defined for the wireless network you are trying to use."
 msgstr ""
-"Entajpu la pasfrazon por aŭtentigo de WPA/WPA2 PSK. Ĉi tio estu la pasfrazo "
-"difinita por la sendrata reto kiun vi provas ekuzi."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
-msgstr "Malvalida 'ESSID'"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -318,15 +249,13 @@ msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
 "characters, but may contain all kinds of characters."
 msgstr ""
-"Malvalidas la ESSID '${essid}'. La 'ESSID'-nomoj ne devas superi "
-"${max_essid_len} signojn, sed ili povas enhavi ĉiajn signojn."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:14001
 msgid "Attempting to exchange keys with the access point..."
-msgstr "Provado por interŝanĝi ŝlosilojn kun la retalir-punkto..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -336,21 +265,21 @@ msgstr "Provado por interŝanĝi ŝlosilojn kun la retalir-punkto..."
 #. :sl1:
 #: ../netcfg-common.templates:15001 ../netcfg-dhcp.templates:3001
 msgid "This may take some time."
-msgstr "Tio povas longtempe daŭri."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:16001
 msgid "WPA/WPA2 connection succeeded"
-msgstr "Konekto de WPA/WPA2 sukcesis"
+msgstr ""
 
 #. Type: note
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:17001
 msgid "Failure of key exchange and association"
-msgstr "Interŝanĝo kaj asociado de ŝlosilo fiaskis"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -360,22 +289,20 @@ msgid ""
 "The exchange of keys and association with the access point failed. Please "
 "check the WPA/WPA2 parameters you provided."
 msgstr ""
-"La interŝanĝo de ŝlosiloj kaj asociado kun la retalir-punkto fiaskis. "
-"Bonvolu kontroli la parametrojn de WPA/WPA2 kiujn vi provizis."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Hostname:"
-msgstr "Gastnomo:"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Please enter the hostname for this system."
-msgstr "Bonvolu tajpi la gastnomon por tiu ĉi sistemo."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -387,23 +314,20 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
-"La gastnomo estas unuopa vorto kiu identigas vian sistemon en la reto. Se vi "
-"ne konas vian gastnomon, konsultu vian retan administranton. Se vi agordas "
-"vian hejman reton, vi povos uzi iajn ajn unikajn nomojn."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
-msgstr "Malvalida gastnomo"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
-msgstr "La nomo \"${hostname}\" estas malvalida."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -415,17 +339,13 @@ msgid ""
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
-"Valida gastnomo povas enhavi nur la ciferojn 0-9, la majusklajn kaj "
-"minusklajn literojn (a-z kaj A-Z), kaj la minusan signon. Ĝi devas enhavi "
-"maksimume ${maxhostnamelen} signojn, kaj ĝi ne povas komenciĝi aŭ finiĝi per "
-"la minusa signo."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:21001
 msgid "Error"
-msgstr "Eraro"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -435,15 +355,13 @@ msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
 msgstr ""
-"Eraro okazis. La reta akomodprocezo abortis. Vi povas reprovi ĝin el la "
-"instalada ĉefmenuo."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
-msgstr "Neniu detektita reta interfaco"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -453,8 +371,6 @@ msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
 msgstr ""
-"Neniu reta interfaco estis trovita. La instalilo ne kapablis trovi retan "
-"interfacon."
 
 #. Type: error
 #. Description
@@ -464,8 +380,6 @@ msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
 msgstr ""
-"Vi bezonos ŝargi je specifa modulo por via reta karto, se vi havas iun. Por "
-"tio, retroiru al la paŝo por detektado de retaparataro."
 
 #. Type: note
 #. Description
@@ -474,7 +388,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
-msgstr "'Kill switch' estas ebligita por ${iface}"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -487,8 +401,6 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
-"${iface} ŝajne estas malebligita de ŝaltilo \"kill switch\". Se vi intencas "
-"uzi tiun ĉi interfacon, bonvolu malaktivigi ĝin antaŭ ol daŭrigi."
 
 #. Type: select
 #. Choices
@@ -500,7 +412,7 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
-msgstr "Mastrumata ('Managed') reto"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -512,13 +424,13 @@ msgstr "Mastrumata ('Managed') reto"
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
-msgstr "Alcela reto ('Peer to peer')"
+msgstr ""
 
 #. Type: select
 #. Description
 #: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
-msgstr "Tipo de sendrata reto:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -528,135 +440,131 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
-"Sendrataj retoj funkcias laŭ la mastrumata reĝimon ('Managed') aŭ alcela "
-"reĝimo ('Peer to peer'). Se vi uzas retenirejon, via reto iras laŭ "
-"mastrumatan reĝimon. Se alia komputilo servas kiel retenirejon, via reto "
-"iras laŭ alcela modo."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
-msgstr "Akomodado de la sendrata reto"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
-msgstr "Serĉado de sendratajn retalir-punktojn..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
-msgstr "Detektado de ligo en ${interface}, bonvolu atendi..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:30001
 msgid "<none>"
-msgstr "<nenio>"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
-msgstr "Sendrata Eterreto (802.11x)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:32001
 msgid "wireless"
-msgstr "sendrata"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:33001
 msgid "Ethernet"
-msgstr "Eterreto"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:34001
 msgid "Token Ring"
-msgstr "Stafet-ringo"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:35001
 msgid "USB net"
-msgstr "USB-reto"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
-msgstr "Seri-linea IP"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
-msgstr "Paralel-porda IP"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
-msgstr "Punkt-al-Punkta Protokolo"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
-msgstr "IPv6-en-IPv4"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
-msgstr "'ISDN'-a Punkt-al-Punkta Protokolo"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
-msgstr "Kanal-al-Kanalo"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
-msgstr "Reala Kanal-al-Kanalo"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
-msgstr "Porinteruzanta komukik-vehiklo"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:46001
 msgid "Unknown interface"
-msgstr "Nekonata interfaco"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -664,7 +572,7 @@ msgstr "Nekonata interfaco"
 #. :sl1:
 #: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
-msgstr "Registrado de retaj agordoj..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -672,14 +580,14 @@ msgstr "Registrado de retaj agordoj..."
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr "Agordi la reton"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
-msgstr "Atendada tempo (en sekundoj) por detekto de konekto:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -689,15 +597,13 @@ msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
 msgstr ""
-"Bonvolu tajpi la maksimuman tempon kiun vi dezirus atendi por detekto de ret-"
-"konekto."
 
 #. Type: error
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
-msgstr "Malvalida atendada tempo por detekto de ret-konekto"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -707,8 +613,6 @@ msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
 msgstr ""
-"La valoro kiun vi indikis ne estas valida. La maksimuma atendada tempo (en "
-"sekundoj) por detekto de ret-konekto devas esti pozitiva entjero."
 
 #. Type: select
 #. Choices
@@ -716,28 +620,28 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
-msgstr "${essid_list} Enigi ESSID vi mem"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Wireless network:"
-msgstr "Sendrata reto:"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
-msgstr "Elektu la sendratan reton uzotan dum la instalprocezo."
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "DHCP hostname:"
-msgstr "'DHCP'-gastnomo:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -747,36 +651,34 @@ msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
 msgstr ""
-"Vi eble bezonas provizi 'DHCP'-gastnomon. Se vi uzas kablo-modemon, vi "
-"bezonos aldoni kont-numeron."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "Most other users can just leave this blank."
-msgstr "Plejparto de ceteraj uzantoj povas lasi ĉi tion malplena."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr "Akomodado de la reto per 'DHCP'-servilo"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr "La reta mem-akomodado sukcesis"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client found"
-msgstr "Neniu trovita 'DHCP'-kliento"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -784,15 +686,13 @@ msgstr "Neniu trovita 'DHCP'-kliento"
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
 msgstr ""
-"Neniu 'DHCP'-kliento estis trovita. Tiu ĉi pakaĵo postulas klienton 'pump' "
-"aŭ 'dhcp-client'."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "The DHCP configuration process has been aborted."
-msgstr "La procezo por akomodado de 'DHCP' estis abortita."
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -802,7 +702,7 @@ msgstr "La procezo por akomodado de 'DHCP' estis abortita."
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration"
-msgstr "Reprovu la retan mem-akomodadon"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -812,7 +712,7 @@ msgstr "Reprovu la retan mem-akomodadon"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
-msgstr "Reprovu la retan mem-akomodadon per 'DHCP'-gastnomo"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -822,7 +722,7 @@ msgstr "Reprovu la retan mem-akomodadon per 'DHCP'-gastnomo"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr "Akomodu vi mem la reton"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -832,16 +732,15 @@ msgstr "Akomodu vi mem la reton"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr "Ne akomodu la reton nun"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:6002
 msgid "Network configuration method:"
-msgstr "Akomoda metodo de la reto:"
+msgstr ""
 
-# serge: revidu la tradukon.
 #. Type: select
 #. Description
 #. :sl1:
@@ -853,17 +752,13 @@ msgid ""
 "by the client, so you can also choose to retry DHCP network "
 "autoconfiguration with a hostname that you provide."
 msgstr ""
-"De ĉi tie vi povas elekti reprovi la 'DHCP'-memakomodadon (eble sukcesos se "
-"via 'DHCP'-servilo malfrue respondas) aŭ vi mem akomodi la reton. Kelkaj "
-"'DHCP'-serviloj bezonas 'DHCP'-gastnomon sendota de la kliento, do vi povas  "
-"reprovi mem-akomodadon uzante gastnomon, kiun vi provizu."
 
 #. Type: note
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:7001
 msgid "Network autoconfiguration failed"
-msgstr "La reta mem-akomodado malsukcesis"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -873,15 +768,13 @@ msgid ""
 "Your network is probably not using the DHCP protocol. Alternatively, the "
 "DHCP server may be slow or some network hardware is not working properly."
 msgstr ""
-"Verŝajne via reto ne uzas la protokolon 'DHCP'. Aŭ eble la 'DHCP'-servilo "
-"malrapidas aŭ kelkaj retaj aparatoj misfunkcias."
 
 #. Type: boolean
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
 msgid "Continue without a default route?"
-msgstr "Ĉu daŭrigi sen implicita irvojo?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -894,10 +787,6 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
-"La reta memakomodado sukcesis. Tamen, ne implicita irvojo estis difinita: la "
-"sistemo ne scias kiel komuniki kun aliaj komputilojn en Interreto. Tio "
-"malebligos la instaladon, krom se vi havas la oficialan unuan Debianan "
-"lumdiskon, 'Netinst'-lumdiskon, aŭ disponeblajn pakaĵojn en la loka reto."
 
 #. Type: boolean
 #. Description
@@ -907,15 +796,13 @@ msgid ""
 "If you are unsure, you should not continue without a default route: contact "
 "your local network administrator about this problem."
 msgstr ""
-"Se vi hezitas, ne daŭrigu sen implicita irvojo kaj kontaktu vian lokan retan "
-"administranton pri ĉi tiu problemo."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:9001
 msgid "Reconfigure the wireless network"
-msgstr "Reakomodu la sendratan reton"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -927,7 +814,7 @@ msgstr "Reakomodu la sendratan reton"
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "Provo aŭtomade agordi IPv6..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -935,14 +822,14 @@ msgstr "Provo aŭtomade agordi IPv6..."
 #. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr "Atendado de adreso 'ligo-loko'..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
 msgid "Configuring the network with DHCPv6"
-msgstr "Akomodado de la reto per DHCPv6"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -950,7 +837,7 @@ msgstr "Akomodado de la reto per DHCPv6"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr "IP-adreso:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -958,7 +845,7 @@ msgstr "IP-adreso:"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr "La IP-adreso estas unika por via komputilo kaj povas esti:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -969,8 +856,6 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
-" * kvar numeroj apartitaj per punktoj (IPv4);\n"
-" * blokoj de deksesumaj signoj apartitaj per dupunktoj (IPv6)."
 
 #. Type: string
 #. Description
@@ -978,7 +863,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr "Vi povas ankaŭ laŭvole postmeti retmaskon CIDR (kiel ekz. \"/24\")."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -986,7 +871,7 @@ msgstr "Vi povas ankaŭ laŭvole postmeti retmaskon CIDR (kiel ekz. \"/24\")."
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "If you don't know what to use here, consult your network administrator."
-msgstr "Se vi ne scias kion uzi ĉi tie, konsultu vian ret-administranton."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -994,7 +879,7 @@ msgstr "Se vi ne scias kion uzi ĉi tie, konsultu vian ret-administranton."
 #. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "Misformita IP-adreso"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1007,16 +892,13 @@ msgid ""
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"Vi donis misformitan IP-adreson. Ĝia strukturo devas esti 'x.x.x.x', kie ĉiu "
-"'x' ne estu pli granda ol 255 (adreso IPv4), aŭ vico da blokoj el deksesumaj "
-"ciferoj apartitaj per dupunktoj (adreso IPv6). Bonvolu reprovi."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:3001
 msgid "Point-to-point address:"
-msgstr "Punkt-al-punkta adreso:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1028,16 +910,13 @@ msgid ""
 "know the value.  The point-to-point address should be entered as four "
 "numbers separated by periods."
 msgstr ""
-"La punkt-al-punkta adreso estas uzita por trovi la retan fin-punkton. Se vi "
-"ne scias kion tajpi, konsultu vian retan administranton. La punkt-al-punkta "
-"adreso devas esti enmetita per kvar numeroj, apartitaj per punktoj."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:4001
 msgid "Netmask:"
-msgstr "Retmasko:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1048,16 +927,13 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
-"La retmasko estas uzata por defini lokajn retsistemojn. Se vi ne scias kion "
-"tajpi, konsultu vian retan administranton. La retmasko oni enmetu kiel kvar "
-"numerojn apartigitajn per punktoj."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:5001
 msgid "Gateway:"
-msgstr "Kluzo:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1071,26 +947,20 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
-"La kluzo estas 'IP'-adreso (kvar numeroj apartigitaj per punktoj) kiu "
-"indikas la enkursigilan sistemon; ĝia sistemo ankaŭ nomiĝas la implicita "
-"kurso. La tuta eliranta rettrafiko (ekzemple, al interreto) trairas ĝin. "
-"Okaze de kelkaj maloftaj cirkonstancoj, vi ne bezonas enkursigilon. Tiuokaze "
-"malplenigu ĉi tiun kampon. Se vi ne scias kion tajpi, konsultu vian retan "
-"administranton."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "Unreachable gateway"
-msgstr "Malalirebla kluzo"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "The gateway address you entered is unreachable."
-msgstr "La indikita kluzo ne estas alirebla."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1098,7 +968,7 @@ msgstr "La indikita kluzo ne estas alirebla."
 #: ../netcfg-static.templates:6001
 msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
-msgstr "Vi erare tajpis vian IP-adreson, retmaskon kaj/aŭ kluzon."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1106,7 +976,7 @@ msgstr "Vi erare tajpis vian IP-adreson, retmaskon kaj/aŭ kluzon."
 #. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr "IPv6 ne estas subtenata por ligoj 'punkto-al-punkto'"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1117,22 +987,20 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
-"Adresoj IPv6 ne povas esti agordataj por ligoj 'punkto-al-punkto'. Bonvolu "
-"uzi adresojn IPv4, aŭ retroiru kaj elektu malsaman retinterfacon."
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
-msgstr "Ĉu tiu ĉi informo estas korekta?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
-msgstr "Aktualaj akomoditaj parametroj de la reto:"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1146,12 +1014,6 @@ msgid ""
 " pointopoint   = ${pointopoint}\n"
 " nameservers   = ${nameservers}"
 msgstr ""
-" interfaco         = ${interface}\n"
-" 'IP'-adreso       = ${ipaddress}\n"
-" retmasko          = ${netmask}\n"
-" kluzo             = ${gateway}\n"
-" punkto-al-punkto  = ${pointopoint}\n"
-" nomserviloj       = ${nameservers}"
 
 #. Type: text
 #. Description
@@ -1159,4 +1021,4 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
-msgstr "Memakomodu la reton per statika adresado"
+msgstr ""

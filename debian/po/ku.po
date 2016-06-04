@@ -3,40 +3,13 @@
 #
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
-# translation of ku.po to Kurdish
-# Kurdish messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
-# Rizoyê Xerzî <riza dot seckin at gmail dot com>
-# Erdal Ronahi <erdal dot ronahi at gmail dot com>, 2008.
-# Erdal <erdal.ronahi@gmail.com>, 2010.
-# Erdal Ronahî <erdal.ronahi@gmail.com>, 2010.
-#
-# Translations from iso-codes:
-#   Erdal Ronahi <erdal.ronahi@gmail.com>, 2005.
-# Erdal Ronahi <erdal dot ronahi at gmail dot com>, 2007.
-msgid ""
-msgstr ""
-"Project-Id-Version: ku\n"
-"Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2010-08-16 00:19+0200\n"
-"Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
-"Language-Team: Kurdish Team http://pckurd.net\n"
-"Language: ku\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!= 1);\n"
-
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid "Auto-configure networking?"
-msgstr "Torê Saz bike"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -56,7 +29,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:3001
 msgid "Domain name:"
-msgstr "Navê domainê:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -68,17 +41,13 @@ msgid ""
 "If you are setting up a home network, you can make something up, but make "
 "sure you use the same domain name on all your computers."
 msgstr ""
-"Navê qadê, beşeke navnîşana înterneta te ye û aliyê rastê ye navê makîneyê "
-"tê nivîsîn.  Ev nav piranî .bi awayê com, .net yan jî .org diqede.  Heke tu "
-"tora malê mîheng dike tu dikarî navekî ji rêzê jî hilbijêrî; lê pê bawer bî "
-"bê ka te di hemû makîneyan de heman nav bikar aniye yan na."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
 msgid "Name server addresses:"
-msgstr "Navnîşana pêşkêşkera navan:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -91,19 +60,13 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
-"Pêşkêşkerên navê qadê ji bo dîtina navên makîneyên ku li ser torê tê "
-"bikaranîn. Ji kerema xwe re herî zêde 3 navnîşanên IPên pêşkêşkerên navên "
-"qadê (ne navên makîneyan) bi awayê ku di navbera wan de valahî hebe "
-"binivîse. Bêhnokê bikar nîne. Navnîşana yekemîn ya di lîsteyê de, pêşkêşkera "
-"yekem wê were lêpirsîn e. Heke tu naxwazî pêşkêşkereke navê qadê bikar bîne "
-"vê qadê vala bihêle."
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:5001
 msgid "Primary network interface:"
-msgstr "Xweruya yekemîn a torê:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -114,10 +77,6 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
-"Di pergala te de gelek dirûvên navberê yên torê hene. Di dema sazkirinê de "
-"ji bo dirûvê navberê yekî ji nav van tiştan hilbijêrî. Heke ev tişt gengaz "
-"be, dirûvê navîn yên pêşîn heke girêdan pê re pêk hatibe nexwe hatiye "
-"hilbijartin."
 
 #. Type: string
 #. Description
@@ -127,7 +86,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
-msgstr "ESSID bêtel (wireless) ji bo ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -138,9 +97,6 @@ msgid ""
 "of the wireless network you would like ${iface} to use. If you would like to "
 "use any available network, leave this field blank."
 msgstr ""
-"${iface} dirûvekî navberê ya tora bêqablo ye. Ji kerema xwe re li ser "
-"${iface}navê tora bêqablo (ESSID) ya tu dixwazî bikar bîne binivîse. Heke tu "
-"dixwazî ji torên heyî yekê hilbijêrî û bikar bîne vê qadê vala bihêle."
 
 #. Type: string
 #. Description
@@ -153,15 +109,11 @@ msgstr ""
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
-#, fuzzy
 msgid ""
 "${iface} is a wireless network interface. Please enter the name (the ESSID) "
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
-"${iface} dirûvekî navberê ya tora bêqablo ye. Ji kerema xwe re li ser "
-"${iface}navê tora bêqablo (ESSID) ya tu dixwazî bikar bîne binivîse. Heke tu "
-"dixwazî ji torên heyî yekê hilbijêrî û bikar bîne vê qadê vala bihêle."
 
 #. Type: select
 #. Choices
@@ -179,9 +131,8 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:8002
-#, fuzzy
 msgid "Wireless network type for ${iface}:"
-msgstr "ESSID bêtel (wireless) ji bo ${iface}:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -197,7 +148,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:9001
 msgid "WEP key for wireless device ${iface}:"
-msgstr "Mifteya WEP ji bo amûra bêtel (wireless) ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -207,8 +158,6 @@ msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
 msgstr ""
-"Ji bo cîhaza ${iface} ya bêqablo mifteya ewlekariya WEPê ya hatiye danasîn "
-"hebe ji kerema xwe re vê mifteyê têkevê. Du heb riyên wê hene:"
 
 #. Type: string
 #. Description
@@ -218,8 +167,6 @@ msgid ""
 "If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
-"Mifteya te ya WEPe, n bila reqemek be, 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:"
-"nn' yan jî wekî 'nnnnnnnn' be mifteyê rasterast li vê qadê binivîse."
 
 #. Type: string
 #. Description
@@ -229,8 +176,6 @@ msgid ""
 "If your WEP key is in the format of a passphrase, prefix it with "
 "'s:' (without quotes)."
 msgstr ""
-"Mifteya te ya WEPê wekî şîfreyeke derbasbûnê be 's:' li pêşiya wê binivîse "
-"(nişaneyên jibergirtinê bikar nîne)."
 
 #. Type: string
 #. Description
@@ -240,15 +185,13 @@ msgid ""
 "Of course, if there is no WEP key for your wireless network, leave this "
 "field blank."
 msgstr ""
-"Heke ji bo tora bêqablo tu mifteya WEPê nehatibe danasîn, bi awayekî xwezayî "
-"tu yê vê qadê vala bihêlî."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:10001
 msgid "Invalid WEP key"
-msgstr "Mifteya WEP a nederbasdar"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -258,16 +201,13 @@ msgid ""
 "The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
 "next screen carefully on how to enter your WEP key correctly, and try again."
 msgstr ""
-"Mifteya WEPê ya '${wepkey}' nederbasdar e. Ji kerema xwe re di dîmendereke "
-"din de talîmatên rast-têketina mifteyên WEPê bixwîne û dîsa biceribîne."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:11001
-#, fuzzy
 msgid "Invalid passphrase"
-msgstr "Navê bikarhêner ê nederbasdar"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -282,9 +222,8 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
-#, fuzzy
 msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
-msgstr "Mifteya WEP ji bo amûra bêtel (wireless) ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -299,9 +238,8 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
-#, fuzzy
 msgid "Invalid ESSID"
-msgstr "Mifteya WEP a nederbasdar"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -327,7 +265,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:15001 ../netcfg-dhcp.templates:3001
 msgid "This may take some time."
-msgstr "Dibe ku ev hinekî dem dixwaze."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -357,14 +295,14 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Hostname:"
-msgstr "Navê hostê:"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Please enter the hostname for this system."
-msgstr "Ji kerema xwe re navê host yê vê pergalê binivîse."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -376,46 +314,38 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
-"Navê makîneyê, tenê ji peyvekê pêk tê û ev peyv we bi torê re dide nasîn. "
-"Heke tu nizanî navê makîneya te çi ye serî li rêveberê xwe yê pergalê bide. "
-"Heke tu tora xwe ya malê saz dike tu dikarî navekî asayî bikar bîne."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
-msgstr "Navê hostê nederbasdar e"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
-msgstr "Navê \"${hostname}\" ne derbasdar e."
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
-#, fuzzy
 msgid ""
 "A valid hostname may contain only the numbers 0-9, upper and lowercase "
 "letters (A-Z and a-z), and the minus sign. It must be at most "
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
-"Navê makîneya derbasdar de, tenê reqemên di navbera 0-9, tîpên hûr yên di "
-"navbera a-z de û nîşaneya kêmekê ('-') bihundirîne, divê dirêjbûna wê di "
-"navbera 2 û 63 karakteran de be, ne li pêşiya wê û ne jî li paşiya wê "
-"nîşaneya kêmekê tunebe."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:21001
 msgid "Error"
-msgstr "Çewtî"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -425,15 +355,13 @@ msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
 msgstr ""
-"Çewtiyek derket û veavakirina toreyê hate betalkirin. Vegerî pêşeka mak ya "
-"sazkirinê û dîsa biceribîne."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
-msgstr "Xweruya torê nehat dîtin"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -443,8 +371,6 @@ msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
 msgstr ""
-"Tu dirûvê navîn yên torê nehate dîtin. Pergala sazkirinê tu cîhaza torê "
-"nedît."
 
 #. Type: error
 #. Description
@@ -454,8 +380,6 @@ msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
 msgstr ""
-"Heke karteke te ya torê hebe dibe ku hewce be tu moduleke kakil bar bike. Ji "
-"bo ku tu karibî vî tiştî bike biçe cihê ku reqalava torê hate nasîn."
 
 #. Type: note
 #. Description
@@ -464,7 +388,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
-msgstr "Mifteya Rawestandinê ya li ser ${iface} hate çalakkirin"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -477,9 +401,6 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
-"${iface} bi \"Mifteya Rawestandinê\" (\"Kill Switch\") ya fîzîkî hatiye "
-"bêbandorkirin. Heke te tu bixwazî vî navrûyê bi kar bînî, berî tu bidomînî "
-"ji kerema xwe re mifteyê veke."
 
 #. Type: select
 #. Choices
@@ -491,7 +412,7 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
-msgstr "Tora bi plan"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -503,13 +424,13 @@ msgstr "Tora bi plan"
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
-msgstr "Tora bê plan"
+msgstr ""
 
 #. Type: select
 #. Description
 #: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
-msgstr "Cureyê tora wireless (bêtel):"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -519,136 +440,131 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
-"Torên bêqablo bi plan yanî managed yan jî bê plan an jî ad-hoc tê "
-"binavkirin. Heke xala te ya gihiştinê tiştekî rast be, ev toreke bi plan an "
-"Managed e. Lê heke 'xala te ya gihiştinê' kompîtureke din be dibe ku tora te "
-"bê plan an Ad-hoc e."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
-msgstr "Sazkirina tora wireless (bêtel)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
-msgstr "Li xalên gihiştinê yên bêqablo digere..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../netcfg-common.templates:29001
-#, fuzzy
 msgid "Detecting link on ${interface}; please wait..."
-msgstr "Hardware tê tesbîtkirin, ji kerema xwe re bisekine..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:30001
 msgid "<none>"
-msgstr "<none>"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
-msgstr "Wireless ethernet (802.11x)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:32001
 msgid "wireless"
-msgstr "wireless (bêtel)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:33001
 msgid "Ethernet"
-msgstr "Ethernet"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:34001
 msgid "Token Ring"
-msgstr "Token Ring"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:35001
 msgid "USB net"
-msgstr "Tora USB"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
-msgstr "Serial-line IP"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
-msgstr "Parallel-port IP"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
-msgstr "Protokola Point-to-Point"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
-msgstr "IPv6-in-IPv4"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
-msgstr "Protokola Point-to-Point a ISDN"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
-msgstr "Kanal-kanal"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
-msgstr "Kanala rast-kanal"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
-msgstr "Li girêdanên navbera bikarhêneran digere"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:46001
 msgid "Unknown interface"
-msgstr "Xweruya nenas"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -656,7 +572,7 @@ msgstr "Xweruya nenas"
 #. :sl1:
 #: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
-msgstr "Mîhengên torê tên tomar kirin..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -664,7 +580,7 @@ msgstr "Mîhengên torê tên tomar kirin..."
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr "Torê Saz bike"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -677,12 +593,10 @@ msgstr ""
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:50001
-#, fuzzy
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
 msgstr ""
-"Ji kerema xwe re ji bo cîltên aqilane yên wê werine avakirin navekî binivîse."
 
 #. Type: error
 #. Description
@@ -712,24 +626,22 @@ msgstr ""
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
-#, fuzzy
 msgid "Wireless network:"
-msgstr "Cureyê tora wireless (bêtel):"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
-#, fuzzy
 msgid "Select the wireless network to use during the installation process."
-msgstr "Gava piştre ya pêvajoya sazkirinê hilbijêre:"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "DHCP hostname:"
-msgstr "Navê mêvandarê ya DHCP:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -739,36 +651,34 @@ msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
 msgstr ""
-"Dibe ku pêwist be tu navê makîneyeke DHCP bide. Heke tu modemeke bi qablo "
-"bikar tîne dibe ku di vê merhaleyê de tu navê hesabekî bikarhêner bide."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "Most other users can just leave this blank."
-msgstr "Ji bo piraniya bikarhêneran ev dikare vala bimîne."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr "Tor bi DHCP tê veavakirin"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr "Sazkirina bixweser serkeft"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client found"
-msgstr "Mişteriyê DHCP (client) nehat dîtin"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -776,15 +686,13 @@ msgstr "Mişteriyê DHCP (client) nehat dîtin"
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
 msgstr ""
-"Mişteriyê DHCP (client) nehat dîtin. Ji bo vê paketê pump an dhcp-client "
-"pêwîst in."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "The DHCP configuration process has been aborted."
-msgstr "Pêvajoya veavakirina DHCP hatiye betalkirin."
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -794,7 +702,7 @@ msgstr "Pêvajoya veavakirina DHCP hatiye betalkirin."
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration"
-msgstr "Sazkrina bixweser a torê ji nû ve biceribîne"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -804,7 +712,7 @@ msgstr "Sazkrina bixweser a torê ji nû ve biceribîne"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
-msgstr "Sazkirina torê ya bixweser bi navê hostê yê DHCP ji nû ve biceribîne"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -814,7 +722,7 @@ msgstr "Sazkirina torê ya bixweser bi navê hostê yê DHCP ji nû ve biceribî
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr "Torê bi destê xwe saz bike"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -824,14 +732,14 @@ msgstr "Torê bi destê xwe saz bike"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr "Torê niha saz neke"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:6002
 msgid "Network configuration method:"
-msgstr "Metoda sazkirina torê:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -844,18 +752,13 @@ msgid ""
 "by the client, so you can also choose to retry DHCP network "
 "autoconfiguration with a hostname that you provide."
 msgstr ""
-"Ji vir tu dikarî ji nû toreya DHCP biceribînî bi mîhengkirineke jixweber "
-"(dibe ku bi vî rengî biser bikeve). an jî dikarî torê bi destan mîheng bikî. "
-"Hinek xizmetkarên DHCP hewcedariya wan bi naskirina koda navê DHCP heye. "
-"lewra tu dikarî toreya DHCP biceribînî bi mîhengkirineke jixweber bi navê ku "
-"te pêşkêşkiriye."
 
 #. Type: note
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:7001
 msgid "Network autoconfiguration failed"
-msgstr "Sazkirina bixweser a torê serneket"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -865,15 +768,13 @@ msgid ""
 "Your network is probably not using the DHCP protocol. Alternatively, the "
 "DHCP server may be slow or some network hardware is not working properly."
 msgstr ""
-"Wer xuyaye ku tora te protokola DHCP bikar nîne. Hêdîmeşîna pêşkêşkera DHCP "
-"û rastnexebitîna reqalavên torê jî di nava îhtîmalan de ye."
 
 #. Type: boolean
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
 msgid "Continue without a default route?"
-msgstr "Bêyî ku alîkereke standard hebe bila were berdewamkirin?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -886,11 +787,6 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
-"Veavakirina tora bixweber bi awayekî serkeftî hate encamkirin. Lê belê, "
-"route ya standard nehat diyarkirin: pergal nikare bi mêvandarên înternetê re "
-"ragihandinekê biafirîne. Bi vî rengî nikarî sazkirinê bidomîn. Ev çare hene: "
-"gel te CD-ROM a sazkirina destpêkê an CD-ROM a 'Netinst' hebe an jî di tora "
-"herêmî de pakêt hebin. "
 
 #. Type: boolean
 #. Description
@@ -900,15 +796,13 @@ msgid ""
 "If you are unsure, you should not continue without a default route: contact "
 "your local network administrator about this problem."
 msgstr ""
-"Heke tu bi xwe ne bawer be bêyî ku alîkereke standard hebe divê tu sazkirinê "
-"nedomîne. Têkildarî vê pirsgirêkê bi rêveberê xwe yê torê re têkeve têkiliyê."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:9001
 msgid "Reconfigure the wireless network"
-msgstr "Tora wireless (bêtel) ji nû ve saz bike"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -919,9 +813,8 @@ msgstr "Tora wireless (bêtel) ji nû ve saz bike"
 #. IPv6
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
-#, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "Sazkirina yaboot diafirîne"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -935,9 +828,8 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
-#, fuzzy
 msgid "Configuring the network with DHCPv6"
-msgstr "Tor bi DHCP tê veavakirin"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -978,11 +870,8 @@ msgstr ""
 #. IPv6
 #. :sl1:
 #: ../netcfg-static.templates:1001
-#, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr ""
-"Heke tu nizanibî çi têxê , Bi belgekirinên xwe bişêwire, an jî vala bihêle "
-"da tu modelê danexînî."
 
 #. Type: error
 #. Description
@@ -1009,7 +898,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-static.templates:3001
 msgid "Point-to-point address:"
-msgstr "Navnîşana point-to-point:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1021,17 +910,13 @@ msgid ""
 "know the value.  The point-to-point address should be entered as four "
 "numbers separated by periods."
 msgstr ""
-"Ji bo ji xalekê ta xala din navnîşan, ji xalekê ta xala din seriyê din ê "
-"torê belî bibe tê bikaranîn.  Heke tu nizanî tê çi nirxî binivîsî, serî li "
-"rêveberê xwe yê pergalê bide.  Navnîşan ji xalekê ta xala din ji çar "
-"hejmaran pêk tê ku bi valahiyan ji hev hatine veqetandin."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:4001
 msgid "Netmask:"
-msgstr "Rûpûşa torê:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1042,16 +927,13 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
-"Rûpoşa torê diyar dike bê ka kîjan makîne di hundirê tora herêmî de ye.  "
-"Heke tu nirxa pêwist nizane serî li rêveberê xwe yê pergalê bide.  Divê "
-"rûpoşa torê ji çar reqemên ku di navbera wan de valahî hebe pêk bê."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:5001
 msgid "Gateway:"
-msgstr "Gateway:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1065,25 +947,20 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
-"Dergeh navnîşana IP (çar hejmarin ku bi xalan tên veqetandin) ku rêbere "
-"dergehê nîşandidin, wekî rêberê texmînkirî jî tê binavkirin.  Hemû trafîka "
-"ku derdikeve derve LANa te (wekî mînak, diçe înternetê) ji nava vê router'ê "
-"dê were şandin.  Carna, router'a te tune; vê carê, vê vala bihêle.  Bersiva "
-"vê pirsê nizanibî, ji rêveberê tora xwe bipirse."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "Unreachable gateway"
-msgstr "Gateway nayê gihandin"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "The gateway address you entered is unreachable."
-msgstr "Navîşana gateway ya ku te nivîsand nayê gihandin."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1092,8 +969,6 @@ msgstr "Navîşana gateway ya ku te nivîsand nayê gihandin."
 msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
 msgstr ""
-"Dibe ku dema te navnîşana IPê, rûpoşa torê û/ yan jî derbasoka torê "
-"nivîsandiye te çewtî kiriye."
 
 #. Type: error
 #. Description
@@ -1118,14 +993,14 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
-msgstr "Ev agahî rast e?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
-msgstr "Parametreyên veavakirina toreya vêga:"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1139,12 +1014,6 @@ msgid ""
 " pointopoint   = ${pointopoint}\n"
 " nameservers   = ${nameservers}"
 msgstr ""
-" interface     = ${interface}\n"
-" ipaddress     = ${ipaddress}\n"
-" netmask       = ${netmask}\n"
-" gateway       = ${gateway}\n"
-" pointopoint   = ${pointopoint}\n"
-" nameservers   = ${nameservers}"
 
 #. Type: text
 #. Description
@@ -1152,4 +1021,4 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
-msgstr "Toreyê bi navnîşankirina statîk veava bike"
+msgstr ""

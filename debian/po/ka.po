@@ -3,45 +3,13 @@
 #
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
-# Georgian messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
-#
-# Aiet Kolkhi <aietkolkhi@gmail.com>, 2005, 2006, 2007, 2008.
-#
-# This file is maintained by Aiet Kolkhi <aietkolkhi@gmail.com>
-#
-# Includes contributions by Malkhaz Barkalaza <malxaz@gmail.com>,
-# Alexander Didebulidze <didebuli@in.tum.de>, Vladimer Sichinava <vlsichinava@gmail.com>
-# Taya Kharitonashvili <taya13@gmail.com>, Gia Shervashidze - www.gia.ge
-#
-#
-# Translations from iso-codes:
-#   Alastair McKinstry <mckinstry@debian.org>, 2004.
-#   Aiet Kolkhi <aietkolkhi@gmail.com>, 2008.
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: debian-installer.2006071\n"
-"Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2011-03-01 12:49+0400\n"
-"Last-Translator: Aiet Kolkhi <aietkolkhi@gmail.com>\n"
-"Language-Team: Georgian\n"
-"Language: ka\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
-
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
-#, fuzzy
 msgid "Auto-configure networking?"
-msgstr "ქსელის კონფიგურაცია"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -61,7 +29,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:3001
 msgid "Domain name:"
-msgstr "დომეინის სახელი:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -73,18 +41,13 @@ msgid ""
 "If you are setting up a home network, you can make something up, but make "
 "sure you use the same domain name on all your computers."
 msgstr ""
-"დომენის სახელი თქვენი ინტერნეტის მისამართის ნაწილია, რომელიც სერვერის "
-"ნაწილის მარჯვნივ არის მოთავსებული.  ხშირად მისი დაბოლოებებია .com, .net, ."
-"edu, ან .org.  თუ თქვენ საშინაო ქსელს აყენებთ, შეგიძლიათ რაიმე დომენი "
-"მოიფიქროთ, თუმცა ამ ქსელზე მიერთებულ კომპიუტერებზე ყველგან ეს დომენი უნდა "
-"იქნეს მითითებული."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
 msgid "Name server addresses:"
-msgstr "სახელების სერვერის მისამართები:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -97,18 +60,13 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
-"name server-ები ქსელში სერვერის სახელების მოსაძიებლად გამოიყენება. გთხოვთ "
-"შეიყვანოთ name server-ეს IP-მისამართები (და არა სერვერის სახელები), მაქს. "
-"სამი name server-ის. შენატანი შორისებით გამოყავით. არ გამოიყენოთ მძიმეები. "
-"მოთხოვნა პირველად სიაში მყოფი პირველი name server-ს გაეგზავნება. თუ არ გსურთ "
-"name server-ის გამოყენება, ეს ველი ცარიელი დატოვეთ."
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:5001
 msgid "Primary network interface:"
-msgstr "ძირითადი ქსელური ინტერფეისი:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -119,9 +77,6 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
-"თქვენ სისტემას ქსელის რამდენიმე ინტერფეისი გააჩნია. ამოირჩიეთ ინსტააციის "
-"დროს გამოსაყენებელი მთავარი ქსელის ინტერფეისი. შესაძლებლობის შემთხვევაში, "
-"ნაპოვნი ქსელის ინტერფეისებიდან პირველი შეერთებული ინტერფეისი იქნა ამორჩეული."
 
 #. Type: string
 #. Description
@@ -131,7 +86,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
-msgstr "უკაბელო ESSID: ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -142,9 +97,6 @@ msgid ""
 "of the wireless network you would like ${iface} to use. If you would like to "
 "use any available network, leave this field blank."
 msgstr ""
-"${iface} უკაბელო ქსელის ინტერფეისია. გთხოვთ შეიყვანოთ უკაბელო ქსელის სახელი "
-"(ESSID), რომელიც გსურთ ${iface}-მა გამოიყენოს. თუ რომელიმე არსებული ქსელის "
-"გამოყენება გსურთ, დატოვეთ ეს ველი ცარიელი."
 
 #. Type: string
 #. Description
@@ -157,15 +109,11 @@ msgstr ""
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
-#, fuzzy
 msgid ""
 "${iface} is a wireless network interface. Please enter the name (the ESSID) "
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
-"${iface} უკაბელო ქსელის ინტერფეისია. გთხოვთ შეიყვანოთ უკაბელო ქსელის სახელი "
-"(ESSID), რომელიც გსურთ ${iface}-მა გამოიყენოს. თუ რომელიმე არსებული ქსელის "
-"გამოყენება გსურთ, დატოვეთ ეს ველი ცარიელი."
 
 #. Type: select
 #. Choices
@@ -183,9 +131,8 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:8002
-#, fuzzy
 msgid "Wireless network type for ${iface}:"
-msgstr "უკაბელო ESSID: ${iface}:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -201,7 +148,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:9001
 msgid "WEP key for wireless device ${iface}:"
-msgstr "უკაბელო მოწყობილობა ${iface}-ის WEP-გასაღები:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -211,8 +158,6 @@ msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
 msgstr ""
-"შესაძლებლობის შემთხვევაში, გთხოვთ შეიყვანოთ WEP უსაფრთხოების გასაღები "
-"უკაბელო მოწყობილობა ${iface}-ისთვის. ამისათვის ორი გზა არსებობს:"
 
 #. Type: string
 #. Description
@@ -222,9 +167,6 @@ msgid ""
 "If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
-"თუ ტქვენ WEP-გასაღები „nnnn-nnnn-nn”, „nn:nn:nn:nn:nn:nn:nn:nn”, ან "
-"„nnnnnnnn” ფორმატშია, სადაც n ნომერს აღნიშნავს, უბრალოდ შეიყვანეთ იგი ამ "
-"ველში."
 
 #. Type: string
 #. Description
@@ -234,8 +176,6 @@ msgid ""
 "If your WEP key is in the format of a passphrase, prefix it with "
 "'s:' (without quotes)."
 msgstr ""
-"თუ თქვენი WEP-გასაღები პაროლის ფორმატშია, წაუმძღვარეთ მას „s” (ბრჭყალების "
-"გარეშე)."
 
 #. Type: string
 #. Description
@@ -245,15 +185,13 @@ msgid ""
 "Of course, if there is no WEP key for your wireless network, leave this "
 "field blank."
 msgstr ""
-"რა თქმა უნდა, თუ თქვენი უკაელო ქსელი WEP-გასაღებს არ საჭიროებს, ეს ველი "
-"ცარიელი უნდა დატოვოთ."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:10001
 msgid "Invalid WEP key"
-msgstr "არასწორი WEP გასაღები"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -263,16 +201,13 @@ msgid ""
 "The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
 "next screen carefully on how to enter your WEP key correctly, and try again."
 msgstr ""
-"WEP-გასაღები „${wepkey}” არასწორია. გულდასმით გადახედეთ WEP-გასაღების "
-"შეყვანის მითითებებს შემდეგ ერკანზე და შეეცადეთ ისევ."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:11001
-#, fuzzy
 msgid "Invalid passphrase"
-msgstr "მომხმარებლის სახელი არასწორია"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -287,9 +222,8 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
-#, fuzzy
 msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
-msgstr "უკაბელო მოწყობილობა ${iface}-ის WEP-გასაღები:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -304,9 +238,8 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
-#, fuzzy
 msgid "Invalid ESSID"
-msgstr "არასწორი WEP გასაღები"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -332,7 +265,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:15001 ../netcfg-dhcp.templates:3001
 msgid "This may take some time."
-msgstr "ამას შესაძლოა გარკვეული დრო დაჭირდეს."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -362,14 +295,14 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Hostname:"
-msgstr "ჰოსტის სახელი:"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Please enter the hostname for this system."
-msgstr "გთხოვთ შეიყვანოთ კომპიუტერის სახელი."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -381,24 +314,20 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
-"სერვერის სახელი, იგივე „hostname” ერთი სიტყვა გახლავთ, რომელიც თქვენი "
-"სისტემის სახელია ქსელში. თუ არ იცით რა უნდა იყოს თქვენი „hostname”, "
-"შეეკითხეთ ქსელის ადმინისტრატორს. თუ საშინაო ქსელს ქმნით, შეგიძლიათ სახელი "
-"თავად მოიგონოთ."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
-msgstr "მცდარი ჰოსტის სახელი"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
-msgstr "სახელი \"${hostname}\" მიუღებელია."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -410,17 +339,13 @@ msgid ""
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
-"მართებული „hostname” შეიძლება მხოლოდ შედგებოდეს ციფრებისაგან (0-9), ზედა და "
-"ქვედა რეესტრის ლათინური ასოებისაგან (a-z და A-Z) და მინუსის სიმბოლოსაგან. "
-"მისი დაშვებული სიგრძეა ${maxhostnamelen} სიმბოლო და არ შეიძლება დაიწყოს ან "
-"დასრულდეს მინუსის სიმბოლოთი."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:21001
 msgid "Error"
-msgstr "შეცდომა"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -430,15 +355,13 @@ msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
 msgstr ""
-"შეცდომის გამო ქსელის კონფიგურაციის პროცესი შეწყდა. თქვენ შეგიძლიათ კვლავ "
-"შეეცადოთ ინსტალაციის მთავარი მენიუდან."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
-msgstr "ქსელური ინტერფეისი ვერ მოიძებნა"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -448,8 +371,6 @@ msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
 msgstr ""
-"ქსელის ინტერფეისი ვერ მოიძებნა. ინსტალაციის სისტემამ ქსელის მოწყობილობა ვერ "
-"იპოვა."
 
 #. Type: error
 #. Description
@@ -459,8 +380,6 @@ msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
 msgstr ""
-"თუ გაგაჩნიათ, შეგიძლიათ თქვენი ქსელის ინტერფეისისათვის გარკვეული მოდული "
-"ჩატვირთოთ. ამისათვის დაუბრუნდით აპარატურის ამოცნობის საფეხურს."
 
 #. Type: note
 #. Description
@@ -469,7 +388,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
-msgstr "${iface} ბარათზე აქტივირებულია „Kill switch” (გამომრთველი)"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -482,8 +401,6 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
-"როგორც ჩანს ${iface} გამორთულია ფიზიკური „kill switch” გამომრთველით. თუ ამ "
-"მოწყობილობის გამოყენება გსურთ, გთხოვთ ჩართოთ იგი გაგრძელებამდე."
 
 #. Type: select
 #. Choices
@@ -495,7 +412,7 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
-msgstr "ინფრასტრუქტურული ქსელი"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -507,13 +424,13 @@ msgstr "ინფრასტრუქტურული ქსელი"
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
-msgstr "Ad-hoc ქსელი (Peer to peer)"
+msgstr ""
 
 #. Type: select
 #. Description
 #: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
-msgstr "უსადენო ქსელის ტიპი:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -523,135 +440,131 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
-"უსადენო ქსელები ან იმართება, ან „ad-hoc” მდგომარეობაშია. თუ თქვენ რაიმე "
-"სახის რეალურ წვდომის წერტილს (Access Point) იყენებთ, თქვენი ქსელი იმართება. "
-"თუ თქვენი „წვდომის წერტილი” უბრალოდ სხვა კომპიუტერია, მაშინ შესაძლოა თქვენი "
-"ქსელი „Ad-hoc” იყოს."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
-msgstr "უკაბელო ქსელის კონფიგურაცია"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
-msgstr "მიმდინარეობს უკაბელო ქსელის წვდომის წერტილების ძიება..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
-msgstr "მიმდინარეობს ${interface}-ზე ბმულის ამოცნობა; გთხოვთ, დაელოდოთ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:30001
 msgid "<none>"
-msgstr "<არაა>"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
-msgstr "უკაბელო ethernet-ქსელი (802.11x)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:32001
 msgid "wireless"
-msgstr "უკაბელო"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:33001
 msgid "Ethernet"
-msgstr "Ethernet"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:34001
 msgid "Token Ring"
-msgstr "Token Ring"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:35001
 msgid "USB net"
-msgstr "USB ქსელი"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
-msgstr "Serial-line IP"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
-msgstr "პარალელური პორტ IP"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
-msgstr "Point-to-Point პროტოკოლი"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
-msgstr "IPv6-in-IPv4"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
-msgstr "ISDN Point-to-Point პროტოკოლი"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
-msgstr "Channel-to-channel"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
-msgstr "რეალური channel-to-channel"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
-msgstr "Inter-user communication vehicle"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:46001
 msgid "Unknown interface"
-msgstr "უცნობი ინტერფეისი"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -659,7 +572,7 @@ msgstr "უცნობი ინტერფეისი"
 #. :sl1:
 #: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
-msgstr "ქსელის პარამეტრების შენახვა ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -667,7 +580,7 @@ msgstr "ქსელის პარამეტრების შენახ�
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr "ქსელის კონფიგურაცია"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -680,11 +593,10 @@ msgstr ""
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:50001
-#, fuzzy
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
-msgstr "დაარქვით სახელი ახალ ლოგიკურ ტომს."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -714,24 +626,22 @@ msgstr ""
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
-#, fuzzy
 msgid "Wireless network:"
-msgstr "უსადენო ქსელის ტიპი:"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
-#, fuzzy
 msgid "Select the wireless network to use during the installation process."
-msgstr "ამოირჩიეთ ინსტალაციის პროცესის შემდეგი საფეხური:"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "DHCP hostname:"
-msgstr "DHCP-ს ჰოსტის სახელი:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -741,51 +651,48 @@ msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
 msgstr ""
-"თქვენ შესაძლოა მოგიწიოთ კომპიუტერის სახელის მითითება ქსელის პარამეტრების "
-"DHCP-თი მისაღებად. თუ თქვენ საკაბელო მოდემს იყენებთ, შესაძლოა აქ ანგარიშის "
-"მითითება მოგიწიოთ."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "Most other users can just leave this blank."
-msgstr "ხშირად მომხმარებელს შეუძლია ეს ველი ცარიელი დატოვოს."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr "ქსელის  გამართვა DHCP-ის გამოყენებით"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr "ქსელის ავტოკონფიგურაცია წარმატებით დასრულდა"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client found"
-msgstr "ვერ მოიძებნა DHCP კლიენტი"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
-msgstr "ვერ მოიძებნა DHCP კლიენტი. ეს პაკეტი pump ან dhcp-კლიენტს საჭიროებს."
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "The DHCP configuration process has been aborted."
-msgstr "DHCP კონფიგურაციის პროცესი შეწყდა."
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -795,7 +702,7 @@ msgstr "DHCP კონფიგურაციის პროცესი შ�
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration"
-msgstr "ქსელის ავტოკონფიგურაციის ხელახლა გამეორება"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -805,7 +712,7 @@ msgstr "ქსელის ავტოკონფიგურაციის �
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
-msgstr "ქსელის ავტოკონფიგურაციის გამეორება DHCP სერვერის სახელით"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -815,7 +722,7 @@ msgstr "ქსელის ავტოკონფიგურაციის �
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr "ქსელის მანუალური კონფიგურაცია"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -825,14 +732,14 @@ msgstr "ქსელის მანუალური კონფიგურ�
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr "ამ ეტაპზე ქსელის კონფიგურაცია არ მოვახდინოთ"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:6002
 msgid "Network configuration method:"
-msgstr "ქსელის კონფიგურაციის  მეთოდი:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -845,19 +752,13 @@ msgid ""
 "by the client, so you can also choose to retry DHCP network "
 "autoconfiguration with a hostname that you provide."
 msgstr ""
-"აქ შეგიძლიათ კვალვ შეეცადოთ ქსელის DHCP ავტოკონფიგურაცია (რაც შესაძლოა "
-"გამოვიდეს, თუ თქვენი DHCP სერვერი საპასუხოდ დიდ დროს საჭიროებს), ან ხელით "
-"მოახდინოთ ქსელის კონფიგურაცია. ზოგიერთი DHCP სერვერი კლიენტის მხრიდან DHCP "
-"სერვერის სახელის („hostname”) მითითებას მოითხოვს. შესაბამისად, შეგიძლიათ "
-"DHCP ქსელის ავტოკონფიგურაცია თქვენს მიერ მითითებული სერვერის სახელით "
-"შეეცადოთ."
 
 #. Type: note
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:7001
 msgid "Network autoconfiguration failed"
-msgstr "ქსელის ავტოკონფიგურაცია ვერ შესრულდა"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -867,15 +768,13 @@ msgid ""
 "Your network is probably not using the DHCP protocol. Alternatively, the "
 "DHCP server may be slow or some network hardware is not working properly."
 msgstr ""
-"სავარაუდოდ თქვენი ქსელი DHCP პროტოკოლს არ იყენებს. ასეე შესაძლებელია, რომ "
-"DHCP ძალიან ნელია, ან ქსელის სხვა აპარატურა არ მუშაობს გამართულად."
 
 #. Type: boolean
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
 msgid "Continue without a default route?"
-msgstr "გსურთ ნაგულისხმევი მარშრუტის გარეშე გაგრძელება?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -888,11 +787,6 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
-"ქსელის ავტოკონფიგურაცია წარმატებით განხორციელდა. თუმცა, ნაგულისხმევი "
-"მარშრუტი არ დაყენებულა: სისტემამ არ იცის, თუ როგორ დაუკავშირდეს კომპიუტერებს "
-"ინტერნეტში. შესაბამისად, ინსტალაცია ვერ გაგრძელდება, თუ არ გაგაჩნიათ  "
-"პირველი საინსტალაციო დისკი, 'Netinst' CD-ROM ან ლოკალურ ქსელში ხელმისაწვდომი "
-"პაკეტები."
 
 #. Type: boolean
 #. Description
@@ -902,16 +796,13 @@ msgid ""
 "If you are unsure, you should not continue without a default route: contact "
 "your local network administrator about this problem."
 msgstr ""
-"თუ დარწმუნებული არ ხართ, ნაგულისხმევი მარშრუტის (Default Route) გარეშე არ "
-"გააგრძელოთ: პრობლემის გადასაჭრელად დაუკავშირდით თქვენი ლოკალური ქსელის "
-"ადმინისტრატორს."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:9001
 msgid "Reconfigure the wireless network"
-msgstr "უკაბელო ქსელის ხელახალი კონფიგურაცია"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -922,9 +813,8 @@ msgstr "უკაბელო ქსელის ხელახალი კო
 #. IPv6
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
-#, fuzzy
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "იქმნება yaboot-ის კონფიგურაცია"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -938,9 +828,8 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
-#, fuzzy
 msgid "Configuring the network with DHCPv6"
-msgstr "ქსელის  გამართვა DHCP-ის გამოყენებით"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -981,11 +870,8 @@ msgstr ""
 #. IPv6
 #. :sl1:
 #: ../netcfg-static.templates:1001
-#, fuzzy
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr ""
-"თუ არ იცით რა უნდა მიუთითოთ, გადახედეთ დოკუმენტაციასმ ან დატოვეთ ცარიელი და "
-"მოდული აღარ ჩაიტვირთება."
 
 #. Type: error
 #. Description
@@ -1012,7 +898,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-static.templates:3001
 msgid "Point-to-point address:"
-msgstr "PPP (Point-to-point) მისამართი:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1024,17 +910,13 @@ msgid ""
 "know the value.  The point-to-point address should be entered as four "
 "numbers separated by periods."
 msgstr ""
-"point-to-point მისამართი გასაზღვრავს point-to-point ქსელის მეორე endpoint-"
-"ს.  დაუკავშირდით ქსელის ადმინისტრატორს, თუ მნიშვნელობა არ იცით.  point-to-"
-"point მისამართი ოთხი რიცხვისაგან შედგება, რომლებიც წერტილებით არის "
-"გამოყოფილი."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:4001
 msgid "Netmask:"
-msgstr "ქსელის შაბლონი:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1045,16 +927,13 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
-"ქსელის შაბლონი განსაზღვრავს, თუ რომელი კომპიუტერები ჩაითვალოს ლოკალურად "
-"თქვენს ქსელში.  თუ არ იცით იგი, დაუკავშირდით ქსელის ადმინისტრატორს.  ქსელის "
-"შაბლონი შედგება ოთხი რიცხვისაგან, რომლებიც წერტილებით არის გამოყოფილი."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:5001
 msgid "Gateway:"
-msgstr "კარიბჭე:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1068,27 +947,20 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
-"კარიბჭის მისამართი (gateway) არის IP-მისამართი (წერტილებით გამოყოფილი ოთხი "
-"რიცხვი), რომელიც კარიბჭე-როუტერს (იგივე „ნაგულისხმევი როუტერი - default "
-"router”) განსაზღვრავს. ყველა ის კავშირი, რომელიც თქვენი ლოკალური ქსელის "
-"ფარგლებს გარეთ ხორციელდება (მაგ. ინტერნეტში), ამ როუტერის საშუალებით "
-"იგზავნება. იშვიათ შემთხვევაში, შესაძლოა როუტერი არ გქონდეთ - მაშინ ნურაფერს "
-"შეიყვანთ. თუ ამ შეკითხვაზე სწორი პასუხი არ იცით, დაუკავშირდით ქსელის "
-"ადმინისტრატორს."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "Unreachable gateway"
-msgstr "კარიბჭე მიუწვდომელია"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "The gateway address you entered is unreachable."
-msgstr "თქვენს მიერ შეყვანილი შლუზის მისამართი ხელმიუწვდომელია"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1097,7 +969,6 @@ msgstr "თქვენს მიერ შეყვანილი შლუზ
 msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
 msgstr ""
-"შესაძლოა IP-მისამართი, ქსელის შაბლონი და/ან კარიბჭე შეცდომით შეიყვანეთ."
 
 #. Type: error
 #. Description
@@ -1122,14 +993,14 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
-msgstr "სწორია მოცემული ინფორმაცია?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
-msgstr "ქსელის  ამჟამად დაყენებული პარამეტრები:"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1143,12 +1014,6 @@ msgid ""
 " pointopoint   = ${pointopoint}\n"
 " nameservers   = ${nameservers}"
 msgstr ""
-" ინტერფეისი    = ${interface}\n"
-" IP-მისამართი  = ${ipaddress}\n"
-" ქსელის შაბლონი = ${netmask}\n"
-" კარიბჭე    = ${gateway}\n"
-" PPP   = ${pointopoint}\n"
-" სახელთა სერვერი  = ${nameservers}"
 
 #. Type: text
 #. Description
@@ -1156,4 +1021,4 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
-msgstr "ქსელის სტატიკური ადრესაციით კონფიგურირება"
+msgstr ""
