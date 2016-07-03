@@ -3,58 +3,13 @@
 #
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
-# translation of debian-installer_packages_po_sublevel1_da.po to
-# Danish messages for debian-installer.
-# This file is distributed under the same license as debian-installer.
-# Joe Hansen <joedalton2@yahoo.dk>, 2011, 2012, 2013, 2014, 2015.
-# Ask Hjorth Larsen <asklarsen@gmail.com>, 2010.
-# Mads Bille Lundby <lundbymads@gmail.com, 2009.
-# Henrik Christian Grove <debian@3001.dk>, 2008.
-# Jesper Dahl Nyerup <debian@jespernyerup.dk>, 2008.
-# Jacob Sparre Andersen <jacob@jacob-sparre.dk>, 2008, 2010.
-# Claus Hindsgaul <claus.hindsgaul@gmail.com>, 2004-2007.
-# Reviewed 2007 by Niels Rasmussen
-#
-# Volume er oversat til diskenhed. Ret hvis Dansk-gruppen finder en anbefaling.
-#
-# Translations from iso-codes:
-# Alastair McKinstry <mckinstry@computer.org>, 2001.
-# Claus Hindsgaul <claus.hindsgaul@gmail.com>, 2006.
-# Claus Hindsgaul <claus_h@image.dk>, 2004, 2005, 2006.
-# Computeroversættelse Tobias Toedter <t.toedter@gmx.net>, 2007.
-# Copyright (C) Free Software Foundation, Inc., 2006.
-# Frederik 'Freso' S. Olesen <freso.dk@gmail.com>, 2008.
-# Free Software Foundation, Inc., 2000, 2004, 2005.
-# Joe Hansen <joedalton2@yahoo.dk>, 2009, 2010, 2011.
-# Keld Simonsen <keld@dkuug.dk>, 2000, 2001.
-# Kenneth Christiansen <kenneth@gnu.org>, 2000.
-# Ole Laursen <olau@hardworking.dk>, 2001.
-#
-# vedrørende russisk:
-# (bogstavet й bliver normalt til j på dansk og y på engelsk.  Der er
-# også nogle forskelle med de mange s/sh-agtige lyde)
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: debian-installer_packages_po_sublevel1_da\n"
-"Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
-"POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2015-03-05 20:12+0200\n"
-"Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
-"Language-Team: <dansk@dansk-gruppen.dk>\n"
-"Language: da\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
 msgid "Auto-configure networking?"
-msgstr "Sæt netværket op automatisk?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -68,18 +23,13 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"Netværket kan enten sættes op ved at indtaste al information manuelt, eller "
-"ved at bruge DHCP (eller en række IPv6-specifikke metoder) til at detektere "
-"netværksindstillingerne automatisk. Hvis du vælger automatisk konfiguration "
-"og installationsprogrammet ikke kan hente en fungerende konfiguration fra "
-"netværket, så får du mulighed for at konfigurere netværket manuelt."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:3001
 msgid "Domain name:"
-msgstr "Domænenavn:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -91,17 +41,13 @@ msgid ""
 "If you are setting up a home network, you can make something up, but make "
 "sure you use the same domain name on all your computers."
 msgstr ""
-"Domænenavnet er den del af din internetadresse, der er til højre for dit "
-"maskinnavn. Det ender oftest på .com, .net, .edu, .org eller .dk. Hvis du er "
-"på et hjemmenetværk, kan du selv finde på et, men sørg for at alle dine "
-"computere bruger samme domænenavn."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:4001
 msgid "Name server addresses:"
-msgstr "Navneserver-adresser:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -114,17 +60,13 @@ msgid ""
 "first to be queried. If you don't want to use any name server, just leave "
 "this field blank."
 msgstr ""
-"Navneservere bruges til at slå værtsnavne på internettet op med. Angiv IP-"
-"adresserne på op til tre navneservere adskilt med mellemrum. Brug ikke "
-"kommaer. Den første server i listen vil blive forespurgt først. Hvis du ikke "
-"ønsker at bruge navneservere, kan du  blot lade dette felt stå tomt."
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:5001
 msgid "Primary network interface:"
-msgstr "Primært netkort:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -135,9 +77,6 @@ msgid ""
 "primary network interface during the installation. If possible, the first "
 "connected network interface found has been selected."
 msgstr ""
-"Dit system har flere netkort. Vælg et, der skal bruges som det primære "
-"netkort under installationen. Hvis muligt, bliver det første netkort med "
-"netforbindelse, der blev fundet, valgt."
 
 #. Type: string
 #. Description
@@ -147,7 +86,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
 msgid "Wireless ESSID for ${iface}:"
-msgstr "Trådløs ESSID til ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -158,16 +97,13 @@ msgid ""
 "of the wireless network you would like ${iface} to use. If you would like to "
 "use any available network, leave this field blank."
 msgstr ""
-"${iface} er et trådløst netkort. Angiv navnet (såkaldt ESSID) på det "
-"trådløse netværk, du vil have ${iface} til at bruge. Hvis du vil bruge "
-"ethvert tilgængeligt netværk, skal du ikke skrive noget her."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
 msgid "Attempting to find an available wireless network failed."
-msgstr "Forsøget på at finde et tilgængeligt trådløst netværk mislykkedes."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -178,35 +114,26 @@ msgid ""
 "of the wireless network you would like ${iface} to use. To connect to any "
 "available network, leave this field blank."
 msgstr ""
-"${iface} er et trådløst netkort. Angiv navnet (såkaldt ESSID) på det "
-"trådløse netværk, du vil have ${iface} til at bruge. Hvis du vil bruge "
-"ethvert tilgængeligt netværk, skal du ikke skrive noget her."
 
-# går ud fra at det er et navn.
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WEP/Open Network"
-msgstr "WEP/Open Network"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../netcfg-common.templates:8001
 msgid "WPA/WPA2 PSK"
-msgstr "WPA/WPA2 PSK"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:8002
 msgid "Wireless network type for ${iface}:"
-msgstr "Trådløs netværkstype for ${iface}:"
+msgstr ""
 
-# i tvivl her skal Open oversættes
-# uk.po har også "open" uoversat. Evt. kunne man i parentesen skrive
-# (Pre-Shared Key/forhåndsdelt nøgle), således at henvisningen til
-# akronymet PSK blev klar, samtidig med at det er nemmere at slå en
-# forklaring op på nettet.
 #. Type: select
 #. Description
 #. :sl2:
@@ -215,15 +142,13 @@ msgid ""
 "Choose WEP/Open if the network is open or secured with WEP. Choose WPA/WPA2 "
 "if the network is protected with WPA/WPA2 PSK (Pre-Shared Key)."
 msgstr ""
-"Vælg WEP/Open hvis netværket er åbent eller sikret med WEP. Vælg WPA/WPA2 "
-"hvis netværket er beskyttet med WPA/WPA2 PSK (forhåndsdelt nøgle)."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:9001
 msgid "WEP key for wireless device ${iface}:"
-msgstr "WEP-nøgle til den trådløse enhed ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -233,8 +158,6 @@ msgid ""
 "If applicable, please enter the WEP security key for the wireless device "
 "${iface}. There are two ways to do this:"
 msgstr ""
-"Angiv WEP-sikkerhedsnøgle for den trådløse enhed ${iface}, hvis der skal "
-"bruges en sådan nøgle. Der er to måder at gøre dette på:"
 
 #. Type: string
 #. Description
@@ -244,8 +167,6 @@ msgid ""
 "If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
-"Din WEP-nøgle har et af formaterne 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn' "
-"eller 'nnnnnnnn', hvor n er et tal. Skriv det blot, som det er, i dette felt."
 
 #. Type: string
 #. Description
@@ -255,8 +176,6 @@ msgid ""
 "If your WEP key is in the format of a passphrase, prefix it with "
 "'s:' (without quotes)."
 msgstr ""
-"Hvis din WEP-nøgles format er udformet som en adgangskode, skriv da \"s:\" "
-"foran WEP-nøglen (uden gåseøjnene)."
 
 #. Type: string
 #. Description
@@ -266,15 +185,13 @@ msgid ""
 "Of course, if there is no WEP key for your wireless network, leave this "
 "field blank."
 msgstr ""
-"Hvis der ikke er nogen WEP-nøgle til dit trådløse netværk, skal du blot lade "
-"feltet stå tomt."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:10001
 msgid "Invalid WEP key"
-msgstr "Ugyldig WEP-nøgle"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -284,15 +201,13 @@ msgid ""
 "The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
 "next screen carefully on how to enter your WEP key correctly, and try again."
 msgstr ""
-"WEP-nøglen \"${wepkey}\" er ugyldig. Læs omhyggeligt instruktionerne på "
-"næste side, om hvordan du angiver din WEP-nøgle korrekt, og prøv igen."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:11001
 msgid "Invalid passphrase"
-msgstr "Ugyldig adgangsfrase"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -302,15 +217,13 @@ msgid ""
 "The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
 "too short (less than 8 characters)."
 msgstr ""
-"WPA/WPA2 PSK-adgangsfrasen var enten for lang (mere end 64 tegn) eller for "
-"kort (mindre end 8 tegn)."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
 msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
-msgstr "WPA/WPA2-adgangsfrase for den trådløse enhed ${iface}:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -320,15 +233,13 @@ msgid ""
 "Enter the passphrase for WPA/WPA2 PSK authentication. This should be the "
 "passphrase defined for the wireless network you are trying to use."
 msgstr ""
-"Indtast adgangsfrasen for WPA/WPA2 PSK-godkendelse. Dette skal være "
-"adgangsfrasen defineret for det trådløse netværk, du forsøger at bruge."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:13001
 msgid "Invalid ESSID"
-msgstr "Ugyldig ESSID"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -338,15 +249,13 @@ msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
 "characters, but may contain all kinds of characters."
 msgstr ""
-"ESSID'en »${essid}« er ugyldig. ESSID'er må højst være på ${max_essid_len} "
-"tegn, men kan indeholde alle slags tegn."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:14001
 msgid "Attempting to exchange keys with the access point..."
-msgstr "Forsøger at udveksle nøgler med adgangspunktet ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -356,21 +265,21 @@ msgstr "Forsøger at udveksle nøgler med adgangspunktet ..."
 #. :sl1:
 #: ../netcfg-common.templates:15001 ../netcfg-dhcp.templates:3001
 msgid "This may take some time."
-msgstr "Dette kan tage nogen tid."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:16001
 msgid "WPA/WPA2 connection succeeded"
-msgstr "WPA/WPA2-forbindelse lykkedes"
+msgstr ""
 
 #. Type: note
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:17001
 msgid "Failure of key exchange and association"
-msgstr "Fejl ved udveksling og tilknytning af nøgler"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -380,22 +289,20 @@ msgid ""
 "The exchange of keys and association with the access point failed. Please "
 "check the WPA/WPA2 parameters you provided."
 msgstr ""
-"Udvekslingen af nøgler og tilknytning med adgangspunktet mislykkedes. "
-"Kontroller venligst WPA/WPA2-parametrene du angav."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Hostname:"
-msgstr "Værtsnavn:"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:18001
 msgid "Please enter the hostname for this system."
-msgstr "Angiv dette systems værtsnavn."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -407,24 +314,20 @@ msgid ""
 "administrator. If you are setting up your own home network, you can make "
 "something up here."
 msgstr ""
-"Værtsnavnet er et enkelt ord, der identificerer dit system på netværket. "
-"Hvis du ikke ved, hvad dit værtsnavn bør være, bør du spørge din "
-"netværksadministrator. Hvis du laver dit eget hjemmenetværk, kan du selv "
-"finde på et navn."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "Invalid hostname"
-msgstr "Ugyldigt værtsnavn"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:20001
 msgid "The name \"${hostname}\" is invalid."
-msgstr "Navnet \"${hostname}\" er ugyldigt."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -436,16 +339,13 @@ msgid ""
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
-"Et gyldigt værtsnavn må kun indeholde tallene 0-9, de små og store bogstaver "
-"a-z og minustegnet. Det skal være mindst ${maxhostnamelen} tegn langt, og må "
-"hverken begynde eller ende med et minustegn."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:21001
 msgid "Error"
-msgstr "Fejl"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -455,15 +355,13 @@ msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
 msgstr ""
-"Der opstod en fejl, og netværksopsætningen er blevet afbrudt. Du kan forsøge "
-"igen fra installationens hovedmenu."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:22001
 msgid "No network interfaces detected"
-msgstr "Der blev ikke fundet nogen netkort"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -473,8 +371,6 @@ msgid ""
 "No network interfaces were found. The installation system was unable to find "
 "a network device."
 msgstr ""
-"Der blev ikke fundet nogen netkort. Installationssystemet var ikke i stand "
-"til at finde nogen netværksenhed."
 
 #. Type: error
 #. Description
@@ -484,9 +380,6 @@ msgid ""
 "You may need to load a specific module for your network card, if you have "
 "one. For this, go back to the network hardware detection step."
 msgstr ""
-"Det kan være nødvendigt at indlæse et bestemt modul til dit netkort, hvis du "
-"virkelig har sådan et. For at gøre dette, skal du gå tilbage til trinnet for "
-"søgning efter netværksudstyr."
 
 #. Type: note
 #. Description
@@ -495,7 +388,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
-msgstr "Deaktiveringsknap aktiveret på ${iface}"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -508,9 +401,6 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
-"${iface} lader til at være deaktiveret ved hjælp af en fysisk "
-"deaktiveringsknap. Hvis du vil bruge dette netkort, så slå det til, før du "
-"fortsætter."
 
 #. Type: select
 #. Choices
@@ -522,7 +412,7 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Infrastructure (Managed) network"
-msgstr "Infrastruktur (Styret) netværk"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -534,13 +424,13 @@ msgstr "Infrastruktur (Styret) netværk"
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:24001
 msgid "Ad-hoc network (Peer to peer)"
-msgstr "Ad-hoc netværk (vært-til-vært)"
+msgstr ""
 
 #. Type: select
 #. Description
 #: ../netcfg-common.templates:24002
 msgid "Type of wireless network:"
-msgstr "Trådløst netværkstype:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -550,134 +440,131 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
-"Trådløse netværk er enten styrede ('managed') eller ad-hoc. Hvis du bruger "
-"et ægte adgangspunkt, er dit netværk styret. Hvis en anden computer er dit "
-"adgangspunkt, så kan dit netværk være ad-hoc."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:25001
 msgid "Wireless network configuration"
-msgstr "Trådløs netværksopsætning"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
-msgstr "Søger efter trådløse stationer (\"access points\") ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
-msgstr "Søger efter henvisning på ${interface}; vent venligst ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:30001
 msgid "<none>"
-msgstr "<ingen>"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:31001
 msgid "Wireless ethernet (802.11x)"
-msgstr "Trådløst netværk (802.11x)"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:32001
 msgid "wireless"
-msgstr "trådløst"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:33001
 msgid "Ethernet"
-msgstr "Ethernet"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:34001
 msgid "Token Ring"
-msgstr "Token Ring"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:35001
 msgid "USB net"
-msgstr "USB-net"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:37001
 msgid "Serial-line IP"
-msgstr "Seriel-linje IP"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:38001
 msgid "Parallel-port IP"
-msgstr "Parallelport IP"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:39001
 msgid "Point-to-Point Protocol"
-msgstr "Point-to-Point protokol"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:40001
 msgid "IPv6-in-IPv4"
-msgstr "IPv6-in-IPv4"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:41001
 msgid "ISDN Point-to-Point Protocol"
-msgstr "ISDN Point-to-Point protokol"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:42001
 msgid "Channel-to-channel"
-msgstr "Channel-to-channel"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:43001
 msgid "Real channel-to-channel"
-msgstr "Ægte channel-to-channel"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:45001
 msgid "Inter-user communication vehicle"
-msgstr "Inter-user communication vehicle"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:46001
 msgid "Unknown interface"
-msgstr "Ukendt netkort"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -685,7 +572,7 @@ msgstr "Ukendt netkort"
 #. :sl1:
 #: ../netcfg-common.templates:47001
 msgid "Storing network settings..."
-msgstr "Gemmer netværksindstillinger ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -693,14 +580,14 @@ msgstr "Gemmer netværksindstillinger ..."
 #. :sl1:
 #: ../netcfg-common.templates:48001
 msgid "Configure the network"
-msgstr "Sæt netværket op"
+msgstr ""
 
 #. Type: string
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
-msgstr "Ventetid (i sekunder) for detektering af henvisninger:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -710,15 +597,13 @@ msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
 msgstr ""
-"Angiv venligst det maksimale tidsrum du ønsker at vente på detektering af "
-"netværkshenvisning."
 
 #. Type: error
 #. Description
 #. :sl3:
 #: ../netcfg-common.templates:51001
 msgid "Invalid network link detection waiting time"
-msgstr "Ugyldig ventetid for detektering af netværkshenvisninger"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -728,8 +613,6 @@ msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
 msgstr ""
-"Værdien du har angivet er ikke gyldig. Den maksimale ventetid (i sekunder) "
-"for detektering af netværkshenvisninger skal være et positivt heltal."
 
 #. Type: select
 #. Choices
@@ -737,14 +620,14 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
-msgstr "${essid_list} Indtast ESSID manuelt"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
 msgid "Wireless network:"
-msgstr "Trådløst netværk:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -752,14 +635,13 @@ msgstr "Trådløst netværk:"
 #: ../netcfg-common.templates:52002
 msgid "Select the wireless network to use during the installation process."
 msgstr ""
-"Vælg det trådløse netværk der skal bruges under installationsprocessen."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "DHCP hostname:"
-msgstr "DHCP-værtsnavn:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -769,36 +651,34 @@ msgid ""
 "You may need to supply a DHCP host name. If you are using a cable modem, you "
 "might need to specify an account number here."
 msgstr ""
-"Du kan være nødt til at angive et DHCP-værtsnavn. Hvis du bruger et "
-"kabelmodem, skal du muligvis angive et kontonummer her."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:1001
 msgid "Most other users can just leave this blank."
-msgstr "De fleste andre brugere kan blot lade feltet være tomt."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:2001
 msgid "Configuring the network with DHCP"
-msgstr "Sætter netværket op via DHCP"
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr "Den automatiske netværksopsætning lykkedes"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client found"
-msgstr "Fandt ingen DHCP-klient"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -806,14 +686,13 @@ msgstr "Fandt ingen DHCP-klient"
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
 msgstr ""
-"Fandt ingen DHCP-klient. Denne pakke kræver pakken pump eller dhcp-client."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "The DHCP configuration process has been aborted."
-msgstr "DHCP-opsætningen blev afbrudt."
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -823,7 +702,7 @@ msgstr "DHCP-opsætningen blev afbrudt."
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration"
-msgstr "Forsøg automatisk netværksopsætning igen"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -833,7 +712,7 @@ msgstr "Forsøg automatisk netværksopsætning igen"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Retry network autoconfiguration with a DHCP hostname"
-msgstr "Forsøg automatisk netværksopsætning igen med et DHCP-værtsnavn"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -843,7 +722,7 @@ msgstr "Forsøg automatisk netværksopsætning igen med et DHCP-værtsnavn"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Configure network manually"
-msgstr "Sæt netværket op manuelt"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -853,14 +732,14 @@ msgstr "Sæt netværket op manuelt"
 #. in single-byte languages)
 #: ../netcfg-dhcp.templates:6001
 msgid "Do not configure the network at this time"
-msgstr "Sæt ikke netværket op på nuværende tidspunkt"
+msgstr ""
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:6002
 msgid "Network configuration method:"
-msgstr "Netværksopsætningsmetode:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -873,18 +752,13 @@ msgid ""
 "by the client, so you can also choose to retry DHCP network "
 "autoconfiguration with a hostname that you provide."
 msgstr ""
-"Her kan du vælge at gentage forsøget på automatisk netværksopsætning med "
-"DHCP (hvilket muligvis vil virke, hvis din DHCP-server er lang tid om at "
-"svare) eller sætte netværket op manuelt. Visse DHCP-servere kræver at "
-"klienten sender et DHCP-værtsnavn, så du også kan vælge at forsøge den "
-"automatiske opsætning med DHCP igen med et værtsnavn, du angiver."
 
 #. Type: note
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:7001
 msgid "Network autoconfiguration failed"
-msgstr "Den automatiske netværksopsætning mislykkedes"
+msgstr ""
 
 #. Type: note
 #. Description
@@ -894,16 +768,13 @@ msgid ""
 "Your network is probably not using the DHCP protocol. Alternatively, the "
 "DHCP server may be slow or some network hardware is not working properly."
 msgstr ""
-"Dit netværk benytter sandsynligvis ikke DHCP-protokollen. Alternativt kan "
-"det skyldes, at din DHCP-server er langsom, eller noget netværksudstyr "
-"fungerer muligvis ikke ordentligt."
 
 #. Type: boolean
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:8001
 msgid "Continue without a default route?"
-msgstr "Fortsæt uden en standardrute?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -916,11 +787,6 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
-"Den automatiske netværksopsætning lykkedes. Der blev dog ikke angivet nogen "
-"standardrute (\"default route\"), så dit system ved ikke, hvordan det skal "
-"kommunikere med andre maskiner på internettet. Dette vil gøre det umuligt at "
-"fortsætte installationen, medmindre du har den første installations-cd, en "
-"\"Netinst\"-cd eller har de nødvendige pakker liggende på det lokale netværk."
 
 #. Type: boolean
 #. Description
@@ -930,15 +796,13 @@ msgid ""
 "If you are unsure, you should not continue without a default route: contact "
 "your local network administrator about this problem."
 msgstr ""
-"Hvis du er usikker, bør du ikke fortsætte uden en standardrute (\"default "
-"route\"). Kontakt din lokale netværksadministrator om problemet."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../netcfg-dhcp.templates:9001
 msgid "Reconfigure the wireless network"
-msgstr "Ret opsætning af trådløst netværk"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -950,7 +814,7 @@ msgstr "Ret opsætning af trådløst netværk"
 #. :sl2:
 #: ../netcfg-dhcp.templates:12001 ../netcfg-dhcp.templates:14001
 msgid "Attempting IPv6 autoconfiguration..."
-msgstr "Forsøger automatisk IPv6-konfiguration ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -958,14 +822,14 @@ msgstr "Forsøger automatisk IPv6-konfiguration ..."
 #. :sl2:
 #: ../netcfg-dhcp.templates:13001
 msgid "Waiting for link-local address..."
-msgstr "Venter på link-local-adresse ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:16001
 msgid "Configuring the network with DHCPv6"
-msgstr "Konfigurer netværket med DHCPv6"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -973,7 +837,7 @@ msgstr "Konfigurer netværket med DHCPv6"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "IP address:"
-msgstr "IP-adresse:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -981,7 +845,7 @@ msgstr "IP-adresse:"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr "IP-adressen er unik for din computer og er måske:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -992,8 +856,6 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
-" * fire tal adskilt af punktummer (IPv4);\n"
-" * blokke af hexadecimale tegn adskilt af kolonner (IPv6)."
 
 #. Type: string
 #. Description
@@ -1001,7 +863,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr "Du kan også valgfrit tilføje en CIDR-undermaske (såsom »/24«)."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1010,8 +872,6 @@ msgstr "Du kan også valgfrit tilføje en CIDR-undermaske (såsom »/24«)."
 #: ../netcfg-static.templates:1001
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr ""
-"Hvis du ikke ved, hvad du skal bruge her, så kontakt din "
-"netværksadministrator."
 
 #. Type: error
 #. Description
@@ -1019,7 +879,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "Forkert udformet IP-adresse"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1032,16 +892,13 @@ msgid ""
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"Den IP-adresse, du angav, er forkert udformet. Den skal have formatet x.x.x."
-"x, hvor hvert »x« ikke er større end 255 (en IPv4-adresse), eller en sekvens "
-"af blokke af heksadecimale tal adskilt af kolon (en IPv6-adresse). Prøv igen."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:3001
 msgid "Point-to-point address:"
-msgstr "Punkt-til-punkt adresse:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1053,16 +910,13 @@ msgid ""
 "know the value.  The point-to-point address should be entered as four "
 "numbers separated by periods."
 msgstr ""
-"Punkt-til-punkt adressen bruges til at definere den anden ende af et punkt-"
-"til-punkt netværk. Spørg din netværksadministrator, hvis du ikke kender "
-"værdien. Netmasken skal angives som fire tal adskilt af punktummer."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:4001
 msgid "Netmask:"
-msgstr "Netmaske:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1073,16 +927,13 @@ msgid ""
 "Consult your network administrator if you do not know the value.  The "
 "netmask should be entered as four numbers separated by periods."
 msgstr ""
-"Netmasken bruges til at afgøre hvilke maskiner, der er lokale på dit "
-"netværk. Spørg din netværksadministrator, hvis du ikke kender værdien. "
-"Netmasken skal angives som fire tal adskilt af punktummer."
 
 #. Type: string
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:5001
 msgid "Gateway:"
-msgstr "Gateway:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -1096,26 +947,20 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
-"Din gateway er en IP-adresse (fire numre adskilt af punktummer), der angiver "
-"din gateway, også kaldet standard-routeren. Al trafik, der skal ud fra dit "
-"lokale netværk (for eksempel til Internettet) sendes gennem denne. Kun i "
-"sjældne tilfælde har du ingen router. I så fald kan du lade dette felt være "
-"tomt. Hvis du ikke kender svaret på dette spørgsmål, bør du spørge din "
-"netværksadministrator."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "Unreachable gateway"
-msgstr "Kunne ikke få kontakt til gateway"
+msgstr ""
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "The gateway address you entered is unreachable."
-msgstr "Den gateway-adresse du har indtastet kan ikke kontaktes."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1124,8 +969,6 @@ msgstr "Den gateway-adresse du har indtastet kan ikke kontaktes."
 msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
 msgstr ""
-"Du kan have skrevet forkert, da du angav IP-adresse, netmaske og/eller "
-"gateway."
 
 #. Type: error
 #. Description
@@ -1133,7 +976,7 @@ msgstr ""
 #. :sl3:
 #: ../netcfg-static.templates:7001
 msgid "IPv6 unsupported on point-to-point links"
-msgstr "IPv6 er ikke understøttet ved punkt til punkt-henvisninger"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1144,22 +987,20 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
-"IPv6-adresser kan ikke konfigureres ved punkt til punkt-henvisninger. Brug "
-"en IPv4-adresse eller gå tilbage og vælg en anden netværksgrænseflade."
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Is this information correct?"
-msgstr "Er disse oplysninger korrekte?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../netcfg-static.templates:8001
 msgid "Currently configured network parameters:"
-msgstr "Aktuel netværksopsætning:"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1173,12 +1014,6 @@ msgid ""
 " pointopoint   = ${pointopoint}\n"
 " nameservers   = ${nameservers}"
 msgstr ""
-" netkort         = ${interface}\n"
-" IP-adresse      = ${ipaddress}\n"
-" netmaske        = ${netmask}\n"
-" gateway         = ${gateway}\n"
-" punkt-til-punkt = ${pointopoint}\n"
-" navneservere    = ${nameservers}"
 
 #. Type: text
 #. Description
@@ -1186,4 +1021,4 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:9001
 msgid "Configure a network using static addressing"
-msgstr "Sæt netværket op med statisk adressering"
+msgstr ""
