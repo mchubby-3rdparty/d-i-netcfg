@@ -112,24 +112,14 @@ static int nc_wi_slaac(const struct netcfg_interface *interface, FILE *fd)
  */
 static int nc_wi_static_ipv4(const struct netcfg_interface *interface, FILE *fd)
 {
-	char network[INET_ADDRSTRLEN];
-	char broadcast[INET_ADDRSTRLEN];
-	char netmask[INET_ADDRSTRLEN];
-
-	netcfg_network_address(interface, network);
-	netcfg_broadcast_address(interface, broadcast);
-	inet_mtop(AF_INET, interface->masklen, netmask, INET_ADDRSTRLEN);
-
 	fprintf(fd, "\n# The primary network interface\n");
 	if (!iface_is_hotpluggable(interface->name) && !find_in_stab(interface->name))
 		fprintf(fd, "auto %s\n", interface->name);
 	else
 		fprintf(fd, "allow-hotplug %s\n", interface->name);
 	fprintf(fd, "iface %s inet static\n", interface->name);
-	fprintf(fd, "\taddress %s\n", interface->ipaddress);
-	fprintf(fd, "\tnetmask %s\n", empty_str(interface->pointopoint) ? netmask : "255.255.255.255");
-	fprintf(fd, "\tnetwork %s\n", network);
-	fprintf(fd, "\tbroadcast %s\n", broadcast);
+	fprintf(fd, "\taddress %s/%i\n", interface->ipaddress,
+	        empty_str(interface->pointopoint) ? interface->masklen : 32);
 	if (!empty_str(interface->gateway))
 		fprintf(fd, "\tgateway %s\n",
 		        empty_str(interface->pointopoint) ? interface->gateway : interface->pointopoint);
@@ -149,8 +139,7 @@ static int nc_wi_static_ipv6(const struct netcfg_interface *interface, FILE *fd)
 	else
 		fprintf(fd, "allow-hotplug %s\n", interface->name);
 	fprintf(fd, "iface %s inet6 static\n", interface->name);
-	fprintf(fd, "\taddress %s\n", interface->ipaddress);
-	fprintf(fd, "\tnetmask %i\n", interface->masklen);
+	fprintf(fd, "\taddress %s/%i\n", interface->ipaddress, interface->masklen);
 	if (!empty_str(interface->gateway))
 		fprintf(fd, "\tgateway %s\n", interface->gateway);
 
