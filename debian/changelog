@@ -1,9 +1,10 @@
-netcfg (1.140) UNRELEASED; urgency=medium
+netcfg (1.140) unstable; urgency=medium
 
+  [ Julien Cristau ]
   * Stop writing netmask/network/broadcast lines in /etc/network/interfaces,
     just set the prefix length as part of the address (closes: #646860).
 
- -- Julien Cristau <jcristau@debian.org>  Mon, 17 Oct 2016 23:27:27 +0200
+ -- Philipp Kern <pkern@debian.org>  Wed, 04 Jan 2017 15:30:08 +0100
 
 netcfg (1.139) unstable; urgency=medium
 
