@@ -1,3 +1,11 @@
+netcfg (1.131+deb8u2) UNRELEASED; urgency=medium
+
+  * IPv6 autoconfiguration: fix NTP server name handling, which would be
+    stored as the DHCP-provided hostname, with many thanks to Malcolm
+    Scott for the bug report and the patch (Closes: #862745).
+
+ -- Cyril Brulebois <kibi@debian.org>  Wed, 17 May 2017 00:09:20 +0200
+
 netcfg (1.131+deb8u1) stable; urgency=medium
 
   * Fix is_layer3_qeth on s390x to avoid bailing out if the network
