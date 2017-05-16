@@ -1,10 +1,10 @@
-netcfg (1.142) UNRELEASED; urgency=medium
+netcfg (1.142) unstable; urgency=medium
 
   * IPv6 autoconfiguration: fix NTP server name handling, which would be
     stored as the DHCP-provided hostname, with many thanks to Malcolm
     Scott for the bug report and the patch (Closes: #862745).
 
- -- Cyril Brulebois <kibi@debian.org>  Wed, 17 May 2017 00:01:57 +0200
+ -- Cyril Brulebois <kibi@debian.org>  Wed, 17 May 2017 00:06:51 +0200
 
 netcfg (1.141) unstable; urgency=medium
 
