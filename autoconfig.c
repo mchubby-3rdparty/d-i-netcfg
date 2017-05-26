@@ -470,7 +470,7 @@ int netcfg_autoconfig(struct debconfclient *client, struct netcfg_interface *int
 	if (ipv6) {
 		read_rdnssd_nameservers(interface);
 		if (nameserver_count(interface) > 0) {
-			di_exec_shell_log("apt-install rdnssd");
+			di_debug("Not queueing rdnssd installation to make sure not to interfere with network-manager");
 		}
 	}
 	
