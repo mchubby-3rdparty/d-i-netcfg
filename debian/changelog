@@ -1,4 +1,4 @@
-netcfg (1.143) UNRELEASED; urgency=medium
+netcfg (1.143) unstable; urgency=medium
 
   * Stop queueing rdnssd's installation with IPv6 setups. This component
     conflicts with network-manager and installing it from the network
@@ -6,7 +6,7 @@ netcfg (1.143) UNRELEASED; urgency=medium
     from being installed. This isn't a perfect solution but this should be
     way better than the current status quo (Closes: #854801).
 
- -- Cyril Brulebois <kibi@debian.org>  Fri, 26 May 2017 18:45:55 +0200
+ -- Cyril Brulebois <kibi@debian.org>  Fri, 26 May 2017 18:55:29 +0200
 
 netcfg (1.142) unstable; urgency=medium
 
