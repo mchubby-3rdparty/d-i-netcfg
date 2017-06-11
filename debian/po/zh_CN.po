@@ -27,15 +27,16 @@
 #
 #   Mai Hao Hui <mhh@126.com>, 2001 (translations from galeon)
 # YunQiang Su <wzssyqa@gmail.com>, 2010, 2011, 2012, 2013.
+# Yangfl <mmyangfl@gmail.com>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: netcfg@packages.debian.org\n"
 "POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2014-12-01 17:17+0800\n"
-"Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
-"Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
+"PO-Revision-Date: 2017-06-11 18:20+0800\n"
+"Last-Translator: Yangfl <mmyangfl@gmail.com>\n"
+"Language-Team:  <debian-l10n-chinese@lists.debian.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,7 +63,7 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"网络可以通过手动输入全部信息或者使用 DHCP (或针对 IPv6 的变种)来进行配置。如"
+"网络可以通过手动输入全部信息或者使用 DHCP (或针对 IPv6 的变种) 来进行配置。如"
 "果您选择了自动配置，但安装程序无法从网络中获得有效的网络配置，您仍然可以手动"
 "输入。"
 
@@ -226,7 +227,7 @@ msgid ""
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
 "如果您的 WEP 密钥的格式是“nnnn-nnnn-nn”、“nn:nn:nn:nn:nn:nn:nn:"
-"nn”或“nnnnnnnn”(其中 n 是一个数字)，请将它直接填写到输入框中。"
+"nn”或“nnnnnnnn”(其中的 n 是数字)，请将它直接填写到输入框中。"
 
 #. Type: string
 #. Description
@@ -279,7 +280,7 @@ msgstr "无效的密码"
 msgid ""
 "The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
 "too short (less than 8 characters)."
-msgstr "WPA/WPA2 PSK 密码过长(多于 64 个字符)或过短(少于 8 个字符)。"
+msgstr "WPA/WPA2 PSK 密码过长 (多于 64 个字符) 或过短 (少于 8 个字符)。"
 
 #. Type: string
 #. Description
@@ -313,8 +314,8 @@ msgid ""
 "The ESSID \"${essid}\" is invalid. ESSIDs may only be up to ${max_essid_len} "
 "characters, but may contain all kinds of characters."
 msgstr ""
-"此 ESSID“${essid}”是无效的。ESSID 最大长度仅能为 32 个字符，但可以包含所有类"
-"型的字符。"
+"此 ESSID“${essid}”无效。ESSID 最大长度仅能为 32 个字符，但可以包含所有类型的"
+"字符。"
 
 #. Type: text
 #. Description
@@ -345,7 +346,7 @@ msgstr "WPA/WPA2 连接成功"
 #. :sl2:
 #: ../netcfg-common.templates:17001
 msgid "Failure of key exchange and association"
-msgstr "密钥交换和协商失败"
+msgstr "密钥交换与协商失败"
 
 #. Type: note
 #. Description
@@ -354,7 +355,7 @@ msgstr "密钥交换和协商失败"
 msgid ""
 "The exchange of keys and association with the access point failed. Please "
 "check the WPA/WPA2 parameters you provided."
-msgstr "和接入点交换密钥和协商失败。请检查 WPA/WPA2 参数。"
+msgstr "和接入点交换密钥与协商失败。请检查 WPA/WPA2 参数。"
 
 #. Type: string
 #. Description
@@ -407,7 +408,7 @@ msgid ""
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
-"正确的主机名应当只包含数字 0-9、大小写字母(A-Z 和 a-z)和减号，最长不能超过 "
+"正确的主机名应当只包含数字 0-9、大小写字母 (A-Z 和 a-z) 和减号，最长不能超过 "
 "${maxhostnamelen}，且不能以减号开始或结束。"
 
 #. Type: error
@@ -424,7 +425,7 @@ msgstr "错误"
 msgid ""
 "An error occurred and the network configuration process has been aborted. "
 "You may retry it from the installation main menu."
-msgstr "有错误产生，网络配置过程已被中止。您可以从安装程序主菜单中重试。"
+msgstr "发生错误，网络配置过程已被中止。您可以从安装程序主菜单中重试。"
 
 #. Type: error
 #. Description
@@ -460,7 +461,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:23001
 msgid "Kill switch enabled on ${iface}"
-msgstr "${iface} 上的 kill switch 开关已开启"
+msgstr "${iface} 上的禁用开关 (kill switch) 已开启"
 
 #. Type: note
 #. Description
@@ -473,8 +474,8 @@ msgid ""
 "\". If you intend to use this interface, please switch it on before "
 "continuing."
 msgstr ""
-"${iface} 应该已经被物理的“kill switch”开关所禁用。如果您想要使用此接口，请在"
-"继续安装前开启之。"
+"${iface} 似乎被物理的“禁用开关”所禁用。如果您想要使用此接口，请在继续安装前开"
+"启之。"
 
 #. Type: select
 #. Choices
@@ -514,9 +515,9 @@ msgid ""
 "point of some sort, your network is Managed. If another computer is your "
 "'access point', then your network may be Ad-hoc."
 msgstr ""
-"无线网络可以是 managed 或 ad-hoc 两种类型。如果您使用了某种实体装置作为接入点"
-"(access point)，您的网络就是 Managed。如果是以另一台计算机作为您的“接入"
-"点”(access point)，那么您的网络就应该是 Ad-hoc。"
+"无线网络可以是客户端 (managed) 或对等式 (ad-hoc) 两种类型。如果您使用了某种实"
+"体装置作为接入点 (access point)，您的网络就是 Managed。如果是以另一台计算机作"
+"为您的“接入点”，那么您的网络就应该是 Ad-hoc。"
 
 #. Type: text
 #. Description
@@ -530,13 +531,13 @@ msgstr "无线网络设置"
 #. :sl2:
 #: ../netcfg-common.templates:26001
 msgid "Searching for wireless access points..."
-msgstr "正在搜索无线网络接入点 (AP) ..."
+msgstr "正在搜索无线网络接入点..."
 
 #. Type: text
 #. Description
 #: ../netcfg-common.templates:29001
 msgid "Detecting link on ${interface}; please wait..."
-msgstr "正在 ${interface} 上探测连接，请稍候..."
+msgstr "正在探测 ${interface} 上的连接，请稍候..."
 
 #. Type: text
 #. Description
@@ -664,7 +665,7 @@ msgstr "配置网络"
 #. :sl3:
 #: ../netcfg-common.templates:50001
 msgid "Waiting time (in seconds) for link detection:"
-msgstr "连接探测等待的时间(秒)："
+msgstr "连接探测等待的时间 (秒)："
 
 #. Type: string
 #. Description
@@ -673,7 +674,7 @@ msgstr "连接探测等待的时间(秒)："
 msgid ""
 "Please enter the maximum time you would like to wait for network link "
 "detection."
-msgstr "请输入等待网络连接的最大时间(秒)。"
+msgstr "请输入等待网络连接的最大时间 (秒)。"
 
 #. Type: error
 #. Description
@@ -689,7 +690,7 @@ msgstr "网络连接探测等待时间无效"
 msgid ""
 "The value you have provided is not valid. The maximum waiting time (in "
 "seconds) for network link detection must be a positive integer."
-msgstr "您提供的值无效。网络连接探测的最大等待时间(秒)必须为正整数。"
+msgstr "您提供的值无效。网络连接探测的最大等待时间 (秒) 必须为正整数。"
 
 #. Type: select
 #. Choices
@@ -749,21 +750,21 @@ msgstr "使用 DHCP 来配置网络"
 #. :sl1:
 #: ../netcfg-dhcp.templates:4001
 msgid "Network autoconfiguration has succeeded"
-msgstr "网络自动设置成功！"
+msgstr "网络自动设置成功"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client found"
-msgstr "没有找到 DHCP 客户程序"
+msgstr "没有找到 DHCP 客户端程序"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../netcfg-dhcp.templates:5001
 msgid "No DHCP client was found. This package requires pump or dhcp-client."
-msgstr "没有找到 DHCP 客户程序。此软件包需要 pump 或者 dhcp-client。"
+msgstr "没有找到 DHCP 客户端程序。此软件包需要 pump 或者 dhcp-client。"
 
 #. Type: error
 #. Description
@@ -871,9 +872,9 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
-"网络自动配置成功。但是由于未设置默认路由，系统将无法连接 Internet 上的主机。"
-"除非您拥有第一张安装光盘、“Netinst”光盘、或在本地局域网上存有所需的软件包，否"
-"则将无法继续进行安装。"
+"网络自动配置成功。但是由于未设置默认路由，系统将无法连接互联网上的主机。除非"
+"您拥有第一张安装光盘、“Netinst”光盘、或在本地局域网上存有所需的软件包，否则将"
+"无法继续进行安装。"
 
 #. Type: boolean
 #. Description
@@ -945,8 +946,8 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
-" * 句点分隔的四个数字(IPv4);\n"
-" * 冒号分隔的十六进制字符(IPv6)。"
+" * 句号分隔的四个数字 (IPv4);\n"
+" * 冒号分隔的十六进制字符 (IPv6)。"
 
 #. Type: string
 #. Description
@@ -954,7 +955,7 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr "您也可以在后附加一个CIDR掩码(如 “/24”)。"
+msgstr "您也可以在后附加一个 CIDR 掩码 (如“/24”)。"
 
 #. Type: string
 #. Description
@@ -983,8 +984,8 @@ msgid ""
 "blocks of hexadecimal digits separated by colons (an IPv6 address). Please "
 "try again."
 msgstr ""
-"您所提供的 IP 地址的格式错误。它的格式应该是 x.x.x.x(IPv4地址)，其中的“x”不大"
-"于 255，或者冒号分隔的一系列十六进制数字块(IPv6 地址)，请重试。"
+"您所提供的 IP 地址的格式错误。它的格式应该是 x.x.x.x (IPv4地址)，其中的“x”不"
+"大于 255，或者冒号分隔的一系列十六进制数字块 (IPv6 地址)。请重试。"
 
 #. Type: string
 #. Description
@@ -1044,7 +1045,7 @@ msgid ""
 "you can leave this blank.  If you don't know the proper answer to this "
 "question, consult your network administrator."
 msgstr ""
-"网关是用以指示网关路由服务器的 IP 地址 (四个用句点分隔的数字)，也叫做默认路"
+"网关是用以指示网关路由服务器的 IP 地址 (四个用句号分隔的数字)，也叫做默认路"
 "由。所有与局域网外的通信 (例如，对互联网的访问) 都要经过它。在某些罕见情况"
 "下，您可能并不使用路由；这时，置空就可以了。如果不知道应该回答什么，请咨询网"
 "络管理员。"
@@ -1061,7 +1062,7 @@ msgstr "不可到达的网关"
 #. :sl2:
 #: ../netcfg-static.templates:6001
 msgid "The gateway address you entered is unreachable."
-msgstr "您输入的网关地址不可到达。"
+msgstr "您输入的网关地址不可达。"
 
 #. Type: error
 #. Description
