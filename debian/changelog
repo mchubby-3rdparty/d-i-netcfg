@@ -1,3 +1,10 @@
+netcfg (1.144) unstable; urgency=medium
+
+  [ Updated translations ]
+  * Simplified Chinese (zh_CN.po) by Yangfl
+
+ -- Christian Perrier <bubulle@debian.org>  Tue, 27 Jun 2017 05:56:38 +0200
+
 netcfg (1.143) unstable; urgency=medium
 
   * Stop queueing rdnssd's installation with IPv6 setups. This component
