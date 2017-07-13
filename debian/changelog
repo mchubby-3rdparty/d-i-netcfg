@@ -1,4 +1,4 @@
-netcfg (1.131+deb8u2) UNRELEASED; urgency=medium
+netcfg (1.131+deb8u2) jessie; urgency=medium
 
   * IPv6 autoconfiguration: fix NTP server name handling, which would be
     stored as the DHCP-provided hostname, with many thanks to Malcolm
@@ -9,7 +9,7 @@ netcfg (1.131+deb8u2) UNRELEASED; urgency=medium
     from being installed. This isn't a perfect solution but this should be
     way better than the current status quo (Closes: #854801).
 
- -- Cyril Brulebois <kibi@debian.org>  Wed, 17 May 2017 00:09:20 +0200
+ -- Cyril Brulebois <kibi@debian.org>  Thu, 13 Jul 2017 17:28:42 +0200
 
 netcfg (1.131+deb8u1) stable; urgency=medium
 
